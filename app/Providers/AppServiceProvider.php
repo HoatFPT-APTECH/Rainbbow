@@ -23,5 +23,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('RainbowViews.*', function ($view) {
             $view->with('assetPathRainbow', asset('RainbowPublic'));
         });
+        view()->composer('AdminViews.*',function($view){
+             $view->with('assethPathAdmin',asset('AdminPublic'));
+        });
     }
 }
