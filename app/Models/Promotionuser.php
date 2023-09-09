@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PromotionUser extends Model{
-    protected $table="tbl_PromotionUser";
+    protected $table="tbl_Promotioncser";
     protected $primarykey=["Promotion_Id","User_Id"];
     public $timestamp=false;
 }
