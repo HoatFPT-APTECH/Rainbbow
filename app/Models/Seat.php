@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Seat extends Model
 {
     protected $table="tbl_seat";
-    protected $primarykey="Id";
+    protected $primaryKey="Id";
     public $timestamps=false;
 }

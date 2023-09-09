@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Seatshowtime extends Model
+class SeatShowtime extends Model
 {
     protected $table="tbl_seatshowtime";
-    protected $primarykey=["Seat_Id","Showtime_Id"];
+    protected $primaryKey=['Seat_Id','Showtime_Id'];
     public $timestamps=false;
 }

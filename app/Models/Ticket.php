@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     protected $table="tbl_ticket";
-    protected $primarykey="Id";
+    protected $primaryKey="Id";
     public $timestamps=false;
 }

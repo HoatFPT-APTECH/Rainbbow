@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Showtime extends Model
 {
     protected $table="tbl_showtime";
-    protected $primarykey="Id";
+    protected $primaryKey="Id";
     public $timestamps=false;
 }
