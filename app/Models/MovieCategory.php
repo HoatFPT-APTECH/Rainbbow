@@ -10,4 +10,9 @@ class MovieCategory extends Model
     protected $table="tbl_moviecategory";
     protected $primaryKey='Id';
     public $timestamps=false;
+    
+    public function movies()
+    {
+        return $this->hasMany(Movie::class, 'MovieCategory_Id');
+    }
 }
