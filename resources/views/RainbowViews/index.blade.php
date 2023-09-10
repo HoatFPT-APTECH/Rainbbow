@@ -20,7 +20,7 @@ Author: Webstrot
 
 <body>
 	@include('RainbowViews.Layouts.header')
-  <p>hoat test</p>
+
 	@includeWhen($page, 'RainbowViews.Pages.' . $page)
      @include('RainbowViews.Layouts.footer')
 </body>
