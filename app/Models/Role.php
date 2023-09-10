@@ -10,7 +10,9 @@ class Role extends Model
     protected $table="tbl_Role";
     protected $primarykey="Id";
     public $timestamp=false;
-     function User(){
-        $this->hasMany("User","Role_Id","Id");
+  
+     public function users()
+     {
+         return $this->hasMany(User::class, 'Role_Id');
      }
 }

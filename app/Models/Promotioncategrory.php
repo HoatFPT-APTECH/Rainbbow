@@ -9,4 +9,8 @@ class PromotionCategrogy extends Model{
     protected $table="tbl_Promotioncategrogy";
     protected $primarykey="Id";
     public $timestamp=false;
+    public function promotions()
+    {
+        return $this->hasMany(Promotion::class, 'PromotionCategrory_Id');
+    }
 }
