@@ -1,3 +1,5 @@
+
+
 -- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_booking
 INSERT INTO tbl_Booking (User_Id, OrderTime, AllPrice)
 VALUES
@@ -20,12 +22,13 @@ VALUES
     ('Mega GS', '456 XYZ Street'),
     ('Lotte Cinema', '789 DEF Street'),
     ('CineStar', '321 GHI Street'),
-    ('Galaxy Cinema', '654 JKL Street'),
+    ('Galaxy Cinema', '659 JKL Street'),
     ('BHD Star Cineplex', '987 MNO Street'),
     ('Vincom Cinema', '111 PQR Street'),
     ('Cineworld', '222 STU Street'),
     ('Golden Screen Cinemas', '333 VWX Street'),
     ('AMC Theatres', '444 YZ Street');
+
 
 
 -- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_performer
