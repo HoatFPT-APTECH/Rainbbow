@@ -1,0 +1,210 @@
+-- Chèn 10 bản ghi ngẫu nhiên vào bảng tbt_cinema
+INSERT INTO tbl_Cinema (Name, Address)
+VALUES
+    ("Popcorn Horizon", "123 Main Street"),
+    ("Silver Screen", "456 Broadway"),
+    ("Movie Magic", "789 Elm Avenue"),
+    ("Cineplex Plaza", "987 Oak Road"),
+    ("Starlight Cinema", "321 Pine Lane"),
+    ("Mega Movie Theater", "654 Cedar Court"),
+    ("Cinema Paradise", "876 Maple Drive"),
+    ("Picture Perfect", "543 Walnut Street"),
+    ("Big Screen Theater", "210 Cherry Lane"),
+    ("Cinema Deluxe", "765 Birch Road");
+-- Chèn 10 bản ghi ngẫu nhiên vào bảng tbl_room
+INSERT INTO tbl_Room (Name)
+VALUES
+    ("A"),
+    ("B"),
+    ("C"),
+    ("D"),
+    ("E"),
+    ("F"),
+    ("G"),
+    ("H"),
+    ("I"),
+    ("J");
+
+
+-- Chọn 10 bản ghi ngẫu nhiên vào bảng tbl_roomcinema
+INSERT INTO tbl_RoomCinema (Room_Id, Cinema_Id, Status)
+VALUES
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+(FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+(FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+(FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1);
+
+-- Chèn 10 bản ghi ngẫu nhiên vào bảng tbl_seat
+INSERT INTO tbl_Seat (Name)
+VALUES
+    ("A21"),
+    ("B32"),
+    ("C43"),
+    ("D54"),
+    ("E65"),
+    ("F76"),
+    ("G87"),
+    ("H98"),
+    ("I09"),
+    ("J10");
+
+-- Chọn 10 bản ghi ngẫu nhiên vào bảng tbl_seatroom
+INSERT INTO tbl_seatroom (Seat_Id, Room_Id, Status)
+VALUES
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+(FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+(FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+(FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1);
+
+
+-- Chèn 10 bản ghi ngẫu nhiên vào bảng tbl_MovieCategory
+INSERT INTO tbl_MovieCategory (Name)
+VALUES
+  ('Horrified'),
+  ('Action'),
+  ('Comedy'),
+  ('Drama'),
+  ('Science Fiction'),
+  ('Romance'),
+  ('Thriller'),
+  ('Fantasy'),
+  ('Adventure'),
+  ('Mystery');
+-- Chèn 10 bản ghi ngẫu nhiên vào bảng tbl_Director
+INSERT INTO tbl_Director (Name)
+VALUES
+  ('Federico Fellini'),
+  ('Alfred Hitchcock'),
+  ('Steven Spielberg'),
+  ('Quentin Tarantino'),
+  ('Martin Scorsese'),
+  ('Christopher Nolan'),
+  ('Stanley Kubrick'),
+  ('James Cameron'),
+  ('Akira Kurosawa'),
+  ('Woody Allen');
+-- Chèn 10 bản ghi ngẫu nhiên vào bảng tbl_Productor
+INSERT INTO tbl_Productor (Name)
+VALUES
+  ('Steven Spielberg'),
+  ('George Lucas'),
+  ('James Cameron'),
+  ('Peter Jackson'),
+  ('Quentin Tarantino'),
+  ('Christopher Nolan'),
+  ('Martin Scorsese'),
+  ('Ridley Scott'),
+  ('Tim Burton'),
+  ('Francis Ford Coppola');
+
+-- Chèn 10 bản ghi ngẫu nhiên vào bảng tbl_Movie
+INSERT INTO tbl_Movie (Name, DateShow, VideoTrailer, Price, Description, MovieCategory_Id, Director_Id, Productor_Id)
+VALUES
+  ('The Flash', '2023-09-10 18:00:00', 'flash_trailer.mp4', 9.99, 'A superhero movie', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+  ('Avengers: Endgame', '2023-09-11 18:30:00', 'avengers_trailer.mp4', 12.99, 'A superhero epic', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+  ('Jurassic Park', '2023-09-12 19:00:00', 'jurassic_trailer.mp4', 8.99, 'Dinosaurs come to life', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+  ('The Godfather', '2023-09-13 20:00:00', 'godfather_trailer.mp4', 10.99, 'A mafia epic', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+  ('Inception', '2023-09-14 21:00:00', 'inception_trailer.mp4', 11.99, 'A mind-bending thriller', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+  ('Titanic', '2023-09-15 19:30:00', 'titanic_trailer.mp4', 7.99, 'A tragic love story', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+  ('The Matrix', '2023-09-16 20:30:00', 'matrix_trailer.mp4', 9.49, 'A sci-fi action film', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+  ('Avatar', '2023-09-17 22:00:00', 'avatar_trailer.mp4', 12.49, 'A visually stunning epic', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+  ('Pulp Fiction', '2023-09-18 21:30:00', 'pulpfiction_trailer.mp4', 8.49, 'A crime masterpiece', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+  ('The Shawshank Redemption', '2023-09-19 22:30:00', 'shawshank_trailer.mp4', 10.49, 'A tale of hope and friendship', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1);
+
+-- Chèn 10 bản ghi ngẫu nhiên vào bảng tbl_showtime
+INSERT INTO tbl_Showtime (Start, End, Movie_Id, Cinema_Id, Room_id)
+VALUES
+    ('2023-09-10 10:00:00', '2023-09-10 12:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10)),
+    ('2023-09-10 12:00:00', '2023-09-10 14:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10)),
+    ('2023-09-10 14:00:00', '2023-09-10 16:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10)),
+    ('2023-09-10 16:00:00', '2023-09-10 18:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10)),
+    ('2023-09-10 18:00:00', '2023-09-10 20:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10)),
+    ('2023-09-10 20:00:00', '2023-09-10 22:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10)),
+    ('2023-09-10 22:00:00', '2023-09-10 00:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10)),
+    ('2023-09-10 00:00:00', '2023-09-10 02:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10)),
+    ('2023-09-10 02:00:00', '2023-09-10 04:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10)),
+    ('2023-09-10 04:00:00', '2023-09-10 06:00:00', FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10));
+
+
+-- Chèn 10 bản ghi ngẫu nhiên vào bảng tbl_seatshowtime
+INSERT INTO tbl_SeatShowtime (Seat_Id, Showtime_Id, Status)
+VALUES
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+(FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+(FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+(FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1);
+
+-- Chèn 10 bản ghi vào bảng tbl_role
+INSERT INTO tbl_Role (Name)
+VALUES
+    ('Role1'),
+    ('Role2'),
+    ('Role3'),
+    ('Role4'),
+    ('Role5'),
+    ('Role6'),
+    ('Role7'),
+    ('Role8'),
+    ('Role9'),
+    ('Role10');
+-- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_user
+INSERT INTO tbl_User (UserName, Password, Name, Address, DateOfBirth, Phone, Image, Role_Id)
+VALUES
+    ('user1', 'password1', 'John Doe', '123 Street', '2000-01-01', '123456', 'image1.jpg', FLOOR(1 + RAND() * 10)),
+    ('user2', 'password2', 'Jane Smith', '456 Street', '1995-05-10', '789012', 'image2.jpg', FLOOR(1 + RAND() * 10)),
+    ('user3', 'password3', 'Mike Johnson', '789 Street', '1988-12-15', '345678', 'image3.jpg', FLOOR(1 + RAND() * 10)),
+    ('user4', 'password4', 'Sarah Williams', '456 Street', '1992-07-20', '901234', 'image4.jpg', FLOOR(1 + RAND() * 10)),
+    ('user5', 'password5', 'Emily Brown', '789 Street', '2002-03-05', '567890', 'image5.jpg', FLOOR(1 + RAND() * 10)),
+    ('user6', 'password6', 'Michael Davis', '123 Street', '1990-09-25', '123456', 'image6.jpg', FLOOR(1 + RAND() * 10)),
+    ('user7', 'password7', 'Jessica Wilson', '456 Street', '1998-11-15', '789012', 'image7.jpg', FLOOR(1 + RAND() * 10)),
+    ('user8', 'password8', 'Chris Anderson', '789 Street', '1994-04-30', '345678', 'image8.jpg', FLOOR(1 + RAND() * 10)),
+    ('user9', 'password9', 'Amy Taylor', '123 Street', '1985-06-12', '901234', 'image9.jpg', FLOOR(1 + RAND() * 10)),
+    ('user10', 'password10', 'David Hernandez', '456 Street', '2005-08-02', '567890', 'image10.jpg', FLOOR(1 + RAND() * 10));
+
+-- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_booking
+INSERT INTO tbl_Booking (User_Id, OrderTime, AllPrice)
+VALUES
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2));
+
+-- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_ticket
+INSERT INTO tbl_Ticket (Price, Showtime_Id, Booking_Id, Seat_Id, Status)
+VALUES
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2)),
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2)),
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2)),
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2)),
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2)),
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2)),
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2)),
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2)),
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2)),
+    (ROUND(1 + RAND() * 10, 2), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(1 + RAND() * 10), FLOOR(0 + RAND() * 2));
+
+
