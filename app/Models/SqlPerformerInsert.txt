@@ -1,0 +1,76 @@
+
+
+-- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_booking
+INSERT INTO tbl_Booking (User_Id, OrderTime, AllPrice)
+VALUES
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2)),
+    (FLOOR(1 + RAND() * 10), NOW(), ROUND(100 + RAND() * 900, 2));
+
+
+-- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_cinema
+INSERT INTO tbl_Cinema (Name, Address)
+VALUES 
+    ('CGV', '123 ABC Street'),
+    ('Mega GS', '456 XYZ Street'),
+    ('Lotte Cinema', '789 DEF Street'),
+    ('CineStar', '321 GHI Street'),
+    ('Galaxy Cinema', '659 JKL Street'),
+    ('BHD Star Cineplex', '987 MNO Street'),
+    ('Vincom Cinema', '111 PQR Street'),
+    ('Cineworld', '222 STU Street'),
+    ('Golden Screen Cinemas', '333 VWX Street'),
+    ('AMC Theatres', '444 YZ Street');
+
+
+
+-- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_performer
+INSERT INTO tbl_Performer (Name)
+VALUES 
+    ('Brad Pitt'),
+    ('Tom Hanks'),
+    ('Leonardo DiCaprio'),
+    ('Johnny Depp'),
+    ('Meryl Streep'),
+    ('Jennifer Lawrence'),
+    ('Robert Downey Jr.'),
+    ('Denzel Washington'),
+    ('Cate Blanchett'),
+    ('Natalie Portman');
+
+
+-- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_performermovie
+INSERT INTO tbl_PerformerMovie (Performer_Id, Movie_Id)
+VALUES
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1);
+
+
+-- Chèn ngẫu nhiên 10 bản ghi vào bảng tbl_moviephoto
+INSERT INTO tbl_MoviePhoto (Photo_Id, Movie_Id)
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1),
+    (FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1);
+
