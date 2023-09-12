@@ -9886,7 +9886,7 @@ text-transform:uppercase;
 color: var(--primary-color);
 letter-spacing: 0;
 }
-.st_form_pop_login_btn a{
+.st_form_pop_login_btn button{
 	    width: 100%;
 		margin-top:10px;
     height: 40px;
@@ -9907,7 +9907,7 @@ letter-spacing: 0;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
-.st_form_pop_login_btn a:hover {
+.st_form_pop_login_btn button:hover {
     background: var(--primary-color);
     color: #fff;
     border: 1px solid var(--primary-color);

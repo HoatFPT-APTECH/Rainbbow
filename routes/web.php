@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminControllers\MovieController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\RainbowControllers\homeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Expr\FuncCall;
@@ -22,7 +24,7 @@ Route::get('/', function () {
 Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/',function(){
         return view('RainbowViews.index',['page'=>'home']);
-    });
+    })->name("rainbow.home");
   
     Route::get('/{page}', function($page){
         $url = explode(".", $page)[0];
@@ -32,10 +34,13 @@ Route::group(['prefix'=>'rainbow'],function(){
          'page'=>$url
         ]);
     });
+    Route::post("/login",[homeController::class,'login']);
     
 });
 Route:: group(['prefix'=>'admin'],function(){
     Route::get('/',function(){
         return view('AdminViews.index',['page'=>'dasdboard']);
     });
+    Route::get('/movie',[MovieController::class,'Index']);
+    Route::get('/movieList',[MovieController::class,'TestListApi']);
 });
