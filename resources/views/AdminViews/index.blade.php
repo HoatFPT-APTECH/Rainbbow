@@ -16,10 +16,8 @@
       @include('AdminViews.Layouts.header')
 
       @include('AdminViews.Layouts.sidebar')
-      <div class="page-wrapper dashboard-wrap">
-        <div class="content container-fluid">
+
       @includeWhen($page, 'AdminViews.Pages.'. $page)
-    </div>
 
   </div>
     </div>

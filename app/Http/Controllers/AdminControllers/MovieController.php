@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminControllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\MovieCategory;
 
 class MovieController extends Controller
 {
@@ -21,7 +22,11 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        $ListCategory= MovieCategory::all();
+        return view("AdminViews.index",[
+            'page'=>'movieCreate',
+        "ListCategory"=>$ListCategory]);
+
     }
 
     /**
@@ -38,6 +43,8 @@ class MovieController extends Controller
     public function show(string $id)
     {
         //
+        $Movie= Movie::find($id);
+        return view("AdminViews.index",['page'=>'movieShow'],['Movie'=>$Movie]);
     }
 
     /**

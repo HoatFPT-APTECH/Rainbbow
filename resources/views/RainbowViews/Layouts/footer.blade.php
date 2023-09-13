@@ -118,21 +118,25 @@
 	<div class="modal fade st_pop_form_wrapper" id="myModal" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<form action="{{url('rainbow/login')}}" method="post" role="form">
+					@csrf
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<div class="st_pop_form_heading_wrapper float_left">
 					<h3>Log in</h3>
 				</div>
 				<div class="st_profile_input float_left">
-					<label>Email / Mobile Number</label>
-					<input type="text">
+					<label>Email / User Name</label>
+					{{csrf_field()}}
+					<input type="email" required id="UserName" name="UserName">
 				</div>
 				<div class="st_profile__pass_input st_profile__pass_input_pop float_left">
-					<input type="password" placeholder="Password">
+					{{csrf_field()}}
+					<input type="password" required id="password" placeholder="Password" name="Password">
 				</div>
 				<div class="st_form_pop_fp float_left">
 					<h3><a href="#" data-toggle="modal" data-target="#myModa2" target="_blank">Forgot Password?</a></h3>
 				</div>
-				<div class="st_form_pop_login_btn float_left"> <a href="https://webstrot.com/html/moviepro/html/page-1-7_profile_settings.html">LOGIN</a>
+				<div class="st_form_pop_login_btn float_left"> <button id="btnLogin" type="submit">LOGIN</button>
 				</div>
 				<div class="st_form_pop_or_btn float_left">
 					<h4>or</h4>
@@ -145,6 +149,8 @@
 					<h4>Don’t have an account? <a href="#" data-toggle="modal" data-target="#myModa3" target="_blank">Sign Up</a></h4>
 					<h5>I agree to the <a href="#">Terms & Conditions</a> & <a href="#">Privacy Policy</a></h5>
 				</div>
+				</form>
+				
 			</div>
 		</div>
 	</div>
