@@ -5,7 +5,7 @@
                         <div class="row">
                             <div class="col-sm-8">
                                 <h2>Movie <b>Details</b>       <button class="btn btn-primary ">
-                                <a href="" style="color: white">Add new movie</a>    
+                                <a href="/admin/movie/create" style="color: white">Add new movie</a>    
                                 </button></h2>
                             </div>
                             <div class="col-sm-4">
@@ -68,7 +68,7 @@
                             {{$Movie->productor->Name}}
                          </td>
                          <td>
-                            <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                            <a href="../admin/movie/{{$Movie->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                             <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>

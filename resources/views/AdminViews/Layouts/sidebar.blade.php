@@ -21,12 +21,12 @@
                 <li class="submenu">
                     <a href="#"><i class="fas fa-th-large"></i><span class="side-txt">Movies</span> <span class="menu-arrow"></span></a>
                     <ul>
-                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="/admin/movie">Movie Manager</a></li>
                     <li class="submenu">
-                    <a href="#">Calls<span class="menu-arrow"></span></a>
+                    <a href="#">Orther<span class="menu-arrow"></span></a>
                     <ul>
-                    <li><a href="voice-call.html">Voice Call</a></li>
-                    <li><a href="video-call.html">Video Call</a></li>
+                    <li><a href="voice-call.html">Performer Manager</a></li>
+                    <li><a href="video-call.html">Director Manager</a></li>
                     <li><a href="incoming-call.html">Incoming Call</a></li>
                     </ul>
                     </li>
