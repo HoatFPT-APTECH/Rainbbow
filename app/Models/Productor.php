@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Productor extends Model{
     protected $table="tbl_Productor";
-    protected $ptimarykey="Id";
+    protected $primaryKey="Id";
     public $timestamp=false;
     public function movies()
     {
