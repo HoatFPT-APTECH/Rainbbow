@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\AdminControllers\MovieController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Expr\FuncCall;
@@ -38,4 +39,5 @@ Route:: group(['prefix'=>'admin'],function(){
     Route::get('/',function(){
         return view('AdminViews.index',['page'=>'dasdboard']);
     });
+    Route::get('/movie',[MovieController::class,'Index']);
 });
