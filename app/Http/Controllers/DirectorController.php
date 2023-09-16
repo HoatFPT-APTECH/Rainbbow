@@ -10,6 +10,6 @@ class DirectorController extends Controller
 {
     public function index(){
         $listdirector = Director::all();
-        return view('AdminView.index',['page' => 'Director', 'danh sach'])
+        return view('AdminView.index',['page' => 'Director', 'danh sach']);
     }
 }
