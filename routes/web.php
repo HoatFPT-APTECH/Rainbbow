@@ -4,6 +4,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Expr\FuncCall;
+use App\Http\Controllers\Productor;
+use App\Models\Productor as ModelsProductor;
+use App\Models\Promotion;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +41,10 @@ Route:: group(['prefix'=>'admin'],function(){
     Route::get('/',function(){
         return view('AdminViews.index',['page'=>'dasdboard']);
     });
+    Route::resource('/productor', ProductorCotroller::class);
+    
+
 });
+
+
+
