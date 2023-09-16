@@ -7,7 +7,7 @@ use PhpParser\Node\Expr\FuncCall;
 use App\Http\Controllers\Productor;
 use App\Models\Productor as ModelsProductor;
 use App\Models\Promotion;
-
+use App\Http\Controllers\AdminController\ProductorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +43,6 @@ Route:: group(['prefix'=>'admin'],function(){
     });
     Route::resource('/productor', ProductorCotroller::class);
     
-
 });
 
 
