@@ -19,6 +19,7 @@
 
       @includeWhen($page, 'AdminViews.Pages.'. $page)
 
+  </div>
     </div>
 
     @include("AdminViews.Layouts.footer")
