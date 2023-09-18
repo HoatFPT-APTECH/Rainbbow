@@ -2,15 +2,15 @@
 
 use App\Http\Controllers\AdminControllers\MovieController;
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\RainbowControllers\homeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Expr\FuncCall;
-use App\Http\Controllers\Productor;
-
 use App\Models\Promotion;
-use App\Http\Controllers\AdminControllers\ProductorController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,7 +47,9 @@ Route:: group(['prefix'=>'admin'],function(){
         return view('AdminViews.index',['page'=>'dasdboard']);
     });
     Route::resource('/movie',MovieController::class);
-    Route::resource('/productor', ProductorController::class);
+    Route::resource('/productor',ProductorController::class);
+    Route::post('/productor/store',[ProductorController::class,'store']);
+    Route::get("/productor/dalete/{id}",[ProductorController::class,'destroy']);
 });
 
 

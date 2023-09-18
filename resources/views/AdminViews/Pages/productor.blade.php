@@ -15,10 +15,7 @@
                           <form action="#">
                               <i class="material-icons">&#xE8B6;</i>
                               <input type="text" class="form-control" placeholder="Search&hellip;">
-
                           </form>
-
-
                       </div>
                   </div>
               </div>
@@ -28,24 +25,18 @@
                   <tr>
                       <th>Id</th>
                       <th>Name <i class="fa fa-sort"></i></th>
+                      <th>Actions</th>
                   </tr>
               </thead>
               <tbody>
                   @foreach($danhsach as $Productor)
                <tr>
-
+                   <td>{{$Productor->Id}}</td>
+                   <td>{{$Productor->Name}}</td>
                    <td>
-
-                      {{$Productor->Id}}
-
-                   </td>
-                   <td>
-                      {{$Productor->Name}}
-                   </td>
-                   <td>
-                      <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                      <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                      <a href="#" class="delete?id=" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                      <a href="admin/productor/{{$Productor->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                      <a href="admin/productor/{{$Productor->Id/edit}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                      <a href="/admin/productor/delete/{{$Productor->Id}}" onclick="return confirm('Your sure delete productor has name: {{$Productor->Name}}')" class="detele?id=" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                   </td>
 
                </tr>
