@@ -12,7 +12,7 @@ class ProductorController extends Controller
     public function index()
     {
         $listproductor = Productor::all();
-        return view('AdminViews.index', ['page' =>'productor','danh sach'=> $listproductor]);
+        return view('AdminViews.index', ['page' =>'productor','danhsach'=> $listproductor]);
         //return response()->json($listProductor,200);
 
     }
