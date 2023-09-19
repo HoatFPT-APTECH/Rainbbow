@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminControllers\MovieController;
-use App\Http\Controllers\Controller;
+
 
 use App\Http\Controllers\RainbowControllers\homeController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\RainbowControllers\RegisterController;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Expr\FuncCall;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,25 +23,20 @@ use PhpParser\Node\Expr\FuncCall;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::group(['prefix'=>'rainbow'],function(){
-    Route::get('/',function(){
-        return view('RainbowViews.index',['page'=>'home']);
-    })->name("rainbow.home");
-  
-    Route::get('/{page}', function($page){
-        $url = explode(".", $page)[0];
-        $controllerName = $page . "Controller";
-        $controllerClass = "App\Http\Controllers\RainbowControllers\\" . $controllerName;      
-        return app()->make($controllerClass)->callAction('index',[       
-         'page'=>$url
-        ]);
-    });
-    Route::post("/login",[homeController::class,'login']);
-    
+    Route::get('/',[HomeController::class,'index'])->name("rainbow.home");
+
+
+    Route::get('/register',[RegisterController::class,'index']);
+
 });
 Route:: group(['prefix'=>'admin'],function(){
     Route::get('/',function(){
         return view('AdminViews.index',['page'=>'dasdboard']);
     });
     Route::resource('/movie',MovieController::class);
+});
+Route:: group(['prefix'=>'/api'],function(){
+    Route::post("/login",[LoginController::class,'HandleLogin']);
 });
