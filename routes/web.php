@@ -1,13 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminControllers\DirectorController;
 use App\Http\Controllers\AdminControllers\MovieController;
 
 
+use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\RainbowControllers\homeController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,13 @@ Route:: group(['prefix'=>'admin'],function(){
         return view('AdminViews.index',['page'=>'dasdboard']);
     });
     Route::resource('/movie',MovieController::class);
+    Route::resource('/productor',ProductorController::class);
+    Route::post('/productor/store',[ProductorController::class,'store']);
+    Route::get("/productor/dalete/{id}",[ProductorController::class,'destroy']);
+
+    Route::resource('/director',DirectorController::class);
+    Route::post('/director/store',[DirectorController::class,'store']);
+    Route::get("/director/dalete/{id}",[DirectorController::class,'destroy']);
 });
 Route:: group(['prefix'=>'/api'],function(){
     Route::post("/login",[LoginController::class,'HandleLogin']);
