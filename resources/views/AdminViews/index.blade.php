@@ -16,8 +16,8 @@
       @include('AdminViews.Layouts.header')
 
       @include('AdminViews.Layouts.sidebar')
-
-      @includeWhen($page, 'AdminViews.Pages.'. $page)
+     
+          @includeWhen($page, 'AdminViews.Pages.'. $page)
 
     </div>
 

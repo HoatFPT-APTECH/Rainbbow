@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\AdminControllers\MovieController;
+use App\Http\Controllers\AdminControllers\RoleController;
+use App\Http\Controllers\AdminControllers\PerformerController;
+use App\Http\Controllers\AdminControllers\UserController;
+use App\Http\Controllers\AdminControllers\PhotoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Expr\FuncCall;
@@ -38,4 +43,11 @@ Route:: group(['prefix'=>'admin'],function(){
     Route::get('/',function(){
         return view('AdminViews.index',['page'=>'dasdboard']);
     });
+    Route::resource('/movie',MovieController::class);
+    Route::resource('/performer',PerformerController::class);
+    Route::resource('/user',UserController::class);
+    Route::resource('/role',RoleController::class);
+    Route::post('/performer/store',[PerformerController::class,'store']);
+    Route::get("/performer/delete/{id}",[PerformerController::class,'destroy']);
+
 });
