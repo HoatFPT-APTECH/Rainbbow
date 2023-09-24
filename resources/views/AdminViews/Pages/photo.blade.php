@@ -6,8 +6,8 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h2>Movie <b>Details</b>       <button class="btn btn-primary ">
-                                <a href="/admin/movie/create" style="color: white">Add new movie</a>    
+                                <h2>Photo <b>Details</b>       <button class="btn btn-primary ">
+                                <a href="/admin/photo/create" style="color: white">Add new photo</a>    
                                 </button></h2>
                             </div>
                             <div class="col-sm-4">
@@ -27,51 +27,26 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Name <i class="fa fa-sort"></i></th>
-                                <th>DateShow</th>
-                                <th>VideoTrailer <i class="fa fa-sort"></i></th>
-                                <th>Price</th>
-                                <th>Description<i class="fa fa-sort"></i></th>
-                                <th>MovieCategory</th>
-                                <th>Director</th>
-                                <th>Productor</th>
-                                <th>Action</th>
+                                <th>Src <i class="fa fa-sort"></i></th>
+                                <th>Movie</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($danhsach as $Movie)
+                            @foreach($danhsach as $Photo)
                      <tr>
                         
                          <td>
-                            {{$Movie->Id}}
+                            {{$Photo->Id}}
                          </td>
                          <td>
-                            {{$Movie->Name}}
+                            {{$Photo->Src}}
                          </td>
                           <td>
-                            {{$Movie->DateShow}}
+                            {{$Photo->movies->Name}}
                          </td> 
                          <td>
-                            {{$Movie->VideoTrailer}}
-                         </td>
-                         <td>
-                            {{$Movie->Price}}
-                         </td>
-                         <td>
-                            {{$Movie->Description}}
-                         </td>
-                         <td>
-                            {{$Movie->movieCategory->Name}}
-                         </td>
-                         <td>
-                            {{$Movie->director->Name}}
-                         </td>
-                         <td>
-                            {{$Movie->productor->Name}}
-                         </td>
-                         <td>
-                            <a href="/admin/movie/{{$Movie->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                            <a href="/admin/movie/{{$Movie->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href="/admin/photo/{{$Photo->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                            <a href="/admin/photo/{{$Photo->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                      </tr>

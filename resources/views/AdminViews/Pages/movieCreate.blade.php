@@ -1,29 +1,32 @@
-
+<div class="page-wrapper dashboard-wrap">
+  <div class="content container-fluid">
 <div class="container">
-    <h2>Thêm phim mới</h2>
-    <form action="xuly.php" method="POST">
+  <h2>Add New Movie</h2>
+    <form action="/admin/movie" method="POST">
+      @csrf
+    
       <div class="form-group">
-        <label for="name">Tên phim:</label>
-        <input type="text" class="form-control" id="name" name="name">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="Name" required>
       </div>
       <div class="form-group">
-        <label for="date">Ngày chiếu:</label>
-        <input type="date" class="form-control" id="date" name="date">
+        <label for="date">Dateshow</label>
+        <input type="datetime" class="form-control" id="date" name="date" required>
       </div>
       <div class="form-group">
         <label for="trailer">Link trailer:</label>
-        <input type="text" class="form-control" id="trailer" name="trailer">
+        <input type="text" class="form-control" id="trailer" name="trailer" required>
       </div>
       <div class="form-group">
-        <label for="price">Giá:</label>
-        <input type="text" class="form-control" id="price" name="price">
+        <label for="price">Price:</label>
+        <input type="text" class="form-control" id="price" name="price" required>
       </div>
       <div class="form-group">
-        <label for="description">Mô tả:</label>
-        <textarea class="form-control" id="description" name="description"></textarea>
+        <label for="description">Description:</label>
+        <input class="form-control" id="description" name="description" required>
       </div>
       <div class="form-group">
-        <label for="category">Thể loại phim :</label>
+        <label for="category">Category:</label>
         <select name="MovieCategory_Id" class="form-select" aria-label="Default select example">
             @foreach ($ListCategory as $category )
             <option value={{$category->Id}}>{{$category->Name}}</option>
@@ -31,13 +34,24 @@
           </select>
       </div>
       <div class="form-group">
-        <label for="director">Đạo diễn ID:</label>
-        <input type="text" class="form-control" id="director" name="director">
+        <label for="director">Director:</label>
+        <select name="Director_Id" class="form-select" aria-label="Default select example">
+          @foreach ($ListDirector as $director )
+          <option value={{$director->Id}}>{{$director->Name}}</option>
+          @endforeach
+        </select>
       </div>
       <div class="form-group">
-        <label for="producer">Nhà sản xuất ID:</label>
-        <input type="text" class="form-control" id="producer" name="producer">
+        <label for="productor">Productor:</label>
+        <select name="Productor_Id" class="form-select" aria-label="Default select example">
+          @foreach ($ListProductor as $productor )
+          <option value={{$productor->Id}}>{{$productor->Name}}</option>
+          @endforeach
+        </select>
       </div>
-      <button type="submit" class="btn btn-primary">Thêm phim</button>
+      <button type="submit" class="btn btn-primary">Add New Movie</button>
     </form>
   </div>
+</div>
+
+</div>

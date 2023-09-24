@@ -23,6 +23,6 @@ class Movie extends Model
         return $this->belongsToMany(Performer::class, 'tbl_PerformerMovie', 'Movie_Id', 'Performer_Id');
     }
     public function photos() {
-        return $this->belongsToMany(Photo::class, 'tbl_MoviePhoto', 'Movie_Id', 'Photo_Id');
+        return $this->belongsToMany(Photo::class, 'tbl_Photo', 'Id', 'Movie_Id');
     }
 }
