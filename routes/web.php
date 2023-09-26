@@ -37,30 +37,4 @@ Route:: group(['prefix'=>'admin'],function(){
     Route::get('/',function(){
         return view('AdminViews.index',['page'=>'dasdboard']);
     });
-    Route::resource('/movie',MovieController::class);
-    
-    Route::resource('/productor',ProductorController::class);
-    Route::post('/productor/store',[ProductorController::class,'store']);
-    Route::get("/productor/dalete/{id}",[ProductorController::class,'destroy']);
-
-    Route::resource('/director',DirectorController::class);
-    Route::post('/director/store',[DirectorController::class,'store']);
-    Route::get("/director/dalete/{id}",[DirectorController::class,'destroy']);
-
-     // ví dụ đẻ hiện cái trang mà show cái bảng cho người dyùng thêm sửa xoá 
-     Route::get('/cinema',[CinemaController::class,'index']);
-     // chi tiết một bản ghi
-     Route::get('/cinema/show/{id}',[CinemaController::class,'show']);
-     //Hiển thị trang edit với dữ liệu cũ của cinema cho người udngfsuaqử
-     Route::get('/cinema/edit/{id}',[CinemaController::class,'edit']);
-     Route::post("/cinema/update/{id}",[CinemaController::class,'update']);
-     // show trang thêm một bản ghi cinema
-     Route::get("/cinema/create",[CinemaController::class,'create']);
-     Route::post("/cinema/store",[CinemaController::class,'store']);
-     // xoá một bản ghi cinema
-     Route::get("/cinema/delete/{id}",[CinemaController::class,'destroy']);
-
-});
-Route:: group(['prefix'=>'/api'],function(){
-    Route::post("/login",[LoginController::class,'HandleLogin']);
 });

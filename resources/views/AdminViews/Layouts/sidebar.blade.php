@@ -35,6 +35,28 @@
                     </ul>
                     </li>
                 <li class="submenu">
+                    <a href="#"><i class="fas fa-th-large"></i><span class="side-txt">Movies</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                    <li><a href="/admin/movie">Movie Manager</a></li>
+                    <li class="submenu">
+                    <a href="#">Orther<span class="menu-arrow"></span></a>
+                    <ul>
+                    <li><a href="/admin/performer">Performer Manager</a></li>
+                    <li><a href="video-call.html">Director Manager</a></li>
+                    <li><a href="incoming-call.html">Incoming Call</a></li>
+                    </ul>
+                    </li>
+                    <li class="submenu">
+                    <a href="#">Email<span class="menu-arrow"></span></a>
+                    <ul>
+                    <li><a href="compose.html">Compose Mail</a></li>
+                    <li><a href="inbox.html">Inbox</a></li>
+                    <li><a href="mail-view.html">Mail View</a></li>
+                    </ul>
+                    </li>
+                    </ul>
+                    </li>
+                <li class="submenu">
                     <a href="#"><i class="fas fa-calculator"></i><span class="side-txt">Accounts</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
@@ -73,8 +95,8 @@
                             class="side-txt">Invoices</span></a>
                 </li>
                 <li>
-                    <a href="settings.html"><i class="fas fa-cog"></i><span
-                            class="side-txt">Settings</span></a>
+                    <a href="/admin/user"><i class="fa-solid fa-user"></i><span
+                            class="side-txt">Account Manager</span></a>
                 </li>
                 <li class="submenu">
                     <a href="#"><i class="fas fa-clipboard"></i><span class="side-txt">Report</span>
