@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", () => {
 function loadUserInformation() {
     var userI = JSON.parse(window.sessionStorage.getItem("User"));
 
-    if (userI !== undefined || userI !== null) {    
+    if (userI !== undefined && userI !== null) {    
         var aSighnup = document.querySelector(
             "body > div.prs_navigation_main_wrapper > div > div.prs_navi_right_main_wrapper > div.prs_top_login_btn_wrapper > div > ul > li > a"
         );

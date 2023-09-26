@@ -9,15 +9,7 @@
                             class="side-txt">Dashboard</span></a>
                 </li>
                
-                <li class="submenu">
-                    <a href="#"><i class="fas fa-th-large"></i><span class="side-txt">Movie</span> <span
-                            class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="#">All Movie</a></li>
-                        <li><a href="#">Showtime</a></li>
-                        
-                    </ul>
-                </li>
+              
                 <li class="submenu">
                     <a href="#"><i class="fas fa-th-large"></i><span class="side-txt">Movies</span> <span class="menu-arrow"></span></a>
                     <ul>
@@ -25,9 +17,11 @@
                     <li class="submenu">
                     <a href="#">Orther<span class="menu-arrow"></span></a>
                     <ul>
-                    <li><a href="voice-call.html">Performer Manager</a></li>
-                    <li><a href="video-call.html">Director Manager</a></li>
-                    <li><a href="incoming-call.html">Incoming Call</a></li>
+                    <li><a href="/admin/performer">Performer Manager</a></li>
+                    <li><a href="/admin/director">Director Manager</a></li>
+                    <li><a href="/admin/productor">Productor Manager</a></li>
+                    <li><a href="/admin/cinema">Cinema Manager</a></li>
+                   
                     </ul>
                     </li>
                     <li class="submenu">

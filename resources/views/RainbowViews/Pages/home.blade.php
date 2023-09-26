@@ -84,7 +84,7 @@
                     <h2>Upcoming Movies</h2>
                 </div>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            {{-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="prs_upcome_tabs_wrapper">
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#best" aria-controls="best" role="tab" data-toggle="tab">Upcoming Movies</a>
@@ -95,21 +95,25 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="best">
                     <div class="prs_upcom_slider_slides_wrapper">
                         <div class="owl-carousel owl-theme">
                             <div class="item">
                                 <div class="row">
+                                   
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 prs_upcom_slide_first">
                                         <div class="prs_upcom_movie_box_wrapper">
                                             <div class="prs_upcom_movie_img_box">
-                                                <img src="{{$assetPathRainbow}}/images/content/up1.jpg" alt="movie_img" />
+                                                <img src="{{$listUpcomingMovie[0]->photos[0]->Src}}" alt="movie_img" />
                                                 <div class="prs_upcom_movie_img_overlay"></div>
                                                 <div class="prs_upcom_movie_img_btn_wrapper">
                                                     <ul>
-                                                        <li><a href="#">View Trailer</a>
+                                                        <li>
+                                                            
+                                                            <a class="button test-popup-link" rel="external"  href="{{$listUpcomingMovie[0]->VideoTrailer}}" title="title">View Trailer</a>
+
                                                         </li>
                                                         <li><a href="#">View Details</a>
                                                         </li>
@@ -118,8 +122,8 @@
                                             </div>
                                             <div class="prs_upcom_movie_content_box">
                                                 <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">Busting Car</a></h2>
-                                                    <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                    <h2><a href="#">{{$listUpcomingMovie[0]->Name}}</a></h2>
+                                                    <p>{{$listUpcomingMovie[0]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-o"></i>
@@ -137,7 +141,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 prs_upcom_slide_second">
                                         <div class="prs_upcom_movie_box_wrapper">
                                             <div class="prs_upcom_movie_img_box">
-                                                <img src="{{$assetPathRainbow}}/images/content/up2.jpg" alt="movie_img" />
+                                                <img src="{{$listUpcomingMovie[1]->photos[0]->Src}}" alt="movie_img" />
                                                 <div class="prs_upcom_movie_img_overlay"></div>
                                                 <div class="prs_upcom_movie_img_btn_wrapper">
                                                     <ul>
@@ -150,8 +154,42 @@
                                             </div>
                                             <div class="prs_upcom_movie_content_box">
                                                 <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">Busting Car</a></h2>
-                                                    <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                    <h2><a href="#">{{$listUpcomingMovie[1]->Name}} </a></h2>
+                                                    <p>{{$listUpcomingMovie[1]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="prs_upcom_movie_content_box_inner_icon">
+                                                    <ul>
+                                                        <li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
+                                        <div class="prs_upcom_movie_box_wrapper">
+                                            <div class="prs_upcom_movie_img_box">
+                                                <img src="{{$listUpcomingMovie[2]->photos[0]->Src}}" alt="movie_img" />
+                                                <div class="prs_upcom_movie_img_overlay"></div>
+                                                <div class="prs_upcom_movie_img_btn_wrapper">
+                                                    <ul>
+                                                        <li><a href="#">View Trailer</a>
+                                                        </li>
+                                                        <li><a href="#">View Details</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="prs_upcom_movie_content_box">
+                                                <div class="prs_upcom_movie_content_box_inner">
+                                                    <h2><a href="#">{{$listUpcomingMovie[2]->Name}}</a></h2>
+                                                    <p>{{$listUpcomingMovie[2]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-o"></i>
@@ -169,7 +207,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
                                         <div class="prs_upcom_movie_box_wrapper">
                                             <div class="prs_upcom_movie_img_box">
-                                                <img src="{{$assetPathRainbow}}/images/content/up3.jpg" alt="movie_img" />
+                                                <img src="{{$listUpcomingMovie[3]->photos[0]->Src}}" alt="movie_img" />
                                                 <div class="prs_upcom_movie_img_overlay"></div>
                                                 <div class="prs_upcom_movie_img_btn_wrapper">
                                                     <ul>
@@ -182,40 +220,8 @@
                                             </div>
                                             <div class="prs_upcom_movie_content_box">
                                                 <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">Busting Car</a></h2>
-                                                    <p>Drama , Acation</p> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="prs_upcom_movie_content_box_inner_icon">
-                                                    <ul>
-                                                        <li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
-                                        <div class="prs_upcom_movie_box_wrapper">
-                                            <div class="prs_upcom_movie_img_box">
-                                                <img src="{{$assetPathRainbow}}/images/content/up4.jpg" alt="movie_img" />
-                                                <div class="prs_upcom_movie_img_overlay"></div>
-                                                <div class="prs_upcom_movie_img_btn_wrapper">
-                                                    <ul>
-                                                        <li><a href="#">View Trailer</a>
-                                                        </li>
-                                                        <li><a href="#">View Details</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="prs_upcom_movie_content_box">
-                                                <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">Busting Car</a></h2>
-                                                    <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                    <h2><a href="#">{{$listUpcomingMovie[3]->Name}}</a></h2>
+                                                    <p>{{$listUpcomingMovie[3]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-o"></i>
@@ -234,7 +240,7 @@
                                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
                                             <div class="prs_upcom_movie_box_wrapper">
                                                 <div class="prs_upcom_movie_img_box">
-                                                    <img src="{{$assetPathRainbow}}/images/content/up5.jpg" alt="movie_img" />
+                                                    <img src="{{$listUpcomingMovie[4]->photos[0]->Src}}" alt="movie_img" />
                                                     <div class="prs_upcom_movie_img_overlay"></div>
                                                     <div class="prs_upcom_movie_img_btn_wrapper">
                                                         <ul>
@@ -247,8 +253,8 @@
                                                 </div>
                                                 <div class="prs_upcom_movie_content_box">
                                                     <div class="prs_upcom_movie_content_box_inner">
-                                                        <h2><a href="#">Busting Car</a></h2>
-                                                        <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                        <h2><a href="#">{{$listUpcomingMovie[4]->Name}}</a></h2>
+                                                        <p>{{$listUpcomingMovie[4]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-o"></i>
@@ -266,7 +272,7 @@
                                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
                                             <div class="prs_upcom_movie_box_wrapper">
                                                 <div class="prs_upcom_movie_img_box">
-                                                    <img src="{{$assetPathRainbow}}/images/content/up6.jpg" alt="movie_img" />
+                                                    <img src="{{$listUpcomingMovie[5]->photos[0]->Src}}" alt="movie_img" />
                                                     <div class="prs_upcom_movie_img_overlay"></div>
                                                     <div class="prs_upcom_movie_img_btn_wrapper">
                                                         <ul>
@@ -279,8 +285,8 @@
                                                 </div>
                                                 <div class="prs_upcom_movie_content_box">
                                                     <div class="prs_upcom_movie_content_box_inner">
-                                                        <h2><a href="#">Busting Car</a></h2>
-                                                        <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                        <h2><a href="#">{{$listUpcomingMovie[5]->Name}}</a></h2>
+                                                        <p>{{$listUpcomingMovie[5]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-o"></i>
@@ -298,7 +304,7 @@
                                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
                                             <div class="prs_upcom_movie_box_wrapper">
                                                 <div class="prs_upcom_movie_img_box">
-                                                    <img src="{{$assetPathRainbow}}/images/content/up7.jpg" alt="movie_img" />
+                                                    <img src="{{$listUpcomingMovie[6]->photos[0]->Src}}" alt="movie_img" />
                                                     <div class="prs_upcom_movie_img_overlay"></div>
                                                     <div class="prs_upcom_movie_img_btn_wrapper">
                                                         <ul>
@@ -311,8 +317,8 @@
                                                 </div>
                                                 <div class="prs_upcom_movie_content_box">
                                                     <div class="prs_upcom_movie_content_box_inner">
-                                                        <h2><a href="#">Busting Car</a></h2>
-                                                        <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                        <h2><a href="#">{{$listUpcomingMovie[6]->Name}}</a></h2>
+                                                        <p>{{$listUpcomingMovie[6]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-o"></i>
@@ -330,7 +336,7 @@
                                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
                                             <div class="prs_upcom_movie_box_wrapper">
                                                 <div class="prs_upcom_movie_img_box">
-                                                    <img src="{{$assetPathRainbow}}/images/content/up8.jpg" alt="movie_img" />
+                                                    <img src="{{$listUpcomingMovie[7]->photos[0]->Src}}" alt="movie_img" />
                                                     <div class="prs_upcom_movie_img_overlay"></div>
                                                     <div class="prs_upcom_movie_img_btn_wrapper">
                                                         <ul>
@@ -343,8 +349,8 @@
                                                 </div>
                                                 <div class="prs_upcom_movie_content_box">
                                                     <div class="prs_upcom_movie_content_box_inner">
-                                                        <h2><a href="#">Busting Car</a></h2>
-                                                        <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                        <h2><a href="#">{{$listUpcomingMovie[7]->Name}}</a></h2>
+                                                        <p>{{$listUpcomingMovie[7]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-o"></i>
@@ -1807,7 +1813,7 @@
                                             </div>
                                             <div class="prs_upcom_movie_content_box">
                                                 <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">Busting Car</a></h2>
+                                                    <h2><a href="#">Busting Car 2 bottom</a></h2>
                                                     <p>Drama , Acation</p> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>

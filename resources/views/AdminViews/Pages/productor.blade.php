@@ -34,8 +34,8 @@
                    <td>{{$Productor->Id}}</td>
                    <td>{{$Productor->Name}}</td>
                    <td>
-                      <a href="admin/productor/{{$Productor->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                      <a href="admin/productor/{{$Productor->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                      <a href="/admin/productor/{{$Productor->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                      <a href="/admin/productor/{{$Productor->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                       <a href="/admin/productor/delete/{{$Productor->Id}}" onclick="return confirm('Your sure delete productor has name: {{$Productor->Name}}')" class="detele?id=" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                   </td>
 

@@ -21,9 +21,17 @@ class HomeController extends Controller
     {
        
        $page='home';
-    //    $ListUpcomingMovie=Movie::where('')->get();
-    //    $ListReleasedMovie= Movie::where("")->get();
-        return  view('rainbowViews.index', ['page' => $page]);
+       $ListUpcomingMovie=Movie::with(['photos','movieCategory'])->whereBetween('dateshow', [now(), now()->addDays(7)])->get();;
+       $ListReleasedMovie=Movie::with('photos')->get();
+       $ListBestOfLibrary=Movie::with('photos')->get();
+        return  view('rainbowViews.index', [
+            'page' => $page,
+            'JsPage'=>'home',
+            'listUpcomingMovie'=>$ListUpcomingMovie,
+            'listReleaseMovie'=>$ListReleasedMovie,
+            'listBestOfLibrary'=>$ListBestOfLibrary
+        ]);
+        //  return response()->json(['data'=>$ListUpcomingMovie]);
     }
   
 
