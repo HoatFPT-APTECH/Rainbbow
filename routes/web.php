@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\RainbowControllers\homeController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
+use App\Http\Controllers\RainbowControllers\Movie_SingleController;
 use App\Models\Cinema;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,8 @@ Route::group(['prefix'=>'rainbow'],function(){
 
 
     Route::get('/register',[RegisterController::class,'index']);
+    Route::get("/movie_single/{id}",[Movie_SingleController::class,'index']);
+
 
 });
 Route:: group(['prefix'=>'admin'],function(){
