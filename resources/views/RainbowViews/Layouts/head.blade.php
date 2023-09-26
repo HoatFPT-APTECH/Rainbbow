@@ -6,6 +6,7 @@
 	<meta name="author" content="" />
 	<meta name="MobileOptimized" content="320" />
 	<!--Template style -->
+	
 	<link rel="stylesheet" type="text/css" href="{{$assetPathRainbow}}/css/animate.css" />
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/css/font-awesome.css" />
@@ -22,6 +23,8 @@
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/js/plugin/rs_slider/settings.css" />
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/css/style.css" />
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/css/responsive.css" />
+	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/css/custom.css" />
 	<link rel="stylesheet" id="theme-color" type="text/css" href="#" />
 	<!-- favicon links -->
 	<link rel="shortcut icon" type="image/png" href="{{$assetPathRainbow}}/images/header/favicon.ico" />
+

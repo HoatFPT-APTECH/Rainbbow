@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    protected $table="tbl_Role";
+    protected $table="tbl_role";
     protected $primarykey="Id";
-    public $timestamp=false;
+    public $timestamps=false;
   
      public function users()
      {

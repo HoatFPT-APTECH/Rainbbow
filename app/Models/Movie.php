@@ -11,10 +11,10 @@ class Movie extends Model
     protected $primaryKey='Id';
     public $timestamps=false;
     public function movieCategory() {
-        return $this->belongsTo(MovieCategory::class, 'MovieCategory_Id');
+        return $this->belongsTo(MovieCategory::class, 'MovieCategory_Id','Id');
     }
     public function director() {
-        return $this->belongsTo(Director::class, 'Director_Id');
+        return $this->belongsTo(Director::class, 'Director_Id','Id');
     }
     public function productor() {
         return $this->belongsTo(Productor::class, 'Productor_Id');
@@ -23,6 +23,8 @@ class Movie extends Model
         return $this->belongsToMany(Performer::class, 'tbl_PerformerMovie', 'Movie_Id', 'Performer_Id');
     }
     public function photos() {
-        return $this->belongsToMany(Photo::class, 'tbl_Photo', 'Id', 'Movie_Id');
+
+  return $this->hasMany(Photo::class, 'Movie_Id', 'Id');
+
     }
 }

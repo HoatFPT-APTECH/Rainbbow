@@ -655,11 +655,13 @@ nice Select active
 		e.stopPropagation(); 
 	});
 
-	$(document).on("click", function(e){
-		if(!(e.target.closest('#search_open'))){	
-			$("#search_open").slideUp();   		
-		}
-   });
+    $(document).on("click", function(e){
+        if(!(e.target.closest('#search_open'))){	
+        //   $("#search_open").slideUp(); 
+    
+          
+        }
+    });
 	
 		//-------------------------------------------------------
     // counter-section

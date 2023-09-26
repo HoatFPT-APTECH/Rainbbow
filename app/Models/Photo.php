@@ -8,6 +8,8 @@ class Photo extends Model{
     public $timestamps=false;
     public function movies()
     {
-        return $this->belongsTo(Movie::class, 'Movie_Id');
+
+        return $this->belongsTo(Movie::class, 'Movie_Id', 'Id');
+
     }
 }
