@@ -277,8 +277,4 @@
  <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi2zbxXa0ObGqaSBo5NJMdwLs_xtQ03nI&amp;callback=initMap">
  </script>
- <script>
-
-
-
- </script>
+ <script src="{{ $assetPathRainbow }}/js/{{$JsPage}}.js" ></script>

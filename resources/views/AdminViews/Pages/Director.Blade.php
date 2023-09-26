@@ -38,8 +38,8 @@
                                     {{$Director->Name}}
                                 </td>
                                 <td>
-                                    <a href="admin/director/{{$Director->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                    <a href="admin/director/{{$Director->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                    <a href="/admin/director/{{$Director->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                    <a href="/admin/director/{{$Director->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                     <a href="/admin/director/delete/{{$Director->Id}}" onclick="return confirm('Your sure delete director has name:{{$Director->Name}}')" class="delete?id="title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                 </td>
                             </tr>

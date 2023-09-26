@@ -36,8 +36,8 @@
                      <td>{{$Cinema->Name}}</td>
                      <td>{{$Cinema->Address}}</td>
                      <td>
-                        <a href="admin/cinema/{{$Cinema->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                        <a href="admin/cinema/{{$Cinema->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a href="/admin/cinema/show/{{$Cinema->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                        <a href="/admin/cinema/{{$Cinema->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         <a href="/admin/cinema/delete/{{$Cinema->Id}}" onclick="return confirm('Your sure delete cinema has name: {{$Cinema->Name}}')" class="detele?id=" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
   
