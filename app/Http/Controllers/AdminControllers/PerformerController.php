@@ -34,7 +34,8 @@ class PerformerController extends Controller
          $newPerformer= new Performer();
          $newPerformer->Name=$name;
          $newPerformer->save();
-         return $this->index();
+         //return $this->index();
+         return redirect("/admin/performer");
         
     }
 
@@ -66,7 +67,8 @@ class PerformerController extends Controller
          $newPerformer= Performer::where('id',$id)->first();
          $newPerformer->Name=$name;
         $newPerformer->save();
-        return $this->index();
+        //return $this->index();
+        return redirect("/admin/performer");
     }
 
     /**
@@ -77,6 +79,7 @@ class PerformerController extends Controller
         //
         $newPerformer= Performer::where('id',$id)->first();
         $newPerformer->delete();
-        return $this->index();
+       // return $this->index();
+       return redirect("/admin/performer");
     }
 }

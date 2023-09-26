@@ -10,9 +10,10 @@
   <div class="container">
   
     <h1>Edit Performer</h1>
-    <form method="post" action="/admin/performer/{{$Performer->Id}}">
+   {{-- <form method="post" action="/admin/performer/{{$Performer->Id}}"> --}}
+    <form method="post" action="/admin/performer/update/{{$Performer->Id}}">
       @csrf
-      @method('PUT')
+     {{-- @method('PUT')--}}
       <div class="form-group">
         <label for="nameInput">Name</label>
         <input type="text" class="form-control" id="nameInput" name="Name" value="{{$Performer->Name}}" placeholder="Enter Name">

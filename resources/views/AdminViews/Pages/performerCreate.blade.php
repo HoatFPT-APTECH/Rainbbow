@@ -9,7 +9,8 @@
     <div class="content container-fluid">
   <div class="container">
     <h1>Create Performer</h1>
-    <form method="post" action="/admin/performer">
+   {{--  <form method="post" action="/admin/performer"> --}}
+    <form method="post" action="./store">
       @csrf
       <div class="form-group">
         <label for="nameInput">Name</label>

@@ -58,7 +58,8 @@ class UserController extends Controller
          $newUser->Role_Id=$Role_Id;
 
          $newUser->save();
-         return $this->index();
+        // return $this->index();
+        return redirect("/admin/user");
     }
 
     /**
@@ -106,7 +107,8 @@ class UserController extends Controller
         $newUser->Role_Id=$Role_Id;
        
         $newUser->save();
-        return $this->index();
+        //return $this->index();
+        return redirect("/admin/user");
     }
 
     /**
@@ -116,6 +118,7 @@ class UserController extends Controller
     {
         $newUser= User::where('id',$id)->first();
         $newUser->delete();
-        return $this->index();
+        //return $this->index();
+        return redirect("/admin/user");
     }
 }

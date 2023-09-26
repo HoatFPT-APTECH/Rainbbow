@@ -34,7 +34,7 @@ class RoleController extends Controller
         $newRole= new Role();
         $newRole->Name=$Name;
         $newRole->save();
-        return $this->index();
+        return redirect("/admin/role");
     }
 
     /**
@@ -65,7 +65,7 @@ class RoleController extends Controller
          $newRole= Role::where('id',$id)->first();
          $newRole->Name=$Name; 
         $newRole->save();
-        return $this->index();
+        return redirect("/admin/role");
     }
 
     /**
@@ -73,6 +73,9 @@ class RoleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $newRole= Role::where('id',$id)->first();
+        $newRole->delete();
+        //return $this->index();
+        return redirect("/admin/role");
     }
 }

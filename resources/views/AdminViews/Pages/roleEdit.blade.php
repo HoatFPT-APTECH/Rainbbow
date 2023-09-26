@@ -10,9 +10,9 @@
   <div class="container">
   
     <h1>Edit Role</h1>
-    <form method="post" action="/admin/role/{{$Role->Id}}">
+    <form method="post" action="/admin/role/update/{{$Role->Id}}">
       @csrf
-      @method('PUT')
+      
       <div class="form-group">
         <label for="nameInput">Name</label>
         <input type="text" class="form-control" id="nameInput" name="Name" value="{{$Role->Name}}" placeholder="Enter Name">

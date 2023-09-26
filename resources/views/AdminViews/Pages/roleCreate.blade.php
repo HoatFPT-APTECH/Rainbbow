@@ -9,7 +9,7 @@
     <div class="content container-fluid">
   <div class="container">
     <h1>Create Role</h1>
-    <form method="post" action="/admin/role">
+    <form method="post" action="./store">
       @csrf
       <div class="form-group">
         <label for="nameInput">Name</label>

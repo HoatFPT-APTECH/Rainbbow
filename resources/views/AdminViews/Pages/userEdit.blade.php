@@ -10,9 +10,9 @@
   <div class="container">
   
     <h2>Edit User</h2><br>
-    <form method="post" action="/admin/user/{{$User->Id}}">
+    <form method="post" action="/admin/user/update/{{$User->Id}}">
       @csrf
-      @method('PUT')
+     {{-- @method('PUT')--}}
       <div class="form-group">
         <label for="userName">User Name:</label>
         <input type="text" class="form-control" id="userName" name="UserName" value="{{$User->UserName}}">
