@@ -1,4 +1,6 @@
-       <div class="container-xl">
+<div class="page-wrapper dashboard-wrap">
+    <div class="content container-fluid">
+<div class="container-xl">
             <div class="table-responsive">
                 <div class="table-wrapper">
                     <div class="table-title">
@@ -69,8 +71,9 @@
                          </td>
                          <td>
                             <a href="/admin/movie/{{$Movie->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                            <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+
+                            <a href="/admin/movie/{{$Movie->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+
                         </td>
                      </tr>
                         @endforeach        
@@ -79,3 +82,6 @@
                 </div>
             </div>  
         </div>  
+    </div>
+
+</div>

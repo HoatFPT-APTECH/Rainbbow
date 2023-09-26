@@ -3,6 +3,10 @@
 use App\Http\Controllers\AdminControllers\DirectorController;
 use App\Http\Controllers\AdminControllers\MovieController;
 
+use App\Http\Controllers\AdminControllers\PhotoController;
+use App\Http\Controllers\Controller;
+
+
 use App\Http\Controllers\AdminControllers\CinemaController;
 use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\RainbowControllers\homeController;
@@ -37,4 +41,9 @@ Route:: group(['prefix'=>'admin'],function(){
     Route::get('/',function(){
         return view('AdminViews.index',['page'=>'dasdboard']);
     });
+
+    Route::resource('/movie',MovieController::class);
+    Route::resource('/photo',PhotoController::class);
+
 });
+

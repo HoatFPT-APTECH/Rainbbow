@@ -41,7 +41,11 @@
                     <li class="submenu">
                     <a href="#">Orther<span class="menu-arrow"></span></a>
                     <ul>
+
+                    <li><a href="/admin/photo">Photo Manager</a></li>
+
                     <li><a href="/admin/performer">Performer Manager</a></li>
+
                     <li><a href="video-call.html">Director Manager</a></li>
                     <li><a href="incoming-call.html">Incoming Call</a></li>
                     </ul>
