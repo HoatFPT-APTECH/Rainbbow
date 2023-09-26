@@ -13,6 +13,6 @@ class MovieCategory extends Model
     
     public function movies()
     {
-        return $this->hasMany(Movie::class, 'MovieCategory_Id');
+        return $this->hasMany(Movie::class, 'MovieCategory_Id','Id');
     }
 }

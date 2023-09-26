@@ -9,15 +9,31 @@
                             class="side-txt">Dashboard</span></a>
                 </li>
                
+              
                 <li class="submenu">
-                    <a href="#"><i class="fas fa-th-large"></i><span class="side-txt">Movie</span> <span
-                            class="menu-arrow"></span></a>
+                    <a href="#"><i class="fas fa-th-large"></i><span class="side-txt">Movies</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="#">All Movie</a></li>
-                        <li><a href="#">Showtime</a></li>
-                        
+                    <li><a href="/admin/movie">Movie Manager</a></li>
+                    <li class="submenu">
+                    <a href="#">Orther<span class="menu-arrow"></span></a>
+                    <ul>
+                    <li><a href="/admin/performer">Performer Manager</a></li>
+                    <li><a href="/admin/director">Director Manager</a></li>
+                    <li><a href="/admin/productor">Productor Manager</a></li>
+                    <li><a href="/admin/cinema">Cinema Manager</a></li>
+                   
                     </ul>
-                </li>
+                    </li>
+                    <li class="submenu">
+                    <a href="#">Email<span class="menu-arrow"></span></a>
+                    <ul>
+                    <li><a href="compose.html">Compose Mail</a></li>
+                    <li><a href="inbox.html">Inbox</a></li>
+                    <li><a href="mail-view.html">Mail View</a></li>
+                    </ul>
+                    </li>
+                    </ul>
+                    </li>
                 <li class="submenu">
                     <a href="#"><i class="fas fa-th-large"></i><span class="side-txt">Movies</span> <span class="menu-arrow"></span></a>
                     <ul>

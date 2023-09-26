@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\AdminControllers;
+namespace App\Http\Controllers\RainbowControllers;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Movie;
-use App\Models\MovieCategory;
 
-class MovieController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $listMovie= Movie::with('movieCategory','director','productor')->get();
-        return view("AdminViews.index",['page'=>'movie'],['danhsach'=>$listMovie]);
+        //
+        $page='register';
+        return view('RainbowViews.index',['page'=>$page]);
+
     }
 
     /**
@@ -22,11 +23,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        $ListCategory= MovieCategory::all();
-        return view("AdminViews.index",[
-            'page'=>'movieCreate',
-        "ListCategory"=>$ListCategory]);
-
+        //
     }
 
     /**
@@ -43,8 +40,6 @@ class MovieController extends Controller
     public function show(string $id)
     {
         //
-        $Movie= Movie::find($id);
-        return view("AdminViews.index",['page'=>'movieShow'],['Movie'=>$Movie]);
     }
 
     /**

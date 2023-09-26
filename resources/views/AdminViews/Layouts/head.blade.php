@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="{{$assethPathAdmin}}/css/feather.css">
 
+<link rel="stylesheet" href="{{$assethPathAdmin}}/css/select2.min.css">
 <link rel="stylesheet" href="{{$assethPathAdmin}}/css/table.css">
 
 <link rel="stylesheet" href="{{$assethPathAdmin}}/css/style.css">
