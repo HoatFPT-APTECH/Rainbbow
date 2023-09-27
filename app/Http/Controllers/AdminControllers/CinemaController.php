@@ -14,7 +14,7 @@ class CinemaController extends Controller{
         // action trả về trang hiển thị chi tiết một bản ghi như thế nào 
         public function show(string $id){
             $Cinema = Cinema::find($id);
-            return view("AdminViews.index",['page'=>'CinemaDetail'],['Cinema'=>$Cinema]);
+            return view("AdminViews.index",['page'=>'CinemaShow'],['Cinema'=>$Cinema]);
 
 
         }

@@ -10,17 +10,11 @@
 
                     <div class="form-group">
                         <label for="nameInput">Name</label>
-                        <input name="inputName" type="text" class="form-control" id="nameInput"
-                            placeholder="Enter Name">
-
-
+                        <input name="inputName" type="text" class="form-control" id="nameInput" placeholder="Enter Name">
                     </div>
                     <div class="form-group">
                         <label for="addressInput"> Address</label>
-                        <input name="addressInput" type="text" class="form-control" id="addressInput"
-                            placeholder="Enter Address">
-
-
+                        <input name="addressInput" type="text" class="form-control" id="addressInput" placeholder="Enter Address">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
