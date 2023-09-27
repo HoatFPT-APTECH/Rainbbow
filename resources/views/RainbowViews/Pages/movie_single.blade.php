@@ -1,5 +1,4 @@
 
-<p> {{$movieEx}} </p>
 	<!-- prs navigation End -->
 	<!-- prs title wrapper Start -->
 	<div class="prs_title_main_sec_wrapper">
@@ -69,10 +68,10 @@
 							</div>
 						</div>
 						<div class="prs_ms_trailer_slider_right_wrapper">
-							<h2>29 <span>July</span> 2022</h2>
-							<p>Jhon Doe Presents</p>
+							<h2>{{$movieEx->DateShow}}</h2>
+							<p>{{$movieEx->director->Name}} Presents</p>
 							<img src="{{$assetPathRainbow}}/images/content/movie_single/movie_title.png" alt="title_img">
-							<h5><span>Starring -</span> Katirna Saif , Ajay Mehra , Nitin Kumar Senani, Parbesh Verma ,Sandy</h5>
+							<h5><span>Starring -</span> {{$movieEx->performers[0]->Name}} , {{$movieEx->performers[1]->Name}} , {{$movieEx->performers[2]->Name}}, {{$movieEx->performers[3]->Name}} ,{{$movieEx->performers[4]->Name}}</h5>
 							<ul>
 								<li>Directed by - <span>{{$movieEx->director->Name}}</span>
 								</li>
@@ -97,10 +96,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c1.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[0]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
+								<h4><a href="#">{{$movieEx->performers[0]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -112,10 +111,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c2.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[1]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Kaslera</a></h4>
+								<h4><a href="#">{{$movieEx->performers[1]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -127,10 +126,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c3.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[2]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
+								<h4><a href="#">{{$movieEx->performers[2]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -142,10 +141,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c4.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[3]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Vjay</a></h4>
+								<h4><a href="#">{{$movieEx->performers[3]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -157,10 +156,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c5.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[4]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
+								<h4><a href="#">{{$movieEx->performers[4]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -172,10 +171,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c6.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[5]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
+								<h4><a href="#">{{$movieEx->performers[5]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -183,20 +182,6 @@
 					<!-- End album -->
 				</li>
 				<!-- End album slider item -->
-				<li class="album-slider__item">
-					<figure class="album">
-						<div class="prs_ms_cast_slider_cont_wrapper">
-							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c3.jpg" alt="cast_img">
-							</div>
-							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
-								<p>(Miano)</p>
-							</div>
-						</div>
-					</figure>
-					<!-- End album -->
-				</li>
 				<!-- End album slider item -->
 			</ul>
 			<!-- End slider -->
@@ -220,7 +205,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div class="prs_syn_img_wrapper">
-						<img src="{{$assetPathRainbow}}/images/content/movie_single/v1.jpg" alt="syn_img">
+						<img src="{{$movieEx->photos[0]->Src}}" alt="syn_img">
 					</div>
 				</div>
 			</div>

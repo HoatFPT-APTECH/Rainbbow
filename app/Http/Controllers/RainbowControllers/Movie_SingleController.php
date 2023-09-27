@@ -13,7 +13,7 @@ class Movie_SingleController extends Controller
    public function Index($id){
     $page='movie_single';
     $JsPage="";
-    $MovieEx=Movie::with(['photos','movieCategory','director',])->where('Id',$id)->first();
+    $MovieEx=Movie::with(['photos','movieCategory','director','productor','performers'])->where('Id',$id)->first();
    return view('RainbowViews.index',[
     'page'=>$page,
     'JsPage'=>$JsPage,
