@@ -32,7 +32,7 @@
 					<div class="">
 						<div class=""></div>
 						<div class="">
-							<iframe width="1155" height="428" src="{{$movieEx->VideoTrailer}}" title="{{$movieEx->Name}} Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<iframe width="1140" height="428" src="{{$movieEx->VideoTrailer}}" title="{{$movieEx->Name}} Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
