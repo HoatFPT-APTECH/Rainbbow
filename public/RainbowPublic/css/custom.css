@@ -1,25 +1,6 @@
-.prs_upcom_movie_img_btn_wrapper li:first-child button{
-    -webkit-text-size-adjust: 100%;
-    --primary-color: linear-gradient(to right, #4b0082, #333333);
-    --secondary-color: #6c757d;
-    font-family: "Lato", sans-serif;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    list-style: none;
-    box-sizing: border-box;
-    text-decoration: none;
-    display: inline-block;
-    width: 150px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    background: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    color: #ffffff;
-    margin-left: -900px;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 5px;
-    transition: all 0.5s;
+body > div.prs_ms_trailer_vid_main_wrapper > div > div > div:nth-child(3) > div > div.prs_ms_trailer_slider_left_wrapper > div > div.owl-stage-outer img{
+    min-height: 523px;
+}
+body > div.prs_vp_main_section_wrapper.prs_about_vp_main_section_wrapper > div > div > div.prs_vp_main_slider_wrapper > div.prs_vp_center_slidebar_wrapper > div > div > div.owl-stage-outer > div > div.owl-item img{
+    height: 100%;
 }
