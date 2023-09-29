@@ -25,15 +25,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="st_video_slider_inner_wrapper float_left">
+					<div class="st_video_slider_inner_wrapper float_left" style="background-image: url('{{$movie->photos[0]->Src}}')">
 						<div class="st_video_slider_overlay"></div>
 						<div class="st_video_slide_sec float_left">
-							<a rel='external' href='https://www.youtube.com/embed/ryzOXAO0Ss0' title='title' class="test-popup-link">
+							<a rel='external' href='{{$movie->VideoTrailer}}' title='title' class="test-popup-link">
 								<img src="{{$assetPathRainbow}}/images/index_III/icon.png" alt="img">
 							</a>
-							<h3>Aquaman</h3>
+							<h3>{{$movie->Name}}</h3>
 							<p>ENGLISH, HINDI, TAMIL</p>
-							<h4>ACTION | Adventure | Fantasy</h4>
+							<h4>{{$movie->movieCategory->Name}} </h4>
 							<h5><span>2d</span> <span>3d</span> <span>D 4DX</span> <span>Imax 3D</span></h5>
 						</div>
 						<div class="st_video_slide_social float_left">
@@ -55,8 +55,8 @@
 							</div>
 							<div class="st_video_slide_social_right float_left">
 								<ul>
-									<li data-animation="animated fadeInUp" class=""><i class="far fa-calendar-alt"></i> 14 Dec, 2022</li>
-									<li data-animation="animated fadeInUp" class=""><i class="far fa-clock"></i> 2 hrs 23 mins</li>
+									<li data-animation="animated fadeInUp" class=""><i class="far fa-calendar-alt"></i> {{$startDate}} </li>
+									<li data-animation="animated fadeInUp" class=""><i class="far fa-clock"></i> {{$intervalTime}} </li>
 								</ul>
 							</div>
 						</div>
@@ -71,7 +71,8 @@
 		<div class="container">
 			<div class="st_calender_tabs">
 				<ul class="nav nav-tabs">
-					<li class="active"> <a data-toggle="tab" href="#home"><span>WED</span> <br> 19</a>
+					<li class="active">
+					 <a data-toggle="tab" href="#home"><span>WED</span> <br> 19</a>
 					</li>
 					<li class="nav-item">
 						<a data-toggle="tab" href="#menu1"> <span>THU</span> 

@@ -1,18 +1,3 @@
-<div class="mfp-bg mfp-ready " style="display: none"></div>
-
-<div class="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-ready " style="display: none" tabindex="-1"
-    style="overflow: hidden auto;">
-    <div class="mfp-container mfp-s-ready mfp-iframe-holder">
-        <div class="mfp-content">
-            <div class="mfp-iframe-scaler"><button title="Close (Esc)" type="button" class="mfp-close">×</button><iframe
-                    class="mfp-iframe" frameborder="0" allowfullscreen=""
-                    src="https://www.youtube.com/embed/ryzOXAO0Ss0"></iframe>
-                <div class="mfp-title">Some caption</div>
-            </div>
-        </div>
-        <div class="mfp-preloader">Loading...</div>
-    </div>
-</div>
 
 <!-- preloader Start -->
 <div id="preloader">
