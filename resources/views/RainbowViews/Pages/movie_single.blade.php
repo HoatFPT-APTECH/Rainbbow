@@ -205,7 +205,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div class="prs_syn_img_wrapper">
-						<img src="{{$movieEx->photos[0]->Src}}" alt="syn_img">
+						<img src="{{$movieEx->photos[5]->Src}}" alt="syn_img">
 					</div>
 				</div>
 			</div>
