@@ -29,14 +29,10 @@
 					</div>
 				</div>
 				<div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12">
-					<div class="prs_ms_trailer_vid_wrapper">
-						<div class="prs_ms_trailer_vid_img_overlay"></div>
-						<div class="prs_ms_trailer_vid_icon_wrapper">
-							<ul>
-								<li><a class="test-popup-link button" rel='external' href='https://www.youtube.com/embed/ryzOXAO0Ss0' title='title'><i class="flaticon-play-button"></i></a>
-								</li>
-							</ul>
-							<h2>View Trailer</h2>
+					<div class="">
+						<div class=""></div>
+						<div class="">
+							<iframe width="1140" height="428" src="{{$movieEx->VideoTrailer}}" title="{{$movieEx->Name}} Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
@@ -46,40 +42,40 @@
 							<div class="owl-carousel owl-theme">
 								<div class="item">
 									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$assetPathRainbow}}/images/content/movie_single/vid_slider_img.jpg" alt="vp_img">
+										<img src="{{$movieEx->photos[0]->Src}}" alt="vp_img">
 									</div>
 								</div>
 								<div class="item">
 									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$assetPathRainbow}}/images/content/movie_single/vid_slider_img.jpg" alt="vp_img">
+										<img src="{{$movieEx->photos[1]->Src}}" alt="vp_img">
 									</div>
 								</div>
 								<div class="item">
 									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$assetPathRainbow}}/images/content/movie_single/vid_slider_img.jpg" alt="vp_img">
+										<img src="{{$movieEx->photos[2]->Src}}" alt="vp_img">
 									</div>
 								</div>
 								<div class="item">
 									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$assetPathRainbow}}/images/content/movie_single/vid_slider_img.jpg" alt="vp_img">
+										<img src="{{$movieEx->photos[3]->Src}}" alt="vp_img">
 									</div>
 								</div>
 								<div class="item">
 									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$assetPathRainbow}}/images/content/movie_single/vid_slider_img.jpg" alt="vp_img">
+										<img src="{{$movieEx->photos[4]->Src}}" alt="vp_img">
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="prs_ms_trailer_slider_right_wrapper">
-							<h2>29 <span>July</span> 2022</h2>
-							<p>Jhon Doe Presnts</p>
+							<h2>{{$movieEx->DateShow}}</h2>
+							<p>{{$movieEx->director->Name}} Presents</p>
 							<img src="{{$assetPathRainbow}}/images/content/movie_single/movie_title.png" alt="title_img">
-							<h5><span>Starring -</span> Katirna Saif , Ajay Mehra , Nitin Kumar Senani, Parbesh Verma ,Sandy</h5>
+							<h5><span>Starring -</span> {{$movieEx->performers[0]->Name}} , {{$movieEx->performers[1]->Name}} , {{$movieEx->performers[2]->Name}}, {{$movieEx->performers[3]->Name}} ,{{$movieEx->performers[4]->Name}}</h5>
 							<ul>
-								<li>Directed by - <span>Akshay H.</span>
+								<li>Directed by - <span>{{$movieEx->director->Name}}</span>
 								</li>
-								<li>Produced by - <span>Ajay S.</span>
+								<li>Produced by - <span>{{$movieEx->productor->Name}}</span>
 								</li>
 							</ul>
 						</div>
@@ -100,10 +96,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c1.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[0]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
+								<h4><a href="#">{{$movieEx->performers[0]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -115,10 +111,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c2.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[1]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Kaslera</a></h4>
+								<h4><a href="#">{{$movieEx->performers[1]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -130,10 +126,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c3.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[2]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
+								<h4><a href="#">{{$movieEx->performers[2]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -145,10 +141,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c4.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[3]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Vjay</a></h4>
+								<h4><a href="#">{{$movieEx->performers[3]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -160,10 +156,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c5.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[4]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
+								<h4><a href="#">{{$movieEx->performers[4]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -175,10 +171,10 @@
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c6.jpg" alt="cast_img">
+								<img src="{{$movieEx->performers[5]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
+								<h4><a href="#">{{$movieEx->performers[5]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
@@ -186,20 +182,6 @@
 					<!-- End album -->
 				</li>
 				<!-- End album slider item -->
-				<li class="album-slider__item">
-					<figure class="album">
-						<div class="prs_ms_cast_slider_cont_wrapper">
-							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$assetPathRainbow}}/images/content/movie_single/c3.jpg" alt="cast_img">
-							</div>
-							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">Mariya</a></h4>
-								<p>(Miano)</p>
-							</div>
-						</div>
-					</figure>
-					<!-- End album -->
-				</li>
 				<!-- End album slider item -->
 			</ul>
 			<!-- End slider -->
@@ -223,7 +205,7 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div class="prs_syn_img_wrapper">
-						<img src="{{$assetPathRainbow}}/images/content/movie_single/v1.jpg" alt="syn_img">
+						<img src="{{$movieEx->photos[5]->Src}}" alt="syn_img">
 					</div>
 				</div>
 			</div>
