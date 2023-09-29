@@ -103,11 +103,12 @@
                             class="side-txt">Account Manager</span></a>
                 </li>
                 <li class="submenu">
-                    <a href="#"><i class="fas fa-clipboard"></i><span class="side-txt">Report</span>
+                    <a href="#"><i class="fa-solid fa-ticket"></i><span class="side-txt">Ticket Information</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="expense-reports.html">Expense Report </a></li>
-                        <li><a href="invoice-reports.html">Invoice Report </a></li>
+                        <li><a href="/admin/booking">Booking </a></li>
+                        <li><a href="/admin/ticket">Ticket </a></li>
+
                     </ul>
                 </li>
                 <li class="menu-title">UI Elements</li>
