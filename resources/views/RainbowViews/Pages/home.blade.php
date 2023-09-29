@@ -115,14 +115,15 @@
                                                             <a class="button test-popup-link" rel="external"  href="{{$listUpcomingMovie[0]->VideoTrailer}}" title="title">View Trailer</a>
 
                                                         </li>
-                                                        <li><a href="#">View Details</a>
+                                                        <li>
+                                                            <a href="/rainbow/movie_single/{{$listUpcomingMovie[0]->Id}}">View Details</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="prs_upcom_movie_content_box">
                                                 <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">{{$listUpcomingMovie[0]->Name}}</a></h2>
+                                                    <h2><a href="/rainbow/movie_single/{{$listUpcomingMovie[0]->Id}}">{{$listUpcomingMovie[0]->Name}}</a></h2>
                                                     <p>{{$listUpcomingMovie[0]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -131,7 +132,7 @@
                                                 </div>
                                                 <div class="prs_upcom_movie_content_box_inner_icon">
                                                     <ul>
-                                                        <li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
+                                                        <li><a href="/rainbow/movie_booking/{{$listUpcomingMovie[0]->Id}}"><i class="flaticon-cart-of-ecommerce"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -145,16 +146,17 @@
                                                 <div class="prs_upcom_movie_img_overlay"></div>
                                                 <div class="prs_upcom_movie_img_btn_wrapper">
                                                     <ul>
-                                                        <li><a href="#">View Trailer</a>
+                                                        <li>
+                                                            <a class="button test-popup-link" rel="external"  href="{{$listUpcomingMovie[1]->VideoTrailer}}" title="title">View Trailer</a>
                                                         </li>
-                                                        <li><a href="#">View Details</a>
+                                                        <li><a href="/rainbow/movie_single/{{$listUpcomingMovie[1]->Id}}">View Details</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="prs_upcom_movie_content_box">
                                                 <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">{{$listUpcomingMovie[1]->Name}} </a></h2>
+                                                    <h2><a href="/rainbow/movie_single/{{$listUpcomingMovie[1]->Id}}">{{$listUpcomingMovie[1]->Name}} </a></h2>
                                                     <p>{{$listUpcomingMovie[1]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -171,25 +173,27 @@
                                         </div>
                                     </div>
 
+                                      @for ($i=2;$i<=3;$i++)
 
-                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
+                                      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
                                         <div class="prs_upcom_movie_box_wrapper">
                                             <div class="prs_upcom_movie_img_box">
-                                                <img src="{{$listUpcomingMovie[2]->photos[0]->Src}}" alt="movie_img" />
+                                                <img src="{{$listUpcomingMovie[$i]->photos[0]->Src}}" alt="movie_img" />
                                                 <div class="prs_upcom_movie_img_overlay"></div>
                                                 <div class="prs_upcom_movie_img_btn_wrapper">
                                                     <ul>
-                                                        <li><a href="#">View Trailer</a>
+                                                        <li>
+                                                            <a class="button test-popup-link" rel="external"  href="{{$listUpcomingMovie[$i]->VideoTrailer}}" title="title">View Trailer</a>
                                                         </li>
-                                                        <li><a href="#">View Details</a>
+                                                        <li><a href="/rainbow/movie_single/{{$listUpcomingMovie[$i]->Id}}">View Details</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="prs_upcom_movie_content_box">
                                                 <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">{{$listUpcomingMovie[2]->Name}}</a></h2>
-                                                    <p>{{$listUpcomingMovie[2]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
+                                                    <h2><a href="/rainbow/movie_single/{{$listUpcomingMovie[$i]->Id}}">{{$listUpcomingMovie[$i]->Name}}</a></h2>
+                                                    <p>{{$listUpcomingMovie[$i]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-o"></i>
@@ -204,57 +208,31 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
-                                        <div class="prs_upcom_movie_box_wrapper">
-                                            <div class="prs_upcom_movie_img_box">
-                                                <img src="{{$listUpcomingMovie[3]->photos[0]->Src}}" alt="movie_img" />
-                                                <div class="prs_upcom_movie_img_overlay"></div>
-                                                <div class="prs_upcom_movie_img_btn_wrapper">
-                                                    <ul>
-                                                        <li><a href="#">View Trailer</a>
-                                                        </li>
-                                                        <li><a href="#">View Details</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="prs_upcom_movie_content_box">
-                                                <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">{{$listUpcomingMovie[3]->Name}}</a></h2>
-                                                    <p>{{$listUpcomingMovie[3]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="prs_upcom_movie_content_box_inner_icon">
-                                                    <ul>
-                                                        <li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                          
+                                      @endfor
+                                    
+                                   
                                     <div class="cc_featured_second_section">
+                                        @for($i=4;$i<=7;$i++)
                                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
                                             <div class="prs_upcom_movie_box_wrapper">
                                                 <div class="prs_upcom_movie_img_box">
-                                                    <img src="{{$listUpcomingMovie[4]->photos[0]->Src}}" alt="movie_img" />
+                                                    <img src="{{$listUpcomingMovie[$i]->photos[0]->Src}}" alt="movie_img" />
                                                     <div class="prs_upcom_movie_img_overlay"></div>
                                                     <div class="prs_upcom_movie_img_btn_wrapper">
                                                         <ul>
-                                                            <li><a href="#">View Trailer</a>
+                                                            <li>
+                                                                <a class="button test-popup-link" rel="external"  href="{{$listUpcomingMovie[$i]->VideoTrailer}}" title="title">View Trailer</a>
                                                             </li>
-                                                            <li><a href="#">View Details</a>
+                                                            <li><a href="/rainbow/movie_single/{{$listUpcomingMovie[$i]->Id}}">View Details</a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                                 <div class="prs_upcom_movie_content_box">
                                                     <div class="prs_upcom_movie_content_box_inner">
-                                                        <h2><a href="#">{{$listUpcomingMovie[4]->Name}}</a></h2>
-                                                        <p>{{$listUpcomingMovie[4]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
+                                                        <h2><a href="/rainbow/movie_single/{{$listUpcomingMovie[$i]->Id}}">{{$listUpcomingMovie[$i]->Name}}</a></h2>
+                                                        <p>{{$listUpcomingMovie[$i]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-o"></i>
@@ -269,102 +247,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
-                                            <div class="prs_upcom_movie_box_wrapper">
-                                                <div class="prs_upcom_movie_img_box">
-                                                    <img src="{{$listUpcomingMovie[5]->photos[0]->Src}}" alt="movie_img" />
-                                                    <div class="prs_upcom_movie_img_overlay"></div>
-                                                    <div class="prs_upcom_movie_img_btn_wrapper">
-                                                        <ul>
-                                                            <li><a href="#">View Trailer</a>
-                                                            </li>
-                                                            <li><a href="#">View Details</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="prs_upcom_movie_content_box">
-                                                    <div class="prs_upcom_movie_content_box_inner">
-                                                        <h2><a href="#">{{$listUpcomingMovie[5]->Name}}</a></h2>
-                                                        <p>{{$listUpcomingMovie[5]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <div class="prs_upcom_movie_content_box_inner_icon">
-                                                        <ul>
-                                                            <li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
-                                            <div class="prs_upcom_movie_box_wrapper">
-                                                <div class="prs_upcom_movie_img_box">
-                                                    <img src="{{$listUpcomingMovie[6]->photos[0]->Src}}" alt="movie_img" />
-                                                    <div class="prs_upcom_movie_img_overlay"></div>
-                                                    <div class="prs_upcom_movie_img_btn_wrapper">
-                                                        <ul>
-                                                            <li><a href="#">View Trailer</a>
-                                                            </li>
-                                                            <li><a href="#">View Details</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="prs_upcom_movie_content_box">
-                                                    <div class="prs_upcom_movie_content_box_inner">
-                                                        <h2><a href="#">{{$listUpcomingMovie[6]->Name}}</a></h2>
-                                                        <p>{{$listUpcomingMovie[6]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <div class="prs_upcom_movie_content_box_inner_icon">
-                                                        <ul>
-                                                            <li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
-                                            <div class="prs_upcom_movie_box_wrapper">
-                                                <div class="prs_upcom_movie_img_box">
-                                                    <img src="{{$listUpcomingMovie[7]->photos[0]->Src}}" alt="movie_img" />
-                                                    <div class="prs_upcom_movie_img_overlay"></div>
-                                                    <div class="prs_upcom_movie_img_btn_wrapper">
-                                                        <ul>
-                                                            <li><a href="#">View Trailer</a>
-                                                            </li>
-                                                            <li><a href="#">View Details</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="prs_upcom_movie_content_box">
-                                                    <div class="prs_upcom_movie_content_box_inner">
-                                                        <h2><a href="#">{{$listUpcomingMovie[7]->Name}}</a></h2>
-                                                        <p>{{$listUpcomingMovie[7]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <div class="prs_upcom_movie_content_box_inner_icon">
-                                                        <ul>
-                                                            <li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endfor
+                                        
+                                       
                                     </div>
                                 </div>
                             </div>
