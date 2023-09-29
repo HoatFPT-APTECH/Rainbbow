@@ -6,7 +6,7 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h2>Cinema <b>Details</b>       <button class="btn btn-primary ">
+                        <h2>Cinema      <b>Details</b>       <button class="btn btn-primary ">
                         <a href="./cinema/create" style="color: white">Add new Cinema</a>
                         </button></h2>
                     </div>
