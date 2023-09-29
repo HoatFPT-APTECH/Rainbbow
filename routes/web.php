@@ -4,8 +4,10 @@ use App\Http\Controllers\AdminControllers\DirectorController;
 use App\Http\Controllers\AdminControllers\MovieController;
 
 use App\Http\Controllers\AdminControllers\PhotoController;
+use App\Http\Controllers\AdminControllers\PerformerController;
+use App\Http\Controllers\AdminControllers\UserController;
+use App\Http\Controllers\AdminControllers\RoleController;
 use App\Http\Controllers\Controller;
-
 
 use App\Http\Controllers\AdminControllers\CinemaController;
 use App\Http\Controllers\AdminControllers\ProductorController;
@@ -14,7 +16,9 @@ use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;
 use App\Models\Cinema;
+use App\Models\Productor;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +50,33 @@ Route:: group(['prefix'=>'admin'],function(){
     });
 
     Route::resource('/movie',MovieController::class);
-    Route::resource('/photo',PhotoController::class);
+    
 
+
+//hien thi trang show bang cho nguoi dung them sua xoa
+Route::get('/cinema',[CinemaController::class,'index']);
+//chi tiet 1 ban ghi
+Route::get('/cinema/show/{id}',[CinemaController::class,'show']);
+//hien thi trang edit voi du lieu cu cua  cho nguoi dung sua
+Route::get('/cinema/edit/{id}',[CinemaController::class,'edit']);
+Route::post("/cinema/update/{id}",[CinemaController::class,'update']);
+//show trang them sua xoa 1 ban gi
+Route::get("/cinema/create",[CinemaController::class,'create']);
+Route::post("/cinema/store",[CinemaController::class,'store']);
+//xoa 1 ban ghi 
+Route::get("/cinema/delete/{id}",[CinemaController::class,'destroy']);
+
+
+Route::get('/productor',[ProductorController::class,'index']);
+     Route::get('/productor/show/{id}',[ProductorrController::class,'show']);
+     Route::get('/productor/edit/{id}',[ProductorController::class,'edit']);
+     Route::post('/productor/update/{id}',[ProductorController::class,'update']);
+     Route::get('/productor/create',[ProductorController::class,'create']);
+     Route::post('/productor/store',[ProductorController::class,'store']);
+     Route::get('/productor/delete/{id}',[ProductorController::class,'destroy']);
+
+
+
+Route::resource('/photo',PhotoController::class);
 });
 
