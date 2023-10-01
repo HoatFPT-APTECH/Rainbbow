@@ -8,11 +8,10 @@ use App\Http\Controllers\AdminControllers\RoleController;
 use App\Http\Controllers\AdminControllers\BookingController;
 use App\Http\Controllers\AdminControllers\TicketController;
 use App\Http\Controllers\Controller;
-
 use App\Http\Controllers\AdminControllers\CinemaController;
 use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController;
-use App\Http\Controllers\RainbowControllers\homeController;
+
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
