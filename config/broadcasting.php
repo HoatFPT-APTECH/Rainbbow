@@ -67,5 +67,11 @@ return [
         ],
 
     ],
+    'redis' => [
+        'client' => 'predis',
+        'options' => [
+            'cluster' => env('REDIS_CLUSTER', 'redis'),
+        ],
+    ],
 
 ];

@@ -21,7 +21,7 @@
 					</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div class="st_bt_top_center_heading st_bt_top_center_heading_seat_book_page float_left">
-						<h3>Aquaman - English - (2:47)</h3>
+						<h3>{{$showTime->movie->Name}} </h3>
 						<h4>Today, 19 Dec, 10:00 PM</h4>
 					</div>
 				</div>
@@ -39,7 +39,8 @@
 	<div class="st_seatlayout_main_wrapper float_left">
 		<div class="container container_seat">
 			<div class="st_seat_lay_heading float_left">
-				<h3>Ariesplex SL Cinemas</h3>
+				<h3>Cinema: {{$showTime->cinema->Name}} | Room: {{$showTime->room->Name}}  </h3>
+			
 			</div>
 			<div class="st_seat_full_container">
 				<div class="st_seat_lay_economy_wrapper float_left">
@@ -462,3 +463,4 @@
 			</div>
 		</div>
 	</div>
+	<meta name='data' content="{{$showTime}}"/>
