@@ -1,13 +1,13 @@
 
 	<!-- prs navigation End -->
 	<!-- prs title wrapper Start -->
-	<div class="prs_title_main_sec_wrapper">
+	<div class="prs_title_main_sec_wrapper" >
 		<div class="prs_title_img_overlay"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="prs_title_heading_wrapper">
-						<h2>The Race Return</h2>
+						<h2>{{$movieEx->Name}}</h2>
 						<ul>
 							<li><a href="#">Home</a>
 							</li>
@@ -20,19 +20,58 @@
 	</div>
 	<!-- prs title wrapper End -->
 	<!-- prs ms trailer wrapper Start -->
+	<div style="float: left;
+    width: 100%;
+    background: #f6f6f6;
+    padding-top: 94px;">
+	<div class="prs_booking_main_div_section_wrapper">
+		<div class="prs_top_video_section_wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="prs_heading_section_wrapper">
+								<div class="prs_heading_section_wrapper">
+									<h2>Movie Trailer</h2>
+								</div>
+							</div>
+						</div>
+						<div class="st_video_slider_inner_wrapper float_left" style="background-image: url('{{$movieEx->photos[0]->Src}}')">
+							<div class="st_video_slider_overlay"></div>
+							<div class="st_video_slide_sec float_left">
+								<a rel='external' href='{{$movieEx->VideoTrailer}}' title='title' class="test-popup-link">
+									<img src="{{$assetPathRainbow}}/images/index_III/icon.png" alt="img">
+								</a>
+								<h3>{{$movieEx->Name}}</h3>
+								<p>ENGLISH, HINDI, TAMIL</p>
+								<h4>{{$movieEx->movieCategory->Name}} </h4>
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="prs_ms_trailer_vid_main_wrapper">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="prs_heading_section_wrapper">
-						<h2>Movie Trailer</h2>
+						<div class="prs_heading_section_wrapper">
+							<h2>DateShow</h2>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12">
 					<div class="">
 						<div class=""></div>
 						<div class="">
-							<iframe width="1140" height="428" src="{{$movieEx->VideoTrailer}}" title="{{$movieEx->Name}} Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
@@ -42,7 +81,7 @@
 							<div class="owl-carousel owl-theme">
 								<div class="item">
 									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$movieEx->photos[0]->Src}}" alt="vp_img">
+										<img src="{{$movieEx->photos[5]->Src}}" alt="vp_img">
 									</div>
 								</div>
 								<div class="item">
@@ -70,7 +109,7 @@
 						<div class="prs_ms_trailer_slider_right_wrapper">
 							<h2>{{$movieEx->DateShow}}</h2>
 							<p>{{$movieEx->director->Name}} Presents</p>
-							<img src="{{$assetPathRainbow}}/images/content/movie_single/movie_title.png" alt="title_img">
+							<h1 style="color:red; padding-top:20px; font-weight: bold;text-transform: uppercase;">{{$movieEx->Name}}</h1>
 							<h5><span>Starring -</span> {{$movieEx->performers[0]->Name}} , {{$movieEx->performers[1]->Name}} , {{$movieEx->performers[2]->Name}}, {{$movieEx->performers[3]->Name}} ,{{$movieEx->performers[4]->Name}}</h5>
 							<ul>
 								<li>Directed by - <span>{{$movieEx->director->Name}}</span>
@@ -195,17 +234,14 @@
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					<div class="prs_syn_cont_wrapper">
 						<h3>Synopsis</h3>
-						<h4><span>Genre -</span> Action , Reality , Drama, Raching</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore a aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo const. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur at cupidatat non proident, sunt in culpa qui officia deserunt
-							<br>
-							<br>error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inveiere veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit ur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-							<br>
-							<br>consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam sam quaerat voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ipii eex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+						<h4><span>Genre -</span> {{$movieEx->movieCategory->Name}}</h4>
+						<p>{{$movieEx->Description}}
+							
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div class="prs_syn_img_wrapper">
-						<img src="{{$movieEx->photos[5]->Src}}" alt="syn_img">
+						<img src="{{$movieEx->photos[0]->Src}}" alt="syn_img">
 					</div>
 				</div>
 			</div>

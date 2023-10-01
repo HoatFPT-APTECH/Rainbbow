@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\PerformerMovie;
 use App\Models\Performer;
+use App\Models\MovieCategory;
 class Movie_SingleController extends Controller
 {
     //
