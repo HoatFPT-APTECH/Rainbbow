@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model{
-    protected $table="tbl_Room";
-    protected $primarykey="Id";
-    public $timestamp=false;
+    protected $table="tbl_room";
+    protected $primaryKey="Id";
+    public $timestamps=false;
     public function cinemas()
     {
         return $this->belongsToMany(Cinema::class, 'tbl_RoomCinema', 'Room_Id', 'Cinema_Id')
