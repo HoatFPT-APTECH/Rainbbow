@@ -17,6 +17,7 @@
                     <li class="submenu">
                     <a href="#">Orther<span class="menu-arrow"></span></a>
                     <ul>
+                    <li><a href="/admin/photo">Photo Manager</a></li>
                     <li><a href="/admin/performer">Performer Manager</a></li>
                     <li><a href="/admin/director">Director Manager</a></li>
                     <li><a href="/admin/productor">Productor Manager</a></li>
@@ -34,32 +35,7 @@
                     </li>
                     </ul>
                     </li>
-                <li class="submenu">
-                    <a href="#"><i class="fas fa-th-large"></i><span class="side-txt">Movies</span> <span class="menu-arrow"></span></a>
-                    <ul>
-                    <li><a href="/admin/movie">Movie Manager</a></li>
-                    <li class="submenu">
-                    <a href="#">Orther<span class="menu-arrow"></span></a>
-                    <ul>
-
-                    <li><a href="/admin/photo">Photo Manager</a></li>
-
-                    <li><a href="/admin/performer">Performer Manager</a></li>
-
-                    <li><a href="video-call.html">Director Manager</a></li>
-                    <li><a href="incoming-call.html">Incoming Call</a></li>
-                    </ul>
-                    </li>
-                    <li class="submenu">
-                    <a href="#">Email<span class="menu-arrow"></span></a>
-                    <ul>
-                    <li><a href="compose.html">Compose Mail</a></li>
-                    <li><a href="inbox.html">Inbox</a></li>
-                    <li><a href="mail-view.html">Mail View</a></li>
-                    </ul>
-                    </li>
-                    </ul>
-                    </li>
+               
                 <li class="submenu">
                     <a href="#"><i class="fas fa-calculator"></i><span class="side-txt">Accounts</span>
                         <span class="menu-arrow"></span></a>
@@ -103,11 +79,14 @@
                             class="side-txt">Account Manager</span></a>
                 </li>
                 <li class="submenu">
-                    <a href="#"><i class="fas fa-clipboard"></i><span class="side-txt">Report</span>
+                    <a href="#"><i class="fa-solid fa-ticket"></i><span class="side-txt">Ticket Information</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="expense-reports.html">Expense Report </a></li>
-                        <li><a href="invoice-reports.html">Invoice Report </a></li>
+                        <li><a href="/admin/booking">Booking </a></li>
+                        <li><a href="/admin/ticket">Ticket </a></li>
+                        <li><a href="/admin/showtime">Showtime </a></li>
+                        <li><a href="/admin/room">Room </a></li>
+
                     </ul>
                 </li>
                 <li class="menu-title">UI Elements</li>
