@@ -58,13 +58,7 @@
                         </div>
                         <div class="clearfix"></div>
                         <ul class="dl-menu">
-                            <li class="parent"><a href="/rainbow/#">Home</a>
-                                <ul class="lg-submenu">
-                                    <li><a href="/rainbow/">-I</a></li>
-                                    <li><a href="/rainbow/">-II</a></li>
-                                    <li><a href="/rainbow/3">-III</a></li>
-                                    <li><a href="/rainbow/4">-IV</a></li>
-                                </ul>
+                            <li class="parent"><a href="/rainbow">Home</a>
                             </li>
                             <li class="parent megamenu"><a href="/rainbow/#">movie</a>
                                 <ul class="lg-submenu">
@@ -291,46 +285,6 @@
                                                         class="flaticon-play-button"></i></a>
                                             </div>
                                         </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="parent"><a href="/rainbow/#">pages</a>
-                                <ul class="lg-submenu">
-                                    <li class="parent"><a href="/rainbow/#">Blog</a>
-                                        <ul class="lg-submenu">
-                                            <li><a href="/rainbow/blog_category">Blog-Category</a>
-                                            </li>
-                                            <li><a href="/rainbow/blog_single">Blog-Single</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="parent"><a href="/rainbow/#">Event</a>
-                                        <ul class="lg-submenu">
-                                            <li><a href="/rainbow/event_category.html">Event-Category</a>
-                                            </li>
-                                            <li><a href="/rainbow/event_single">Event-Single</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="parent"><a href="/rainbow/#">Movie</a>
-                                        <ul class="lg-submenu">
-                                            <li><a href="/rainbow/movie_category">Movie-Category</a>
-                                            </li>
-                                            <li><a href="/rainbow/movie_single">Movie-Single</a>
-                                            </li>
-                                            <li><a href="/rainbow/movie_single_second">Movie-Single-II</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/rainbow/gallery">gallery</a>
-                                    </li>
-                                    <li><a href="/rainbow/booking_type">Booking-Type</a>
-                                    </li>
-                                    <li><a href="/rainbow/confirmation_screen">Confirmation-Screen</a>
-                                    </li>
-                                    <li><a href="/rainbow/movie_booking">Movie-Booking</a>
-                                    </li>
-                                    <li><a href="/rainbow/seat_booking">Seat-Booking</a>
                                     </li>
                                 </ul>
                             </li>
