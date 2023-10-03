@@ -212,7 +212,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="parent"><a href="/rainbow/#">tv show</a>
+                            <li class="parent"><a href="/rainbow/#">Cinema</a>
                                 <ul class="lg-submenu">
                                     <li><a href="/rainbow/#">Star Plus</a></li>
                                     <li><a href="/rainbow/#">Star Jalsha</a></li>
