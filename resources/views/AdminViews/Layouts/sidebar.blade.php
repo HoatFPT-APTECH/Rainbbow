@@ -25,14 +25,6 @@
                    
                     </ul>
                     </li>
-                    <li class="submenu">
-                    <a href="#">Email<span class="menu-arrow"></span></a>
-                    <ul>
-                    <li><a href="compose.html">Compose Mail</a></li>
-                    <li><a href="inbox.html">Inbox</a></li>
-                    <li><a href="mail-view.html">Mail View</a></li>
-                    </ul>
-                    </li>
                     </ul>
                     </li>
             
