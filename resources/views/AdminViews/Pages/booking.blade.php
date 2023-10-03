@@ -26,36 +26,51 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>User_Id<i class="fa fa-sort"></i></th>
-                        <th>OrderTime<i class="fa fa-sort"></i></th>
-                        <th>AllPrice<i class="fa fa-sort"></i></th>
-                        <th>Actions</th>
+                        <th>User Information <i class="fa fa-sort"></i></th>
+                        <th >Ticket<i class="fa fa-sort"></i></th>
+                        <th>Status<i class="fa fa-sort"></i></th> 
+                        <th>Action<i class="fa fa-sort"></i></th> 
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($danhsach as $Booking)
-                 <tr>
-                 
-                     <td>
-                        {{$Booking->Id}}
-                     </td>
-                     
-                     <td>
-                        {{$Booking->User_Id}}
-                     </td>
-                     <td>
-                        {{$Booking->OrderTime}}
-                     </td>
-                     <td>
-                        {{$Booking->AllPrice}}
-                     </td>
-                     <td>
-                        <a href="/admin/booking/show/{{$Booking->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                        <a href="/admin/booking/edit/{{$Booking->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="/admin/booking/delete/{{$Booking->Id}}" onclick="return confirm('Your sure delete')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <tr>
+                        <td> {{$Booking->Id}} </td>
+                        <td> UserName: {{$Booking->user->UserName}}<br>
+                             Name: {{$Booking->user->Name}}<br>
+                             Address: {{$Booking->user->Address}}<br>
+                             Phone: {{$Booking->user->Phone}}
                     </td>
+                        <td >
+                          <ul  style="border: 1px solid black; margin:0">
+                           <li>@foreach($Booking->tickets as $Ticket)
+                           Id: {{$Ticket->Id}} <br>
+                           Price: {{$Ticket->Price}}<br>
+                           Movie: {{$Ticket->showtime->movie->Name}}<br>
+                           Cinema Name: {{$Ticket->showtime->cinema->Name}}<br>
+                           Cinema Address: {{$Ticket->showtime->cinema->Address}}<br>
+                           Room: {{$Ticket->showtime->room->Name}}<br>
+
+                           @endforeach
+                        
+                           
+                           
+                        </li>
+                          </ul>
+                        <td>
+                             <ul>
+                                <li>
+                                    <select name="" id="">
+                                        <option value="">Đã thanh toán</option>
+                                        <option value="">Chưa thanh toán</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </td>
+                        <td><button class="btn btn-primary">Update</button></td>
+                      </tr>
            
-                 </tr>
+              
                     @endforeach        
                 </tbody>
             </table>

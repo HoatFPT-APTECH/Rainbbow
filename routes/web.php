@@ -20,6 +20,7 @@ use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;
 
 
+
 use Illuminate\Support\Facades\Route;
 
 
