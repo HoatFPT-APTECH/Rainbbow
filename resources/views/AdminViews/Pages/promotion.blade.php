@@ -6,8 +6,8 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h2>Cinema      <b>Details</b>       <button class="btn btn-primary ">
-                        <a href="./cinema/create" style="color: white">Add new Cinema</a>
+                        <h2>Promotion      <b>Details</b>       <button class="btn btn-primary ">
+                        <a href="./promotion/create" style="color: white">Add new Promotion</a>
                         </button></h2>
                     </div>
                     <div class="col-sm-4">
@@ -24,21 +24,21 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name <i class="fa fa-sort"></i></th>
-                        <th>Địa chỉ</th>
+                        <th>Start <i class="fa fa-sort"></i></th>
+                        <th>End</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($danhsach as $Cinema)
+                    @foreach($danhsach as $Promotion)
                  <tr>
-                     <td>{{$Cinema->Id}}</td>
-                     <td>{{$Cinema->Name}}</td>
-                     <td>{{$Cinema->Address}}</td>
+                     <td>{{$Promotion->Id}}</td>
+                     <td>{{$Promotion->Start}}</td>
+                     <td>{{$Promotion->End}}</td>
                      <td>
-                        <a href="/admin/cinema/show/{{$Cinema->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                        <a href="/admin/cinema/edit/{{$Cinema->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="/admin/cinema/delete/{{$Cinema->Id}}" onclick="return confirm('Your sure delete cinema has name: {{$Cinema->Name}}')" class="detele?id=" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a href="/admin/promotion/show/{{$Promotion->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                        <a href="/admin/promotion/edit/{{$Promotion->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a href="/admin/promotion/delete/{{$Promotion->Id}}" onclick="return confirm('Your sure delete promotion has start: {{$Promotion->Start}}')" class="detele?id=" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
   
                  </tr>
