@@ -62,10 +62,10 @@
 								<label for="c2"></label>
 							</li>
 							<li>	<span>Pay Rs.790.00</span>
-								<input type="checkbox" id="c3" name="cb">
+								<input type="checkbox" id="c3" name="cb" onchange="chooseSeat(this.value)" value="GHK3">
 								<label for="c3"></label>
 							</li>
-							<li>	<span>Pay Rs.790.00</sp2an>
+							<li>	<span>Pay Rs.790.00</span>
 								<input type="checkbox" id="c4" name="cb">
 								<label for="c4"></label>
 							</li>

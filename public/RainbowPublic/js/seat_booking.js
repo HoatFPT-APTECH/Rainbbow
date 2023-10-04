@@ -1,18 +1,18 @@
-const socket= io("http://localhost:6001");
-
-// Gửi sự kiện
-socket.emit('OrderSeatShowtimeEvent', 'Hello, world!');
-
-// Lắng nghe sự kiện
-socket.on('OrderSeatShowtimeEvent', (message) => {
-  console.log('Received message:', message);
-});
-
 
 
 var data= JSON.parse(document.querySelector("meta[name='data']").getAttribute('content'));
+const socket= io(":3000");
 
 
+ 
+
+
+
+socket.emit('join_showtime',data.Id);
+socket.on("orther_people_choosing_seat",(user,seat)=>{
+  console.log(user)
+    console.log(" seat: "+seat)
+})
 window.addEventListener('DOMContentLoaded',()=>{
   loadUI()
 })
@@ -21,4 +21,14 @@ function loadUI(){
     console.log
     time.innerHTML= formatDate(`${data.Start}`);
     
+}
+
+function chooseSeat(seat){
+  const user= JSON.parse(window.sessionStorage.getItem("User"))
+  console.log("event onclick: "+seat)
+  
+socket.emit("choosing_seat",user,seat)
+ 
+
+
 }

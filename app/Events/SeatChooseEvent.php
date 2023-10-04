@@ -10,18 +10,18 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class OrderSeatShowtimeEvent
+class SeatChooseEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
      * Create a new event instance.
      */
-    public $seatShowtime;
-    public function __construct($seatShowtime)
+    public $user,$seat;
+    public function __construct($user,$seat)
     {
-        //
-        $this->seatShowtime=$seatShowtime;
+        $this->user=$user;
+        $this->seat=$seat;
     }
 
     /**
@@ -32,7 +32,7 @@ class OrderSeatShowtimeEvent
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('seat_showtime'),
+            new PrivateChannel('channel-name'),
         ];
     }
 }

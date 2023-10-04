@@ -215,11 +215,15 @@
  {{-- orther js for project  --}}
     <!-- Import Socket.io-client -->
     <script src="{{ $assetPathRainbow }}/js/general.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.7/socket.io.js"></script>
+<!-- Nhúng thư viện Socket.io -->
 
-    <!-- Import Laravel Echo -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/laravel-echo/1.11.3/echo.js"></script>
- <script type="text/javascript" src="{{ $assetPathRainbow }}/js/login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+<!-- Nhúng thư viện Laravel Echo -->
+
+
+
+<script type="text/javascript" src="{{ $assetPathRainbow }}/js/login.js"></script>
  <script type="text/javascript" src="{{ $assetPathRainbow }}/js/header.js"></script>
  <!--main js file end-->
  <!--main js file end-->

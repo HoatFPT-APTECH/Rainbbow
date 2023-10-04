@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
 
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\RainbowControllers\HomeController;
 use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;
@@ -163,32 +164,3 @@ Route:: group(['prefix'=>'/api'],function(){
 
 
 
-Route::prefix('socket.io')->group(function () {
-    Route::any('/{any}', function (Request $request, $any) {
-        $http_origin = $request->header('Origin');
-        $allowed_origins = explode(',', env('SOCKET_ALLOWED_ORIGINS'));
- 
-        if (in_array($http_origin, $allowed_origins)) {
-            $http_host = $request->getHttpHost();
- 
-            $redis_client = Redis::connection();
-            $redis_client->publish('socket-io-event', json_encode([
-                'host' => $http_host,
-                'path' => $request->getPathInfo(),
-                'body' => $request->getContent(),
-            ]));
- 
-            return response()->stream(function () use ($redis_client, $http_host, $any) {
-                $redis_subscriber = $redis_client->subscribe(['socket-io-response-' . $http_host . '-' . $any]);
- 
-                foreach ($redis_subscriber as $message) {
-                    if ($message->kind === 'message') {
-                        echo $message->payload;
-                    }
-                }
-            });
-        } else {
-            abort(403, 'Forbidden');
-        }
-    })->where('any', '.*');
-});
