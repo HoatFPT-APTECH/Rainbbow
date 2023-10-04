@@ -13,13 +13,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\AdminControllers\CinemaController;
 use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
-
+use App\Http\Controllers\AdminControllers\PromotionController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\RainbowControllers\HomeController;
 use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;
+
 use App\Http\Controllers\RainbowControllers\Movie_CategoryController;
+
 
 
 
@@ -72,12 +74,30 @@ Route::get("/cinema/delete/{id}",[CinemaController::class,'destroy']);
 
 
      Route::get('/productor',[ProductorController::class,'index']);
-     Route::get('/productor/show/{id}',[ProductorrController::class,'show']);
+     Route::get('/productor/show/{id}',[ProductorController::class,'show']);
      Route::get('/productor/edit/{id}',[ProductorController::class,'edit']);
      Route::post('/productor/update/{id}',[ProductorController::class,'update']);
      Route::get('/productor/create',[ProductorController::class,'create']);
      Route::post('/productor/store',[ProductorController::class,'store']);
      Route::get('/productor/delete/{id}',[ProductorController::class,'destroy']);
+
+
+    Route::get('/director',[DirectorController::class,'index']);
+    Route::get('/director/show/{id}',[DirectorController::class,'show']);
+    Route::get('/director/edit/{id}',[DirectorController::class,'edit']);
+    Route::post('/director/update/{id}',[DirectorController::class,'update']);
+    Route::get('/director/create',[DirectorController::class,'create']);
+    Route::post('/director/store',[DirectorController::class,'store']);
+    Route::get('/director/delete/{id}',[DirectorController::class,'destroy']);
+
+
+    Route::get('/promotion',[PromotionController::class,'index']);
+    Route::get('/promotion/show/{id}',[PromotionController::class,'show']);
+    Route::get('/promotion/edit/edit{id}',[PromotionController::class,'edit']);
+    Route::post('/promotion/update/{id}',[PromotionController::class,'update']);
+    Route::get('/promotion/create',[PromotionController::class,'create']);
+    Route::post('/promotion/store',[PromotionController::class,'store']);
+    Route::get('/promotion/delete/{id}',[PromotionController::class,'destroy']);
 
 
 
