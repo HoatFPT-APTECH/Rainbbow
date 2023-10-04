@@ -48,6 +48,12 @@ class MovieController extends Controller
         $Category= $request->input('MovieCategory_Id');
         $Director=$request->input('Director_Id');
         $Productor=$request->input('Productor_Id');
+        $Srcmain= $request->input('Srcmain');
+        $Src1= $request->input('Src1');
+        $Src2= $request->input('Src2');
+        $Src3= $request->input('Src3');
+        $Src4= $request->input('Src4');
+        $Src5= $request->input('Src5');
 
          $newMovie= new Movie();
          $newMovie->Name=$Name;
@@ -58,9 +64,42 @@ class MovieController extends Controller
          $newMovie->MovieCategory_Id=$Category;
          $newMovie->Director_Id=$Director;
          $newMovie->Productor_Id=$Productor;
+         $newMovieRs= $newMovie->save();
 
-         $newMovie->save();
+         $newPhotoMain= new Photo();
+         $newPhotoMain->Src= $Srcmain;
+         $newPhotoMain->Movie_Id=$newMovie->Id;
+
+         $newPhoto1= new Photo();
+         $newPhoto1->Src = $Src1;
+         $newPhoto1->Movie_Id=$newMovie->Id;
+
+         $newPhoto2= new Photo();
+         $newPhoto2->Src= $Src2;
+         $newPhoto2->Movie_Id=$newMovie->Id;
+
+         $newPhoto3= new Photo();
+         $newPhoto3->Src= $Src3;
+         $newPhoto3->Movie_Id=$newMovie->Id;
+
+         $newPhoto4= new Photo();
+         $newPhoto4->Src= $Src4;
+         $newPhoto4->Movie_Id=$newMovie->Id;
+
+         $newPhoto5= new Photo();
+         $newPhoto5->Src= $Src5;
+         $newPhoto5->Movie_Id=$newMovie->Id;
+
+         
+         $newPhotoMain->save();
+         $newPhoto1->save();
+         $newPhoto2->save();
+         $newPhoto3->save();
+         $newPhoto4->save();
+         $newPhoto5->save();
          return $this->index();
+        // return response()->json($newMovie->Id);
+        
     }
 
     /**
