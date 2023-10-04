@@ -49,6 +49,35 @@
           @endforeach
         </select>
       </div>
+      <div class="row">
+        <label for="photo">Main Photo Src:</label>
+        <div class="col">
+          <input type="text" id='Srcmain' name='Srcmain' class="form-control" required>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <label for="photo">SlideShow Photo Src:</label>
+        <div class="col">
+          <input type="text" id='Src1' name='Src1' class="form-control" required>
+        </div>
+        <div class="col">
+          <input type="text" id='Src2' name="Src2" class="form-control" required>
+        </div>
+        <div class="col">
+          <input type="text" id='Src3' name="Src3" class="form-control" required>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <input type="text" id='Src4' name='Src4' class="form-control" required>
+        </div>
+        <div class="col">
+          <input type="text" id='Src5' name="Src5" class="form-control" required>
+        </div>
+      </div>
+      <br>
       <button type="submit" class="btn btn-primary">Add New Movie</button>
     </form>
   </div>
