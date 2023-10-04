@@ -22,6 +22,7 @@ use App\Http\Controllers\RainbowControllers\Movie_SingleController;
 use App\Http\Controllers\RainbowControllers\Movie_CategoryController;
 
 
+
 use Illuminate\Support\Facades\Route;
 
 

@@ -33,6 +33,6 @@ class Showtime extends Model
 
     public function tickets()
     {
-        return $this->hasMany(Ticket::class, 'Showtime_Id');
+        return $this->hasMany(Ticket::class, 'Showtime_Id','Id');
     }
 }

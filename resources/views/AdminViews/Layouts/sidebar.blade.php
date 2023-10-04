@@ -33,7 +33,7 @@
                             class="side-txt">Account Manager</span></a>
                 </li>
                 <li class="submenu">
-                    <a href="#"><i class="fa-solid fa-ticket"></i><span class="side-txt">Ticket Information</span>
+                    <a href="#"><i class="fa-solid fa-ticket"></i><span class="side-txt">Booking Information</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="/admin/booking">Booking </a></li>
