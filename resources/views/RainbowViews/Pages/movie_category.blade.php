@@ -110,21 +110,21 @@
 											<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prs_upcom_slide_first">
 												<div class="prs_upcom_movie_box_wrapper prs_mcc_movie_box_wrapper">
 													<div class="prs_upcom_movie_img_box">
-														<img src="{{$assetPathRainbow}}/images/content/movie_category/up1.jpg" alt="movie_img" />
+														<img src="{{$listMovie[0]->photos[0]->Src}}" alt="movie_img" />
 														<div class="prs_upcom_movie_img_overlay"></div>
 														<div class="prs_upcom_movie_img_btn_wrapper">
 															<ul>
-																<li><a href="#">View Trailer</a>
+																<li><a class="button test-popup-link" rel="external" href="{{$listMovie[0]->VideoTrailer}}">View Trailer</a>
 																</li>
-																<li><a href="#">View Details</a>
+																<li><a href="/rainbow/movie_single/{{$listMovie[0]->Id}}"">View Details</a>
 																</li>
 															</ul>
 														</div>
 													</div>
 													<div class="prs_upcom_movie_content_box">
 														<div class="prs_upcom_movie_content_box_inner">
-															<h2><a href="#">Busting Car</a></h2>
-															<p>Drama , Acation</p>	<i class="fa fa-star"></i>
+															<h2><a href="/rainbow/movie_single/{{$listMovie[0]->Id}}">{{$listMovie[0]->Name}}</a></h2>
+															<p>{{$listMovie[0]->movieCategory->Name}}</p>	<i class="fa fa-star"></i>
 															<i class="fa fa-star"></i>
 															<i class="fa fa-star"></i>
 															<i class="fa fa-star-o"></i>
