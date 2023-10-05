@@ -38,7 +38,7 @@
                      <td>
                         <a href="/admin/promotion/show/{{$Promotion->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                         <a href="/admin/promotion/edit/{{$Promotion->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="/admin/promotion/delete/{{$Promotion->Id}}" onclick="return confirm('Your sure delete promotion has start: {{$Promotion->Start}}')" class="detele?id=" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a href="/admin/promotion/delete/{{$Promotion->Id}}" onclick="return confirm('Your sure delete promotion has start: {{$Promotion->Start}}')" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
   
                  </tr>

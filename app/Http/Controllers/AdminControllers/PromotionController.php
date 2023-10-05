@@ -25,12 +25,14 @@ class PromotionController extends Controller{
         // gửi dữ liệu của đối tượng sau khi nhập vào form vào đây, hàm ,này sẽ làm việc với csdl để thêm object và trả về index, và nhớ là dùng rediẻct("/ dương link tính từ local mà trỏ đến trang hiển thị bảng của đối utơngj quản lý"/)
         public function store(Request $request){
             $Start=$request->input('inputStart');
-            $End=$request->input("EndInput");
+            $End=$request->input("endInput");
+        
             $newPromotion= new Promotion();
             $newPromotion->Start=$Start;
             $newPromotion->End=$End;
             $newPromotion->save();
             return redirect('/admin/promotion');
+        //    return response()->json($newPromotion);
 
         }
         // show cái trang mà cho  phép người dùng sửa một đối tượng với dữ liệu cũ được hiển thị lên 
@@ -47,6 +49,7 @@ class PromotionController extends Controller{
             $newPromotion=Promotion::where('id',$id)->first();
             $newPromotion->start=$Start;
             $newPromotion->end=$End;
+
             $newPromotion->save();
             return redirect('/admin/promotion');
         }

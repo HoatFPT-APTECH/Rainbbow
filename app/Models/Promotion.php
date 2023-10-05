@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Promotion extends Model{
     protected $table="tbl_Promotion";
     protected $primarykey="Id";
-    public $timestamp=false;
+    public $timestamps=false;
     public function cinemas() {
         return $this->belongsToMany(Cinema::class, 'tbl_PromotionCinema', 'Promotion_Id', 'Cinema_Id');
     }
