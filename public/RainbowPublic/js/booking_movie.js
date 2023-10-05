@@ -76,9 +76,7 @@ function renderListShowTimeNavTab(data) {
     }
 }
 
-function cloneObject(obj) {
-    return JSON.parse(JSON.stringify(obj));
-  }
+
 function convertDataListShowTime(data) {
     var result = new Array();
     // data demo
@@ -249,53 +247,8 @@ function renderListShowTimeNavTabRowTime(data){
            <p class="asc_pera1">Executive</p>
            <p class="asc_pera2">Filling Fast</p>
            </span>
-           <a href="seat_booking/${data.Id}">${convertTo12HourFormat(data.Start)}</a>
+           <a href="/rainbow/seat_booking/${data.Id}">${convertTo12HourFormat(data.Start)}</a>
        </li>`
   
     return content;
-}
-function convertTo12HourFormat(inputTime) {
-    try {
-        // Chuyển đổi chuỗi thời gian thành đối tượng Date
-        const inputDate = new Date(inputTime);
-        
-        // Lấy giờ và phút
-        const hours = inputDate.getHours();
-        const minutes = inputDate.getMinutes();
-        
-        // Xác định AM hoặc PM
-        const amOrPm = hours >= 12 ? "PM" : "AM";
-        
-        // Chuyển đổi giờ sang định dạng 12 giờ
-        const formattedHours = (hours % 12 || 12).toString().padStart(2, '0');
-        const formattedMinutes = minutes.toString().padStart(2, '0');
-        
-        // Tạo chuỗi kết quả
-        const formattedTime = `${formattedHours}:${formattedMinutes} ${amOrPm}`;
-        
-        return formattedTime;
-    } catch (error) {
-        return "Định dạng thời gian không hợp lệ";
-    }
-}
-
-
-function convertTimeToEasy(time) {
-    var dateString = time;
-
-    // Chuyển đổi chuỗi ngày thành đối tượng Date
-    var date = new Date(dateString);
-
-    // Mảng thứ trong tuần (ngày 0 là Chủ Nhật)
-    var daysOfWeek = ["SU", "MO", "TU", "WE", "THU", "FRI", "SAT"];
-
-    // Lấy thứ
-    var dayOfWeek = daysOfWeek[date.getDay()];
-
-    // Lấy ngày trong tháng
-    var dayOfMonth = date.getDate();
-
-    // Kết quả
-    var result = `<span>${dayOfWeek}</span> <br> ${dayOfMonth}</a>`;
-    return result;
 }

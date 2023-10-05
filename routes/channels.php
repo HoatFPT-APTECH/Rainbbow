@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SocketControllers\SeatChooseController;
 use Illuminate\Support\Facades\Broadcast;
 
 /*

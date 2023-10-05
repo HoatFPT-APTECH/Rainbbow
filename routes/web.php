@@ -19,6 +19,11 @@ use App\Http\Controllers\RainbowControllers\HomeController;
 use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;
+use App\Http\Controllers\RainbowControllers\SeatBookingController;
+use App\Models\Cinema;
+use App\Models\Productor;
+use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Redis;
 
 use App\Http\Controllers\RainbowControllers\Movie_CategoryController;
 
@@ -26,6 +31,7 @@ use App\Http\Controllers\RainbowControllers\Movie_CategoryController;
 
 
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -47,6 +53,7 @@ Route::group(['prefix'=>'rainbow'],function(){
     Route::get("/movie_single/{id}",[Movie_SingleController::class,'index']);
 
     Route::get('/movie_booking/{id}',[MovieBookingController::class,'index']);
+    Route::get('/seat_booking/{id}',[SeatBookingController::class,'index']);
     Route::get('/movie_category',[Movie_CategoryController::class,'index']);
 
 });
@@ -179,4 +186,6 @@ Route:: group(['prefix'=>'/api'],function(){
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
     
 });
+
+
 
