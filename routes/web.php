@@ -15,10 +15,16 @@ use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
 use App\Http\Controllers\AdminControllers\PromotionController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\RainbowControllers\HomeController;
 use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;
-use App\Models\Promotion;
+
+use App\Http\Controllers\RainbowControllers\Movie_CategoryController;
+
+
+
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,6 +47,7 @@ Route::group(['prefix'=>'rainbow'],function(){
     Route::get("/movie_single/{id}",[Movie_SingleController::class,'index']);
 
     Route::get('/movie_booking/{id}',[MovieBookingController::class,'index']);
+    Route::get('/movie_category',[Movie_CategoryController::class,'index']);
 
 });
 Route:: group(['prefix'=>'admin'],function(){

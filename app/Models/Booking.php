@@ -12,12 +12,12 @@ class Booking extends Model
     public $timestamps=false;
     public function user()
     {
-        return $this->belongsTo(User::class, 'User_Id');
+        return $this->belongsTo(User::class, 'User_Id','Id');
     }
 
     public function tickets()
     {
-        return $this->hasMany(Ticket::class, 'Booking_Id');
+        return $this->hasMany(Ticket::class, 'Booking_Id','Id');
     }
 
 }
