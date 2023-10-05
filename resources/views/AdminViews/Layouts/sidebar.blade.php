@@ -22,6 +22,7 @@
                     <li><a href="/admin/director">Director Manager</a></li>
                     <li><a href="/admin/productor">Productor Manager</a></li>
                     <li><a href="/admin/cinema">Cinema Manager</a></li>
+                    <li><a href="/admin/promotion">Promotion Manager</a></li>
                    
                     </ul>
                     </li>
@@ -33,7 +34,7 @@
                             class="side-txt">Account Manager</span></a>
                 </li>
                 <li class="submenu">
-                    <a href="#"><i class="fa-solid fa-ticket"></i><span class="side-txt">Ticket Information</span>
+                    <a href="#"><i class="fa-solid fa-ticket"></i><span class="side-txt">Booking Information</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="/admin/booking">Booking </a></li>

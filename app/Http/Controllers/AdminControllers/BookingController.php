@@ -3,6 +3,12 @@
 namespace App\Http\Controllers\AdminControllers;
 use App\Models\Booking;
 use App\Http\Controllers\Controller;
+use App\Models\Cinema;
+use App\Models\Movie;
+use App\Models\Room;
+use App\Models\Showtime;
+use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -12,9 +18,18 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $listBooking= Booking::all();
-        return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
-        //return response()->json($listBooking,200); 
+        $listBooking= Booking ::with(['user','tickets'])->get();
+      for($b=0;$b<sizeof($listBooking);$b++){
+        for($t=0;$t<sizeof($listBooking[$b]->tickets);$t++){
+                $listBooking[$b]->tickets[$t]->Showtime= Showtime::where("Id",$listBooking[$b]->tickets[$t]->Showtime_Id)->first();
+                $listBooking[$b]->tickets[$t]->Showtime->Movie=Movie::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Movie_Id)->first(); 
+                $listBooking[$b]->tickets[$t]->Showtime->Cinema=Cinema::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Cinema_Id)->first();
+                $listBooking[$b]->tickets[$t]->Showtime->Room= Room::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Room_id)->first();
+        }
+      }
+
+       return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
+       //return response()->json($listBooking,200); 
     }
 
     /**

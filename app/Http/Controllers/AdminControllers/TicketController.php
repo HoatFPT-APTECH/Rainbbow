@@ -14,7 +14,7 @@ class TicketController extends Controller
     {
         $listTicket= Ticket::all();
         return view('AdminViews.index',['page'=>"ticket",'danhsach'=>$listTicket]);
-       // return response()->json($listTicket,200); 
+    //    return response()->json($listTicket,200); 
     }
 
     /**

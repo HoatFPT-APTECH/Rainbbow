@@ -55,7 +55,7 @@ class ProductorController extends Controller
     {
         $idProductor= intval($id);
         $ProductorExist= Productor::where('id',$idProductor)->first();
-        return view('AdminViews.index',['page'=>"ProductorEdit", 'Productorr'=>$ProductorExist]);
+        return view('AdminViews.index',['page'=>"ProductorEdit"],[ 'Productor'=>$ProductorExist]);
     }
 
     /**
