@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
 
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\RainbowControllers\HomeController;
 use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;

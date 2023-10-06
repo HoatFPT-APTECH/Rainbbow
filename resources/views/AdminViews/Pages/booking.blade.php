@@ -35,39 +35,51 @@
                 <tbody>
                     @foreach($danhsach as $Booking)
                     <tr>
-                        <td> {{$Booking->Id}} </td>
-                        <td> UserName: {{$Booking->user->UserName}}<br>
-                             Name: {{$Booking->user->Name}}<br>
-                             Address: {{$Booking->user->Address}}<br>
-                             Phone: {{$Booking->user->Phone}}
-                    </td>
-                        <td >
-                          <ul  style="border: 1px solid black; margin:0">
-                           <li>@foreach($Booking->tickets as $Ticket)
-                           Id: {{$Ticket->Id}} <br>
-                           Price: {{$Ticket->Price}}<br>
-                           Movie: {{$Ticket->showtime->movie->Name}}<br>
-                           Cinema Name: {{$Ticket->showtime->cinema->Name}}<br>
-                           Cinema Address: {{$Ticket->showtime->cinema->Address}}<br>
-                           Room: {{$Ticket->showtime->room->Name}}<br>
-
-                           @endforeach
-                        
-                           
-                           
-                        </li>
-                          </ul>
-                        <td>
-                             <ul>
-                                <li>
-                                    <select name="" id="">
-                                        <option value="">Đã thanh toán</option>
-                                        <option value="">Chưa thanh toán</option>
-                                    </select>
-                                </li>
-                            </ul>
+                        <form action="">
+                            <td> {{$Booking->Id}} </td>
+                            <td> UserName: {{$Booking->user->UserName}}<br>
+                                 Name: {{$Booking->user->Name}}<br>
+                                 Address: {{$Booking->user->Address}}<br>
+                                 Phone: {{$Booking->user->Phone}}
                         </td>
-                        <td><button class="btn btn-primary">Update</button></td>
+                            <td >
+                                
+                              <ul  >
+                              
+                                    @foreach($Booking->tickets as $Ticket)
+                                    <li >
+                               Id: {{$Ticket->Id}} <br>
+                               Price: {{$Ticket->Price}}<br>
+                               Movie: {{$Ticket->showtime->movie->Name}}<br>
+                               Cinema Name: {{$Ticket->showtime->cinema->Name}}<br>
+                               Cinema Address: {{$Ticket->showtime->cinema->Address}}<br>
+                               Room: {{$Ticket->showtime->room->Name}}<br>
+                            </li>
+                               @endforeach
+                            
+                               
+                               
+                           
+                              </ul>
+                            <td>
+                                 <ul>
+                                    @foreach($Booking->tickets as $Ticket)
+                                    <li >
+                                        <select name="" id="{{$Ticket->Id}}">
+                                            <option value="1" {{$Ticket->Status==1?'selected':' '}} >Đã thanh toán</option>
+                                            <option value="0" {{$Ticket->Status==1?'selected':' '}} >Chưa thanh toán</option>
+                                        </select>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </td>
+                            <td>   
+          
+                                <button class="btn btn-primary">Update</button>
+                                
+                            </td>
+                        </form>
+                        
                       </tr>
            
               
