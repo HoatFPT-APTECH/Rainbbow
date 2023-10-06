@@ -2,8 +2,9 @@
 <div class="page-wrapper dashboard-wrap">
     <div class="content container-fluid">
         <div class="container">
-            <form method="post" action="/admin/cinema/{{ $Cinema->Id }}">
+           
                 <h1>Edit cinema</h1>
+                <form method="post" action="/admin/cinema/update/{{ $Cinema->Id }}">
                 @csrf
                 <div class="form-group">
                     <label for="nameInput">Name</label>

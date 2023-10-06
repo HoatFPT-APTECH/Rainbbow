@@ -185,7 +185,7 @@
         .getAttribute("content");
 </script>
  
- <script src="{{ $assetPathRainbow }}/js/general.js"></script>
+
  <script src="{{ $assetPathRainbow }}/js/jquery_min.js"></script>
  <script src="{{ $assetPathRainbow }}/js/modernizr.js"></script>
  <script src="{{ $assetPathRainbow }}/js/bootstrap.js"></script>
@@ -211,29 +211,22 @@
  <script src="{{ $assetPathRainbow }}/js/plugin/rs_slider/revolution.extension.slideanims.min.js"></script>
  <script src="{{ $assetPathRainbow }}/js/plugin/rs_slider/revolution.extension.video.min.js"></script>
  <script src="{{ $assetPathRainbow }}/js/custom.js"></script>
- <script type="text/javascript" src="{{ $assetPathRainbow }}/js/login.js"></script>
+
+ {{-- orther js for project  --}}
+    <!-- Import Socket.io-client -->
+    <script src="{{ $assetPathRainbow }}/js/general.js"></script>
+<!-- Nhúng thư viện Socket.io -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+<!-- Nhúng thư viện Laravel Echo -->
+
+
+
+<script type="text/javascript" src="{{ $assetPathRainbow }}/js/login.js"></script>
  <script type="text/javascript" src="{{ $assetPathRainbow }}/js/header.js"></script>
  <!--main js file end-->
  <!--main js file end-->
 
- <script>
-     function initMap() {
-         var uluru = {
-             lat: -36.742775,
-             lng: 174.731559
-         };
-         var map = new google.maps.Map(document.getElementById('map'), {
-             zoom: 15,
-             scrollwheel: false,
-             center: uluru
-         });
-         var marker = new google.maps.Marker({
-             position: uluru,
-             map: map
-         });
-     }
- </script>
- <script async defer
-     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi2zbxXa0ObGqaSBo5NJMdwLs_xtQ03nI&amp;callback=initMap">
- </script>
+ 
  <script src="{{ $assetPathRainbow }}/js/{{$JsPage}}.js" ></script>
