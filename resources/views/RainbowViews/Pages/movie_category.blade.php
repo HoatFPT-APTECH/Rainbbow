@@ -54,29 +54,24 @@
 				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">
 					<div class="prs_mcc_left_side_wrapper">
 						<div class="prs_mcc_left_searchbar_wrapper">
-							<input type="text" placeholder="Search Movie">
-							<button><i class="flaticon-tool"></i>
+					<form action="/rainbow/search" method="get" >
+
+						<input type="text" name="keySearch" placeholder="Search Movie">
+						<button type="submit"><i class="flaticon-tool"></i>
+					</form>
 							</button>
 						</div>
 						<div class="prs_mcc_bro_title_wrapper">
 							<h2>browse title</h2>
 							<ul>
-								<li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">All <span>23,124</span></a> 
+								<li>
+									<i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="/rainbow/movie_category" >All <span></span></a> 
 								</li>
-								<li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Action <span>512</span></a> 
+								@foreach($listMovieCategory as $mc )
+								<li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="/rainbow/search?category={{$mc->Id}}">{{$mc->Name}} <span> {{sizeof($mc->movies)}} </span></a> 
 								</li>
-								<li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Romantic <span>548</span></a> 
-								</li>
-								<li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Love <span>557</span></a> 
-								</li>
-								<li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Musical <span>554</span></a> 
-								</li>
-								<li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Drama <span>567</span></a> 
-								</li>
-								<li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Thriller <span>689</span></a> 
-								</li>
-								<li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Horror <span>478</span></a> 
-								</li>
+								@endforeach
+							
 							</ul>
 						</div>
 						<div class="prs_mcc_event_title_wrapper">
@@ -107,107 +102,48 @@
 								<div class="tab-content">
 									<div id="grid" class="tab-pane fade in active">
 										<div class="row">
-											<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prs_upcom_slide_first">
-												<div class="prs_upcom_movie_box_wrapper prs_mcc_movie_box_wrapper">
-													<div class="prs_upcom_movie_img_box">
-														<img style="width:265px;height:325px;" src="{{$listMovie[0]->photos[0]->Src}}" alt="movie_img" />
-														<div class="prs_upcom_movie_img_overlay"></div>
-														<div class="prs_upcom_movie_img_btn_wrapper">
-															<ul>
-																<li><a class="button test-popup-link" rel="external" href="{{$listMovie[0]->VideoTrailer}}">View Trailer</a>
-																</li>
-																<li><a href="/rainbow/movie_single/{{$listMovie[0]->Id}}"">View Details</a>
-																</li>
-															</ul>
+											@if(sizeof($listMovie)==0)
+												<p class='text-danger'> No data found </p>
+											
+											@else 
+												@for ($i=0;$i<sizeof($listMovie);$i++)
+												<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prs_upcom_slide_first">
+													<div class="prs_upcom_movie_box_wrapper prs_mcc_movie_box_wrapper">
+														<div class="prs_upcom_movie_img_box">
+															<img style="width:265px;height:325px;" src="{{$listMovie[$i]->photos[0]->Src}}" alt="movie_img" />
+															<div class="prs_upcom_movie_img_overlay"></div>
+															<div class="prs_upcom_movie_img_btn_wrapper">
+																<ul>
+																	<li><a class="button test-popup-link" rel="external"  href="{{$listMovie[$i]->VideoTrailer}}">View Trailer</a>
+																	</li>
+																	<li><a  href="/rainbow/movie_single/{{$listMovie[$i]->Id}}">View Details</a>
+																	</li>
+																</ul>
+															</div>
 														</div>
-													</div>
-													<div class="prs_upcom_movie_content_box">
-														<div class="prs_upcom_movie_content_box_inner">
-															<h2><a href="/rainbow/movie_single/{{$listMovie[0]->Id}}">{{$listMovie[0]->Name}}</a></h2>
-															<p>{{$listMovie[0]->movieCategory->Name}}</p>	<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="prs_upcom_movie_content_box_inner_icon">
-															<ul>
-																<li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-											@for ($i=1;$i<=2;$i++)
-											<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prs_upcom_slide_first">
-												<div class="prs_upcom_movie_box_wrapper prs_mcc_movie_box_wrapper">
-													<div class="prs_upcom_movie_img_box">
-														<img style="width:265px;height:325px;" src="{{$listMovie[$i]->photos[0]->Src}}" alt="movie_img" />
-														<div class="prs_upcom_movie_img_overlay"></div>
-														<div class="prs_upcom_movie_img_btn_wrapper">
-															<ul>
-																<li><a class="button test-popup-link" rel="external"  href="{{$listMovie[$i]->VideoTrailer}}">View Trailer</a>
-																</li>
-																<li><a  href="/rainbow/movie_single/{{$listMovie[$i]->Id}}">View Details</a>
-																</li>
-															</ul>
-														</div>
-													</div>
-													<div class="prs_upcom_movie_content_box">
-														<div class="prs_upcom_movie_content_box_inner">
-															<h2><a href="/rainbow/movie_single/{{$listMovie[$i]->Id}}">{{$listMovie[$i]->Name}}</a></h2>
-															<p>{{$listMovie[$i]->movieCategory->Name}}</p>	<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="prs_upcom_movie_content_box_inner_icon">
-															<ul>
-																<li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
-																</li>
-															</ul>
+														<div class="prs_upcom_movie_content_box">
+															<div class="prs_upcom_movie_content_box_inner">
+																<h2><a href="/rainbow/movie_single/{{$listMovie[$i]->Id}}">{{$listMovie[$i]->Name}}</a></h2>
+																<p>{{$listMovie[$i]->movieCategory->Name}}</p>	<i class="fa fa-star"></i>
+																<i class="fa fa-star"></i>
+																<i class="fa fa-star"></i>
+																<i class="fa fa-star-o"></i>
+																<i class="fa fa-star-o"></i>
+															</div>
+															<div class="prs_upcom_movie_content_box_inner_icon">
+																<ul>
+																	<li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
+																	</li>
+																</ul>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
-											@endfor
-											<div class="cc_featured_second_section">
-											@for($i=3;$i<=7;$i++)
-											<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prs_upcom_slide_first">
-												<div class="prs_upcom_movie_box_wrapper prs_mcc_movie_box_wrapper">
-													<div class="prs_upcom_movie_img_box">
-														<img style="width:265px;height:325px;" src="{{$listMovie[$i]->photos[0]->Src}}" alt="movie_img" />
-														<div class="prs_upcom_movie_img_overlay"></div>
-														<div class="prs_upcom_movie_img_btn_wrapper">
-															<ul>
-																<li><a class="button test-popup-link" rel="external"  href="{{$listMovie[$i]->VideoTrailer}}">View Trailer</a>
-																</li>
-																<li><a  href="/rainbow/movie_single/{{$listMovie[$i]->Id}}">View Details</a>
-																</li>
-															</ul>
-														</div>
-													</div>
-													<div class="prs_upcom_movie_content_box">
-														<div class="prs_upcom_movie_content_box_inner">
-															<h2><a href="/rainbow/movie_single/{{$listMovie[$i]->Id}}">{{$listMovie[$i]->Name}}</a></h2>
-															<p>{{$listMovie[$i]->movieCategory->Name}}</p>	<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="prs_upcom_movie_content_box_inner_icon">
-															<ul>
-																<li><a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-											@endfor
+												@endfor
+											
+											@endif
+										
+											
 									</div>
 											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 												<div class="pager_wrapper gc_blog_pagination">

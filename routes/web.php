@@ -55,6 +55,7 @@ Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/movie_booking/{id}',[MovieBookingController::class,'index']);
     Route::get('/seat_booking/{id}',[SeatBookingController::class,'index']);
     Route::get('/movie_category',[Movie_CategoryController::class,'index']);
+       Route::get('/search',[Movie_CategoryController::class,'Search']);
 
 });
 Route:: group(['prefix'=>'admin'],function(){
