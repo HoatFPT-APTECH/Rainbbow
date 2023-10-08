@@ -6,8 +6,8 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h2>Promotion      <b>Details</b>       <button class="btn btn-primary ">
-                        <a href="./promotion/create" style="color: white">Add new Promotion</a>
+                        <h2>Promotion      <b>Details</b>    <br><br>   <button class="btn btn-primary ">
+                        <a href="./promotion/create" style="color: white"><i class="fa-solid fa-plus"></i>Add new Promotion</a>
                         </button></h2>
                     </div>
                     <div class="col-sm-4">
@@ -25,16 +25,26 @@
                     <tr>
                         <th>Id</th>
                         <th>Start <i class="fa fa-sort"></i></th>
-                        <th>End</th>
+                        <th>End <i class="fa fa-sort"></i></th>
+                        <th>PromotionCategrory <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($danhsach as $Promotion)
                  <tr>
-                     <td>{{$Promotion->Id}}</td>
-                     <td>{{$Promotion->Start}}</td>
-                     <td>{{$Promotion->End}}</td>
+                     <td>
+                        {{$Promotion->Id}}
+                    </td>
+                     <td>
+                        {{$Promotion->Start}}
+                    </td>
+                     <td>
+                        {{$Promotion->End}}
+                    </td>
+                    <td>
+                        {{$Promotion->promotionCategrory->Name}}
+                    </td>
                      <td>
                         <a href="/admin/promotion/show/{{$Promotion->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                         <a href="/admin/promotion/edit/{{$Promotion->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

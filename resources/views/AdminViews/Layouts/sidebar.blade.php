@@ -22,7 +22,7 @@
                     <li><a href="/admin/director">Director Manager</a></li>
                     <li><a href="/admin/productor">Productor Manager</a></li>
                     <li><a href="/admin/cinema">Cinema Manager</a></li>
-                    <li><a href="/admin/promotion">Promotion Manager</a></li>
+                    
                    
                     </ul>
                     </li>
@@ -43,6 +43,10 @@
                         <li><a href="/admin/room">Room </a></li>
 
                     </ul>
+                </li>
+                <li>
+                    <a href="/admin/promotion"><i class="fa-solid fa-tag"></i><span
+                            class="side-txt">Promotion</span></a>
                 </li>
                 
                     </ul>

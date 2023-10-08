@@ -13,8 +13,8 @@ class ShowtimeController extends Controller
     public function index()
     {
         $listShowtime= Showtime::all();
-       return view('AdminViews.index',['page'=>"showtime",'danhsach'=>$listShowtime]);
-        //return response()->json($listShowtime,200); 
+       //return view('AdminViews.index',['page'=>"showtime",'danhsach'=>$listShowtime]);
+        return response()->json($listShowtime,200); 
     }
 
     /**
