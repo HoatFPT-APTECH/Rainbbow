@@ -10,7 +10,7 @@ function loadUserInformation() {
         );
         aSighnup.setAttribute(
             "href",
-            "https://www.youtube.com/watch?v=SI-ibStPxdI&ab_channel=MiiMusic"
+            "/rainbow/account_detail"
         );
         aSighnup.setAttribute("data-text", userI.Name);
         aSighnup.removeAttribute("data-toggle")

@@ -82,7 +82,7 @@ function formatDate(inputDate) {
     return formattedDate;
   }
 
-
+// hàm chuyển string thành ngày- tháng 
 function convertTimeToEasy(time) {
     var dateString = time;
 
@@ -102,4 +102,44 @@ function convertTimeToEasy(time) {
     var result = `<span>${dayOfWeek}</span> <br> ${dayOfMonth}</a>`;
     return result;
 }
+// hàm lấy giờ từ chuỗi đã cho 
+function getHour(time){
+  // Chuỗi thời gian đầu vào
+var timeString = time
+
+// Chuyển chuỗi thành đối tượng Date
+var dateTime = new Date(timeString);
+
+// Lấy giờ và phút từ đối tượng Date
+var hour = dateTime.getHours();
+var minute = dateTime.getMinutes();
+
+// Định dạng giờ và phút thành chuỗi 'HH:mm'
+var hourMinute = (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
+return hourMinute;
+
+}
+// hàm lấy ngày-tháng- năm 19-DEC-2022
+function getDMYear(time){
+  // Chuỗi thời gian đầu vào
+var timeString = time
+
+// Chuyển chuỗi thành đối tượng Date
+var dateTime = new Date(timeString);
+
+// Lấy ngày, tháng và năm từ đối tượng Date
+var day = dateTime.getDate();
+var month = dateTime.getMonth();
+var year = dateTime.getFullYear();
+
+// Mảng các tên tháng
+var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+// Định dạng lại thành "DD-MMM-YYYY"
+var formattedDate = (day < 10 ? '0' : '') + day + '-' + monthNames[month] + '-' + year;
+
+return formattedDate;
+
+}
+
 

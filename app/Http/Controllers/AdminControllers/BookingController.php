@@ -31,7 +31,24 @@ class BookingController extends Controller
        return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
        //return response()->json($listBooking,200); 
     }
-
+       public function Search(Request $request){
+        $key=$request->input('key');
+        $listBooking= Booking::with(['user', 'tickets'])
+        ->whereHas('user', function ($query) use ($key) {
+            $query->where('Phone', 'like', '%' . $key . '%');
+        })
+        ->get();
+    
+        for($b=0;$b<sizeof($listBooking);$b++){
+            for($t=0;$t<sizeof($listBooking[$b]->tickets);$t++){
+                    $listBooking[$b]->tickets[$t]->Showtime= Showtime::where("Id",$listBooking[$b]->tickets[$t]->Showtime_Id)->first();
+                    $listBooking[$b]->tickets[$t]->Showtime->Movie=Movie::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Movie_Id)->first(); 
+                    $listBooking[$b]->tickets[$t]->Showtime->Cinema=Cinema::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Cinema_Id)->first();
+                    $listBooking[$b]->tickets[$t]->Showtime->Room= Room::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Room_id)->first();
+            }
+          }
+          return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
+       }
     /**
      * Show the form for creating a new resource.
      */

@@ -13,9 +13,9 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="search-box">
-                            <form action="#">
-                                <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
+                            <form action="/admin/booking/search">
+                              <button type='submit'>  <i class="material-icons">&#xE8B6;</i></button>
+                                <input type="text" name='key' class="form-control" placeholder="Search&hellip;">
                           
                             </form>
                         </div>
@@ -64,6 +64,7 @@
                                         <option value="">Đã thanh toán</option>
                                         <option value="">Chưa thanh toán</option>
                                     </select>
+                                    <button class="btn btn-primary">Update</button>
                                 </li>
                             </ul>
                         </td>

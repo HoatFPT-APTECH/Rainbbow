@@ -9,7 +9,7 @@
 				</div>
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 					<div class="st_bt_top_center_heading float_left">
-						<h3>Aquaman - English - (2:47)</h3>
+						<h3> {{$movie->Name}} - <span class="time_hours"> {{$showTime->Start}} </span></h3>
 					</div>
 				</div>
 			</div>
@@ -26,13 +26,19 @@
 							<div class="col-md-12">
 								<div class="st_dtts_ineer_box float_left">
 									<ul>
-										<li><span class="dtts1">Date</span>  <span class="dtts2">19-Dec-2022</span>
+										<li><span class="dtts1">Date</span>  <span class="dtts2" id="time_date">19-Dec-2022</span>
 										</li>
-										<li><span class="dtts1">Time</span>  <span class="dtts2">10:00PM</span>
+										<li><span class="dtts1">Time</span>  <span class="dtts2 time_hours">10:00PM</span>
 										</li>
-										<li><span class="dtts1">Theater</span>  <span class="dtts2">Ariesplex SL Cinemas</span>
+										<li><span class="dtts1">Cinema</span>  <span class="dtts2"> {{$showTime->cinema->Name}} </span>
 										</li>
-										<li><span class="dtts1">Seat</span>  <span class="dtts2">PLATINUM - PB7, PB8 (2 Tickets) </span>
+										<li><span class="dtts1">Seat</span>  <span class="dtts2">
+										({{sizeof($seats)}} Tickets ) <br/> 
+											@foreach ($seats as $s )
+												{{$s->seatCategory->Name=="D"?"	ECONOMY -":'PLANTINUM-'}} {{$s->Name}} <br/>
+											@endforeach
+											
+							
 										</li>
 									</ul>
 								</div>
@@ -40,26 +46,17 @@
 							<div class="col-md-12">
 								<div class="st_cherity_section float_left">
 									<div class="st_cherity_img float_left">
-										<img src="{{$assetPathRainbow}}/images/content/cc1.jpg" alt="img">
+										<img src="{{$movie->photos[0]->Src}}" alt="img">
 									</div>
-									<div class="st_cherity_img_cont float_left">
-										<div class="box">
-											<p class="cc_pc_color1">
-												<input type="checkbox" id="c201" name="cb">
-												<label for="c201"><span>ADD Rs. 2</span> to your transaction as a donation. (Uncheck if you do not wish to donate)</label>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="st_cherity_btn float_left">
-									<h3>SELECT TICKET TYPE</h3>
+								
 									<ul>
-										<li><a href="#"><i class="flaticon-tickets"></i> &nbsp;M-Ticket</a>
-										</li>
-										<li><a href="#"><i class="flaticon-tickets"></i> &nbsp;Box office Pickup </a>
-										</li>
-										<li><a href="confirmation_screen.html">Proceed to Pay </a>
+										
+										<li class="mt-5"><a href="confirmation_screen.html">Proceed to Pay </a>
 										</li>
 									</ul>
 								</div>
@@ -76,8 +73,27 @@
 								</div>
 								<div class="st_dtts_sb_ul float_left">
 									<ul>
-										<li>Platinum - PB7, PB8
-											<br>( 2 Tickets ) AUDI-5 <span>Rs . 790.00</span>
+										<li>
+											Order Name : <span> {{$user->Name}}  </span>
+											<br/>Phone: <span> {{$user->Phone}} </span>
+										</li>
+										<li>
+                                           Movie Name: <span> {{$movie->Name}} </span>
+                                
+
+										</li>
+										<li>Tickets: <span>({{sizeof($seats)}} Tickets ) </span>
+											<br>
+									
+											@foreach ($seats as $s )
+
+											  <div style="padding-left: 20px" > {{$s->seatCategory->Name=="D"?"	ECONOMY -":'PLANTINUM-'}} {{$s->Name}} <span> $ <i class="ticket_price">{{($movie->Price)*($s->seatCategory->Coefficient)}}</i> </span> </div>
+											
+										
+										@endforeach
+											
+											
+										  Total: 	<span > $ <b id="total_price">200</b> </span>
 										</li>
 										<li>Internet handling fees <span>Rs.70.80</span>
 										</li>
