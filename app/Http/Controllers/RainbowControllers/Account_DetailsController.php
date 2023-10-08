@@ -14,14 +14,34 @@ class Account_DetailsController extends Controller
     public function Index($id){
     $page='account_details';
     $JsPage="";
-    $UserDetails=User::with(['bookings','promotions'])->where('Id',$id)->first();
+    $idUser= intval($id);
+    $UserDetails= User::where('id',$idUser)->first();
         return  view('RainbowViews.index',['page'=>$page,
         'JsPage'=>$JsPage,
         'userDetails'=>$UserDetails,
-        'id'=>$id
+        'id'=>$idUser
 
     ]);
     // return response()->json($UserDetails,200);
+    }
+    public function update(Request $request, string $id)
+    {
+        $UserName= $request->input('UserName');
+        $Name= $request->input('Name');
+        $Address= $request->input('Address');
+        $DateOfBirth= $request->input('DateOfBirth');
+        $Phone= $request->input('Phone');
+
+        $newUser= User::where('Id',$id)->first();
+        $newUser->UserName=$UserName;
+        $newUser->Name=$Name;
+        $newUser->Address=$Address;
+        $newUser->DateOfBirth=$DateOfBirth;
+        $newUser->Phone=$Phone;
+       
+        $newUser->save();
+        
+        return redirect("/rainbow/account_details/$id");
     }
     public function Booking($id){
         $page='account_booking';
@@ -37,12 +57,16 @@ class Account_DetailsController extends Controller
     public function Promotion($id){
         $page='account_promotion';
         $JsPage="";
-        $UserPromotion=Promotion::
-        $UserDetails=User::with(['bookings','promotions'])->where('Id',$id)->get();
-    //     return  view('RainbowViews.index',['page'=>$page,
-    //     'JsPage'=>$JsPage,
-    //     'danhsach'=>$UserPromotion
-    // ]);
-    return response()->json($UserDetails,200);
+        $UserPromotion=Promotion::with('users','promotionCategrory')->whereHas('users', function ($query) use ($id) {
+            $query->where('id', $id);
+        })
+        ->get();
+        // $UserDetails=User::with(['bookings','promotions'])->where('Id',$id)->get();
+        return  view('RainbowViews.index',['page'=>$page,
+        'JsPage'=>$JsPage,
+        'danhsach'=>$UserPromotion,
+        'id'=>$id
+    ]);
+    // return response()->json($UserPromotion,200);
     }
 }

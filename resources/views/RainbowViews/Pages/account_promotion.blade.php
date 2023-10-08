@@ -95,7 +95,7 @@ color:#69707a;
     <nav class="nav nav-borders">
         <a class="nav-link ms-0" href="/rainbow/account_details/{{$id}}">Profile</a>
         <a class="nav-link" href="/rainbow/account_booking/{{$id}}">Booking</a>
-        <a class="nav-link active" href="/rainbow/account_booking/{{$id}}" >Promotion</a>
+        <a class="nav-link active" href="/rainbow/account_promotion/{{$id}}" >Promotion</a>
         {{-- <a class="nav-link" href="">Notifications</a> --}}
     </nav>
         <div class="card-header">Promotion List</div>
@@ -105,19 +105,28 @@ color:#69707a;
                 <table class="table mb-0">
                     <thead>
                         <tr>
-                            <th class="border-gray-200" scope="col">Name</th>
+                            <th class="border-gray-200" scope="col">Code</th>
                             <th class="border-gray-200" scope="col">Start</th>
                             <th class="border-gray-200" scope="col">End</th>
-                            <th class="border-gray-200" scope="col">Cinema</th>
+                            <th class="border-gray-200" scope="col">Coefficient</th>
+                            <th class="border-gray-200" scope="col">Used</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($danhsach as $userBookings)
+                        @foreach ($danhsach as $userPromotion)
                         <tr>
-                            <td>{{$userBookings->Id}}</td>
-                            <td>{{$userBookings->OrderTime}}</td>
-                            <td>{{$userBookings->AllPrice}}</td>
-                            <td><span class="badge bg-light text-dark">Pending</span></td>
+                            <td>{{$userPromotion->Id}}</td>
+                            <td>{{$userPromotion->Start}}</td>
+                            <td>{{$userPromotion->End}}</td>
+                            <?php $DC = ($userPromotion->promotionCategrory->Coefficient -1) *100
+                            ?>
+                            <td>{{$DC}}%</td>
+                            @if ( $userPromotion->Used == 0)
+                            <td>No</td>
+                            @else
+                            <td>Yes</td>
+                            @endif
+                            {{-- <td><span class="badge bg-light text-dark">Pending</span></td> --}}
                         </tr>
                         @endforeach
                     </tbody>

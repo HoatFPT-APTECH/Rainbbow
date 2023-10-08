@@ -63,8 +63,8 @@ color:#69707a;
 <div class="container-xl px-4 mt-4">
     <!-- Account page navigation-->
     <nav class="nav nav-borders">
-        <a class="nav-link active ms-0" href="/rainbow/account_details/{{$id}}" target="_self">Profile</a>
-        <a class="nav-link" href="/rainbow/account_booking/{{$id}}" target="_self">Booking</a>
+        <a class="nav-link active ms-0" href="/rainbow/account_details/{{$id}}">Profile</a>
+        <a class="nav-link" href="/rainbow/account_booking/{{$id}}">Booking</a>
         <a class="nav-link" href="/rainbow/account_promotion/{{$id}}">Promotion</a>
         {{-- <a class="nav-link" href="#"  target="__blank">Notifications</a> --}}
     </nav>
@@ -89,23 +89,26 @@ color:#69707a;
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
-                    <form>
-                        <!-- Form Group (username)-->
-                        <div class="mb-3">
+                    <form method="post" action="/rainbow/account_details/update/{{$userDetails->Id}}">
+                        @csrf
+                        {{-- @method('PUT') --}}
+                        {{-- <!-- Form Group (username)--> --}}
+
+                        <div class= "mb-3">
                             <label class="small mb-1" for="inputUsername">UserName</label>
-                            <input class="form-control" id="inputUsername" type="text" value="{{$userDetails->UserName}}" readonly>
+                            <input class="form-control" id="Username" name="UserName" type="text" value="{{$userDetails->UserName}}">
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputName">Name</label>
-                                <input class="form-control" id="inputName" type="text" value="{{$userDetails->Name}}" readonly>
+                                <input class="form-control" id="Name" name="Name" type="text" value="{{$userDetails->Name}}" >
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputAddress">Address</label>
-                                <input class="form-control" id="inputAddress" type="text" value="{{$userDetails->Address}}" readonly>
+                                <input class="form-control" id="Address" name="Address" type="text" value="{{$userDetails->Address}}" >
                             </div>
                         </div>
                         <!-- Form Row        -->
@@ -113,12 +116,12 @@ color:#69707a;
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputBirth">Date of birth</label>
-                                <input class="form-control" id="inputBirth" type="text" value="{{$userDetails->DateOfBirth}}" readonly>
+                                <input class="form-control" id="DateOfBirth" name="DateOfBirth" type="datetime-local" value="{{$userDetails->DateOfBirth}}" >
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Phone</label>
-                                <input class="form-control" id="inputPhone" type="text"  value="{{$userDetails->Phone}}" readonly>
+                                <input class="form-control" id="Phone" name="Phone" type="text"  value="{{$userDetails->Phone}}" >
                             </div>
                         </div>
                         <!-- Form Group (email address)-->
@@ -127,7 +130,7 @@ color:#69707a;
                             <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
                         </div> --}}
                         <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
+                        {{-- <div class="row gx-3 mb-3"> --}}
                             <!-- Form Group (phone number)-->
                             {{-- <div class="col-md-6">
                                 <label class="small mb-1" for="inputRole">Role</label>
@@ -138,13 +141,14 @@ color:#69707a;
                                 <label class="small mb-1" for="inputBirthday">Birthday</label>
                                 <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988">
                             </div> --}}
-                        </div>
+                        {{-- </div> --}}
                         <!-- Save changes button-->
-                        {{-- <button class="btn btn-primary" type="button">Save changes</button> --}}
-                    </form>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
     </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

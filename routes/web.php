@@ -60,6 +60,7 @@ Route::group(['prefix'=>'rainbow'],function(){
        Route::get('/search',[Movie_CategoryController::class,'Search']);
        Route::get('/account_details/{Id}',[Account_DetailsController::class,'index']);
        Route::get('/account_booking/{Id}',[Account_DetailsController::class,'booking']);
+       Route::post('/account_details/update/{Id}',[Account_DetailsController::class,'update']);
        Route::get('/account_promotion/{Id}',[Account_DetailsController::class,'promotion']);
 
 });
