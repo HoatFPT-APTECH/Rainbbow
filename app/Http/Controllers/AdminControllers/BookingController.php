@@ -31,7 +31,7 @@ class BookingController extends Controller
        return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
        //return response()->json($listBooking,200); 
     }
-       public function Search(Request $request){
+    public function Search(Request $request){
         $key=$request->input('key');
         $listBooking= Booking::with(['user', 'tickets'])
         ->whereHas('user', function ($query) use ($key) {
@@ -47,7 +47,20 @@ class BookingController extends Controller
                     $listBooking[$b]->tickets[$t]->Showtime->Room= Room::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Room_id)->first();
             }
           }
-          return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
+         return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
+         
+       }
+       public function updateStatus(Request $request)
+       {
+           $ticket_id = $request->input('ticket_id');
+           $status = $request->input('status');
+   
+           $ticket = Ticket::find($ticket_id);
+           $ticket->Status = $status;
+           $ticket->save();
+        //  return response()->json($ticket);
+       
+           return redirect("/admin/booking");
        }
     /**
      * Show the form for creating a new resource.
