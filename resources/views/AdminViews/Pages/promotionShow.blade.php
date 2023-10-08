@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>View Promotion</title>
+  <title>View Promotion </title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -9,16 +9,22 @@
     <div class="content container-fluid">
   <div class="container">
   
-    <h1>View promotion</h1>
+    <h1>View Promotion</h1>
     <form action="xuly.php" method="POST">
       <div class="form-group">
-        <label for="startInput">Start</label>
-        <input type="text" class="form-control" id="startInput" name="start" value="{{$Promotion->Start}}">
+        <label for="start">Start Date:</label>
+        <input type="datetime-local" class="form-control" id="start" name="Start" value="{{$Promotion->Start}}" >
       </div>
+      
       <div class="form-group">
-        <label for="end">End</label>
-        <input type="text" class="form-control" id="end" name="end" value="{{$Promotion->End}}" >
-    </div>
+        <label for="end">End Date:</label>
+        <input type="datetime-local" class="form-control" id="end" name="End" value="{{$Promotion->End}}" >
+      </div>
+      
+      <div class="form-group">
+        <label for="category">Category :</label>
+        <input type="text" class="form-control" id="category" name="PromotionCategrory_Id" value="{{$Promotion->promotionCategrory->Name}}">
+      </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>

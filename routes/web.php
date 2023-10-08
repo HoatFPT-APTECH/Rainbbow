@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminControllers\TicketController;
 use App\Http\Controllers\AdminControllers\ShowtimeController;
 use App\Http\Controllers\AdminControllers\RoomController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\AdminControllers\CinemaController;
 use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
@@ -47,6 +48,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('send-mail',[MailController::class,'index']);
 Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/',[HomeController::class,'index'])->name("rainbow.home");
     Route::get('/register',[RegisterController::class,'index']);
@@ -100,7 +102,7 @@ Route::get("/cinema/delete/{id}",[CinemaController::class,'destroy']);
 
     Route::get('/promotion',[PromotionController::class,'index']);
     Route::get('/promotion/show/{id}',[PromotionController::class,'show']);
-    Route::get('/promotion/edit/edit{id}',[PromotionController::class,'edit']);
+    Route::get('/promotion/edit/{id}',[PromotionController::class,'edit']);
     Route::post('/promotion/update/{id}',[PromotionController::class,'update']);
     Route::get('/promotion/create',[PromotionController::class,'create']);
     Route::post('/promotion/store',[PromotionController::class,'store']);
@@ -145,11 +147,13 @@ Route::get("/cinema/delete/{id}",[CinemaController::class,'destroy']);
    //
    Route::get('/booking',[BookingController::class,'index']);
    Route::get('/booking/create',[BookingController::class,'create']);
+   Route::get('/booking/search',[BookingController::class,'Search']);
    Route::post('/booking/store',[BookingController::class,'store']);
    Route::get('/booking/edit/{id}',[BookingController::class,'edit']);
    Route::post('/booking/update/{id}',[BookingController::class,'update']);
    Route::get('/booking/show/{id}',[BookingController::class,'show']);
    Route::get('/booking/delete/{id}',[BookingController::class,'destroy']);
+   Route::post('/booking/updateStatus',[BookingController::class,'updateStatus']);
 
    //
    Route::get('/ticket',[TicketController::class,'index']);
