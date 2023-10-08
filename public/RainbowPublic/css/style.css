@@ -2085,7 +2085,7 @@ body.active #mobile-nav {
     float: left;
     width: 100%;
     background: #ffffff;
-    padding: 20px;
+    padding: 10px;
     -webkit-border-bottom-right-radius: 10px;
     -moz-border-bottom-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -4202,7 +4202,8 @@ body.active #mobile-nav {
     margin: 0;
     padding-top: 45px;
 }
-.pagination > li > a {
+.pagination > li > a,
+.pagination >li >span {
     color: #000000;
     background: #ffffff;
     font-size: 16px;
@@ -4222,7 +4223,8 @@ body.active #mobile-nav {
     text-align: center;
     margin-right: 10px;
 }
-.pagination > li:first-child > a {
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
     width: 50px;
     height: 50px;
     text-align: center;
@@ -4237,7 +4239,8 @@ body.active #mobile-nav {
 .pagination > li a i:before {
     margin-left: 0;
 }
-.pagination > li:last-child > a {
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
     width: 50px;
     height: 50px;
     text-align: center;
