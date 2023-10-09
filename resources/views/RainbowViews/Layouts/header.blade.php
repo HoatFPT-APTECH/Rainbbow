@@ -305,8 +305,9 @@
             <div class="prs_top_login_btn_wrapper">
                 <div class="prs_animate_btn1">
                     <ul>
-                        <li><a href="/rainbow/#" class="button button--tamaya" data-text="sign up"
-                                data-toggle="modal" data-target="#myModal"><span>sign up</span></a>
+                        <li><a href="/rainbow/#" class="button button--tamaya" data-text="log in "
+                                data-toggle="modal" data-target="#myModal"><span>log in
+                                     </span></a>
                         </li>
                     </ul>
                 </div>
@@ -357,7 +358,7 @@
                             </g>
                         </svg><span>Movie Pro</span>
                     </a>
-                    <a href="/rainbow/#" class="manu-close"><i class="fa fa-times"></i></a>
+                    <a href="#" class="manu-close"><i class="fa fa-times"></i></a>
                 </div>
                 <ul class="mobile-list-nav">
                     <li><a href="/rainbow//about">OVERVIEW</a>
@@ -412,8 +413,8 @@
                 <div class="prs_top_login_btn_wrapper prs_slidebar_searchbar_btn_wrapper">
                     <div class="prs_animate_btn1">
                         <ul>
-                            <li><a href="/rainbow/#" class="button button--tamaya" data-text="sign up"
-                                    data-toggle="modal" data-target="#myModal"><span>sign up</span></a>
+                            <li><a href="/rainbow/#" class="button button--tamaya" data-text="log in "
+                                    data-toggle="modal" data-target="#myModal"><span>log in </span></a>
                             </li>
                         </ul>
                     </div>

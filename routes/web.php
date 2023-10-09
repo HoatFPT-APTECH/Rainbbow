@@ -15,7 +15,11 @@ use App\Http\Controllers\AdminControllers\CinemaController;
 use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
 use App\Http\Controllers\AdminControllers\PromotionController;
+use App\Http\Controllers\Api\PromotionController as ApiPromotionController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\SeatController;
+use App\Http\Controllers\RainbowControllers\BookingTypeController;
+use App\Http\Controllers\RainbowControllers\ConfirmationScreenController;
 use App\Http\Controllers\RainbowControllers\HomeController;
 use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
@@ -57,11 +61,18 @@ Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/movie_booking/{id}',[MovieBookingController::class,'index']);
     Route::get('/seat_booking/{id}',[SeatBookingController::class,'index']);
     Route::get('/movie_category',[Movie_CategoryController::class,'index']);
+
+    Route::get('/booking_type',[BookingTypeController::class,'index']);
+    Route::get('/booking_type/create',[ConfirmationScreenController::class,'create']);
+    Route::get('/confirmation_screen',[ConfirmationScreenController::class,'index']);
+
+
        Route::get('/search',[Movie_CategoryController::class,'Search']);
        Route::get('/account_details/{Id}',[Account_DetailsController::class,'index']);
        Route::get('/account_booking/{Id}',[Account_DetailsController::class,'booking']);
        Route::post('/account_details/update/{Id}',[Account_DetailsController::class,'update']);
        Route::get('/account_promotion/{Id}',[Account_DetailsController::class,'promotion']);
+
 
 });
 Route:: group(['prefix'=>'admin'],function(){
@@ -151,6 +162,7 @@ Route::get("/cinema/delete/{id}",[CinemaController::class,'destroy']);
 
    //
    Route::get('/booking',[BookingController::class,'index']);
+   Route::get('/booking/search',[BookingController::class,'Search']);
    Route::get('/booking/create',[BookingController::class,'create']);
    Route::get('/booking/search',[BookingController::class,'Search']);
    Route::post('/booking/store',[BookingController::class,'store']);
@@ -192,6 +204,8 @@ Route::get("/cinema/delete/{id}",[CinemaController::class,'destroy']);
 Route:: group(['prefix'=>'/api'],function(){
     Route::post("/login",[LoginController::class,'HandleLogin']);
     Route::post("/getListShowTimeByIdMovie",[ApiBookingController::class,'GetListShowByIdMovie']);
+    Route::post("/changeStatusSeatShowtime",[SeatController::class, 'ChangeStatusSeat']);
+    Route::post("/checkVoucher",[ApiPromotionController::class,'check']);
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
     
 });
