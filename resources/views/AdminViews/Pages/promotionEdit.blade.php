@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Edit Promotion</title>
+  <title>View Promotion </title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -10,10 +10,7 @@
   <div class="container">
   
     <h1>Edit Promotion</h1>
-  
-    <form method="post" action="/admin/promotion/update/{{$Promotion->Id}}">
-      @csrf
- 
+    <form action="xuly.php" method="POST">
       <div class="form-group">
         <label for="start">Start Date:</label>
         <input type="datetime-local" class="form-control" id="start" name="Start" value="{{$Promotion->Start}}" >
@@ -26,16 +23,7 @@
       
       <div class="form-group">
         <label for="category">Category :</label>
-        <select name="PromotionCategrory_Id" class="form-select" aria-label="Default select example">
-          @foreach ($ListCategrory as $categrory)
-              @if ($categrory->Id == $Promotion->PromotionCategrory_Id )
-                  <option value={{$categrory->Id}} selected>{{$categrory->Name}}</option>
-              @else
-                  <option value={{$categrory->Id}}>{{$categrory->Name}}</option>
-              @endif
-          @endforeach
-      </select>
-        {{--}}<input type="text" class="form-control" id="category" name="PromotionCategrory_Id" value="{{$Promotion->PromotionCategrory_Id}}">--}}
+        <input type="text" class="form-control" id="category" name="PromotionCategrory_Id" value="{{$Promotion->promotionCategrory->Name}}">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

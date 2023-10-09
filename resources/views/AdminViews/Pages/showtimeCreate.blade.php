@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Create Showtime</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-<body>
+
   <div class="page-wrapper dashboard-wrap">
     <div class="content container-fluid">
   <div class="container">
     <h1>Create Showtime</h1>
    {{--  <form method="post" action="/admin/performer"> --}}
-    <form method="post" action="./store">
+    <form method="post" action="/admin/showtime/store">
       @csrf
       <div class="form-group">
         <label for="startInput">Start:</label>
@@ -21,16 +15,32 @@
         <input type="datetime-local" class="form-control" id="endInput" name="End"  placeholder="Select end date">
       </div>
       <div class="form-group">
-        <label for="movieIdInput">Movie ID:</label>
-        <input type="text" class="form-control" id="movieIdInput" name="Movie_Id"  placeholder="Enter movie ID">
+        <label for="movieIdInput">Movie :</label>
+        <select readonly name="Movie_Id" id="">
+          @foreach ($movie as $m )
+          <option value="{{$m->Id}}"   > {{$m->Name}}  </option>
+          @endforeach
+        
+        </select>
+       
       </div>
       <div class="form-group">
-        <label for="cinemaIdInput">Cinema ID:</label>
-        <input type="text" class="form-control" id="cinemaIdInput" name="Cinema_Id" placeholder="Enter cinema ID">
+        <label for="cinemaIdInput">Cinema :</label>
+        <select readonly name="Cinema_Id" >
+       
+          @foreach ($cinema as $c )
+          <option value="{{$c->Id}}"   > {{$c->Name}}  </option>
+          @endforeach
+        </select>
       </div>
       <div class="form-group">
-        <label for="roomIdInput">Room ID:</label>
-        <input type="text" class="form-control" id="roomIdInput" name="Room_id"  placeholder="Enter room ID">
+        <label for="roomIdInput">Room :</label>
+        <select readonly name="Room_id">
+          @foreach ($room as $r )
+          <option value="{{$r->Id}}"  > {{$r->Name}}  </option>
+          @endforeach
+        </select>
+      
       </div>
 
 
@@ -39,6 +49,4 @@
   </div>
 </div>
 </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
+
