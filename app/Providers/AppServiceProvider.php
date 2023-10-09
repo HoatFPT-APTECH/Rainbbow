@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('AdminViews.*',function($view){
              $view->with('assethPathAdmin',asset('AdminPublic'));
         });
+        Paginator::useBootstrap();
     }
 }

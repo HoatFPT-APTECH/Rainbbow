@@ -85,15 +85,18 @@
     border: none;
 }
 
+
 .register-heading{
     text-align: center;
     margin-top: 8%;
     margin-bottom: -15%;
     color: #495057;
 }
+
     </style>
 
 <div class="container register">
+
                 <div class="row">
                     <div class="col-md-3 register-left">
                         <img src="" alt=""/>
