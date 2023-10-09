@@ -49,7 +49,7 @@ var lastElement = urlParts[urlParts.length - 1];
   return lastElement;
  }
 function chooseSeat(seat,Icheck){
-  
+  seat=Icheck.id;
   if(userS==null){
     alert("You must login to order !")
     Icheck.checked=false

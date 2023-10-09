@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminControllers;
 use App\Models\Promotion;
 use App\Models\PromotionCategrory;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PromotionController extends Controller
@@ -16,11 +17,17 @@ class PromotionController extends Controller
         //$listPromotion = Promotion ::all();
         // return view('AdminViews.index',['page'=>"promotion",'danhsach'=>$listPromotion]);
          //return response()->json($listPromotion,200); 
-        $listPromotion= Promotion::with('promotionCategrory')->get();
-             // return response()->json($listPromotion,200); 
+        $listPromotion= Promotion::with(['promotionCategory','user'])->get();
+      
+        
+             return view("AdminViews.index",[
+                'page'=>'promotion',
+            "danhsach"=>$listPromotion ]);
+            // return response()->json([
+            //          'page'=>'promotion',
+            //      "danhsach"=>$listPromotion ]);
 
-         return view("AdminViews.index",['page'=>'promotion'],['danhsach'=>$listPromotion]);
-    }
+        }
 
     /**
      * Show the form for creating a new resource.

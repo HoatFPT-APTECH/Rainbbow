@@ -12,8 +12,9 @@ class Promotion extends Model{
     public function cinemas() {
         return $this->belongsToMany(Cinema::class, 'tbl_PromotionCinema', 'Promotion_Id', 'Cinema_Id');
     }
-    public function users() {
-        return $this->belongsToMany(User::class, 'tbl_PromotionUser', 'Promotion_Id', 'User_Id');
+
+    public function user() {
+        return $this->belongsTo(User::class, 'User_Id', 'Id');
     }
     public function promotionCategory() {
         return $this->belongsTo(PromotionCategrory::class, 'PromotionCategrory_Id','Id');

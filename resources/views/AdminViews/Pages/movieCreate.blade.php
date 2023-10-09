@@ -52,7 +52,7 @@
       <div class="row">
         <label for="photo">Main Photo Src:</label>
         <div class="col">
-          <input type="text" id='Srcmain' name='Srcmain' class="form-control" required>
+          <input type="text" id='Srcmain' name='Srcmain' class="form-control" placeholder="The Image for showlist" required>
         </div>
       </div>
       <br>
