@@ -5,16 +5,16 @@
             <ul>
                 <li class="menu-title">Menu</li>
                 <li >
-                    <a href="index.html"><i class="fas fa-chart-pie"></i><span
+                    <a href="/admin/dasdboard"><i class="fas fa-chart-pie"></i><span
                             class="side-txt">Dashboard</span></a>
                 </li>
                
               
-                <li class="submenu">
+                <li class="submenu decenAdmin">
                     <a href="#"><i class="fas fa-th-large"></i><span class="side-txt">Movies</span> <span class="menu-arrow"></span></a>
                     <ul>
                     <li><a href="/admin/movie">Movie Manager</a></li>
-                    <li class="submenu">
+                    <li class="submenu ">
                     <a href="#">Orther<span class="menu-arrow"></span></a>
                     <ul>
                     <li><a href="/admin/photo">Photo Manager</a></li>
@@ -38,13 +38,13 @@
                         <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="/admin/booking">Booking </a></li>
-                        <li><a href="/admin/ticket">Ticket </a></li>
-                        <li><a href="/admin/showtime">Showtime </a></li>
-                        <li><a href="/admin/room">Room </a></li>
+                        <li class="decenAdmin" ><a href="/admin/ticket">Ticket </a></li>
+                        <li class="decenAdmin"><a href="/admin/showtime">Showtime </a></li>
+                        <li class="decenAdmin" ><a href="/admin/room">Room </a></li>
 
                     </ul>
                 </li>
-                <li>
+                <li class="decenAdmin" >
                     <a href="/admin/promotion"><i class="fa-solid fa-tag"></i><span
                             class="side-txt">Promotion</span></a>
                 </li>

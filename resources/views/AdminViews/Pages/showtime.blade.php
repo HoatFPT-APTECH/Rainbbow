@@ -6,15 +6,15 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h2><i class="fa-solid fa-file-signature"></i>  Showtime <b>Details</b>      
+                        <h2><i class="fa-solid fa-file-signature" ></i>  Showtime <b>Details</b>      
                             <br><br> <button class="btn btn-primary ">
                         <a href="./showtime/create" style="color: white"><i class="fa-solid fa-user-plus"></i>  Add new Showtime</a>    
                         </button></h2>
                     </div>
                     <div class="col-sm-4">
-                        <div class="search-box">+
+                        <div class="search-box">
                             <form action="#">
-                                <i class="material-icons">&#xE8B6;</i>
+                                <i class="material-icons"  > &#xE8B6;</i>
                                 <input type="text" class="form-control" placeholder="Search&hellip;">
                           
                             </form>
@@ -28,9 +28,9 @@
                         <th>Id</th>
                         <th>Start <i class="fa fa-sort"></i></th>
                         <th>End <i class="fa fa-sort"></i></th>
-                        <th>Movie_Id <i class="fa fa-sort"></i></th>
-                        <th>Cinema_Id <i class="fa fa-sort"></i></th>
-                        <th>Room_Id <i class="fa fa-sort"></i></th>
+                        <th>Movie Name <i class="fa fa-sort"></i></th>
+                        <th>Cinema <i class="fa fa-sort"></i></th>
+                        <th>Room <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -48,13 +48,13 @@
                         {{$Showtime->End}}
                      </td>
                      <td>
-                        {{$Showtime->Movie_Id}}
+                        {{$Showtime->movie->Name}}
                      </td>
                      <td>
-                        {{$Showtime->Cinema_Id}}
+                        {{$Showtime->cinema->Name}}
                      </td>
                      <td>
-                        {{$Showtime->Room_id}}  {{--hangcsdl--}}
+                        {{$Showtime->room->Name}}  {{--hangcsdl--}}
                      </td>
                      
                      
