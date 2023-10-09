@@ -52,7 +52,7 @@
                 <nav class="navbar navbar-default">
                     <div id="dl-menu" class="xv-menuwrapper responsive-menu">
                         <button class="dl-trigger">
-                            <img src="{{ $assetPathRainbow }}/images/header/bars.png" alt="bar_png">
+                            <img src="{{ $assetPathRainbow }}/images/header/bars.png" alt="bar_png" width="5px" height="5px">
                         </button>
                         <div class="prs_mobail_searchbar_wrapper" id="search_button"> <i class="fa fa-search"></i>
                         </div>
@@ -64,97 +64,97 @@
                                 <ul class="lg-submenu">
                                     <li><a>Popular Hindi Movies</a>
                                         <ul class="lg-submenu">
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Bajiro
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://motchillzz.tv/con-tim-bat-diet">Bajiro
                                                     Mastani</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Drishyam</a>
+                                                    href="https://mephimtv.net/drishyam/">Drishyam</a>
                                             </li>
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Queen</a>
-                                            </li>
-                                            <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Wanted</a>
-                                            </li>
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Veer</a>
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://motphimtw.com/phim/cong-chua-kho-gan-8544.html">Queen</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Jannat</a>
+                                                    href="https://mephimtv.net/truy-sat/">Wanted</a>
+                                            </li>
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://fsharetv.com/movie/veer-episode-1-tt1185412">Veer</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Baaghi</a>
+                                                    href="https://vn.linkedin.com/showcase/f88vnlinkcom/">Jannat</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Baaghi-2</a>
+                                                    href="https://motchill.co/phim/giai-cuu-nguoi-dep-1944.html">Baaghi</a>
                                             </li>
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Ki &
+                                            <li class="ar_left"><i class="fa fa-film"></i><a
+                                                    href="https://mephimtv.net/giai-cuu-nguoi-dep-2/">Baaghi-2</a>
+                                            </li>
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://thuvienhd.com/phim/ki-ka-2016-ki-ka">Ki &
                                                     Ka</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Kahaani</a>
+                                                    href="https://mephimtv.net/kahaani/">Kahaani</a>
                                             </li>
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Jab We
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://www.youtube.com/results?search_query=nh%E1%BB%AFng+th%E1%BA%B1ng+nguy+hi%E1%BB%83m+nh%E1%BA%A5t+h%C3%A0nh+tinh">Jab We
                                                     Met</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li><a>Popular Kannada Movies</a>
                                         <ul class="lg-submenu">
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Zoom</a>
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://phimchill3.net/phim/zoom.html">Zoom</a>
                                             </li>
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Kirik
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://motchillzz.tv/dien-vien/karik">Kirik
                                                     Party</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Mahakali</a>
+                                                    href="https://www.youtube.com/watch?v=fZ3Rv30n9CM">Mahakali</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
                                                     href="/rainbow/#">karvva</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Ishtakamya</a>
+                                                    href="https://www.imdb.com/title/tt5584426/">Ishtakamya</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Jigarthanda</a>
+                                                    href="https://www.imdb.com/title/tt3569782/">Jigarthanda</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Abhimani</a>
+                                                    href="https://hifimov.co/videos/63/x8cenfj/indian-tv-serial-mon-nia-kasa-kasi-audio-song/santhwanam-1192-0792-2022124124santhwanam-fullepisode-124124124santhwanam-serial-today">Abhimani</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Priyanka</a>
+                                                    href="https://mephimtv.net/xem-phim/cung-lam-anh-hung">Priyanka</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li><a>Popular Bengali Movies</a>
                                         <ul class="lg-submenu">
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Baro
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://www.youtube.com/watch?v=T3K1uc1qIgY">Baro
                                                     Bou</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Tomake</a>
+                                                    href="https://gaana.com/lyrics/tomake-female">Tomake</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Jeevan</a>
+                                                    href="https://www.imdb.com/name/nm0420092/">Jeevan</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Haraner </a>
+                                                    href="https://vi.wiki5.ru/wiki/Santhanam_%28actor%29">Haraner </a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Bidhilipi</a>
+                                                    href="https://www.youtube.com/watch?v=3PdmyJpu04c">Bidhilipi</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Bhalobasa </a>
+                                                    href="https://vn.phoneky.com/videos/?st=5&q=Obujh+Valobasha+Hridoy+Khan&page=19">Bhalobasa </a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Prateek</a>
+                                                    href="https://c3kienthuyhp.edu.vn/xem-phim-canh-sat-tap-su-midnight-runners-tron-bo-full-hd-vietsub">Prateek</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Aparanher</a>
+                                                    href="https://www.imdb.com/title/tt0149694/">Aparanher</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Mukhyamantri</a>
+                                                    href="http://wbcmo.gov.in/cmo.aspx">Mukhyamantri</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Charmurti</a>
+                                                    href="https://www.youtube.com/watch?v=OX5cKvApydA">Charmurti</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -164,30 +164,30 @@
                                                     River</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Logan</a>
+                                                    href="https://mephimtv.net/xem-phim/vung-dat-tu-than">Logan</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Coco</a>
+                                                    href="https://mephimtv.net/xem-phim/coco">Coco</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Meyerowitz </a>
+                                                    href="https://mephimtv.net/chuyen-nha-meyerowitz/">Meyerowitz </a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Ragnarok</a>
+                                                    href="https://mephimtv.net/xem-phim/ragnarok-hoang-hon-cua-chu-than-phan-1">Ragnarok</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Driver</a>
+                                                    href="https://phimmoi.im/phim/an-danh-2.html">Driver</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">Dunkirk</a>
+                                                    href="https://mephimtv.net/xem-phim/cuoc-di-tan-dunkirk">Dunkirk</a>
                                             </li>
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Big
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://www.xemphim.sbs/phim/benh-la">Big
                                                     Sick </a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
-                                                    href="/rainbow/#">American </a>
+                                                    href="https://phimmoiyyy.net/xem-phim/american-born-chinese-tap-1">American </a>
                                             </li>
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/#">Logan
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://mephimtv.net/nguoi-soi-tran-chien-cuoi-cung/">Logan
                                                 </a>
                                             </li>
                                         </ul>

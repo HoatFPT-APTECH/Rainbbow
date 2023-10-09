@@ -335,11 +335,13 @@ ul.colors li:hover p {
 }
 .prs_logo_main_wrapper {
     float: left;
+    
     padding-top: 30px;
     padding-bottom: 30px;
     position: relative;
     z-index: 1;
 }
+
 .prs_menu_main_wrapper {
     float: left;
     padding-left: 30px;
