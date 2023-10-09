@@ -21,12 +21,14 @@ class HomeController extends Controller
     {
        
        $page='home';
-       $ListUpcomingMovie=Movie::with(['photos','movieCategory'])->whereBetween('dateshow', [now(), now()->addDays(7)])->get();;
+       $ListUpcomingMovie=Movie::with(['photos','movieCategory'])->whereBetween('dateshow', [now(), now()->addDays(7)])->get();
+       $ListTopMovie=Movie::with('photos','movieCategory')->get();
        $ListReleasedMovie=Movie::with('photos')->get();
        $ListBestOfLibrary=Movie::with('photos')->get();
         return  view('rainbowViews.index', [
             'page' => $page,
             'JsPage'=>'home',
+            'listTopMovie'=>$ListTopMovie,
             'listUpcomingMovie'=>$ListUpcomingMovie,
             'listReleaseMovie'=>$ListReleasedMovie,
             'listBestOfLibrary'=>$ListBestOfLibrary

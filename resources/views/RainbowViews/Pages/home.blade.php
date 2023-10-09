@@ -1641,7 +1641,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="prs_upcome_tabs_wrapper">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#best1" aria-controls="best" role="tab" data-toggle="tab">Upcoming Movies</a>
+                        <li role="presentation" class="active"><a href="#best1" aria-controls="best" role="tab" data-toggle="tab">Top Movies</a>
                         </li>
                         <li role="presentation"><a href="#hot1" aria-controls="hot" role="tab" data-toggle="tab">Relesed Movies</a>
                         </li>
@@ -1662,7 +1662,7 @@
                                             <div class="prs_upcom_movie_img_box prs_webseri_movie_img_box">
                                                 <div class="prs_webseri_video_img_sec_icon_wrapper">
                                                     <ul>
-                                                        <li><a class="test-popup-link button" rel='external' href='https://www.youtube.com/embed/ryzOXAO0Ss0' title='title'><i class="flaticon-play-button"></i></a>
+                                                        <li><a class="test-popup-link button" rel='external' href='https://www.youtube.com/embed/6ZfuNTqbHE8' title='title'><i class="flaticon-play-button"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1677,7 +1677,7 @@
                                                         </li>
                                                     </ul>
                                                     <h2>terrorise of the year</h2>
-                                                    <p>Release on cinema : 27 june 2022</p>
+                                                    <p>Release on cinema : 14 October 2023</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1685,7 +1685,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 prs_upcom_slide_first">
                                         <div class="prs_upcom_movie_box_wrapper">
                                             <div class="prs_upcom_movie_img_box">
-                                                <img src="{{$assetPathRainbow}}/images/content/ws2.jpg" alt="movie_img" />
+                                                <img src="{{$listTopMovie[1]->photos[0]->Src}}" alt="movie_img" />
                                                 <div class="prs_upcom_movie_img_overlay"></div>
                                                 <div class="prs_upcom_movie_img_btn_wrapper">
                                                     <ul>
@@ -1698,8 +1698,8 @@
                                             </div>
                                             <div class="prs_upcom_movie_content_box">
                                                 <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">Busting Car 2 bottom</a></h2>
-                                                    <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                    <h2><a href="#">{{$listTopMovie[1]->Name}}</a></h2>
+                                                    <p>{{$listTopMovie[1]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-o"></i>
@@ -1717,7 +1717,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 hidden-sm prs_upcom_slide_second">
                                         <div class="prs_upcom_movie_box_wrapper">
                                             <div class="prs_upcom_movie_img_box">
-                                                <img src="{{$assetPathRainbow}}/images/content/ws3.jpg" alt="movie_img" />
+                                                <img src="{{$listTopMovie[2]->photos[0]->Src}}" alt="movie_img" />
                                                 <div class="prs_upcom_movie_img_overlay"></div>
                                                 <div class="prs_upcom_movie_img_btn_wrapper">
                                                     <ul>
@@ -1730,8 +1730,8 @@
                                             </div>
                                             <div class="prs_upcom_movie_content_box">
                                                 <div class="prs_upcom_movie_content_box_inner">
-                                                    <h2><a href="#">Busting Car</a></h2>
-                                                    <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                    <h2><a href="#">{{$listTopMovie[2]->Name}}</a></h2>
+                                                    <p>{{$listTopMovie[2]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-o"></i>
@@ -1747,10 +1747,11 @@
                                         </div>
                                     </div>
                                     <div class="cc_featured_second_section">
+                                        @for($i=3;$i<=6;$i++)
                                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
                                             <div class="prs_upcom_movie_box_wrapper">
                                                 <div class="prs_upcom_movie_img_box">
-                                                    <img src="{{$assetPathRainbow}}/images/content/ws4.jpg" alt="movie_img" />
+                                                    <img src="{{$listTopMovie[$i]->photos[0]->Src}}" alt="movie_img" />
                                                     <div class="prs_upcom_movie_img_overlay"></div>
                                                     <div class="prs_upcom_movie_img_btn_wrapper">
                                                         <ul>
@@ -1763,8 +1764,8 @@
                                                 </div>
                                                 <div class="prs_upcom_movie_content_box">
                                                     <div class="prs_upcom_movie_content_box_inner">
-                                                        <h2><a href="#">Busting Car</a></h2>
-                                                        <p>Drama , Acation</p> <i class="fa fa-star"></i>
+                                                        <h2><a href="#">{{$listTopMovie[$i]->Name}}</a></h2>
+                                                        <p>{{$listTopMovie[$i]->movieCategory->Name}}</p> <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-o"></i>
@@ -1779,7 +1780,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
+                                        @endfor
+                                        {{-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hidden-sm hidden-xs">
                                             <div class="prs_upcom_movie_box_wrapper">
                                                 <div class="prs_upcom_movie_img_box">
                                                     <img src="{{$assetPathRainbow}}/images/content/ws5.jpg" alt="movie_img" />
@@ -1874,7 +1876,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
