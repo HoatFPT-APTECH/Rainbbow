@@ -41,9 +41,6 @@
 <div class="form-group text-center">
 <button class="btn btn-primary btn-block account-btn" type="submit">Login</button>
 </div>
-<div class="text-center">
-<a href="forgot-password.html">Forgot your password?</a>
-</div>
 </form>
 </div>
 </div>

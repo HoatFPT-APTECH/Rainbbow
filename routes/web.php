@@ -56,6 +56,8 @@ Route::get('send-mail',[MailController::class,'index']);
 Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/',[HomeController::class,'index'])->name("rainbow.home");
     Route::get('/register',[RegisterController::class,'index']);
+    Route::post('/register/store',[RegisterController::class,'store']);
+
     Route::get("/movie_single/{id}",[Movie_SingleController::class,'index']);
 
     Route::get('/movie_booking/{id}',[MovieBookingController::class,'index']);

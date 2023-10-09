@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\RainbowControllers;
-
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -34,7 +34,15 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $UserName= $request->input('UserName');
+         $Password= $request->input('Password');
+         $newUser= new User();
+         $newUser->UserName=$UserName;
+         $newUser->Password=$Password;
+         $newUser->save();
+        // return $this->index();
+       return redirect("/rainbow");
+        // return response()->json($newUser,200);
     }
 
     /**
