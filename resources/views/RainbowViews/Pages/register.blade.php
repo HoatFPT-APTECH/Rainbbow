@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
     <style>
-        .register{
+        .body{
             background-image: url(https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
             background-size: cover;
-}
+        }
+        .register{
+           
+         }
 .register-left{
     text-align: center;
     color: #fff;
@@ -95,8 +92,7 @@
     color: #495057;
 }
     </style>
-</head>
-<body>
+
 <div class="container register">
                 <div class="row">
                     <div class="col-md-3 register-left">
@@ -147,5 +143,3 @@
                 </div>
 
             </div>
-</body>
-</html>
