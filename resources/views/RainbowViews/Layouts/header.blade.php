@@ -182,15 +182,15 @@
                                         <div class="prs_navi_slider_wraper">
                                             <div class="owl-carousel owl-theme">
                                                 <div class="item">
-                                                    <img src="{{ $assetPathRainbow }}/images/content/up1.jpg"
+                                                    <img src="https://cdn-amz.woka.io/images/I/71rQpa4TGUL.jpg"
                                                         alt="navi_img">
                                                 </div>
                                                 <div class="item">
-                                                    <img src="{{ $assetPathRainbow }}/images/content/up2.jpg"
+                                                    <img src="https://play-lh.googleusercontent.com/_bQv_Bua-oPwO9Lzld3n7nrxew6DUHnk0m30Af_lQSVd_D0a2egLp3E-gXW1p-XFwMgBB6Ra_F5OkBYukg"
                                                         alt="navi_img">
                                                 </div>
                                                 <div class="item">
-                                                    <img src="{{ $assetPathRainbow }}/images/content/up3.jpg"
+                                                    <img src="https://photo-cms-anninhthudo.epicdn.me/w800/Uploaded/2023/xtsmr/2023_06_24/xu-so-cac-nguyen-to-2612-997.jpeg"
                                                         alt="navi_img">
                                                 </div>
                                             </div>
