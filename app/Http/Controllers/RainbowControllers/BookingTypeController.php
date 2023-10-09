@@ -24,13 +24,21 @@ class BookingTypeController extends Controller
         $movie = Movie::with(['photos', 'movieCategory'])->find($showtime->Movie_Id);
 
         $listSeatsChoosed= Seat::with(['seatcategory'])->whereIn('Id',$tickets_Id)->get();
+        $data = [
+            'showTime_Id' => $showTime_Id,
+            'tickets_Id' => $tickets_Id,
+            'movie_Id' =>$movie->Id
+        ];
+        
+        $dataJson = json_encode($data);
         return view("RainbowViews.index",[
             'page'=>$page,
             'JsPage'=>$JsPage,
             'user'=>$user,
             'movie'=>$movie,
             'showTime'=>$showtime,
-           'seats'=>$listSeatsChoosed
+           'seats'=>$listSeatsChoosed,
+           'dataJson' => $dataJson,
 
         ]);
     //     return response()->json([

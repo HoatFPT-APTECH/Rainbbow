@@ -51,7 +51,7 @@
 									
 								</div>
 							</div>
-							<div class="col-md-12">
+							{{-- <div class="col-md-12">
 								<div class="st_cherity_btn float_left">
 								
 									<ul>
@@ -60,7 +60,7 @@
 										</li>
 									</ul>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 				</div>
@@ -95,18 +95,28 @@
 											
 										  Total: 	<span > $ <b id="total_price">200</b> </span>
 										</li>
-										<li>Internet handling fees <span>Rs.70.80</span>
+										<li id="liVoucher">Voucher code: <span id="codeVoucher">....</span> <br>
+											
 										</li>
+										
 									</ul>
-									<p>Booking Fees <span>Rs.60.00</span>
-									</p>
-									<p>Integrated GST (IGST) @ 18% <span>Rs.60.00</span>
-									</p>
+									
 								</div>
 								<div class="st_dtts_sb_h2 float_left">
-									<h3>Sub total <span>Rs.860.80</span></h3>
-									<h4>Current State is <span>Kerala</span></h4>
-									<h5>Payable Amount <span>Rs.860.80</span></h5>
+								     
+									<h3>Sub total <span id="subTotal" >Rs.860.80</span></h3>
+								    <div class="">
+										Add Voucher :<br/> <input class="form-group" type="text" placeholder="Input Voucer key">
+										<span>  
+											<button class="btn btn-primary" onclick="checkVoucher()" >Add</button>
+										</span>
+									</div>
+									<div>   
+										<button class="btn btn-warning" onclick="postBookingType()">
+                                        PROCESS TO PAY
+
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -115,3 +125,4 @@
 			</div>
 		</div>
 	</div>
+	<meta name='data' content="{{ $dataJson }}" />
