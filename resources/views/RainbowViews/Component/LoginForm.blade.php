@@ -37,6 +37,6 @@
                 </div>
                 <a href="#" class="small">Forgot password?</a>
                 <br/>
-                Don't have an account? <a href="./register" class="text-primary ">Register here</a>
+                Don't have an account? <a href="/rainbow/register" class="text-primary ">Register here</a>
 
             </div>
