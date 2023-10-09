@@ -10,6 +10,10 @@ class Ticket extends Model
     protected $table="tbl_ticket";
     protected $primaryKey="Id";
     public $timestamps=false;
+    public function promotion()
+    {
+        return $this->belongsTo(promotion::class,"Promotion_Id");
+    }
     public function showtime()
     {
         return $this->belongsTo(Showtime::class, 'Showtime_Id');

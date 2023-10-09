@@ -2085,7 +2085,7 @@ body.active #mobile-nav {
     float: left;
     width: 100%;
     background: #ffffff;
-    padding: 20px;
+    padding: 10px;
     -webkit-border-bottom-right-radius: 10px;
     -moz-border-bottom-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -4202,7 +4202,8 @@ body.active #mobile-nav {
     margin: 0;
     padding-top: 45px;
 }
-.pagination > li > a {
+.pagination > li > a,
+.pagination >li >span {
     color: #000000;
     background: #ffffff;
     font-size: 16px;
@@ -4222,7 +4223,8 @@ body.active #mobile-nav {
     text-align: center;
     margin-right: 10px;
 }
-.pagination > li:first-child > a {
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
     width: 50px;
     height: 50px;
     text-align: center;
@@ -4237,7 +4239,8 @@ body.active #mobile-nav {
 .pagination > li a i:before {
     margin-left: 0;
 }
-.pagination > li:last-child > a {
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
     width: 50px;
     height: 50px;
     text-align: center;
@@ -9145,16 +9148,16 @@ i:before {
     border: 0;
     color: #000;
     content: "";
-    background: #f3c600;
-    border: 1px solid #f3c600;
+    background: #00f316;
+    border: 1px solid #00f316;
 }
 .st_seat_lay_row input[type="checkbox"]:checked + label:after {
     border: 0;
     color: #000;
     content: "";
     font-weight: 900;
-    background: #f3c600;
-    border: 1px solid #f3c600;
+    background: #00f316;
+    border: 1px solid #00f316;
 }
 .seat_disable input[type="checkbox"] + label:before {
     background: #4d4f5c;
@@ -9647,7 +9650,7 @@ i:before {
 }
 .st_dtts_sb_ul li span {
     float: right;
-    margin-top: -22px;
+   
 }
 .st_dtts_sb_ul li:last-child span {
     margin-top: 0;
@@ -9658,7 +9661,7 @@ i:before {
 }
 .st_dtts_sb_ul {
     padding: 20px;
-    padding-bottom: 80px;
+    /* padding-bottom: 80px; */
     border-bottom: 1px dashed rgba(0, 0, 0, 0.54);
 }
 .st_dtts_sb_ul p {

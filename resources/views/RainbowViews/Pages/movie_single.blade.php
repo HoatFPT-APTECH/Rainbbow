@@ -129,97 +129,26 @@
 		<div class="prs_movie_cast_heading_wrapper">
 			<h2>Movie Cast</h2>
 		</div>
-		<div class="wrap-album-slider">
+		<div class="wrap-album-slider container " style="width: 130vh">
 			<ul class="movie-cast-slider">
+				@for($i=0;$i< sizeof($movieEx->performers);$i++ )
 				<li class="album-slider__item">
 					<figure class="album">
 						<div class="prs_ms_cast_slider_cont_wrapper">
 							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$movieEx->performers[0]->AvatarURL}}" alt="cast_img">
+								<img src="{{$movieEx->performers[$i]->AvatarURL}}" alt="cast_img">
 							</div>
 							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">{{$movieEx->performers[0]->Name}}</a></h4>
+								<h4><a href="#">{{$movieEx->performers[$i]->Name}}</a></h4>
 								<p>(Miano)</p>
 							</div>
 						</div>
 					</figure>
 					<!-- End album -->
 				</li>
-				<!-- End album slider item -->
-				<li class="album-slider__item">
-					<figure class="album">
-						<div class="prs_ms_cast_slider_cont_wrapper">
-							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$movieEx->performers[1]->AvatarURL}}" alt="cast_img">
-							</div>
-							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">{{$movieEx->performers[1]->Name}}</a></h4>
-								<p>(Miano)</p>
-							</div>
-						</div>
-					</figure>
-					<!-- End album -->
-				</li>
-				<!-- End album slider item -->
-				<li class="album-slider__item">
-					<figure class="album">
-						<div class="prs_ms_cast_slider_cont_wrapper">
-							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$movieEx->performers[2]->AvatarURL}}" alt="cast_img">
-							</div>
-							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">{{$movieEx->performers[2]->Name}}</a></h4>
-								<p>(Miano)</p>
-							</div>
-						</div>
-					</figure>
-					<!-- End album -->
-				</li>
-				<!-- End album slider item -->
-				<li class="album-slider__item">
-					<figure class="album">
-						<div class="prs_ms_cast_slider_cont_wrapper">
-							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$movieEx->performers[3]->AvatarURL}}" alt="cast_img">
-							</div>
-							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">{{$movieEx->performers[3]->Name}}</a></h4>
-								<p>(Miano)</p>
-							</div>
-						</div>
-					</figure>
-					<!-- End album -->
-				</li>
-				<!-- End album slider item -->
-				<li class="album-slider__item">
-					<figure class="album">
-						<div class="prs_ms_cast_slider_cont_wrapper">
-							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$movieEx->performers[4]->AvatarURL}}" alt="cast_img">
-							</div>
-							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">{{$movieEx->performers[4]->Name}}</a></h4>
-								<p>(Miano)</p>
-							</div>
-						</div>
-					</figure>
-					<!-- End album -->
-				</li>
-				<!-- End album slider item -->
-				<li class="album-slider__item">
-					<figure class="album">
-						<div class="prs_ms_cast_slider_cont_wrapper">
-							<div class="prs_ms_cast_img_wrapper">
-								<img src="{{$movieEx->performers[5]->AvatarURL}}" alt="cast_img">
-							</div>
-							<div class="prs_ms_cast_img_cont_wrapper">
-								<h4><a href="#">{{$movieEx->performers[5]->Name}}</a></h4>
-								<p>(Miano)</p>
-							</div>
-						</div>
-					</figure>
-					<!-- End album -->
-				</li>
+				@endfor
+			
+				
 				<!-- End album slider item -->
 				<!-- End album slider item -->
 			</ul>
@@ -259,7 +188,7 @@
 				</div>
 				<div class="prs_vp_main_slider_wrapper">
 					<div class="prs_vp_left_slidebar_wrapper">
-						<div class="wrap-album-slider">
+						<div class="wrap-album-slider ">
 							<ul class="prs_vp_left_slider">
 								<li class="album-slider__item prs_vp_hover_overlay">
 									<figure class="album">

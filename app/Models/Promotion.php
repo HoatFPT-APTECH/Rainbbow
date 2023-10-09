@@ -15,7 +15,7 @@ class Promotion extends Model{
     public function users() {
         return $this->belongsToMany(User::class, 'tbl_PromotionUser', 'Promotion_Id', 'User_Id');
     }
-    public function promotionCategrory() {
+    public function promotionCategory() {
         return $this->belongsTo(PromotionCategrory::class, 'PromotionCategrory_Id','Id');
     }
 }
