@@ -19,7 +19,7 @@
       </div>
       <div class="form-group">
         <label for="dateInput">Dateshow</label>
-        <input type="datetime" class="form-control" id="dateInput" name="date" value="{{$Movie->DateShow}}" >
+        <input type="datetime-local" class="form-control" id="dateInput" name="date" value="{{$Movie->DateShow}}" >
       </div>
       <div class="form-group">
         <label for="trailerInput">Link trailer:</label>
