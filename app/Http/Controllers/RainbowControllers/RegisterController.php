@@ -14,10 +14,10 @@ class RegisterController extends Controller
     {
         //
         $page='register';
-        return view('RainbowViews.index',[
-            'page'=>$page,
-             "JsPage"=>''
-        ]);
+
+        
+        return view('RainbowViews.index',['page'=>$page, 'JsPage'=>'register']);
+
 
     }
 
