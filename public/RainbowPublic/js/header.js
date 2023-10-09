@@ -10,7 +10,9 @@ function loadUserInformation() {
         );
         aSighnup.setAttribute(
             "href",
-            "/rainbow/account_detail"
+
+            "/rainbow/account_details/" + userI.Id
+
         );
         aSighnup.setAttribute("data-text", userI.Name);
         aSighnup.removeAttribute("data-toggle")

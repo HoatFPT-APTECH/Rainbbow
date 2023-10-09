@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <label for="date">Dateshow</label>
-        <input type="datetime" class="form-control" id="date" name="date" required>
+        <input type="datetime-local" class="form-control" id="date" name="date" required>
       </div>
       <div class="form-group">
         <label for="trailer">Link trailer:</label>
