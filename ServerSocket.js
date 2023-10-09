@@ -19,9 +19,15 @@ io.on('connection',(socket)=>{
    
     socket.join(`show_time:${ShowtimeId}`);
     
-    socket.on("choosing_seat",(user,seat)=>{
+    socket.on("choosing_seat",(user,seat,showTimeId)=>{
       console.log(user)
-      io.to(`show_time:${ShowtimeId}`).emit("orther_people_choosing_seat",user,seat)
+      io.to(`show_time:${ShowtimeId}`).emit("orther_people_choosing_seat",user,seat);
+      // Đặt lại chỗ ngồi 
+    
+    })
+    socket.on("cancel_choosing_seat",(user,seat,showTimeId)=>{
+      console.log(user)
+      io.to(`show_time:${ShowtimeId}`).emit("orther_people_cancel_choosing_seat",user,seat)
     })
   })
    

@@ -335,11 +335,13 @@ ul.colors li:hover p {
 }
 .prs_logo_main_wrapper {
     float: left;
+    
     padding-top: 30px;
     padding-bottom: 30px;
     position: relative;
     z-index: 1;
 }
+
 .prs_menu_main_wrapper {
     float: left;
     padding-left: 30px;
@@ -9148,16 +9150,16 @@ i:before {
     border: 0;
     color: #000;
     content: "";
-    background: #f3c600;
-    border: 1px solid #f3c600;
+    background: #00f316;
+    border: 1px solid #00f316;
 }
 .st_seat_lay_row input[type="checkbox"]:checked + label:after {
     border: 0;
     color: #000;
     content: "";
     font-weight: 900;
-    background: #f3c600;
-    border: 1px solid #f3c600;
+    background: #00f316;
+    border: 1px solid #00f316;
 }
 .seat_disable input[type="checkbox"] + label:before {
     background: #4d4f5c;
@@ -9650,7 +9652,7 @@ i:before {
 }
 .st_dtts_sb_ul li span {
     float: right;
-    margin-top: -22px;
+   
 }
 .st_dtts_sb_ul li:last-child span {
     margin-top: 0;
@@ -9661,7 +9663,7 @@ i:before {
 }
 .st_dtts_sb_ul {
     padding: 20px;
-    padding-bottom: 80px;
+    /* padding-bottom: 80px; */
     border-bottom: 1px dashed rgba(0, 0, 0, 0.54);
 }
 .st_dtts_sb_ul p {
