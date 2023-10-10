@@ -13,24 +13,44 @@
     <form method="post" action="./store">
       @csrf
       <div class="form-group">
+        <label for="movie">Movie:</label>
+        <select name="Movie_Id" class="form-select" aria-label="Default select example">
+            @foreach ($listMovie as $movie )
+            <option value={{$movie->Id}}>{{$movie->Name}}</option>
+            @endforeach
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="Cinema">Cinema:</label>
+        <select name="Cinema_Id" class="form-select" aria-label="Default select example">
+            @foreach ($listCinema as $cinema )
+            <option value={{$cinema->Id}}>{{$cinema->Name}}</option>
+            @endforeach
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="room">Room:</label>
+        <select name="Room_Id" class="form-select" aria-label="Default select example">
+            @foreach ($listRoom as $room )
+            <option value={{$room->Id}}>{{$room->Name}}</option>
+            @endforeach
+          </select>
+      </div>
+      <div class="form-group">
         <label for="price">Price</label>
         <input type="text" class="form-control" id="price" name="Price" placeholder="Enter Price">
       </div>
       <div class="form-group">
-        <label for="showtimeId">Showtime_Id</label>
-        <input type="number" class="form-control" id="showtimeId" name="Showtime_Id" placeholder="Enter Showtime_Id">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="Name" placeholder="Enter Name">
       </div>
       <div class="form-group">
-        <label for="bookingId">Booking_Id</label>
-        <input type="number" class="form-control" id="bookingId" name="Booking_Id" placeholder="Enter Booking_Id">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone" name="Phone" placeholder="Enter Phone">
       </div>
       <div class="form-group">
-        <label for="seatId">Seat_Id</label>
-        <input type="number" class="form-control" id="seatId" name="Seat_Id" placeholder="Enter Seat_Id">
-      </div>
-      <div class="form-group">
-        <label for="status">Status</label>
-        <input type="number" class="form-control" id="status" name="Status" placeholder="Enter Status">
+        <label for="seat">Seat</label>
+        <input type="text" class="form-control" id="Seat" name="Seat" placeholder="Enter Seat">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

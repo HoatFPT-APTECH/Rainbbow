@@ -6,6 +6,10 @@ use App\Models\Movie;
 use App\Models\Cinema;
 use App\Models\Room;
 use App\Models\Showtime;
+use App\Models\Seat;
+use App\Models\Booking;
+use App\Models\User;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,16 +28,22 @@ class TicketController extends Controller
             $userName= $ticket->booking->user->Name;
 
           }
-     return view('AdminViews.index',['page'=>"ticket",'danhsach'=>$listTicket]);
-     //  return response()->json($listTicket,200); 
+    return view('AdminViews.index',['page'=>"ticket",'danhsach'=>$listTicket]);
+    //return response()->json($listTicket,200); 
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('AdminViews.index',['page'=>"ticketCreate"]);
+    {   $ListMovie= Movie::all();
+        $ListCinema= Cinema::all();
+        $ListRoom= Room::all();
+        return view('AdminViews.index',['page'=>"ticketCreate",
+        'listMovie'=>$ListMovie,
+        'listCinema'=>$ListCinema,
+        'listRoom'=>$ListRoom
+    ]);
     }
 
     /**
@@ -42,20 +52,53 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         $Price= $request->input('Price');
-        $Showtime_Id= $request->input('Showtime_Id');
-        $Booking_Id= $request->input('Booking_Id');
-        $Seat_Id= $request->input('Seat_Id');
-        $Status= $request->input('Status');
+        $Name= $request->input('Name');
+        $Phone= $request->input('Phone');
+        $Movie= $request->input('Movie_Id');
+        $Cinema= $request->input('Cinema_Id');
+        $Room= $request->input('Room_Id');
+        $Seat= $request->input('Seat');
 
         $newTicket= new Ticket();
+        $newShowTime= new Showtime();
+        $newUser= new User();
+        $newBooking= new Booking();
+        $newSeat= new Seat();
+
+        
+
+       
+        $newShowTime->Movie_Id= $Movie;
+        $newShowTime->Cinema_Id= $Cinema;
+        $newShowTime->Room_id= $Room;
+
+        $newShowTimeRs= $newShowTime->save();
+
+        $newUser->Name= $Name;
+        $newUser->Phone= $Phone;
+
+        $newUserRs = $newUser->save();
+
+        $newSeat->Name= $Seat;
+
+        $newSeatRs= $newSeat->save();
+
+        $newBooking->User_Id= $newUser->Id;
+        $newBookingRs= $newBooking->save();
 
         $newTicket->Price=$Price;
-        $newTicket->Showtime_Id=$Showtime_Id;
-        $newTicket->Booking_Id=$Booking_Id;
-        $newTicket->Seat_Id=$Seat_Id;
-        $newTicket->Status=$Status;
+        $newTicket->Showtime_Id= $newShowTime->Id;
+        $newTicket->Booking_Id= $newBooking->Id;
+        $newTicket->Seat_Id= $newSeat->Id;
+        // $newTicket->Showtime_Id=$Showtime_Id;
+        // $newTicket->Booking_Id=$Booking_Id;
+        // $newTicket->Seat_Id=$Seat_Id;
+        // $newTicket->Status=$Status;
 
         $newTicket->save();
+        
+        
+        
         //return $this->index();
         return redirect("/admin/ticket");
     }
