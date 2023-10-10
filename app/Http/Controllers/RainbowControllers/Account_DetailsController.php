@@ -5,8 +5,12 @@ namespace App\Http\Controllers\RainbowControllers;
 use App\Http\Controllers\Controller;
 use App\Models\Promotion;
 use App\Models\User;
-use App\Models\Role;
 use App\Models\Booking;
+use App\Models\Cinema;
+use App\Models\Movie;
+use App\Models\Room;
+use App\Models\Showtime;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class Account_DetailsController extends Controller
@@ -43,10 +47,25 @@ class Account_DetailsController extends Controller
         
         return redirect("/rainbow/account_details/$id");
     }
+    public function updateURL(Request $request, string $id){
+        $AvatarURL= $request->input('Image');
+        $newUser= User::where('Id',$id)->first();
+        $newUser->Image=$AvatarURL;
+        $newUser->save();
+        return redirect("/rainbow/account_details/$id");
+    }
     public function Booking($id){
         $page='account_booking';
         $JsPage="";
-        $UserBookings=Booking::with(['user'])->where('User_Id',$id)->get();
+        $UserBookings=Booking::with(['user','tickets'])->where('User_Id',$id)->get();
+        for($b=0;$b<sizeof($UserBookings);$b++){
+            for($t=0;$t<sizeof($UserBookings[$b]->tickets);$t++){
+                    $UserBookings[$b]->tickets[$t]->Showtime= Showtime::where("Id",$UserBookings[$b]->tickets[$t]->Showtime_Id)->first();
+                    $UserBookings[$b]->tickets[$t]->Showtime->Movie=Movie::where("Id",$UserBookings[$b]->tickets[$t]->Showtime->Movie_Id)->first(); 
+                    $UserBookings[$b]->tickets[$t]->Showtime->Cinema=Cinema::where("Id",$UserBookings[$b]->tickets[$t]->Showtime->Cinema_Id)->first();
+                    $UserBookings[$b]->tickets[$t]->Showtime->Room= Room::where("Id",$UserBookings[$b]->tickets[$t]->Showtime->Room_id)->first();
+            }
+          }
         return  view('RainbowViews.index',['page'=>$page,
         'JsPage'=>$JsPage,
         'danhsach'=>$UserBookings,
@@ -57,7 +76,7 @@ class Account_DetailsController extends Controller
     public function Promotion($id){
         $page='account_promotion';
         $JsPage="";
-        $UserPromotion=Promotion::with('users','promotionCategrory')->where('User_Id', $id)
+        $UserPromotion=Promotion::with('user','promotionCategrory')->where('User_Id', $id)
         ->get();
         // $UserDetails=User::with(['bookings','promotions'])->where('Id',$id)->get();
         return  view('RainbowViews.index',['page'=>$page,
