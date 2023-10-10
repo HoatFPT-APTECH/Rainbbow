@@ -10,8 +10,8 @@ use App\Http\Controllers\AdminControllers\BookingController;
 use App\Http\Controllers\AdminControllers\TicketController;
 use App\Http\Controllers\AdminControllers\ShowtimeController;
 use App\Http\Controllers\AdminControllers\RoomController;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\MailController;
+
+
 use App\Http\Controllers\AdminControllers\CinemaController;
 use App\Http\Controllers\AdminControllers\LoginController as AdminControllersLoginController;
 use App\Http\Controllers\AdminControllers\ProductorController;
@@ -20,6 +20,7 @@ use App\Http\Controllers\AdminControllers\PromotionController;
 use App\Http\Controllers\Api\PromotionController as ApiPromotionController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\SeatController;
+use App\Http\Controllers\MailControllers\MailBookingController;
 use App\Http\Controllers\RainbowControllers\BookingTypeController;
 use App\Http\Controllers\RainbowControllers\ConfirmationScreenController;
 use App\Http\Controllers\RainbowControllers\HomeController;
@@ -27,10 +28,7 @@ use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;
 use App\Http\Controllers\RainbowControllers\SeatBookingController;
-use App\Models\Cinema;
-use App\Models\Productor;
-use Illuminate\Http\Client\Request;
-use Illuminate\Support\Facades\Redis;
+
 
 use App\Http\Controllers\RainbowControllers\Movie_CategoryController;
 use App\Http\Controllers\RainbowControllers\Account_DetailsController;
@@ -55,7 +53,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('send-mail',[MailController::class,'index']);
+
 Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/',[HomeController::class,'index'])->name("rainbow.home");
     Route::get('/register',[RegisterController::class,'index']);
@@ -69,7 +67,7 @@ Route::group(['prefix'=>'rainbow'],function(){
 
     Route::get('/booking_type', [BookingTypeController::class, 'index']);
     Route::get('/booking_type/create', [ConfirmationScreenController::class, 'create']);
-    Route::get('/confirmation_screen', [ConfirmationScreenController::class, 'index']);
+    Route::get('/confirmation_screen/{id}', [ConfirmationScreenController::class, 'index']);
 
 
     Route::get('/search', [Movie_CategoryController::class, 'Search']);
@@ -207,9 +205,14 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => '/api'], function () {
     Route::post("/login", [LoginController::class, 'HandleLogin']);
+    Route::post("/autoLogin", [LoginController::class, 'HandleLoginByToken']);
     Route::post("/getListShowTimeByIdMovie", [ApiBookingController::class, 'GetListShowByIdMovie']);
     Route::post("/changeStatusSeatShowtime", [SeatController::class, 'ChangeStatusSeat']);
     Route::post("/checkVoucher", [ApiPromotionController::class, 'check']);
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
 
 });
+Route::group(['prefix'=>'mail'],function(){
+    Route::get('mail_booking/{id}',[MailBookingController::class,'index']);
+});
+

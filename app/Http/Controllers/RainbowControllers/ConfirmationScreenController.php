@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\RainbowControllers;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendBookingEmail;
+use App\Mail\MailBooking;
 use App\Models\Booking;
 use App\Models\Movie;
 use App\Models\Promotion;
@@ -12,38 +14,39 @@ use App\Models\Showtime;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ConfirmationScreenController extends Controller
 {
     //
-    public function index(Request $request){
+    public function index($id){
         $page = 'confirmation_screen';
         $JsPage = "";
-        $user = $request->session()->get('user');
-        $movie = $request->session()->get('movie');
-        $showtime = $request->session()->get('showTime');
-        $listSeatsChoosed = $request->session()->get('seats');
-        $booking = $request->session()->get('booking');
-
+        $bookingId = $id;
+        $booking=Booking::with(['user'])->find($bookingId);
+        
+        $user=User::find($booking->User_Id);
+        $tickets= Ticket::where("Booking_Id",$booking->Id)->get();
+        $showtime=Showtime::find($tickets[0]->Showtime_Id);
+        $movie=Movie::find($showtime->Movie_Id);
+        $Seats_Id=[];
+        for($i=0;$i<sizeof($tickets);$i++){
+            array_push($Seats_Id,$tickets[$i]->Seat_Id);
+      
+        }
+        $seats=Seat::with(["seatcategory"])->whereIn("Id",$Seats_Id)->get();
+       
         return view("RainbowViews.index",[
             'page'=>$page,
             'JsPage'=>$JsPage,
             'user'=>$user,
             'movie'=>$movie,
             'showTime'=>$showtime,
-           'seats'=>$listSeatsChoosed,
+           'seats'=>$seats,
            'booking' => $booking,
 
         ]);
-        // return response()->json([
-         
-        //     'user'=>$user,
-        //     'movie'=>$movie,
-        //     'showTime'=>$showtime,
-        //    'seats'=>$listSeatsChoosed,
-        //    'booking' => $booking,
-
-        // ]);
+       
     }
 
     public function create(Request $request){
@@ -69,6 +72,7 @@ class ConfirmationScreenController extends Controller
        
         $newBooking= new Booking();
         $newBooking->User_Id=$user_Id;
+        $newBooking->Status=0;
         $newBooking->Promotion_Id= $promotion_Id;
         $allPrice=0;
         $newBooking->save();
@@ -106,16 +110,22 @@ class ConfirmationScreenController extends Controller
         $showtime=Showtime::with(['cinema','room'])->where('Id',$showTime_Id)->first();
         $movie = Movie::with(['photos', 'movieCategory'])->find($showtime->Movie_Id);
         $booking=$newBooking;
-        $listSeatsChoosed= Seat::with(['seatcategory'])->whereIn('Id',$tickets_Id)->get();
-         return redirect('/rainbow/confirmation_screen')->with([
-            
-            'user'=>$user,
-            'movie'=>$movie,
-            'showTime'=>$showtime,
-           'seats'=>$listSeatsChoosed,
-           'booking' => $booking,
+        $seats= Seat::with(['seatcategory'])->whereIn('Id',$tickets_Id)->get();
 
-         ]);
+        // sendMail
+        // $mailData = [
+        //     'user'=>$user,
+        //     'movie'=>$movie,
+          
+        //     'showTime'=>$showtime,
+        //    'seats'=>$listSeatsChoosed,
+        //    'booking' => $booking,
+        // ];
+    
+        Mail::to($user->UserName)->send(new MailBooking($user,$movie,$showtime,$seats,$booking));
+
+        return redirect("/rainbow/confirmation_screen/{$booking->Id}");
+
         
 
     }

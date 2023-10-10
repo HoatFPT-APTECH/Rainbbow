@@ -21,7 +21,7 @@ async function Login() {
         })
         .then((data) => {
             if (data.Login) {
-               
+          
                 sessionStorage.setItem("User", JSON.stringify(data.User));
                 // Tạo một đối tượng Date hiện tại
                 var now = new Date();
@@ -35,7 +35,9 @@ async function Login() {
                 var expires = "expires=" + expirationTime.toUTCString();
 
                 // Đặt cookie với thời gian hết hạn là 3 tiếng
-                document.cookie =  `Access_Token=${data.Access_Token}` + expires + "; path=/";
+                var Access_Token=getCookie('Access_Token');
+                if(Access_Token!==null) deleteCookie('Access_Token')
+                document.cookie =  `Access_Token=${data.Access_Token};` + expires + "; path=/";
                 // Điều hướng load lại trang hiện tại 
                   window.location.reload()
                
