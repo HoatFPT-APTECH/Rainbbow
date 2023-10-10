@@ -123,7 +123,7 @@
         @csrf
       <h1><b>Register</b></h1>
       <div class="input-box">
-        <input type="text" id="userName" name="UserName" placeholder="EMAIL*" required>
+        <input type="email" id="userName" name="UserName" placeholder="EMAIL*" required>
         <i class='bx bxs-user'></i>
       </div>
       <div class="input-box">
@@ -140,7 +140,9 @@
       </div>
       <button type="submit" class="btn">SIGN UP</button>
       <div class="register-link">
-        <p>Already have an account? <a href="#" style="color: #31d7a9;;" >Login</a></p>
+       {{--}} <p>Already have an account? <a href="/rainbow/#" style="color: #31d7a9;;" >Login</a></p>--}}
+       <p>Already have an account?<a href="/rainbow/#" style="color: #31d7a9" data-text="log in "
+                                    data-toggle="modal" data-target="#myModal">Login</a></p>
       </div>
     </form>
   </div>

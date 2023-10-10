@@ -20,10 +20,10 @@
   cursor: pointer;
   outline: none;
 }
-
-
-
-
+.my-class {
+   text-align: center;
+  vertical-align: middle;
+}
 </style>
 <div class="page-wrapper dashboard-wrap">
     <div class="content container-fluid">
@@ -54,25 +54,25 @@
                         <th>Id</th>
                         <th>User Information <i class="fa fa-sort"></i></th>
                         <th >Ticket<i class="fa fa-sort"></i></th>
-                        <th>Status<i class="fa fa-sort"></i></th> 
+                        <th >Promotion<i class="fa fa-sort"></i></th>
+                        <th>AllPrice<i class="fa fa-sort"></i></th> 
+                        <th >Status<i class="fa fa-sort"></i></th>
                         
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($danhsach as $Booking)
                     <tr>
-                        
                      
                             <td> {{$Booking->Id}} </td>
+
                             <td> UserName: {{$Booking->user->UserName}}<br>
                                  Name: {{$Booking->user->Name}}<br>
                                  Address: {{$Booking->user->Address}}<br>
-                                 Phone: {{$Booking->user->Phone}}
-                        </td>
+                            </td>
+                           
                             <td >
-                                
                               <ul  >
-                              
                                     @foreach($Booking->tickets as $Ticket)
                                     <li >
                                Id: {{$Ticket->Id}} <br>
@@ -84,7 +84,24 @@
                             </li>
                                @endforeach
                               </ul>
-                            <td>
+                            </td>
+                            <td class="my-class">
+                                
+                                   @if ($Booking->Promotion_Id!=null)
+                                   Start: {{$Booking->Promotion->Start}}<br>
+                                   End: {{$Booking->Promotion->End}}<br>
+                                   Promotion Name: {{$Booking->Promotion->promotionCategory->Name}}<br>
+
+                                   
+                                   @else
+                                   There are no promotions.
+                                   @endif
+                               </td>
+                            
+
+                              
+                              <td class="my-class"> Price: <b>{{$Booking->AllPrice}} </b></td>
+                            
                                 {{--}} <ul>
                                     @foreach($Booking->tickets as $Ticket)
                                     <li >
@@ -100,28 +117,19 @@
                                --}}
                          
                                 
-                              
-                                <ul>
-                                  @foreach($Booking->tickets as $Ticket)
-                                  <li >
-                                    <form action="/admin/booking/updateStatus"  method="POST">
+                               <td class="my-class">
+                                
+                                   <form action="/admin/booking/updateStatus"  method="POST">
                                         @csrf
-                                    <select name="status" id="{{$Ticket->Id}}">
-                                      <option value="1" {{$Ticket->Status==1?'selected':' '}} >Đã thanh toán</option>
-                                      <option value="0" {{$Ticket->Status==0?'selected':' '}} >Chưa thanh toán</option>
+                                    <select name="status" id="status">
+                                      <option value="1" {{$Booking->Status==1?'selected':' '}} >Đã thanh toán</option>
+                                      <option value="0" {{$Booking->Status==0?'selected':' '}} >Chưa thanh toán</option>
                                     </select>
                                  <br><br>  
-                                  <button name="ticket_id" value="{{$Ticket->Id}}" class="btn btn-primary">Update</button>
-                                </form>  
-                                </li>
-                                  @endforeach
-                                </ul>
-                              
-                                
-                     
-                            </td>
-                 
-                       
+                                  <button name="booking_id" value="{{$Booking->Id}}" class="btn btn-primary">Update</button>
+                                    </form>
+                                </td>
+                          
                       </tr>
                     @endforeach        
                 </tbody>

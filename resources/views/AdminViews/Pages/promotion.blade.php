@@ -26,7 +26,6 @@
                         <th>Id</th>
                         <th>Start <i class="fa fa-sort"></i></th>
                         <th>End <i class="fa fa-sort"></i></th>
-                        <th>User</i></th>
                         <th>PromotionCategrory <i class="fa fa-sort"></i></th>
                         <th>Coefficien <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
@@ -43,10 +42,6 @@
                     </td>
                      <td>
                         {{$Promotion->End}}
-                    </td>
-                    <td>
-                        {{$Promotion->user->Name}}
-
                     </td>
                     <td>
                         {{$Promotion->promotionCategory->Name}}
