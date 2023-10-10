@@ -76,11 +76,27 @@ color:#69707a;
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="{{$userDetails->AvatarURL}}" alt="">
+                    <?php $Image = $userDetails->Image ?? 'http://bootdey.com/img/Content/avatar/avatar1.png'; ?>
+                    <img class="img-account-profile rounded-circle mb-2" src="{{$Image}}" alt="">
                     <!-- Profile picture help block-->
-                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                    <div class="small font-italic text-muted mb-4"></div>
                     <!-- Profile picture upload button-->
-                    <button class="btn btn-primary" type="button">Upload new image</button>
+                    <br>
+                    <form class="form-inline" method="post" action="/rainbow/account_details/updateURL/{{$userDetails->Id}}">
+                        @csrf
+                        <div class="form-group mx-sm-3 mb-2">
+                          <input type="text" class="form-control" id="Image" name="Image" placeholder="AvatarURL">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Upload new image</button>
+                      </form>
+                      
+                    {{-- <form>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div> 
+                    <button class="btn btn-primary" id="edit-avatar">Upload new image</button>
+                </form> --}}
                 </div>
             </div>
         </div>

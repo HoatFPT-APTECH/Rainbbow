@@ -107,7 +107,9 @@ color:#69707a;
                         <tr>
                             <th class="border-gray-200" scope="col">Booking ID</th>
                             <th class="border-gray-200" scope="col">Order Time</th>
+                            <th class="border-gray-200" scope="col">Ticket</th>
                             <th class="border-gray-200" scope="col">All Price</th>
+                            <th class="border-gray-200" scope="col">Status</th>
                             {{-- <th class="border-gray-200" scope="col">Status</th> --}}
                         </tr>
                     </thead>
@@ -116,7 +118,30 @@ color:#69707a;
                         <tr>
                             <td>{{$userBookings->Id}}</td>
                             <td>{{$userBookings->OrderTime}}</td>
+                            <td >
+                                
+                                <ul  >
+                                
+                                      @foreach($userBookings->tickets as $Ticket)
+                                      <li >
+                                        <br>
+                                 Id: {{$Ticket->Id}} <br>
+                                 Price: {{$Ticket->Price}}<br>
+                                 Movie: {{$Ticket->showtime->movie->Name}}<br>
+                                 Cinema Name: {{$Ticket->showtime->cinema->Name}}<br>
+                                 Cinema Address: {{$Ticket->showtime->cinema->Address}}<br>
+                                 Room: {{$Ticket->showtime->room->Name}}<br>
+                                 <br>
+                              </li>
+                                 @endforeach
+                                </ul>
+                            </td>
                             <td>{{$userBookings->AllPrice}}</td>
+                            @if ( $userBookings->Status == 0)
+                            <td>Chưa thanh toán</td>
+                            @else
+                            <td>Đã thanh toán</td>
+                            @endif
                             {{-- <td><span class="badge bg-light text-dark">Pending</span></td> --}}
                         </tr>
                         @endforeach
