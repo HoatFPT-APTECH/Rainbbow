@@ -27,10 +27,9 @@
                     <tr>
                         <th>Id</th>
                         <th>Price<i class="fa fa-sort"></i></th>
-                        <th>Showtime_Id<i class="fa fa-sort"></i></th>
-                        <th>Booking_Id<i class="fa fa-sort"></i></th>
-                        <th>Seat_Id<i class="fa fa-sort"></i></th>
-                        <th>Status<i class="fa fa-sort"></i></th>
+                        <th>Showtime<i class="fa fa-sort"></i></th>
+                        <th>Booking<i class="fa fa-sort"></i></th>
+                        <th>Seat<i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -45,18 +44,19 @@
                         {{$Ticket->Price}}
                      </td>
                      <td>
-                        {{$Ticket->Showtime_Id}}
+                        Movie: {{$Ticket->showtime->movie->Name}}<br>
+                        DateShow: {{$Ticket->showtime->movie->DateShow}}<br>
+                        Cinema: {{$Ticket->showtime->cinema->Name}}<br>
+                        Room: {{$Ticket->showtime->room->Name}}
                      </td>
                      <td>
-                        {{$Ticket->Booking_Id}}
+                        Order Time: {{$Ticket->booking->OrderTime}}<br>
+                        Name: {{$Ticket->booking->user->Name}}<br>
+                        Phone: {{$Ticket->booking->user->Phone}}
                      </td>
                      <td>
-                        {{$Ticket->Seat_Id}}
+                        Seat: {{$Ticket->seat->Name}}
                      </td>
-                     <td>
-                        {{$Ticket->Status}}
-                     </td>
-                     
                      <td>
                         <a href="/admin/ticket/show/{{$Ticket->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                         <a href="/admin/ticket/edit/{{$Ticket->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

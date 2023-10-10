@@ -76,7 +76,7 @@ class Account_DetailsController extends Controller
     public function Promotion($id){
         $page='account_promotion';
         $JsPage="";
-        $UserPromotion=Promotion::with('user','promotionCategrory')->where('User_Id', $id)
+        $UserPromotion=Promotion::with('user','promotionCategory')->where('User_Id', $id)
         ->get();
         // $UserDetails=User::with(['bookings','promotions'])->where('Id',$id)->get();
         return  view('RainbowViews.index',['page'=>$page,

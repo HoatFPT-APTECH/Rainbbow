@@ -118,7 +118,7 @@ color:#69707a;
                             <td>{{$userPromotion->Id}}</td>
                             <td>{{$userPromotion->Start}}</td>
                             <td>{{$userPromotion->End}}</td>
-                            <?php $DC = ($userPromotion->promotionCategrory->Coefficient -1) *100
+                            <?php $DC = ($userPromotion->promotionCategory->Coefficient -1) *100
                             ?>
                             <td>{{$DC}}%</td>
                             @if ( $userPromotion->Used == 0)

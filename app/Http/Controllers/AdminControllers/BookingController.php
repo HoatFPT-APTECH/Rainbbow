@@ -29,7 +29,7 @@ class BookingController extends Controller
       }
 
        return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
-       //return response()->json($listBooking,200); 
+       // return response()->json($listBooking,200); 
     }
     public function Search(Request $request){
         $key=$request->input('key');
