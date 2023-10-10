@@ -14,11 +14,15 @@ class PromotionController extends Controller
      */
     public function index()
     {
-       
-       
-        $listPromotion= Promotion::with(['user','promotionCategory'])->get();
-            // return view("AdminViews.index",['page'=>'promotion',"danhsach"=>$listPromotion ]);
-            return response()->json(['page'=>'promotion',"danhsach"=>$listPromotion ]);
+        
+        $listPromotion= Promotion::with(['promotionCategory','user'])->get();
+      
+        
+             return view("AdminViews.index",[
+                'page'=>'promotion',
+               
+            "danhsach"=>$listPromotion ]);
+            
 
         }
 
@@ -29,8 +33,11 @@ class PromotionController extends Controller
     {
        // return view('AdminViews.index',['page'=>"promotionCreate"]);
        $ListCategrory= PromotionCategrory::all();
+       $users=User::all();
+
         return view("AdminViews.index",[
             'page'=>'promotionCreate',
+            'users'=>$users,
         "ListCategrory"=>$ListCategrory ]);
 
     }
@@ -43,24 +50,19 @@ class PromotionController extends Controller
         $Start= $request->input('Start');
         $End= $request->input('End');
         $PromotionCategrory_Id= $request->input('PromotionCategrory_Id');
+        $userId=$request->input('userId');
+
          $newPromotion= new Promotion();
          $newPromotion->Start=$Start;
          $newPromotion->End=$End;
          $newPromotion->PromotionCategrory_Id=$PromotionCategrory_Id;
+         $newPromotion->User_Id=$userId;
          $newPromotion->save();
          //return $this->index();
          return redirect("/admin/promotion");
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $Promotion= Promotion::find($id);
-        return view("AdminViews.index",['page'=>'promotionShow'],['Promotion'=>$Promotion]);
-       
-    }
+   
 
     /**
      * Show the form for editing the specified resource.
@@ -73,8 +75,15 @@ class PromotionController extends Controller
        
         $ListCategrory= PromotionCategrory::all();
         $idPromotion= intval($id);
-        $PromotionExist= Promotion::where('Id',$idPromotion)->first();
-        return view('AdminViews.index',['page'=>"promotionEdit", 'Promotion'=>$PromotionExist,"ListCategrory"=>$ListCategrory]);
+        $PromotionExist= Promotion::with(['promotionCategory','user'])->where('Id',$idPromotion)->first();
+        $PromotionExist->User=User::find($PromotionExist->User_Id);
+        $users=User::all();
+        return view('AdminViews.index',[
+            'page'=>"promotionEdit",
+             'Promotion'=>$PromotionExist,
+             "ListCategrory"=>$ListCategrory,
+              "users"=>$users
+            ]);
     
     }
 
@@ -86,12 +95,15 @@ class PromotionController extends Controller
         $Start= $request->input('Start');
         $End= $request->input('End');
         $PromotionCategrory_Id= $request->input('PromotionCategrory_Id');
+        $userId= $request->input('userId');
 
-         $newPromotion= Promotion::where('id',$id)->first();
+         $newPromotion= Promotion::where('Id',$id)->first();
 
          $newPromotion->Start=$Start;
          $newPromotion->End=$End;
          $newPromotion->PromotionCategrory_Id=$PromotionCategrory_Id;
+         $newPromotion->User_Id=$userId;
+
          $newPromotion->save();
          //return $this->index();
          return redirect("/admin/promotion");

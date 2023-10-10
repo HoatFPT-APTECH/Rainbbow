@@ -24,9 +24,14 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('RainbowViews.*', function ($view) {
             $view->with('assetPathRainbow', asset('RainbowPublic'));
         });
+        view()->composer('MailViews.*', function ($view) {
+            $view->with('assetPathMailOnline', asset('https://www.webstrot.com/html/moviepro/html/'));
+            $view->with('assetPathRainbow', asset('RainbowPublic'));
+        });
         view()->composer('AdminViews.*',function($view){
              $view->with('assethPathAdmin',asset('AdminPublic'));
         });
+        
         Paginator::useBootstrap();
     }
 }

@@ -29,24 +29,38 @@
                     </ul>
                     </li>
             
-                <li>
-                    <a href="/admin/user"><i class="fa-solid fa-user"></i><span
-                            class="side-txt">Account Manager</span></a>
+                <li class="submenu">
+                    <a href="#"><i class="fa-solid fa-user"></i><span class="side-txt">Account Manager</span>
+                        <span class="menu-arrow"></span></a>
+                        <ul>
+                            <li><a href="/admin/account/client">Client  </a></li>
+                            <li class="decenAdmin" ><a href="/admin/account/employee">Employee </a></li>
+                  
+    
+                        </ul>
                 </li>
                 <li class="submenu">
-                    <a href="#"><i class="fa-solid fa-ticket"></i><span class="side-txt">Booking Information</span>
+                    <a href="#"><i class="fa-solid fa-ticket"></i><span class="side-txt">Booking Manager</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="/admin/booking">Booking </a></li>
+                        <li><a href="/admin/booking">Booking client  </a></li>
                         <li class="decenAdmin" ><a href="/admin/ticket">Ticket </a></li>
                         <li class="decenAdmin"><a href="/admin/showtime">Showtime </a></li>
                         <li class="decenAdmin" ><a href="/admin/room">Room </a></li>
 
                     </ul>
                 </li>
-                <li class="decenAdmin" >
-                    <a href="/admin/promotion"><i class="fa-solid fa-tag"></i><span
-                            class="side-txt">Promotion</span></a>
+                <li class="decenAdmin submenu" >
+                    <a href="#"> <i class="fa-solid fa-tag"></i> <span class="side-txt">Promotion Manager</span>
+                        <span class="menu-arrow"></span></a>
+                   
+                            <ul>
+                                <li><a href="/admin/promotion"> Promotion</a></li>
+                                <li><a href="/admin/promotionUser"> User have a birthday on today</a></li>
+                              
+                         
+        
+                            </ul>
                 </li>
                 
                     </ul>

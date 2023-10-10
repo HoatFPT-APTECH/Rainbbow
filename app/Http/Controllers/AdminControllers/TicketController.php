@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\AdminControllers;
 use App\Models\Ticket;
+use App\Models\Movie;
+use App\Models\Cinema;
+use App\Models\Room;
+use App\Models\Showtime;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,9 +16,16 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $listTicket= Ticket::all();
-        return view('AdminViews.index',['page'=>"ticket",'danhsach'=>$listTicket]);
-    //    return response()->json($listTicket,200); 
+        $listTicket= Ticket::with('showtime','booking','seat')->get();
+        foreach ($listTicket as $ticket) {
+            $movie = $ticket->showtime->movie->Name;
+            $cinema = $ticket->showtime->cinema->Name;
+            $room = $ticket->showtime->room->Name;
+            $userName= $ticket->booking->user->Name;
+
+          }
+     return view('AdminViews.index',['page'=>"ticket",'danhsach'=>$listTicket]);
+     //  return response()->json($listTicket,200); 
     }
 
     /**
