@@ -39,6 +39,7 @@ class RegisterController extends Controller
          $newUser= new User();
          $newUser->UserName=$UserName;
          $newUser->Password=md5($Password);
+         $newUser->Role_Id=3;
          $newUser->save();
         // return $this->index();
        return redirect("/rainbow");

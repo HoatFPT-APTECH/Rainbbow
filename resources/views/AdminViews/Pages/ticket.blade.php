@@ -41,7 +41,7 @@
                         {{$Ticket->Id}}
                      </td>
                      <td>
-                        {{$Ticket->Price}}
+                        ${{$Ticket->Price}}
                      </td>
                      <td>
                         Movie: {{$Ticket->showtime->movie->Name}}<br>

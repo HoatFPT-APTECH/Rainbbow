@@ -16,7 +16,9 @@ class UserController extends Controller
        // $listUser= User::all();
        // return view('AdminViews.index',['page'=>"user",'danhsach'=>$listUser]);
         //return response()->json($listUser,200);
-        $listUser= User::with('Role')->get();
+        $listUser= User::with('Role')->where('Deleted',0)
+        
+        ->get();
         return view("AdminViews.index",['page'=>'user'],['danhsach'=>$listUser]);
     }
 
@@ -117,7 +119,8 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $newUser= User::where('id',$id)->first();
-        $newUser->delete();
+        $newUser->Deleted=1;
+        $newUser->save();
         //return $this->index();
         return redirect("/admin/user");
     }

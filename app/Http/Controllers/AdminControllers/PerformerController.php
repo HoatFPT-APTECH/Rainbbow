@@ -78,7 +78,8 @@ class PerformerController extends Controller
     {
         //
         $newPerformer= Performer::where('id',$id)->first();
-        $newPerformer->delete();
+        $newPerformer->Deleted=1;
+        $newPerformer->save();
        // return $this->index();
        return redirect("/admin/performer");
     }

@@ -17,7 +17,9 @@ class BookingController extends Controller
     {
        // $id là của bộ phim
         $id=$request->input('Id_Movie');
-        $ListShowTime = Showtime::with(['cinema', 'room'])->where("Movie_Id", $id)->where('Deleted',0)->get();
+        $ListShowTime = Showtime::with(['cinema', 'room'])->where("Movie_Id", $id)
+        ->orderBy('Start','asc')
+        ->where('Deleted',0)->get();
 
        
         return response()->json($ListShowTime,200);

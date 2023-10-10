@@ -17,7 +17,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $listMovie= Movie::with('movieCategory','director','productor')->get();
+        $listMovie= Movie::with('movieCategory','director','productor','photos')->get();
         return view("AdminViews.index",['page'=>'movie'],['danhsach'=>$listMovie]);
     }
 
@@ -111,7 +111,11 @@ class MovieController extends Controller
         $idMovie= intval($id);
         $listPhoto= Photo::where('Movie_Id', $idMovie)->get();
         $Movie= Movie::find($id);
-        return view("AdminViews.index",['page'=>'movieShow'],['Movie'=>$Movie],['danhsach'=>$listPhoto]);
+            //   return response()->json($listPhoto);
+        return view("AdminViews.index",[
+            'Movie'=>$Movie,
+            'danhsach'=>$listPhoto,
+            'page'=>'movieShow']);
         // return response()->json($listPhoto);
     }
 
@@ -163,5 +167,9 @@ class MovieController extends Controller
     public function destroy(string $id)
     {
         //
+        $Movie=Movie::find($id);
+        $Movie->Deleted=1;
+        $Movie->save();
+        return redirect("/admin/movie");
     }
 }

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\AdminControllers;
 use App\Models\Promotion;
 use App\Models\PromotionCategrory;
 use App\Http\Controllers\Controller;
+use App\Mail\VoucherCodeMail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PromotionController extends Controller
 {
@@ -15,7 +17,7 @@ class PromotionController extends Controller
     public function index()
     {
         
-        $listPromotion= Promotion::with(['promotionCategory','user'])->get();
+        $listPromotion= Promotion::with(['promotionCategory','user'])->where('Deleted',0)->get();
       
         
              return view("AdminViews.index",[
@@ -34,6 +36,7 @@ class PromotionController extends Controller
        // return view('AdminViews.index',['page'=>"promotionCreate"]);
        $ListCategrory= PromotionCategrory::all();
        $users=User::all();
+
 
         return view("AdminViews.index",[
             'page'=>'promotionCreate',
@@ -58,6 +61,10 @@ class PromotionController extends Controller
          $newPromotion->PromotionCategrory_Id=$PromotionCategrory_Id;
          $newPromotion->User_Id=$userId;
          $newPromotion->save();
+
+         $u=User::find($userId);
+         $promotionCategory= PromotionCategrory::find($PromotionCategrory_Id);
+         Mail::to($u->UserName)->send(new VoucherCodeMail($u,$newPromotion,$promotionCategory));
          //return $this->index();
          return redirect("/admin/promotion");
     }
@@ -115,7 +122,8 @@ class PromotionController extends Controller
     public function destroy(string $id)
     {
         $newPromotion= Promotion::where('id',$id)->first();
-        $newPromotion->delete();
+        $newPromotion->Deleted=1;
+        $newPromotion->save();
        // return $this->index();
        return redirect("/admin/promotion");
     }

@@ -20,7 +20,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $listTicket= Ticket::with('showtime','booking','seat')->get();
+        $listTicket= Ticket::with('showtime','booking','seat')->where('Deleted',0)->get();
         foreach ($listTicket as $ticket) {
             $movie = $ticket->showtime->movie->Name;
             $cinema = $ticket->showtime->cinema->Name;
@@ -151,7 +151,8 @@ class TicketController extends Controller
     public function destroy(string $id)
     {
         $newTicket= Ticket::where('id',$id)->first();
-        $newTicket->delete();
+        $newTicket->Deleted=1;
+        $newTicket->save();
        // return $this->index();
        return redirect("/admin/ticket");
     }

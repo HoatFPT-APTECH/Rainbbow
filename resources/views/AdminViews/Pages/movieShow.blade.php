@@ -3,22 +3,43 @@
 <div class="container">
     <h2>View A Movie</h2>
     <form action="xuly.php" method="POST">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          @foreach ($danhsach as $Photo)
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="{{$Photo->Src}}">
-          </div>
-          @endforeach
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{$danhsach[3]->Src==null ? $danhsach[0]->Src: $danhsach[3]->Src }}" height="500px" class="d-block w-100 " alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{$danhsach[1]->Src==null ? $danhsach[0]->Src: $danhsach[1]->Src}}" height="500px" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{$danhsach[2]->Src==null ? $danhsach[0]->Src: $danhsach[2]->Src}}" height="500px" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
       
       <div class="form-group">
@@ -40,7 +61,10 @@
       </div>
       <div class="form-group">
         <label for="description">Description:</label>
-        <input type="text" class="form-control" id="description" name="description" value="{{$Movie->Description}}" readonly>
+       
+        <textarea class="form-control" id="description" name="description" cols="30" rows="10" readonly>
+          {{$Movie->Description}}
+        </textarea>
       </div>
       <div class="form-group">
         <label for="category">Category:</label>

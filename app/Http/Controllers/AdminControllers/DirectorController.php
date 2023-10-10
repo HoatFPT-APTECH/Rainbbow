@@ -12,7 +12,7 @@ class DirectorController extends Controller
      */
     public function index()
     {
-        $listDirector= Director::all();
+        $listDirector= Director::where('Deleted',0)->get();
          return view('AdminViews.index',['page'=>"director",'danhsach'=>$listDirector]);
          //return response()->json($listPerformer,200); 
     }
@@ -78,7 +78,8 @@ class DirectorController extends Controller
     {
         //
         $newDirector= Director::where('id',$id)->first();
-        $newDirector->delete();
+        $newDirector->Deleted=1;
+        $newDirector->save();
        // return $this->index();
        return redirect("/admin/director");
     }

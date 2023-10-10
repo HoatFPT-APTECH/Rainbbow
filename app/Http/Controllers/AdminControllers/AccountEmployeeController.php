@@ -114,7 +114,7 @@ class AccountEmployeeController extends Controller
      */
     public function destroy(string $id)
     {
-        $newUser= User::where('id',$id)->first();
+        $newUser= User::where('id',$id)->where('Deleted',0)->first();
 
         $newUser->Deleted=1;
         $newUser->save();
