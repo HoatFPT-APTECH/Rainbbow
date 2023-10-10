@@ -44,8 +44,8 @@ class LoginController extends Controller
     public function HandleLogin(Request $request){
          $UserName=$request->input("UserName");
          $Password=$request->input("Password");
-       $CurrentURL=url()->current();
-        $User = User::where("UserName", $UserName)->where("Password", $Password)->first();
+      
+        $User = User::where("UserName", $UserName)->where("Password", md5($Password))->first();
         if ($User != null) {
             $Token = $this->v4();
             // tạo token cho account
@@ -64,5 +64,25 @@ class LoginController extends Controller
             ];
             return response()->json($Data,401);
         }
+    }
+    public function HandleLoginByToken(Request $request){
+       $token=$request->input('Token');
+     
+       $User = User::where("Api_token",$token)->first();
+       if ($User != null) {
+
+        $Data=[
+            'Login'=>true,
+            "User"=>$User,
+        
+        ];
+       return response()->json($Data,200);
+    }
+    else{
+        $Data=[
+            "Login"=>false
+        ];
+        return response()->json($Data,404);
+    }
     }
 }

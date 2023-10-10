@@ -76,7 +76,7 @@
                             <br>an e-Mail/SMS Confirmation with in 15 Minutes.
                         </p>
                         <ul>
-                            <li><a href="/rainbow">HOME</a>
+                            <li><a href="/rainbow"  > RAINBOW</a>
                             </li>
                             
                         </ul>
