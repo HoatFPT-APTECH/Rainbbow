@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\AdminControllers;
-use App\Models\Productor;
+
 use App\Http\Controllers\Controller;
+use App\Models\Productor;
 use Illuminate\Http\Request;
 
 class ProductorController extends Controller
@@ -12,7 +13,7 @@ class ProductorController extends Controller
      */
     public function index()
     {
-        $listProductor= Productor::all();
+        $listProductor= Productor::where('Deleted',0)->get();
          return view('AdminViews.index',['page'=>"productor",'danhsach'=>$listProductor]);
          //return response()->json($listPerformer,200); 
     }
@@ -78,7 +79,8 @@ class ProductorController extends Controller
     {
         //
         $newProductor= Productor::where('id',$id)->first();
-        $newProductor->delete();
+        $newProductor->Deleted=1;
+         $newProductor->save();
        // return $this->index();
        return redirect("/admin/productor");
     }

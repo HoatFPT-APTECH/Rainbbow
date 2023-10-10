@@ -15,11 +15,13 @@ class PromotionController extends Controller
     public function check(Request $request){
         $userId= $request->input('userId');
         $promotionId=$request->input('promotionId');
-        $existPromotion=Promotion::with(["promotionCategory"])->where('User_Id',$promotionId)
+        $existPromotion=Promotion::with(["promotionCategory"])->where('User_Id',$userId)
         ->where("Id",$promotionId)
         ->first();
         if($existPromotion==null){
-            return  response()->json(["message"=>"Not found"],404);
+            return  response()->json(["message"=>"Not found"
+        
+        ],404);
         }else{
             
             return response()->json($existPromotion,200);

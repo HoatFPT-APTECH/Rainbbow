@@ -8,7 +8,7 @@ use App\Models\Cinema;
 class CinemaController extends Controller{
     // Trang view hiển thị bảng
         public function index(){
-        $listcinema=Cinema::all();
+        $listcinema=Cinema::where('Deleted',0)->get();
         return view('AdminViews.index',['page'=>'cinema','danhsach'=>$listcinema]);
         }
         // action trả về trang hiển thị chi tiết một bản ghi như thế nào 
@@ -51,7 +51,8 @@ class CinemaController extends Controller{
         // thk này sẽ làm việc với scdl để xoá object
         public function destroy(string $id){
             $newCinema=Cinema::where('id',$id)->first();
-            $newCinema->delete();
+            $newCinema->Deleted=1;
+            $newCinema->save();
             return redirect('/admin/cinema');
         }
     }

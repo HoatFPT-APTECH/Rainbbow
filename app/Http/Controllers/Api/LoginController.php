@@ -67,8 +67,11 @@ class LoginController extends Controller
     }
     public function HandleLoginByToken(Request $request){
        $token=$request->input('Token');
-     
-       $User = User::where("Api_token",$token)->first();
+        if($token==null)$User=null;
+        else {
+            $User = User::where("Api_token",$token)->first();
+        }
+
        if ($User != null) {
 
         $Data=[

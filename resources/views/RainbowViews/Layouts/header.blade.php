@@ -60,7 +60,7 @@
                         <ul class="dl-menu">
                             <li class="parent"><a href="/rainbow">Home</a>
                             </li>
-                            <li class="parent megamenu"><a href="/rainbow/#">movie</a>
+                            <li class="parent megamenu"><a href="/rainbow/movie_category">movie</a>
                                 <ul class="lg-submenu">
                                     <li><a>Mystery</a>
                                         <ul class="lg-submenu">

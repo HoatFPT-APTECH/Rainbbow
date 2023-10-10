@@ -19,7 +19,9 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $listBooking= Booking ::with(['user','tickets'])->get();
+        $listBooking= Booking ::with(['user','tickets'])->where('Deleted',0)
+        ->orderBy('OrderTime','desc')
+        ->get();
       for($b=0;$b<sizeof($listBooking);$b++){
         if($listBooking[$b]->Promotion_Id!=null){
             $listBooking[$b]->Promotion=Promotion::with(['promotionCategory'])->find($listBooking[$b]->Promotion_Id);
@@ -46,16 +48,24 @@ class BookingController extends Controller
         ->whereHas('user', function ($query) use ($key) {
             $query->where('Phone', 'like', '%' . $key . '%');
         })
+        ->orderBy('OrderTime','desc')
         ->get();
     
         for($b=0;$b<sizeof($listBooking);$b++){
+            if($listBooking[$b]->Promotion_Id!=null){
+                $listBooking[$b]->Promotion=Promotion::with(['promotionCategory'])->find($listBooking[$b]->Promotion_Id);
+            }else{
+                $listBooking[$b]->Promotion=null;
+            }
             for($t=0;$t<sizeof($listBooking[$b]->tickets);$t++){
-                    $listBooking[$b]->tickets[$t]->Showtime= Showtime::where("Id",$listBooking[$b]->tickets[$t]->Showtime_Id)->first();
+               
+               
+                    $listBooking[$b]->tickets[$t]->Showtime=Showtime::where("Id",$listBooking[$b]->tickets[$t]->Showtime_Id)->first();
                     $listBooking[$b]->tickets[$t]->Showtime->Movie=Movie::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Movie_Id)->first(); 
                     $listBooking[$b]->tickets[$t]->Showtime->Cinema=Cinema::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Cinema_Id)->first();
                     $listBooking[$b]->tickets[$t]->Showtime->Room= Room::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Room_id)->first();
             }
-          }
+        }
          return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
          
        }
@@ -141,7 +151,8 @@ class BookingController extends Controller
     public function destroy(string $id)
     {
         $newBooking= Booking::where('id',$id)->first();
-        $newBooking->delete();
+        $newBooking->Deleted=1;
+        $newBooking->save();
        // return $this->index();
        return redirect("/admin/booking");
     }

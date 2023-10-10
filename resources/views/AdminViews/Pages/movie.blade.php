@@ -57,7 +57,7 @@
                          <td>
                             {{$Movie->Price}}
                          </td>
-                         <td>
+                         <td style="max-height: 50px">
                             {{$Movie->Description}}
                          </td>
                          <td>

@@ -19,3 +19,6 @@ body > div.prs_patner_main_section_wrapper > div > div > div:nth-child(2) > div 
 .st_seat_lay_row .seat_choosing input[type="checkbox"] + label::after{
     background: #ebd90f;
 }
+body > div.prs_vp_main_section_wrapper > div > div > div.prs_vp_main_slider_wrapper > div.prs_vp_center_slidebar_wrapper > div > div > div.owl-stage-outer img{
+    height: 570px;
+}

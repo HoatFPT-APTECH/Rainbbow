@@ -69,6 +69,7 @@
                             <td> UserName: {{$Booking->user->UserName}}<br>
                                  Name: {{$Booking->user->Name}}<br>
                                  Address: {{$Booking->user->Address}}<br>
+                                 Phone: {{$Booking->user->Phone}}<br>
                             </td>
                            
                             <td >
@@ -91,6 +92,7 @@
                                    Start: {{$Booking->Promotion->Start}}<br>
                                    End: {{$Booking->Promotion->End}}<br>
                                    Promotion Name: {{$Booking->Promotion->promotionCategory->Name}}<br>
+                                   Discount Money: ${{$Booking->Promotion->promotionCategory->Coefficient}}<br>
 
                                    
                                    @else

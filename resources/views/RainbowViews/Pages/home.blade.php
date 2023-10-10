@@ -521,7 +521,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="prs_animate_btn1 prs_upcom_main_wrapper">
                                 <ul>
-                                    <li><a href="#" class="button button--tamaya prs_upcom_main_btn" data-text="view all"><span>View All</span></a>
+                                    <li><a href="/rainbow/movie_category" class="button button--tamaya prs_upcom_main_btn" data-text="view all"><span>View All</span></a>
                                     </li>
                                 </ul>
                             </div>

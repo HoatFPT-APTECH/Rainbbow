@@ -75,7 +75,8 @@ class RoomController extends Controller
     public function destroy(string $id)
     {
         $newRoom= Room::where('id',$id)->first();
-        $newRoom->delete();
+        $newRoom->Deleted=1;
+        $newRoom->save();
        // return $this->index();
        return redirect("/admin/room");
     }

@@ -50,7 +50,7 @@
 
                     </ul>
                 </li>
-                <li class="decenAdmin submenu" >
+                <li class="submenu" >
                     <a href="#"> <i class="fa-solid fa-tag"></i> <span class="side-txt">Promotion Manager</span>
                         <span class="menu-arrow"></span></a>
                    

@@ -12,7 +12,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $listRole= Role::all();
+        $listRole= Role::where('Deleted',0)->get();
         return view('AdminViews.index',['page'=>"role",'danhsach'=>$listRole]);
         //return response()->json($listPerformer,200); 
     }
@@ -74,7 +74,8 @@ class RoleController extends Controller
     public function destroy(string $id)
     {
         $newRole= Role::where('id',$id)->first();
-        $newRole->delete();
+        $newRole->Deleted=1;
+        $newRole->save();
         //return $this->index();
         return redirect("/admin/role");
     }

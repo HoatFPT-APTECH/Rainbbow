@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Edit Movie</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-<body>
+
   <div class="page-wrapper dashboard-wrap">
     <div class="content container-fluid">
   <div class="container">
@@ -31,6 +25,7 @@
       </div>
       <div class="form-group">
         <label for="descriptionInput">Description:</label>
+        
         <input class="form-control" id="descriptionInput" name="description" value="{{$Movie->Description}}" >
       </div>
       <div class="form-group">
@@ -89,6 +84,3 @@
   </div>
 </div>
 </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>

@@ -35,9 +35,7 @@ use App\Http\Controllers\RainbowControllers\SeatBookingController;
 
 use App\Http\Controllers\RainbowControllers\Movie_CategoryController;
 use App\Http\Controllers\RainbowControllers\Account_DetailsController;
-
-
-
+use App\Http\Controllers\RainbowControllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -79,6 +77,9 @@ Route::group(['prefix'=>'rainbow'],function(){
     Route::post('/account_details/update/{Id}', [Account_DetailsController::class, 'update']);
     Route::post('/account_details/updateURL/{Id}', [Account_DetailsController::class, 'updateURL']);
     Route::get('/account_promotion/{Id}', [Account_DetailsController::class, 'promotion']);
+
+
+    Route::get('/contact', [ContactController::class, 'index']);
 });
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/',[AdminControllersLoginController::class,'index']);
