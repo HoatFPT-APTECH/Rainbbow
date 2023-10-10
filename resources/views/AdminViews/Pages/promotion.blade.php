@@ -28,10 +28,11 @@
                         <th>End <i class="fa fa-sort"></i></th>
                         <th>User</i></th>
                         <th>PromotionCategrory <i class="fa fa-sort"></i></th>
+                        <th>Coefficien <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                     @foreach($danhsach as $Promotion)
                  <tr>
                      <td>
@@ -50,8 +51,11 @@
                     <td>
                         {{$Promotion->promotionCategory->Name}}
                     </td>
+                    <td >
+                      ${{$Promotion->promotionCategory->Coefficient}}
+                    </td>
                      <td>
-                        <a href="/admin/promotion/show/{{$Promotion->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                       
                         <a href="/admin/promotion/edit/{{$Promotion->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         <a href="/admin/promotion/delete/{{$Promotion->Id}}" onclick="return confirm('Your sure delete promotion has start: {{$Promotion->Start}}')" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>

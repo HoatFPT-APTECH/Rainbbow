@@ -23,7 +23,10 @@
       </div>
       <div class="form-group">
         <label for="description">Description:</label>
-        <input class="form-control" id="description" name="description" required>
+        <textarea class="form-control" id="description" name="description" required cols="30" rows="10" placeholder="Description for movie" >
+
+        </textarea>
+     
       </div>
       <div class="form-group">
         <label for="category">Category:</label>
@@ -59,22 +62,22 @@
       <div class="row">
         <label for="photo">SlideShow Photo Src:</label>
         <div class="col">
-          <input type="text" id='Src1' name='Src1' class="form-control" required>
+          <input placeholder="Image 1" type="text" id='Src1' name='Src1' class="form-control" required>
         </div>
         <div class="col">
-          <input type="text" id='Src2' name="Src2" class="form-control" required>
+          <input placeholder="Image 2" type="text" id='Src2' name="Src2" class="form-control" required>
         </div>
         <div class="col">
-          <input type="text" id='Src3' name="Src3" class="form-control" required>
+          <input placeholder="Image 3" type="text" id='Src3' name="Src3" class="form-control" required>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col">
-          <input type="text" id='Src4' name='Src4' class="form-control" required>
+          <input placeholder="Image 4" type="text" id='Src4' name='Src4' class="form-control" required>
         </div>
         <div class="col">
-          <input type="text" id='Src5' name="Src5" class="form-control" required>
+          <input placeholder="Image 5" type="text" id='Src5' name="Src5" class="form-control" required>
         </div>
       </div>
       <br>

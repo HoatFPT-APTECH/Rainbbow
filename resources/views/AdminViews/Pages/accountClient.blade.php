@@ -6,9 +6,9 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h2><i class="fa-solid fa-user"></i>     User <b>Details</b>       
+                        <h2><i class="fa-solid fa-user"></i>     Account Detail <b>Details</b>       
                         <br><br><button class="btn btn-primary ">
-                        <a href="./user/create" style="color: white"><i class="fa-solid fa-user-plus"></i>  Add new User</a>    
+                        <a href="/admin/account/client/create" style="color: white"><i class="fa-solid fa-user-plus"></i>  Add new User</a>    
                         </button></h2>
                     </div>
                     <div class="col-sm-4">
@@ -69,9 +69,9 @@
                         {{$User->role->Name}}
                      </td>
                      <td>
-                        <a href="/admin/user/show/{{$User->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                        <a href="/admin/user/edit/{{$User->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="/admin/user/delete/{{$User->Id}}" onclick="return confirm('Your sure delete performer has name: {{$User->UserName}}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a href="/admin/account/client/show/{{$User->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                        <a href="/admin/account/client/edit/{{$User->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a href="/admin/account/client/delete/{{$User->Id}}" onclick="return confirm('Your sure delete performer has name: {{$User->UserName}}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
            
                  </tr>

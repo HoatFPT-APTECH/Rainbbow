@@ -9,17 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class DemoMail extends Mailable
+class VoucherCodeMail extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $mailData;
+   public $user, $promotion , $promotionCategory;
     /**
      * Create a new message instance.
      */
-    public function __construct($mailData)
+    public function __construct($user, $promotion , $promotionCategory)
     {
-        $this->mailData = $mailData;
+        $this->user=$user;
+        $this->promotion=$promotion;
+        $this->promotionCategory=$promotionCategory;
     }
 
     /**
@@ -28,7 +29,7 @@ class DemoMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Demo Mail',
+            subject: 'Voucher Code Mail',
         );
     }
 
@@ -38,7 +39,7 @@ class DemoMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.demoMail',
+            view: 'MailViews.VoucherCode',
         );
     }
 
