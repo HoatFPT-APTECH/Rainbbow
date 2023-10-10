@@ -17,7 +17,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $listMovie= Movie::with('movieCategory','director','productor')->get();
+        $listMovie= Movie::with('movieCategory','director','productor','photos')->get();
         return view("AdminViews.index",['page'=>'movie'],['danhsach'=>$listMovie]);
     }
 

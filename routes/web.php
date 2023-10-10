@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminControllers\RoomController;
 
 
 use App\Http\Controllers\AdminControllers\CinemaController;
+use App\Http\Controllers\AdminControllers\DashboardController;
 use App\Http\Controllers\AdminControllers\LoginController as AdminControllersLoginController;
 use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
@@ -83,9 +84,7 @@ Route::group(['prefix'=>'rainbow'],function(){
 });
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/',[AdminControllersLoginController::class,'index']);
-    Route::get('/dasdboard', function () {
-        return view('AdminViews.index', ['page' => 'dasdboard']);
-    });
+    Route::get('/dasdboard', [DashboardController::class,'index']);
 
     Route::resource('/movie', MovieController::class);
 

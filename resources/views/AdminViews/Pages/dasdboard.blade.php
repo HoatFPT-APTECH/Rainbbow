@@ -20,47 +20,50 @@
                                 <a class="dropdown-item" href="javascript:void(0)">Action</a>
                                 <a class="dropdown-item" href="javascript:void(0)">Another action</a>
                             </div>
-                            <h3>60 <span>Qty</span></h3>
-                            <p>To be packed</p>
+                            <h3> {{$bookingOnToday}}<span> Booking </span></h3>
+                            <p>Booking ToDay</p>
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6 col-12">
                         <div class="card dash-widget box-2">
-                            <img src="{{ $assethPathAdmin }}/img/icons/delivery.png" alt>
+                            <img src="{{ $assethPathAdmin }}/img/icons/money.png" alt>
                             <a href class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                                 aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="javascript:void(0)">Action</a>
                                 <a class="dropdown-item" href="javascript:void(0)">Another action</a>
                             </div>
-                            <h3>1 <span>Pkag</span></h3>
-                            <p>To be shipped</p>
+                            <h3> {{$bookingPayed}} <span> Booking </span></h3>
+                            <p>Booking Payed </p>
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6 col-12">
                         <div class="card dash-widget box-3">
-                            <img src="{{ $assethPathAdmin }}/img/icons/peop-del.png" alt>
+                            <img src="{{ $assethPathAdmin }}/img/icons/online-reservation.png" alt>
                             <a href class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                                 aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="javascript:void(0)">Action</a>
                                 <a class="dropdown-item" href="javascript:void(0)">Another action</a>
                             </div>
-                            <h3>3 <span>Pkag</span></h3>
-                            <p>To be delivered</p>
+                            <h3>{{$bookingOnMonth}} <span>Booking </span></h3>
+                            <p>Booking Current Month</p>
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6 col-12">
                         <div class="card dash-widget box-4">
-                            <img src="{{ $assethPathAdmin }}/img/icons/rescipt.png" alt>
+                            <img src="{{ $assethPathAdmin }}/img/icons/piggy-bank.png" alt>
                             <a href class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                                aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                                aria-expanded="false">
+                                
+                                <i class="fas fa-ellipsis-v"></i>
+                            </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="javascript:void(0)">Action</a>
                                 <a class="dropdown-item" href="javascript:void(0)">Another action</a>
                             </div>
-                            <h3>4 <span>Pkag</span></h3>
-                            <p>To be Invoiced</p>
+                            <h3> ${{$totalMoney}} <span>Money  Current Month</span></h3>
+                            <p>Money  Current Month</p>
                         </div>
                     </div>
                 </div>

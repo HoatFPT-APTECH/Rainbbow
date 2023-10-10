@@ -27,6 +27,7 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Image</th>
                                 <th>Name <i class="fa fa-sort"></i></th>
                                 <th>DateShow</th>
                                 <th>VideoTrailer <i class="fa fa-sort"></i></th>
@@ -46,6 +47,11 @@
                             {{$Movie->Id}}
                          </td>
                          <td>
+                            <div class="avatar-container">
+                                <img class="avatar" src="    {{$Movie->photos[0]->Src}}"/>
+                            </div>
+                         </td>
+                         <td>
                             {{$Movie->Name}}
                          </td>
                           <td>
@@ -55,7 +61,7 @@
                             {{$Movie->VideoTrailer}}
                          </td>
                          <td>
-                            {{$Movie->Price}}
+                            ${{$Movie->Price}}
                          </td>
                          <td style="max-height: 50px">
                             {{$Movie->Description}}

@@ -26,13 +26,14 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Image<i class="fa fa-sort"></i></th>
                         <th>UserName<i class="fa fa-sort"></i></th>
                         <th>Password<i class="fa fa-sort"></i></th>
                         <th>Name<i class="fa fa-sort"></i></th>
                         <th>Address<i class="fa fa-sort"></i></th>
                         <th>DateOfBirth<i class="fa fa-sort"></i></th>
                         <th>Phone<i class="fa fa-sort"></i></th>
-                        <th>Image<i class="fa fa-sort"></i></th>
+                
                         <th>Role<i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
@@ -43,6 +44,11 @@
                  
                      <td>
                         {{$User->Id}}
+                     </td>
+                     <td>
+                        <div class="avatar-container">
+                            <img class="avatar" src="    {{$User->Image==null? 'https://www.freeiconspng.com/uploads/no-image-icon-33.png':$User->Image}}"/>
+                        </div>
                      </td>
                      <td>
                         {{$User->UserName}}
@@ -62,9 +68,7 @@
                      <td>
                         {{$User->Phone}}
                      </td>
-                     <td>
-                        {{$User->Image}}
-                     </td>
+                   
                      <td>
                         {{$User->role->Name}}
                      </td>

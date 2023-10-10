@@ -22,8 +22,24 @@ td {
     white-space: nowrap; /* Ngăn text wrap vào hàng mới */
     overflow: hidden;    /* Ẩn phần text vượt quá kích thước cột */
     text-overflow: ellipsis; /* Hiển thị dấu "..." cho phần text bị ẩn */
-    max-width: 150px; /* Thiết lập kích thước tối đa cho cột */
+    max-width: 100px; /* Thiết lập kích thước tối đa cho cột */
    
+}
+.avatar-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f0f0f0; /* Màu nền khi ảnh chưa tải hoặc không có ảnh */
+    display: inline-block;
+}
+
+.avatar {
+    width: 100%;
+    height: auto;
+}
+td{
+    text-align: center;
 }
 
 
