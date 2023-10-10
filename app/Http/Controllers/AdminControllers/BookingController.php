@@ -8,6 +8,7 @@ use App\Models\Movie;
 use App\Models\Room;
 use App\Models\Showtime;
 use App\Models\Ticket;
+use App\Models\Promotion;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,14 +21,22 @@ class BookingController extends Controller
     {
         $listBooking= Booking ::with(['user','tickets'])->get();
       for($b=0;$b<sizeof($listBooking);$b++){
+        if($listBooking[$b]->Promotion_Id!=null){
+            $listBooking[$b]->Promotion=Promotion::with(['promotionCategory'])->find($listBooking[$b]->Promotion_Id);
+        }else{
+            $listBooking[$b]->Promotion=null;
+        }
         for($t=0;$t<sizeof($listBooking[$b]->tickets);$t++){
-                $listBooking[$b]->tickets[$t]->Showtime= Showtime::where("Id",$listBooking[$b]->tickets[$t]->Showtime_Id)->first();
+           
+           
+                $listBooking[$b]->tickets[$t]->Showtime=Showtime::where("Id",$listBooking[$b]->tickets[$t]->Showtime_Id)->first();
                 $listBooking[$b]->tickets[$t]->Showtime->Movie=Movie::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Movie_Id)->first(); 
                 $listBooking[$b]->tickets[$t]->Showtime->Cinema=Cinema::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Cinema_Id)->first();
                 $listBooking[$b]->tickets[$t]->Showtime->Room= Room::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Room_id)->first();
         }
-      }
+    }
 
+  // return response()->json($listBooking);
        return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
        //return response()->json($listBooking,200); 
     }
@@ -52,12 +61,12 @@ class BookingController extends Controller
        }
        public function updateStatus(Request $request)
        {
-           $ticket_id = $request->input('ticket_id');
+           $booking_id = $request->input('booking_id');
            $status = $request->input('status');
    
-           $ticket = Ticket::find($ticket_id);
-           $ticket->Status = $status;
-           $ticket->save();
+           $booking = Booking::find($booking_id);
+           $booking->Status = $status;
+           $booking->save();
         //  return response()->json($ticket);
        
            return redirect("/admin/booking");

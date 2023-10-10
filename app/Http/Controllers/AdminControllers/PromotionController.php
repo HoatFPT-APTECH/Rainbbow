@@ -14,18 +14,11 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        //$listPromotion = Promotion ::all();
-        // return view('AdminViews.index',['page'=>"promotion",'danhsach'=>$listPromotion]);
-         //return response()->json($listPromotion,200); 
-        $listPromotion= Promotion::with(['promotionCategory','user'])->get();
-      
-        
-             return view("AdminViews.index",[
-                'page'=>'promotion',
-            "danhsach"=>$listPromotion ]);
-            // return response()->json([
-            //          'page'=>'promotion',
-            //      "danhsach"=>$listPromotion ]);
+       
+       
+        $listPromotion= Promotion::with(['user','promotionCategory'])->get();
+            // return view("AdminViews.index",['page'=>'promotion',"danhsach"=>$listPromotion ]);
+            return response()->json(['page'=>'promotion',"danhsach"=>$listPromotion ]);
 
         }
 

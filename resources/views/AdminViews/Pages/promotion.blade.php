@@ -26,8 +26,8 @@
                         <th>Id</th>
                         <th>Start <i class="fa fa-sort"></i></th>
                         <th>End <i class="fa fa-sort"></i></th>
-                        <th>User</i></th>
                         <th>PromotionCategrory <i class="fa fa-sort"></i></th>
+                        <th>Used</i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -44,11 +44,10 @@
                         {{$Promotion->End}}
                     </td>
                     <td>
-                        {{$Promotion->user->Name}}
-
-                    </td>
-                    <td>
                         {{$Promotion->promotionCategory->Name}}
+                    </td>
+                     <td>
+                        {{$Promotion->Used}}
                     </td>
                      <td>
                         <a href="/admin/promotion/show/{{$Promotion->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>

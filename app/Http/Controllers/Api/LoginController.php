@@ -45,7 +45,7 @@ class LoginController extends Controller
          $UserName=$request->input("UserName");
          $Password=$request->input("Password");
        $CurrentURL=url()->current();
-        $User = User::where("UserName", $UserName)->where("Password", $Password)->first();
+        $User = User::where("UserName", $UserName)->where("Password", md5($Password))->first();
         if ($User != null) {
             $Token = $this->v4();
             // tạo token cho account
