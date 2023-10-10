@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Edit User</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="page-wrapper dashboard-wrap">
+
+<div class="page-wrapper dashboard-wrap">
     <div class="content container-fluid">
   <div class="container">
   
-    <h2>Edit User</h2><br>
-    <form method="post" action="/admin/user/update/{{$User->Id}}">
+    <h2>Edit Employee</h2><br>
+    <form method="post" action="/admin/account/employee/update/{{$User->Id}}">
       @csrf
      {{-- @method('PUT')--}}
       <div class="form-group">
@@ -59,6 +53,4 @@
   </div>
 </div>
 </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
+

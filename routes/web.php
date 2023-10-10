@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminControllers\AccountClientController;
+use App\Http\Controllers\AdminControllers\AccountEmployeeController;
 use App\Http\Controllers\AdminControllers\DirectorController;
 use App\Http\Controllers\AdminControllers\MovieController;
 use App\Http\Controllers\AdminControllers\PhotoController;
 use App\Http\Controllers\AdminControllers\PerformerController;
-use App\Http\Controllers\AdminControllers\UserController;
+
 use App\Http\Controllers\AdminControllers\RoleController;
 use App\Http\Controllers\AdminControllers\BookingController;
 use App\Http\Controllers\AdminControllers\TicketController;
@@ -17,6 +19,7 @@ use App\Http\Controllers\AdminControllers\LoginController as AdminControllersLog
 use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
 use App\Http\Controllers\AdminControllers\PromotionController;
+use App\Http\Controllers\AdminControllers\PromotionUserController;
 use App\Http\Controllers\Api\PromotionController as ApiPromotionController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\SeatController;
@@ -128,6 +131,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/promotion/delete/{id}', [PromotionController::class, 'destroy']);
 
 
+    Route::get('/promotionUser',[PromotionUserController::class,'index']);
+    Route::post('/promotionUser/sendMail',[PromotionUserController::class,'sendMail']);
+
+
 
     Route::resource('/photo', PhotoController::class);
 
@@ -142,13 +149,24 @@ Route::group(['prefix' => 'admin'], function () {
 
 
     // Route::resource('/performer',PerformerController::class);
-    Route::get('/user', [UserController::class, 'index']);
-    Route::get('/user/show/{id}', [UserController::class, 'show']);
-    Route::get('/user/edit/{id}', [UserController::class, 'edit']);
-    Route::post('/user/update/{id}', [UserController::class, 'update']);
-    Route::get('/user/create', [UserController::class, 'create']);
-    Route::post('/user/store', [UserController::class, 'store']);
-    Route::get('/user/delete/{id}', [UserController::class, 'destroy']);
+    Route::prefix('/account/client')->group(function () {
+        Route::get('/', [AccountClientController::class, 'index']);
+        Route::get('/edit/{id}', [AccountClientController::class, 'edit']);
+        Route::post('/update/{id}', [AccountClientController::class, 'update']);
+        Route::get('/create', [AccountClientController::class, 'create']);
+        Route::post('/store', [AccountClientController::class, 'store']);
+        Route::get('/delete/{id}', [AccountClientController::class, 'destroy']);
+    });
+    Route::prefix('/account/employee')->group(function () {
+        Route::get('/', [AccountEmployeeController::class, 'index']);
+        Route::get('/edit/{id}', [AccountEmployeeController::class, 'edit']);
+        Route::post('/update/{id}', [AccountEmployeeController::class, 'update']);
+        Route::get('/create', [AccountEmployeeController::class, 'create']);
+        Route::post('/store', [AccountEmployeeController::class, 'store']);
+        Route::get('/delete/{id}', [AccountEmployeeController::class, 'destroy']);
+    });
+    
+  
 
 
     //Route::resource('/role',RoleController::class);
