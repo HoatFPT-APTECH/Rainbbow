@@ -64,7 +64,7 @@
                                 <ul class="lg-submenu">
                                     <li><a>Mystery</a>
                                         <ul class="lg-submenu">
-                                            <li class="ar_left"><i class="fa fa-film"></i><a href="https://motchillzz.tv/con-tim-bat-diet">The Flash</a>
+                                            <li class="ar_left"><i class="fa fa-film"></i><a href="/rainbow/movie_single/1">The Flash</a>
                                             </li>
                                             <li class="ar_left"><i class="fa fa-film"></i><a
                                                     href="https://mephimtv.net/drishyam/">Avengers: Endgame</a>
