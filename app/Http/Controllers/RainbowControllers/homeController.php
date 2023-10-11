@@ -21,7 +21,11 @@ class HomeController extends Controller
     {
        
        $page='home';
-       $ListUpcomingMovie=Movie::with(['photos','movieCategory'])->whereBetween('dateshow', [now(), now()->addDays(7)])->get();
+       $ListUpcomingMovie=Movie::with(['photos','movieCategory'])
+       ->where('Deleted',0)
+       ->whereBetween('dateshow', [now(), now()->addDays(7)])
+       ->orderBy("dateshow",'desc')
+       ->get();
        $ListTopMovie=Movie::with('photos','movieCategory')->get();
        $ListReleasedMovie=Movie::with('photos')->get();
        $ListBestOfLibrary=Movie::with('photos')->get();
