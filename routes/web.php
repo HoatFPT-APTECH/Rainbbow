@@ -37,6 +37,7 @@ use App\Http\Controllers\RainbowControllers\SeatBookingController;
 use App\Http\Controllers\RainbowControllers\Movie_CategoryController;
 use App\Http\Controllers\RainbowControllers\Account_DetailsController;
 use App\Http\Controllers\RainbowControllers\ContactController;
+use App\Http\Controllers\StartController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -52,9 +53,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [StartController::class,'index']);
 
 Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/',[HomeController::class,'index'])->name("rainbow.home");

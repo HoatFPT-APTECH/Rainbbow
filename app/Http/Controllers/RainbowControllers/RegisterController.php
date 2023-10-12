@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\RainbowControllers;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\StartController;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -41,6 +43,7 @@ class RegisterController extends Controller
          $newUser->Password=md5($Password);
          $newUser->Role_Id=3;
          $newUser->save();
+        
         // return $this->index();
        return redirect("/rainbow");
         // return response()->json($newUser,200);
