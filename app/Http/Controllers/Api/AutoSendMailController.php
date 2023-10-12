@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Mail\VoucherCodeMail;
@@ -10,10 +10,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class StartController extends Controller
+class AutoSendMailController extends Controller
 {
     //
-    public function index(){
+     //
+     public function index(){
         $users = User::whereDay('DateOfBirth', now()->day)
         ->whereMonth('DateOfBirth', now()->month)->where("Role_Id", '>', 2)
         ->get();
@@ -32,7 +33,7 @@ class StartController extends Controller
        
         Mail::to($u->UserName)->send(new VoucherCodeMail($u,$promotion,$promotionCategory));
     }
-    return view('welcome');
+      return response()->json('success',200);
     }
     public function checkPromotionExisted($u){
         $existedPromotion= Promotion::whereDay("Created",now()->day)
