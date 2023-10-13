@@ -20,5 +20,7 @@ class Movie_SingleController extends Controller
     'JsPage'=>$JsPage,
     'movieEx'=>$MovieEx,
    ]);
+    //    return response()->json($MovieEx,200);
    }
+
 }
