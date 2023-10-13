@@ -1,10 +1,21 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const http = require('http');
 
-var server = app.listen(process.env.PORT || 3000, () => {
-  console.log("Server is running on port: ", 3000);
+const server = http.createServer();
+
+server.listen(3000, () => {
+  console.log('Socket server is running on port 3000');
+ 
 });
+
+// var server = app.listen(process.env.PORT || 3000, () => {
+//   console.log("Server is running on port: ", 3000);
+// });
+app.get('/',(req,rsp)=>{
+   fetch(':8000/api')
+})
 app.use(express.urlencoded({ extended: true }));
 // app.use(cors({
 //   origin: "*", // Thay your_client_port bằng cổng máy khách của bạn,

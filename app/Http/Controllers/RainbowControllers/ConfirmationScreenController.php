@@ -129,4 +129,8 @@ class ConfirmationScreenController extends Controller
         
 
     }
+    public function vnPay(){
+        
+    }
+
 }

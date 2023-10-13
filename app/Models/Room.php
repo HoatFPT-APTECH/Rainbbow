@@ -9,10 +9,10 @@ class Room extends Model{
     protected $table="tbl_room";
     protected $primaryKey="Id";
     public $timestamps=false;
-    public function cinemas()
+    public function cinema()
     {
-        return $this->belongsToMany(Cinema::class, 'tbl_RoomCinema', 'Room_Id', 'Cinema_Id')
-            ->withPivot('Status');
+        return $this->belongsTo(Cinema::class,  'Cinema_Id','Id');
+           
     }
 
     public function seats()

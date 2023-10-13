@@ -21,10 +21,12 @@ use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
 use App\Http\Controllers\AdminControllers\PromotionController;
 use App\Http\Controllers\AdminControllers\PromotionUserController;
+use App\Http\Controllers\Api\AutoSendMailController;
 use App\Http\Controllers\Api\PromotionController as ApiPromotionController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\SeatController;
 use App\Http\Controllers\MailControllers\MailBookingController;
+use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\RainbowControllers\BookingTypeController;
 use App\Http\Controllers\RainbowControllers\ConfirmationScreenController;
 use App\Http\Controllers\RainbowControllers\HomeController;
@@ -54,6 +56,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [StartController::class,'index']);
+Route::get('/NotFound',[NotFoundController::class,'index']);
 
 Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/',[HomeController::class,'index'])->name("rainbow.home");
@@ -226,6 +229,7 @@ Route::group(['prefix' => '/api'], function () {
     Route::post("/getListShowTimeByIdMovie", [ApiBookingController::class, 'GetListShowByIdMovie']);
     Route::post("/changeStatusSeatShowtime", [SeatController::class, 'ChangeStatusSeat']);
     Route::post("/checkVoucher", [ApiPromotionController::class, 'check']);
+    Route::get('/autoSendMail',[AutoSendMailController::class,'index']);
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
 
 });
