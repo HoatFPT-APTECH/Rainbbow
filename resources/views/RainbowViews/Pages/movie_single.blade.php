@@ -79,39 +79,28 @@
 					<div class="prs_ms_trailer_slider_main_wrapper">
 						<div class="prs_ms_trailer_slider_left_wrapper">
 							<div class="owl-carousel owl-theme">
-								<div class="item">
-									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$movieEx->photos[5]->Src}}" alt="vp_img">
+								@for($i=1;$i< sizeof($movieEx->photos);$i++ )
+									<div class="item">
+										<div class="prs_ms_trailer_slider_left_img_wrapper">
+											<img src="{{$movieEx->photos[$i]->Src}}" alt="vp_img">
+										</div>
 									</div>
-								</div>
-								<div class="item">
-									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$movieEx->photos[1]->Src}}" alt="vp_img">
-									</div>
-								</div>
-								<div class="item">
-									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$movieEx->photos[2]->Src}}" alt="vp_img">
-									</div>
-								</div>
-								<div class="item">
-									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$movieEx->photos[3]->Src}}" alt="vp_img">
-									</div>
-								</div>
-								<div class="item">
-									<div class="prs_ms_trailer_slider_left_img_wrapper">
-										<img src="{{$movieEx->photos[4]->Src}}" alt="vp_img">
-									</div>
-								</div>
+								@endfor
 							</div>
 						</div>
 						<div class="prs_ms_trailer_slider_right_wrapper">
 							<h2>{{$movieEx->DateShow}}</h2>
 							<p>{{$movieEx->director->Name}} Presents</p>
 							<h1 style="color:red; padding-top:20px; font-weight: bold;text-transform: uppercase;">{{$movieEx->Name}}</h1>
-							<h5><span>Starring -</span> {{$movieEx->performers[0]->Name}} , {{$movieEx->performers[1]->Name}} , {{$movieEx->performers[2]->Name}}, {{$movieEx->performers[3]->Name}} ,{{$movieEx->performers[4]->Name}}</h5>
-							<ul>
+							@if (count($movieEx->performers) > 0)
+							<h5><span>Starring -</span>
+								{{-- @if (!empty($movieEx->performers)) --}}
+    							@for($i=0;$i< sizeof($movieEx->performers);$i++ )
+           						 {{$movieEx->performers[$i]->Name}} ,
+  								  @endfor
+								@else
+								@endif
+								  <ul>
 								<li>Directed by - <span>{{$movieEx->director->Name}}</span>
 								</li>
 								<li>Produced by - <span>{{$movieEx->productor->Name}}</span>
@@ -125,6 +114,8 @@
 	</div>
 	<!-- prs ms trailer wrapper End -->
 	<!-- prs theater Slider Start -->
+	{{-- @if (!empty($movieEx->performers)) --}}
+	@if (count($movieEx->performers) > 0)
 	<div class="prs_movie_cast_main_slider_wrapper">
 		<div class="prs_movie_cast_heading_wrapper">
 			<h2>Movie Cast</h2>
@@ -147,6 +138,7 @@
 					<!-- End album -->
 				</li>
 				@endfor
+				
 			
 				
 				<!-- End album slider item -->
@@ -155,6 +147,8 @@
 			<!-- End slider -->
 		</div>
 	</div>
+	@else
+				@endif
 	<!-- prs theater Slider End -->
 	<!-- prs syn Slider Start -->
 	<div class="prs_syn_main_section_wrapper">

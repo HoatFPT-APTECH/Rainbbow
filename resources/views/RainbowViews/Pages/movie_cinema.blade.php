@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="prs_title_heading_wrapper">
-                    <h2>Movie Category</h2>
+                    <h2>Cinema</h2>
                     <ul>
                         <li><a href="#">Home</a>
                         </li>
-                        <li>&nbsp;&nbsp; >&nbsp;&nbsp; Movie Category</li>
+                        <li>&nbsp;&nbsp; >&nbsp;&nbsp; Cinema</li>
                     </ul>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="prs_heading_section_wrapper">
-                    <h2>Comming soon</h2>
+                    <h2>Released Movie</h2>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -68,13 +68,13 @@
                         <ul>
                             <li>
                                 <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a
-                                    href="/rainbow/movie_category">All <span>	{{$countMovieAll}}
+                                    href="/rainbow/movie_cinema">All <span>	
 									</span></a>
                             </li>
-                            @foreach ($listMovieCategory as $mc)
+                            @foreach ($listCinema as $mc)
                                 <li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a
-                                        href="/rainbow/search?category={{ $mc->Id }}">{{ $mc->Name }} <span>
-                                            {{ sizeof($mc->movies) }} </span></a>
+                                        href="/rainbow/searchcinema?cinema={{ $mc->Id }}">{{ $mc->Name }}
+                                        <span>{{ $mc->tong }}</span></a>
                                 </li>
                             @endforeach
 
@@ -108,300 +108,51 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="tab-content">
-                                <div id="grid" class="tab-pane fade in active">
-                                    <div class="row">
-                                        @if (sizeof($listMovie) == 0)
+                                    <div id="list" class="tab-pane fade in active">
+                                        <div class="row">
+                                            @if (sizeof($listMovie) == 0)
                                             <p class='text-danger'> No data found </p>
-                                        @else
+                                            @else
                                             @for ($i = 0; $i < sizeof($listMovie); $i++)
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prs_upcom_slide_first">
-                                                    <div class="prs_upcom_movie_box_wrapper prs_mcc_movie_box_wrapper">
-                                                        <div class="prs_upcom_movie_img_box">
-                                                            <img style="width:265px;height:325px;"
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="prs_mcc_list_movie_main_wrapper">
+                                                    <div class="prs_mcc_list_movie_img_wrapper">
+                                                        <img style="width:265px;height:325px;"
                                                                 src="{{ $listMovie[$i]->photos[0]->Src }}"
                                                                 alt="movie_img" />
-                                                            <div class="prs_upcom_movie_img_overlay"></div>
-                                                            <div class="prs_upcom_movie_img_btn_wrapper">
-                                                                <ul>
-                                                                    <li><a class="button test-popup-link" rel="external"
-                                                                            href="{{ $listMovie[$i]->VideoTrailer }}">View
-                                                                            Trailer</a>
-                                                                    </li>
-                                                                    <li><a
-                                                                            href="/rainbow/movie_single/{{ $listMovie[$i]->Id }}">View
-                                                                            Details</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
+                                                    </div>
+                                                    <div class="prs_mcc_list_movie_img_cont_wrapper">
+                                                        <div class="prs_mcc_list_left_cont_wrapper">
+                                                            <h2>{{$listMovie[$i]->Name}}</h2>
+                                                            <p>{{$listMovie[$i]->movieCategory->Name}} &nbsp;&nbsp;&nbsp;<i
+                                                                    class="fa fa-star"></i><i
+                                                                    class="fa fa-star"></i><i
+                                                                    class="fa fa-star"></i><i
+                                                                    class="fa fa-star-o"></i><i
+                                                                    class="fa fa-star-o"></i>
+                                                            </p>
+                                                            <h4>Movie Director - {{$listMovie[$i]->director->Name}}</h4>
                                                         </div>
-                                                        <div class="prs_upcom_movie_content_box">
-                                                            <div class="prs_upcom_movie_content_box_inner">
-                                                                <h2><a
-                                                                        href="/rainbow/movie_single/{{ $listMovie[$i]->Id }}">{{ $listMovie[$i]->Name }}</a>
-                                                                </h2>
-                                                                <p>{{ $listMovie[$i]->movieCategory->Name }}</p> <i
-                                                                    class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </div>
-                                                            <div class="prs_upcom_movie_content_box_inner_icon">
-                                                                <ul>
-                                                                    <li><a href="/rainbow/movie_booking/{{ $listMovie[$i]->Id }}"><i
-                                                                                class="flaticon-cart-of-ecommerce"></i></a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
+                                                        <div class="prs_mcc_list_right_cont_wrapper"> <a
+                                                                href="#"><i
+                                                                    class="flaticon-cart-of-ecommerce"></i></a>
+                                                        </div>
+                                                        <div class="prs_mcc_list_bottom_cont_wrapper">
+                                                            <p>{{$listMovie[$i]->Description}}</p>
+                                                            <ul>
+                                                                <li><a href="{{ $listMovie[$i]->VideoTrailer }}">View Trailer</a>
+                                                                </li>
+                                                                <li><a href="/rainbow/movie_single/{{ $listMovie[$i]->Id }}">View Details</a>
+                                                                </li>
+                                                            </ul>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
                                             @endfor
-                                    </div>
-                                    {{ $listMovie->links() }}
+                                            {{ $listMovie->links() }}
                                     @endif
-                                    <div id="list" class="tab-pane fade">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="prs_mcc_list_movie_main_wrapper">
-                                                    <div class="prs_mcc_list_movie_img_wrapper">
-                                                        <img src="{{ $assetPathRainbow }}/images/content/movie_category/up1.jpg"
-                                                            alt="categoty_img">
-                                                    </div>
-                                                    <div class="prs_mcc_list_movie_img_cont_wrapper">
-                                                        <div class="prs_mcc_list_left_cont_wrapper">
-                                                            <h2>Busting Car</h2>
-                                                            <p>Drama , Acation &nbsp;&nbsp;&nbsp;<i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star-o"></i><i
-                                                                    class="fa fa-star-o"></i>
-                                                            </p>
-                                                            <h4>Movie Director - Jhon Doe</h4>
-                                                        </div>
-                                                        <div class="prs_mcc_list_right_cont_wrapper"> <a
-                                                                href="#"><i
-                                                                    class="flaticon-cart-of-ecommerce"></i></a>
-                                                        </div>
-                                                        <div class="prs_mcc_list_bottom_cont_wrapper">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                                sed do eiusod tempor incididunt ut labore et dolore
-                                                                magna aliqua. Ut enim ad minim veniam, quis trud
-                                                                exercitation ullamco.</p>
-                                                            <ul>
-                                                                <li><a href="#">View Trailer</a>
-                                                                </li>
-                                                                <li><a href="#">View Details</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="prs_mcc_list_movie_main_wrapper">
-                                                    <div class="prs_mcc_list_movie_img_wrapper">
-                                                        <img src="{{ $assetPathRainbow }}/images/content/movie_category/up2.jpg"
-                                                            alt="categoty_img">
-                                                    </div>
-                                                    <div class="prs_mcc_list_movie_img_cont_wrapper">
-                                                        <div class="prs_mcc_list_left_cont_wrapper">
-                                                            <h2>Busting Car</h2>
-                                                            <p>Drama , Acation &nbsp;&nbsp;&nbsp;<i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star-o"></i><i
-                                                                    class="fa fa-star-o"></i>
-                                                            </p>
-                                                            <h4>Movie Director - Jhon Doe</h4>
-                                                        </div>
-                                                        <div class="prs_mcc_list_right_cont_wrapper"> <a
-                                                                href="#"><i
-                                                                    class="flaticon-cart-of-ecommerce"></i></a>
-                                                        </div>
-                                                        <div class="prs_mcc_list_bottom_cont_wrapper">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                                sed do eiusod tempor incididunt ut labore et dolore
-                                                                magna aliqua. Ut enim ad minim veniam, quis trud
-                                                                exercitation ullamco.</p>
-                                                            <ul>
-                                                                <li><a href="#">View Trailer</a>
-                                                                </li>
-                                                                <li><a href="#">View Details</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="prs_mcc_list_movie_main_wrapper">
-                                                    <div class="prs_mcc_list_movie_img_wrapper">
-                                                        <img src="{{ $assetPathRainbow }}/images/content/movie_category/up3.jpg"
-                                                            alt="categoty_img">
-                                                    </div>
-                                                    <div class="prs_mcc_list_movie_img_cont_wrapper">
-                                                        <div class="prs_mcc_list_left_cont_wrapper">
-                                                            <h2>Busting Car</h2>
-                                                            <p>Drama , Acation &nbsp;&nbsp;&nbsp;<i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star-o"></i><i
-                                                                    class="fa fa-star-o"></i>
-                                                            </p>
-                                                            <h4>Movie Director - Jhon Doe</h4>
-                                                        </div>
-                                                        <div class="prs_mcc_list_right_cont_wrapper"> <a
-                                                                href="#"><i
-                                                                    class="flaticon-cart-of-ecommerce"></i></a>
-                                                        </div>
-                                                        <div class="prs_mcc_list_bottom_cont_wrapper">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                                sed do eiusod tempor incididunt ut labore et dolore
-                                                                magna aliqua. Ut enim ad minim veniam, quis trud
-                                                                exercitation ullamco.</p>
-                                                            <ul>
-                                                                <li><a href="#">View Trailer</a>
-                                                                </li>
-                                                                <li><a href="#">View Details</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="prs_mcc_list_movie_main_wrapper">
-                                                    <div class="prs_mcc_list_movie_img_wrapper">
-                                                        <img src="{{ $assetPathRainbow }}/images/content/movie_category/up4.jpg"
-                                                            alt="categoty_img">
-                                                    </div>
-                                                    <div class="prs_mcc_list_movie_img_cont_wrapper">
-                                                        <div class="prs_mcc_list_left_cont_wrapper">
-                                                            <h2>Busting Car</h2>
-                                                            <p>Drama , Acation &nbsp;&nbsp;&nbsp;<i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star-o"></i><i
-                                                                    class="fa fa-star-o"></i>
-                                                            </p>
-                                                            <h4>Movie Director - Jhon Doe</h4>
-                                                        </div>
-                                                        <div class="prs_mcc_list_right_cont_wrapper"> <a
-                                                                href="#"><i
-                                                                    class="flaticon-cart-of-ecommerce"></i></a>
-                                                        </div>
-                                                        <div class="prs_mcc_list_bottom_cont_wrapper">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                                sed do eiusod tempor incididunt ut labore et dolore
-                                                                magna aliqua. Ut enim ad minim veniam, quis trud
-                                                                exercitation ullamco.</p>
-                                                            <ul>
-                                                                <li><a href="#">View Trailer</a>
-                                                                </li>
-                                                                <li><a href="#">View Details</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="prs_mcc_list_movie_main_wrapper">
-                                                    <div class="prs_mcc_list_movie_img_wrapper">
-                                                        <img src="{{ $assetPathRainbow }}/images/content/movie_category/up5.jpg"
-                                                            alt="categoty_img">
-                                                    </div>
-                                                    <div class="prs_mcc_list_movie_img_cont_wrapper">
-                                                        <div class="prs_mcc_list_left_cont_wrapper">
-                                                            <h2>Busting Car</h2>
-                                                            <p>Drama , Acation &nbsp;&nbsp;&nbsp;<i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star-o"></i><i
-                                                                    class="fa fa-star-o"></i>
-                                                            </p>
-                                                            <h4>Movie Director - Jhon Doe</h4>
-                                                        </div>
-                                                        <div class="prs_mcc_list_right_cont_wrapper"> <a
-                                                                href="#"><i
-                                                                    class="flaticon-cart-of-ecommerce"></i></a>
-                                                        </div>
-                                                        <div class="prs_mcc_list_bottom_cont_wrapper">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                                sed do eiusod tempor incididunt ut labore et dolore
-                                                                magna aliqua. Ut enim ad minim veniam, quis trud
-                                                                exercitation ullamco.</p>
-                                                            <ul>
-                                                                <li><a href="#">View Trailer</a>
-                                                                </li>
-                                                                <li><a href="#">View Details</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="prs_mcc_list_movie_main_wrapper">
-                                                    <div class="prs_mcc_list_movie_img_wrapper">
-                                                        <img src="{{ $assetPathRainbow }}/images/content/movie_category/up6.jpg"
-                                                            alt="categoty_img">
-                                                    </div>
-                                                    <div class="prs_mcc_list_movie_img_cont_wrapper">
-                                                        <div class="prs_mcc_list_left_cont_wrapper">
-                                                            <h2>Busting Car</h2>
-                                                            <p>Drama , Acation &nbsp;&nbsp;&nbsp;<i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star"></i><i
-                                                                    class="fa fa-star-o"></i><i
-                                                                    class="fa fa-star-o"></i>
-                                                            </p>
-                                                            <h4>Movie Director - Jhon Doe</h4>
-                                                        </div>
-                                                        <div class="prs_mcc_list_right_cont_wrapper"> <a
-                                                                href="#"><i
-                                                                    class="flaticon-cart-of-ecommerce"></i></a>
-                                                        </div>
-                                                        <div class="prs_mcc_list_bottom_cont_wrapper">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                                sed do eiusod tempor incididunt ut labore et dolore
-                                                                magna aliqua. Ut enim ad minim veniam, quis trud
-                                                                exercitation ullamco.</p>
-                                                            <ul>
-                                                                <li><a href="#">View Trailer</a>
-                                                                </li>
-                                                                <li><a href="#">View Details</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="pager_wrapper gc_blog_pagination">
-                                                    <ul class="pagination">
-                                                        <li><a href="#"><i class="flaticon-left-arrow"></i></a>
-                                                        </li>
-                                                        <li><a href="#">1</a>
-                                                        </li>
-                                                        <li><a href="#">2</a>
-                                                        </li>
-                                                        <li class="prs_third_page"><a href="#">3</a>
-                                                        </li>
-                                                        <li class="hidden-xs"><a href="#">4</a>
-                                                        </li>
-                                                        <li><a href="#"><i class="flaticon-right-arrow"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
