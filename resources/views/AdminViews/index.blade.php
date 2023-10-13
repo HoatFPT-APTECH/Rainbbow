@@ -25,6 +25,8 @@
     @include("AdminViews.Layouts.footer")
 
   <script src="{{ $assethPathAdmin }}/js/general.js"></script>
+  <script src="{{ isset($JsPage) ? asset('/AdminPublic/js/' . $JsPage . '.js') : '#' }}"></script>
+
 </body>
 
 <!-- Mirrored from preadmin.dreamguystech.com/html/inventory/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Aug 2023 04:41:30 GMT -->

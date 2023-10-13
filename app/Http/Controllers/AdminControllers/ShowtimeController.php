@@ -19,7 +19,10 @@ class ShowtimeController extends Controller
     public function index()
     {
         $listShowtime = Showtime::with(['cinema', 'room', 'seats', 'movie'])->where('Deleted', 0)->get();
-        return view('AdminViews.index', ['page' => "showtime", 'danhsach' => $listShowtime]);
+        return view('AdminViews.index', ['page' => "showtime",
+         'danhsach' => $listShowtime,
+
+        ]);
         // return response()->json($listShowtime,200); 
     }
 
@@ -33,7 +36,7 @@ class ShowtimeController extends Controller
         $movie = Movie::all();
         return view('AdminViews.index', [
             'page' => "showtimeCreate",
-            
+            'JsPage'=>'showtime',
             'cinema' => $cinema,
             'room' => $room,
             'movie' => $movie
@@ -95,7 +98,7 @@ class ShowtimeController extends Controller
     {
         $ShowtimeExist = Showtime::with(['cinema', 'room', 'movie'])->where('Id', $id)->first();
         $cinema = Cinema::all();
-        $room = Room::all();
+        $room = Room::where('Cinema_Id',$ShowtimeExist->Cinema_Id)->get();
         $movie = Movie::all();
         return view('AdminViews.index', [
             'page' => "showtimeShow",
@@ -113,10 +116,11 @@ class ShowtimeController extends Controller
     {
         $ShowtimeExist = Showtime::with(['cinema', 'room', 'movie'])->where('Id', $id)->first();
         $cinema = Cinema::all();
-        $room = Room::all();
+        $room =  Room::where('Cinema_Id',$ShowtimeExist->Cinema_Id)->get();
         $movie = Movie::all();
         return view('AdminViews.index', [
             'page' => "showtimeEdit",
+            'JsPage'=>'showtime',
             'Showtime' => $ShowtimeExist,
             'cinema' => $cinema,
             'room' => $room,

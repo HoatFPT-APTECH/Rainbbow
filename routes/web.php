@@ -27,6 +27,7 @@ use App\Http\Controllers\Api\AutoSendMailController;
 use App\Http\Controllers\Api\PromotionController as ApiPromotionController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\SeatController;
+use App\Http\Controllers\Api\ShowtimeController as ApiShowtimeController;
 use App\Http\Controllers\MailControllers\MailBookingController;
 use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\RainbowControllers\BookingTypeController;
@@ -255,6 +256,7 @@ Route::group(['prefix' => '/api'], function () {
     Route::post("/changeStatusSeatShowtime", [SeatController::class, 'ChangeStatusSeat']);
     Route::post("/checkVoucher", [ApiPromotionController::class, 'check']);
     Route::get('/autoSendMail',[AutoSendMailController::class,'index']);
+    Route::get('/showtime/getRoomByCinema/{id}',[ApiShowtimeController::class,'getRoomByCinema']);
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
 
 });
