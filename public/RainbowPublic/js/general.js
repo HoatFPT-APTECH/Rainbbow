@@ -3,18 +3,17 @@
 let timeout;
 
 // Đặt thời gian chờ (5 phút = 300,000 mili giây)
-const inactivityTimeout =  1000*5;
+const inactivityTimeout =  1000*60*10;
 
 // Thiết lập hàm kiểm tra sự inaktiviti
 function checkInactivity() {
   clearTimeout(timeout);
   timeout = setTimeout(() => {
-    alert("hàm kiểm tra chuột , bản phím đã được kich hoạt ")
-    // Chuyển hướng người dùng đến trang home
+  
     logout()
+    alert("Your time has expired, please log in again to continue the session !")
     window.location.href = '/rainbow'; 
-    // Thay đổi URL của trang home theo địa chỉ của bạn
-    // Nếu bạn sử dụng framework như React hoặc Angular, bạn nên sử dụng cách khác để chuyển hướng.
+    
   }, inactivityTimeout);
 }
 

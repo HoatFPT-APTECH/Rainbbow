@@ -17,7 +17,9 @@ class MovieBookingController extends Controller
         $JsPage = "booking_movie";
         $MovieEx = Movie::with(['photos', 'movieCategory'])->where('Id', $id)->first();
         $ListShowTime = Showtime::with(['cinema', 'room'])->where("Movie_Id", $id)->get();
-
+        if(sizeof($ListShowTime)==0 ||  $ListShowTime[0]->Start>now() ){
+            return view('404NotFound');
+        }
         $dateTimeStringStart = $ListShowTime[0]->Start;
         $dateTimeStringEnd=$ListShowTime[0]->End;
 

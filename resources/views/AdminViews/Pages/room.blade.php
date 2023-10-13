@@ -26,7 +26,8 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name <i class="fa fa-sort"></i></th>
+                        <th>Room Name <i class="fa fa-sort"></i></th>
+                        <th>Belongs to Cinema <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -42,7 +43,10 @@
                         {{$Room->Name}}
                      </td>
                      <td>
-                        <a href="/admin/room/show/{{$Room->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                        {{$Room->cinema->Name}}
+                     </td>
+                     <td>
+                       
                         <a href="/admin/room/edit/{{$Room->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         <a href="/admin/room/delete/{{$Room->Id}}" onclick="return confirm('Your sure delete " class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>

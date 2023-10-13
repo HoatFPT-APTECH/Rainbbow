@@ -43,7 +43,9 @@ class CinemaController extends Controller{
         // action sẽ làm việc với csdl và thêm object vào scdl và cũng sẽ điều hướng trình duiyệt người ugnf về cái url hiển thị bảng của object qua redirect
         public function update(Request $request, string $id){
             $name=$request->input('name');
+            $address=$request->input('Address');
             $newCinema=Cinema::where('id',$id)->first();
+            $newCinema->Address=$address;
             $newCinema->name=$name;
             $newCinema->save();
             return redirect('/admin/cinema');
