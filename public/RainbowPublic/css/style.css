@@ -2087,6 +2087,7 @@ body.active #mobile-nav {
 .prs_upcom_movie_content_box {
     float: left;
     width: 100%;
+    height: 150px;
     background: #ffffff;
     padding: 10px;
     -webkit-border-bottom-right-radius: 10px;
