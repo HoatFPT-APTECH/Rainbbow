@@ -2,7 +2,7 @@
     <div class="content container-fluid">
   <div class="container">
       <h2>Add New Photo</h2>
-      <form action="/admin/photo" method="POST">
+      <form action="./store" method="POST">
         @csrf
         <div class="form-group">
           <label for="Src">Src:</label>

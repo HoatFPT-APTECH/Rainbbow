@@ -61,7 +61,7 @@
                      <td>
                         <a href="/admin/showtime/show/{{$Showtime->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                         <a href="/admin/showtime/edit/{{$Showtime->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="/admin/showtime/delete/{{$Showtime->Id}}" onclick="return confirm('Your sure delete ')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a href="/admin/showtime/delete/{{$Showtime->Id}}" onclick="confirmDeletion(event,this)" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons" style="color: red;">&#xE872;</i></a>
                     </td>
            
                  </tr>

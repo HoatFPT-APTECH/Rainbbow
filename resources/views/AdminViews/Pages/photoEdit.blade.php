@@ -10,9 +10,9 @@
   <div class="container">
   
     <h1>Edit Photo</h1>
-    <form method="post" action="/admin/photo/{{$Photo->Id}}">
+    <form method="post" action="/admin/photo/update/{{$Photo->Id}}">
       @csrf
-      @method('PUT')
+    
       <div class="form-group">
         <label for="SrcInput">Src</label>
         <input type="text" class="form-control" id="SrcInput" name="Src" value="{{$Photo->Src}}" placeholder="Enter Src">

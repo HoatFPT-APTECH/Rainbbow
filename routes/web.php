@@ -20,6 +20,8 @@ use App\Http\Controllers\AdminControllers\LoginController as AdminControllersLog
 use App\Http\Controllers\AdminControllers\ProductorController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
 use App\Http\Controllers\AdminControllers\PromotionController;
+
+use App\Http\Controllers\AdminControllers\PromotionCategroryController;
 use App\Http\Controllers\AdminControllers\PromotionUserController;
 use App\Http\Controllers\Api\AutoSendMailController;
 use App\Http\Controllers\Api\PromotionController as ApiPromotionController;
@@ -88,7 +90,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/',[AdminControllersLoginController::class,'index']);
     Route::get('/dasdboard', [DashboardController::class,'index']);
 
-    Route::resource('/movie', MovieController::class);
+   // Route::resource('/movie', MovieController::class);
+   Route::get('/movie', [MovieController::class, 'index']);
+   Route::get('/movie/show/{id}', [MovieController::class, 'show']);
+   Route::get('/movie/edit/{id}', [MovieController::class, 'edit']);
+   Route::post('/movie/update/{id}', [MovieController::class, 'update']);
+   Route::get('/movie/create', [MovieController::class, 'create']);
+   Route::post('/movie/store', [MovieController::class, 'store']);
+   Route::get('/movie/delete/{id}', [MovieController::class, 'destroy']);
 
 
 
@@ -132,13 +141,29 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/promotion/store', [PromotionController::class, 'store']);
     Route::get('/promotion/delete/{id}', [PromotionController::class, 'destroy']);
 
+    Route::get('/promotionCategrory', [PromotionCategroryController::class, 'index']);
+    Route::get('/promotionCategrory/edit/{id}', [PromotionCategroryController::class, 'edit']);
+    Route::post('/promotionCategrory/update/{id}', [PromotionCategroryController::class, 'update']);
+    Route::get('/promotionCategrory/create', [PromotionCategroryController::class, 'create']);
+    Route::post('/promotionCategrory/store', [PromotionCategroryController::class, 'store']);
+    Route::get('/promotionCategrory/delete/{id}', [PromotionCategroryController::class, 'destroy']);
+
+    
+
 
     Route::get('/promotionUser',[PromotionUserController::class,'index']);
     Route::post('/promotionUser/sendMail',[PromotionUserController::class,'sendMail']);
 
 
 
-    Route::resource('/photo', PhotoController::class);
+    //Route::resource('/photo', PhotoController::class);
+    Route::get('/photo', [PhotoController::class, 'index']);
+    Route::get('/photo/show/{id}', [PhotoController::class, 'show']);
+    Route::get('/photo/edit/{id}', [PhotoController::class, 'edit']);
+    Route::post('/photo/update/{id}', [PhotoController::class, 'update']);
+    Route::get('/photo/create', [PhotoController::class, 'create']);
+    Route::post('/photo/store', [PhotoController::class, 'store']);
+    Route::get('/photo/delete/{id}', [PhotoController::class, 'destroy']);
 
     // Route::resource('/performer',PerformerController::class);
     Route::get('/performer', [PerformerController::class, 'index']);

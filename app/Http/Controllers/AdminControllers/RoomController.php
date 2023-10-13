@@ -14,7 +14,9 @@ class RoomController extends Controller
      */
     public function index()
     {
+
         $listRoom= Room::with(['cinema'])->where('Deleted',0)->get();
+
         return view('AdminViews.index',['page'=>"room",'danhsach'=>$listRoom]);
     }
 

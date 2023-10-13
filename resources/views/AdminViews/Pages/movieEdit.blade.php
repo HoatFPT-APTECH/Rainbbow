@@ -4,9 +4,9 @@
   <div class="container">
   
     <h1>Edit Movie</h1>
-    <form method="post" action="/admin/movie/{{$Movie->Id}}">
+    <form method="post" action="/admin/movie/update/{{$Movie->Id}}">
       @csrf
-      @method('PUT')
+     
       <div class="form-group">
         <label for="nameInput">Name</label>
         <input type="text" class="form-control" id="nameInput" name="Name" value="{{$Movie->Name}}" placeholder="Enter Name">

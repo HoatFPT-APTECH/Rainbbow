@@ -58,8 +58,6 @@ class BookingController extends Controller
                 $listBooking[$b]->Promotion=null;
             }
             for($t=0;$t<sizeof($listBooking[$b]->tickets);$t++){
-               
-               
                     $listBooking[$b]->tickets[$t]->Showtime=Showtime::where("Id",$listBooking[$b]->tickets[$t]->Showtime_Id)->first();
                     $listBooking[$b]->tickets[$t]->Showtime->Movie=Movie::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Movie_Id)->first(); 
                     $listBooking[$b]->tickets[$t]->Showtime->Cinema=Cinema::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Cinema_Id)->first();

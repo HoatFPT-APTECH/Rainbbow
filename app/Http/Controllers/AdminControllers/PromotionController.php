@@ -124,7 +124,6 @@ class PromotionController extends Controller
         $newPromotion= Promotion::where('id',$id)->first();
         $newPromotion->Deleted=1;
         $newPromotion->save();
-       // return $this->index();
        return redirect("/admin/promotion");
     }
 }

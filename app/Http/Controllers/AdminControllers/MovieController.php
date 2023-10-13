@@ -17,7 +17,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $listMovie= Movie::with('movieCategory','director','productor','photos')->get();
+       
+        $listMovie= Movie::with('movieCategory','director','productor','photos')->where('Deleted',0)->get();
         return view("AdminViews.index",['page'=>'movie'],['danhsach'=>$listMovie]);
     }
 
@@ -139,7 +140,7 @@ class MovieController extends Controller
     public function update(Request $request, string $id)
     {
         
-            $Name= $request->input('Name');
+       
             $DateShow= $request-> input('date');
         $VideoTrailer=$request->input('trailer');
         $Price= $request->input('price');
@@ -166,10 +167,9 @@ class MovieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
-        $Movie=Movie::find($id);
-        $Movie->Deleted=1;
-        $Movie->save();
+        $newMovie= Movie::where('Id',$id)->first();
+        $newMovie->Deleted=1;
+        $newMovie->save();
         return redirect("/admin/movie");
     }
 }

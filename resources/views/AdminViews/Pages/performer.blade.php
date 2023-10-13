@@ -44,7 +44,9 @@
                      <td>
                         <a href="/admin/performer/show/{{$Performer->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                         <a href="/admin/performer/edit/{{$Performer->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="/admin/performer/delete/{{$Performer->Id}}" onclick="return confirm('Your sure delete performer has name: {{$Performer->Name}}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                       {{--}} <a href="/admin/performer/delete/{{$Performer->Id}}" onclick="return confirm('Your sure delete performer has name: {{$Performer->Name}}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    --}}
+                    <a href="/admin/performer/delete/{{$Performer->Id}}" onclick="confirmDeletion(event,this)" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons" style="color: red;">&#xE872;</i></a>
                     </td>
            
                  </tr>

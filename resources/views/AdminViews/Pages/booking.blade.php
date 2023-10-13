@@ -18,7 +18,7 @@
   font-size: inherit;
   color: inherit;
   cursor: pointer;
-  outline: none;
+  outline: none;  
 }
 .my-class {
    text-align: center;
