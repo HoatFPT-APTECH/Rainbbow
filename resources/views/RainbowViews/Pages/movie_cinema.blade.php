@@ -134,7 +134,7 @@
                                                             <h4>Movie Director - {{$listMovie[$i]->director->Name}}</h4>
                                                         </div>
                                                         <div class="prs_mcc_list_right_cont_wrapper"> <a
-                                                                href="#"><i
+                                                                href="/rainbow/movie_booking/{{$listMovie[$i]->Id}}"><i
                                                                     class="flaticon-cart-of-ecommerce"></i></a>
                                                         </div>
                                                         <div class="prs_mcc_list_bottom_cont_wrapper">

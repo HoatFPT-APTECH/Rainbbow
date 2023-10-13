@@ -1,4 +1,12 @@
 
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<script>
+       const csrfToken = document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
+</script>
+
 <script src="{{ $assethPathAdmin }}/js/jquery-3.6.1.min.js"></script>
 
 <script src="{{ $assethPathAdmin }}/js/bootstrap.bundle.min.js"></script>
