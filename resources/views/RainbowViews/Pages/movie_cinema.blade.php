@@ -138,7 +138,10 @@
                                                                     class="flaticon-cart-of-ecommerce"></i></a>
                                                         </div>
                                                         <div class="prs_mcc_list_bottom_cont_wrapper">
-                                                            <p>{{$listMovie[$i]->Description}}</p>
+                                                            <p style="width: 500px;
+                                                            overflow: hidden;
+                                                            white-space: nowrap; 
+                                                            text-overflow: ellipsis;">{{$listMovie[$i]->Description}}</p>
                                                             <ul>
                                                                 <li><a href="{{ $listMovie[$i]->VideoTrailer }}">View Trailer</a>
                                                                 </li>
