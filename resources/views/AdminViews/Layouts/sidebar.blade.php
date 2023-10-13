@@ -45,8 +45,19 @@
                     <ul>
                         <li><a href="/admin/booking">Booking client  </a></li>
                         <li><a href="/admin/ticket">Ticket </a></li>
-                        <li class="decenAdmin"><a href="/admin/showtime">Showtime </a></li>
-                        <li class="decenAdmin" ><a href="/admin/room">Room </a></li>
+      
+                   
+
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#">  <i class="fa fa-home" aria-hidden="true"></i> <span class="side-txt">Cinema Room Manager</span>
+                        <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="/admin/cinema">Cinenma Manager  </a></li>
+                        <li><a href="/admin/room ">Room Manager </a></li>
+      
+                       
 
                     </ul>
                 </li>
@@ -63,6 +74,15 @@
         
                             </ul>
                 </li>
+                <li class="submenu" >
+                    <a href="#"> <i class="fa fa-film" aria-hidden="true"></i> <span class="side-txt">ShowTime Manager</span>
+                        <span class="menu-arrow"></span></a>
+                   
+                            <ul>
+                                <li><a href="/admin/showtime">  Showtime</a></li>
+                            </ul>
+                </li>
+                
                 
                     </ul>
                 </li>

@@ -8,7 +8,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="nameInput">Name</label>
-                    <input type="text" class="form-control" id="nameInput" name="Name" value="{{ $Cinema->Name }}">
+                    <input type="text" class="form-control" id="nameInput" name="name" value="{{ $Cinema->Name }}">
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
