@@ -1,7 +1,26 @@
 window.addEventListener("DOMContentLoaded", async () => {
    await autoLogin()
     loadUserInformation();
+    loadCinemaHeader();
 });
+
+function loadCinemaHeader(){
+    fetch('/api/header/cinema',{
+        method:'get',
+        headers:{
+            "X-CSRF-TOKEN": csrfToken, // Thêm CSRF token vào headers
+        }
+
+    }).then(rsp=>rsp.json())
+    .then(data=>{
+        var ulCinema= document.querySelector("#listCinema");
+        var content=data.map(e=>{
+            return `       <li><a href="/rainbow/#">${e.Name}</a></li>`
+        }).join('')
+        ulCinema.innerHTML=content;
+     
+    }).catch(err=>console.log(err))
+}
 async function autoLogin(){
   var Access_Token=getCookie('Access_Token');
   console.log(Access_Token)
