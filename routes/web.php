@@ -34,7 +34,7 @@ use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;
 use App\Http\Controllers\RainbowControllers\SeatBookingController;
-
+use App\Http\Controllers\RainbowControllers\PaymentController;
 
 use App\Http\Controllers\RainbowControllers\Movie_CategoryController;
 use App\Http\Controllers\RainbowControllers\Account_DetailsController;
@@ -82,6 +82,8 @@ Route::group(['prefix'=>'rainbow'],function(){
 
 
     Route::get('/contact', [ContactController::class, 'index']);
+
+    Route::post('/vnpay_payment',[PaymentController::class,'vnpay_payment']);
 });
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/',[AdminControllersLoginController::class,'index']);

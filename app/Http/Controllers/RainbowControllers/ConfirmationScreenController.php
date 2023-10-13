@@ -126,7 +126,5 @@ class ConfirmationScreenController extends Controller
 
         return redirect("/rainbow/confirmation_screen/{$booking->Id}");
 
-        
-
     }
 }

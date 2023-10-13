@@ -148,7 +148,7 @@
                                                             </div>
                                                             <div class="prs_upcom_movie_content_box_inner_icon">
                                                                 <ul>
-                                                                    <li><a href="movie_booking.html"><i
+                                                                    <li><a href="/rainbow/movie_booking/{{$listMovie[$i]->Id}}"><i
                                                                                 class="flaticon-cart-of-ecommerce"></i></a>
                                                                     </li>
                                                                 </ul>
