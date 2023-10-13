@@ -12,7 +12,7 @@ class PerformerController extends Controller
      */
     public function index()
     {
-        $listPerformer= Performer::all();
+        $listPerformer= Performer::where('Deleted',0)->get();
          return view('AdminViews.index',['page'=>"performer",'danhsach'=>$listPerformer]);
          //return response()->json($listPerformer,200); 
     }

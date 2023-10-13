@@ -56,6 +56,7 @@
                    
                             <ul>
                                 <li><a href="/admin/promotion"> Promotion</a></li>
+                                <li><a href="/admin/promotionCategrory"> PromotionCategrory</a></li>
                                 <li><a href="/admin/promotionUser"> User have a birthday on today</a></li>
                               
                          

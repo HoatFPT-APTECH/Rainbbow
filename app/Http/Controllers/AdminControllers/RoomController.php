@@ -12,7 +12,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $listRoom= Room::all();
+        $listRoom= Room::where('Deleted',0)->get();
         return view('AdminViews.index',['page'=>"room",'danhsach'=>$listRoom]);
     }
 

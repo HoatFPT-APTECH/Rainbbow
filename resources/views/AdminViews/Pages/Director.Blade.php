@@ -44,7 +44,7 @@
                      <td>
                         <a href="/admin/director/show/{{$Director->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                         <a href="/admin/director/edit/{{$Director->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="/admin/director/delete/{{$Director->Id}}" onclick="return confirm('Your sure delete performer has name: {{$Director->Name}}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a href="/admin/director/delete/{{$Director->Id}}" onclick="confirmDeletion(event,this)" class="detele?id=" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
            
                  </tr>

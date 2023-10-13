@@ -6,9 +6,9 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h2><i class="fa-solid fa-file-signature"></i>  Productor <b>Details</b>      
+                        <h2><i class="fa-solid fa-file-signature"></i>  PromotionCategrory <b>Details</b>      
                             <br><br> <button class="btn btn-primary ">
-                        <a href="./productor/create" style="color: white"><i class="fa-solid fa-user-plus"></i>  Add new Productor</a>    
+                        <a href="./promotionCategrory/create" style="color: white"><i class="fa-solid fa-user-plus"></i>  Add new PromotionCategrory</a>    
                         </button></h2>
                     </div>
                     <div class="col-sm-4">
@@ -27,24 +27,27 @@
                     <tr>
                         <th>Id</th>
                         <th>Name <i class="fa fa-sort"></i></th>
+                        <th>Coefficient <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($danhsach as $Productor)
+                    @foreach($danhsach as $PromotionCategrory)
                  <tr>
                  
                      <td>
-                        {{$Productor->Id}}
+                        {{$PromotionCategrory->Id}}
                      </td>
                      
                      <td>
-                        {{$Productor->Name}}
+                        {{$PromotionCategrory->Name}}
                      </td>
                      <td>
-                        <a href="/admin/productor/show/{{$Productor->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                        <a href="/admin/productor/edit/{{$Productor->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="/admin/productor/delete/{{$Productor->Id}}" onclick="confirmDeletion(event,this)" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons" style="color: red;">&#xE872;</i></a>
+                       ${{$PromotionCategrory->Coefficient}}
+                     </td>
+                     <td>
+                        <a href="/admin/promotionCategrory/edit/{{$PromotionCategrory->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a href="/admin/promotionCategrory/delete/{{$PromotionCategrory->Id}}" onclick="confirmDeletion(event,this)" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons" style="color: red">&#xE872;</i></a>
                     </td>
            
                  </tr>

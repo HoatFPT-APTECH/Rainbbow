@@ -13,7 +13,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $listPhoto= Photo::with('movies')->get();
+        $listPhoto= Photo::with('movies')->where('Deleted',0)->get();
         return view("AdminViews.index",['page'=>'photo'],['danhsach'=>$listPhoto]);
     }
 
@@ -86,8 +86,10 @@ class PhotoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+    public function destroy(string $id){
+        $newPhoto=Photo::where('Id',$id)->first();
+        $newPhoto->Deleted=1;
+        $newPhoto->save();
+        return redirect('/admin/photo');
     }
 }

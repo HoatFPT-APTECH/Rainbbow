@@ -76,9 +76,9 @@
                             {{$Movie->productor->Name}}
                          </td>
                          <td>
-                            <a href="/admin/movie/{{$Movie->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-
-                            <a href="/admin/movie/{{$Movie->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href="/admin/movie/show/{{$Movie->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                            <a href="/admin/movie/edit/{{$Movie->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href="/admin/movie/delete/{{$Movie->Id}}" onclick="confirmDeletion(event,this)" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons" style="color: red;">&#xE872;</i></a>
                        
                         </td>
                      </tr>

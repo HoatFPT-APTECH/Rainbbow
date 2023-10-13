@@ -15,10 +15,7 @@
                                     <form action="#">
                                         <i class="material-icons">&#xE8B6;</i>
                                         <input type="text" class="form-control" placeholder="Search&hellip;">
-                                  
                                     </form>
-                                
-        
                                 </div>
                             </div>
                         </div>
@@ -34,28 +31,27 @@
                         <tbody>
                             @foreach($danhsach as $Photo)
                      <tr>
-                        
                          <td>
                             {{$Photo->Id}}
                          </td>
                          <td>
-                            {{$Photo->Src}}
+                            <div class="avatar-container">
+                                <img class="avatar" src="{{$Photo->Src}}"/>
+                            </div>
                          </td>
                           <td>
                             {{$Photo->movies->Name}}
                          </td> 
                          <td>
                             <a href="/admin/photo/{{$Photo->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                            <a href="/admin/photo/{{$Photo->Id}}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <a href="/admin/photo/edit/{{$Photo->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href="/admin/photo/delete/{{$Photo->Id}}" onclick="confirmDeletion(event,this)" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons" style="color: red;">&#xE872;</i></a>
                         </td>
                      </tr>
                         @endforeach        
                         </tbody>
-                    
                 </div>
             </div>  
         </div>  
     </div>
-
 </div>
