@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\AdminControllers;
 use App\Models\Room;
 use App\Http\Controllers\Controller;
+use App\Models\Cinema;
+use App\Models\RoomCinema;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -12,7 +14,9 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $listRoom= Room::where('Deleted',0)->get();
+
+        $listRoom= Room::with(['cinema'])->where('Deleted',0)->get();
+
         return view('AdminViews.index',['page'=>"room",'danhsach'=>$listRoom]);
     }
 
@@ -21,7 +25,10 @@ class RoomController extends Controller
      */
     public function create()
     {
-        return view('AdminViews.index',['page'=>"roomCreate"]);
+        $cinemas=Cinema::all();
+        return view('AdminViews.index',['page'=>"roomCreate",
+     'cinemas'=>$cinemas
+    ]);
     }
 
     /**
@@ -30,8 +37,10 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         $Name= $request->input('Name');
+        $cinemaId=$request->input('cinemaId');
         $newRoom= new Room();
         $newRoom->Name=$Name;
+        $newRoom->Cinema_Id=$cinemaId;
         $newRoom->save();
         //return $this->index();
         return redirect("/admin/room");
@@ -42,7 +51,7 @@ class RoomController extends Controller
      */
     public function show(string $id)
     {
-        $Room= Room::find($id);
+        $Room= Room::with(['cinema'])->find($id);
         return view("AdminViews.index",['page'=>'roomShow'],['Room'=>$Room]);
     }
 
@@ -51,9 +60,12 @@ class RoomController extends Controller
      */
     public function edit(string $id)
     {
-        $idRoom= intval($id);
-        $RoomExist= Room::where('id',$idRoom)->first();
-        return view('AdminViews.index',['page'=>"roomEdit", 'Room'=>$RoomExist]);
+        $id= intval($id);
+        $RoomExist= Room::with(['cinema'])->find($id);
+        $cinemas=Cinema::all();
+        return view('AdminViews.index',['page'=>"roomEdit", 'Room'=>$RoomExist,
+       'cinemas'=>$cinemas
+    ]);
     }
 
     /**
@@ -62,7 +74,9 @@ class RoomController extends Controller
     public function update(Request $request, string $id)
     {
         $Name= $request->input('Name');
-        $newRoom= Room::where('id',$id)->first();
+        $newRoom=Room::with(['cinema'])->find($id);
+        $cinemaId=$request->input('cinemaId');
+        $newRoom->Cinema_Id=$cinemaId;
         $newRoom->Name=$Name;
         $newRoom->save();
         //return $this->index();

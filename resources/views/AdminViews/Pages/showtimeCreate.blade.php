@@ -16,7 +16,8 @@
       </div>
       <div class="form-group">
         <label for="movieIdInput">Movie :</label>
-        <select readonly name="Movie_Id" id="">
+        <select readonly name="Movie_Id" id=""  required >
+          <option >Choose Film</option>
           @foreach ($movie as $m )
           <option value="{{$m->Id}}"   > {{$m->Name}}  </option>
           @endforeach
@@ -26,8 +27,8 @@
       </div>
       <div class="form-group">
         <label for="cinemaIdInput">Cinema :</label>
-        <select readonly name="Cinema_Id" >
-       
+        <select readonly name="Cinema_Id" onchange=" getRooms(this.value)" required >
+          <option  selected> Choose Cinema</option>
           @foreach ($cinema as $c )
           <option value="{{$c->Id}}"   > {{$c->Name}}  </option>
           @endforeach
@@ -35,10 +36,8 @@
       </div>
       <div class="form-group">
         <label for="roomIdInput">Room :</label>
-        <select readonly name="Room_id">
-          @foreach ($room as $r )
-          <option value="{{$r->Id}}"  > {{$r->Name}}  </option>
-          @endforeach
+        <select readonly name="Room_id" id="roomIdInput" >
+        <option value="null"> Choose Room </option>
         </select>
       
       </div>

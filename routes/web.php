@@ -23,13 +23,17 @@ use App\Http\Controllers\AdminControllers\PromotionController;
 
 use App\Http\Controllers\AdminControllers\PromotionCategroryController;
 use App\Http\Controllers\AdminControllers\PromotionUserController;
+use App\Http\Controllers\Api\AutoSendMailController;
 use App\Http\Controllers\Api\PromotionController as ApiPromotionController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\SeatController;
+use App\Http\Controllers\Api\ShowtimeController as ApiShowtimeController;
 use App\Http\Controllers\MailControllers\MailBookingController;
+use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\RainbowControllers\BookingTypeController;
 use App\Http\Controllers\RainbowControllers\ConfirmationScreenController;
 use App\Http\Controllers\RainbowControllers\HomeController;
+use App\Http\Controllers\RainbowControllers\Movie_CinemaController;
 use App\Http\Controllers\RainbowControllers\MovieBookingController;
 use App\Http\Controllers\RainbowControllers\RegisterController;
 use App\Http\Controllers\RainbowControllers\Movie_SingleController;
@@ -56,6 +60,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [StartController::class,'index']);
+Route::get('/NotFound',[NotFoundController::class,'index']);
 
 Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/',[HomeController::class,'index'])->name("rainbow.home");
@@ -67,6 +72,7 @@ Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/movie_booking/{id}', [MovieBookingController::class, 'index']);
     Route::get('/seat_booking/{id}', [SeatBookingController::class, 'index']);
     Route::get('/movie_category', [Movie_CategoryController::class, 'index']);
+    Route::get('/movie_cinema', [Movie_CinemaController::class, 'index']);
 
     Route::get('/booking_type', [BookingTypeController::class, 'index']);
     Route::get('/booking_type/create', [ConfirmationScreenController::class, 'create']);
@@ -74,6 +80,7 @@ Route::group(['prefix'=>'rainbow'],function(){
 
 
     Route::get('/search', [Movie_CategoryController::class, 'Search']);
+    Route::get('/searchcinema', [Movie_CinemaController::class, 'Search']);
     Route::get('/account_details/{Id}', [Account_DetailsController::class, 'index']);
     Route::get('/account_booking/{Id}', [Account_DetailsController::class, 'booking']);
     Route::post('/account_details/update/{Id}', [Account_DetailsController::class, 'update']);
@@ -253,6 +260,8 @@ Route::group(['prefix' => '/api'], function () {
     Route::post("/getListShowTimeByIdMovie", [ApiBookingController::class, 'GetListShowByIdMovie']);
     Route::post("/changeStatusSeatShowtime", [SeatController::class, 'ChangeStatusSeat']);
     Route::post("/checkVoucher", [ApiPromotionController::class, 'check']);
+    Route::get('/autoSendMail',[AutoSendMailController::class,'index']);
+    Route::get('/showtime/getRoomByCinema/{id}',[ApiShowtimeController::class,'getRoomByCinema']);
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
 
 });

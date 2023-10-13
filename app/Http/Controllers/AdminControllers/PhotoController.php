@@ -13,7 +13,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $listPhoto= Photo::with('movies')->where('Deleted',0)->get();
+        $listPhoto= Photo::with('movies')->get();
         return view("AdminViews.index",['page'=>'photo'],['danhsach'=>$listPhoto]);
     }
 

@@ -1,6 +1,12 @@
-
+var timeWork=1000*60*5;
 const userS= JSON.parse(window.sessionStorage.getItem("User"))
 var data= JSON.parse(document.querySelector("meta[name='data']").getAttribute('content'));
+window.addEventListener('DOMContentLoaded',()=>{
+  loadUI();
+  setTimeout(timeOutForWork,timeWork);
+
+})
+
 const socket= io(":3000");
 socket.emit('join_showtime',data.Id);
 socket.on("orther_people_choosing_seat",(user,seat)=>{
@@ -25,9 +31,17 @@ socket.on("orther_people_cancel_choosing_seat",(user,seat)=>{
   }
  
 })
-window.addEventListener('DOMContentLoaded',()=>{
-  loadUI()
-})
+
+function timeOutForWork(){
+   const inputCheck= document.querySelectorAll('input');
+   inputCheck.forEach(i=>{
+    if(i.type=='checkbox'){
+      i.checked=false;
+    }
+   })
+   alert("You have run out of time to choose your seat. Please do not reserve a seat!");
+   window.location.href='/rainbow/';
+}
 function loadUI(){
     var time=document.querySelector("body > div.st_bt_top_header_wrapper.float_left > div > div > div:nth-child(2) > div > h4");
   

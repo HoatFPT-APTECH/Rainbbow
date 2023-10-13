@@ -15,13 +15,15 @@ class Movie_CategoryController extends Controller
     $page='movie_category';
     $JsPage="";
     $ListMovie= Movie::with(['photos','movieCategory'])
-    
+    ->orderBy('DateShow','desc')
     ->paginate(9);
     $ListMovieCategory = MovieCategory::with(['movies'])->get();
+    $countMovieAll= sizeof(Movie::all());
     return  view('RainbowViews.index', [
         'page' => $page,
         'JsPage'=>$JsPage,
         'listMovie'=>$ListMovie,
+        'countMovieAll'=>$countMovieAll,
         'listMovieCategory'=>$ListMovieCategory
     ])->with('i', (request()->input('page',1)-1)*9);
 
@@ -33,6 +35,7 @@ class Movie_CategoryController extends Controller
         $category=$request->input('category');
     $page='movie_category';
     $JsPage="";
+    $countMovieAll= sizeof(Movie::all());
     if($keySearch!==null&& $category==null){
         $ListMovie=  Movie::with(['photos','movieCategory'])
         ->where('tbl_movie.Name', 'like', '%'.$keySearch.'%')
@@ -53,6 +56,7 @@ class Movie_CategoryController extends Controller
         'page' => $page,
         'JsPage'=>$JsPage,
         'listMovie'=>$ListMovie,
+        'countMovieAll'=>$countMovieAll,
         'listMovieCategory'=>$ListMovieCategory
     ])->with('i', (request()->input('page',1)-1)*9);
    }

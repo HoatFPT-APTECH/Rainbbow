@@ -18,6 +18,14 @@
         <label for="nameInput">Name</label>
         <input type="text" class="form-control" id="nameInput" name="Name" value="{{$Room->Name}}" placeholder="Enter Name">
       </div>
+      <div class="form-group">
+        <label for="cinemaId">Belongs to Cinema</label>
+        <select name="cinemaId" >
+          @foreach ($cinemas as $c )
+            <option {{$Room->cinema->Id==$c->Id?'selected':''}} value="{{$c->Id}}">{{$c->Name}}</option>
+          @endforeach
+        </select>
+      </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>

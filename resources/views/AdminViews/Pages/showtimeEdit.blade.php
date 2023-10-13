@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
           <label for="cinemaIdInput">Cinema :</label>
-          <select name="Cinema_Id" >
+          <select name="Cinema_Id" onchange=" getRooms(this.value)">
             @foreach ($cinema as $c )
             <option value="{{$c->Id}}" {{($c->Id==$Showtime->cinema->Id)?'selected': ''}}  > {{$c->Name}}  </option>
             @endforeach
@@ -37,7 +37,12 @@
         </div>
         <div class="form-group">
           <label for="roomIdInput">Room :</label>
-          <select name="Room_id">
+          <select name="Room_id"  id="roomIdInput" >
+            <?php if (sizeof($room)===0) { ?>
+              echo "<option>No Room in this cinema</option>"
+          <?php  }
+
+            ?>
             @foreach ($room as $r )
             <option value="{{$r->Id}}" {{($r->Id==$Showtime->room->Id)?'selected': ''}}  > {{$r->Name}}  </option>
             @endforeach
