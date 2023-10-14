@@ -198,7 +198,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="parent"><a href="/rainbow/#">Cinema</a>
+                            <li class="parent"><a href="/rainbow/cinemamovie">Cinema</a>
                                 <ul class="lg-submenu" id="listCinema">
                                     <li><a href="/rainbow/#">Lotte</a></li>
                                     <li><a href="/rainbow/#">Galaxy</a></li>
