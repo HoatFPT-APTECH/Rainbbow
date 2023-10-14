@@ -120,6 +120,11 @@
 											<input type="hidden" name="total" value="{{($movie->Price)*($s->seatCategory->Coefficient)}}">
 										<button type="submit" name="redirect" class="btn btn-warning" >PAY VNPAY</button>
 										</form>
+										<form action="{{route('paypal')}}" method="post" >
+											@csrf
+											<input type="hidden" name="price" value="20" >
+										<button type="submit">PAY PAL</button>
+									    </form>
 									</div>
 								</div>
 							</div>
