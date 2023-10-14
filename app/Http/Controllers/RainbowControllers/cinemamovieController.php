@@ -19,6 +19,7 @@ class cinemamovieController extends Controller
     {
     $page='cinemamovie';
     $JsPage="";
+    $now=now();
     $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)
     ->join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_movie.Id')
     ->join('tbl_cinema', 'st.Cinema_Id', '=', 'tbl_cinema.Id')
@@ -26,8 +27,10 @@ class cinemamovieController extends Controller
        ->whereBetween('dateshow', [now(), now()->addDays(7)])
     ->orderBy('tbl_movie.DateShow','desc')
     ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')
-    ->get();
-    //    ->paginate(9);
+    ->where(function ($query) use ($now) {
+        $query->where('st.End', '>=', $now);
+    })
+       ->paginate(9);
        $ListCinema= DB::table('tbl_cinema')
        ->leftJoin('tbl_showtime', 'tbl_cinema.id', '=', 'tbl_showtime.cinema_id')
        ->groupBy('tbl_cinema.id','tbl_cinema.name')
@@ -38,8 +41,8 @@ class cinemamovieController extends Controller
             'JsPage'=>'home',
             'listMovie'=>$ListMovie,
             'listCinema'=>$ListCinema
-        ]);
-        // ->with('i', (request()->input('page',1)-1)*9);
+        ])
+        ->with('i', (request()->input('page',1)-1)*9);
       //  return response()->json($ListMovie,200);
 }
 public function Search(Request $request){
@@ -56,6 +59,9 @@ if($keySearch!==null&& $cinema==null){
 ->select('tbl_movie.*', 'tbl_moviecategory.name as Category','tbl_cinema.Id as Cinema_Id')
 ->whereBetween('dateshow', [now(), now()->addDays(7)])
 ->orderBy('tbl_movie.DateShow','desc')
+->where(function ($query) use ($now) {
+    $query->where('tbl_showtime.End', '>=', now());
+})
     ->where('tbl_showtime.Cinema_Id', $cinema)
        ->paginate(9);   
 }
@@ -68,6 +74,9 @@ else if($cinema!==null && $keySearch==null){
 ->select('tbl_movie.*', 'tbl_moviecategory.name as Category','tbl_cinema.Id as Cinema_Id')
 ->whereBetween('dateshow', [now(), now()->addDays(7)])
 ->orderBy('tbl_movie.DateShow','desc')
+->where(function ($query) use ($now) {
+    $query->where('tbl_showtime.End', '>=', now());
+})
     ->where('tbl_showtime.Cinema_Id', $cinema)
        ->paginate(9); 
 }
@@ -79,6 +88,9 @@ else{
 ->select('tbl_movie.*', 'tbl_moviecategory.name as Category','tbl_cinema.Id as Cinema_Id')
 ->whereBetween('dateshow', [now(), now()->addDays(7)])
 ->orderBy('tbl_movie.DateShow','desc')
+->where(function ($query) use ($now) {
+    $query->where('tbl_showtime.End', '>=', now());
+})
     ->where('tbl_showtime.Cinema_Id', $cinema)
        ->paginate(9); 
 }

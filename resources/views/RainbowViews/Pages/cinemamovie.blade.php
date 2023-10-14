@@ -139,7 +139,7 @@
                                                                 <h2><a
                                                                         href="/rainbow/movie_single/{{ $listMovie[$i]->Id }}">{{ $listMovie[$i]->Name }}</a>
                                                                 </h2>
-                                                                <p>{{ $listMovie[$i]->movieCategory->Name }}</p> <i
+                                                                <p>{{ $listMovie[$i]->Category }}</p> <i
                                                                     class="fa fa-star"></i>
                                                                 <i class="fa fa-star"></i>
                                                                 <i class="fa fa-star"></i>
@@ -158,7 +158,7 @@
                                                 </div>
                                             @endfor
                                     </div>
-                                    {{-- {{ $listMovie->links() }} --}}
+                                    {{ $listMovie->links() }}
                                     @endif
                                     <div id="list" class="tab-pane fade">
                                         <div class="row">
