@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="prs_title_heading_wrapper">
-                    <h2>Movie Category</h2>
+                    <h2>Cinema</h2>
                     <ul>
                         <li><a href="#">Home</a>
                         </li>
-                        <li>&nbsp;&nbsp; >&nbsp;&nbsp; Movie Category</li>
+                        <li>&nbsp;&nbsp; >&nbsp;&nbsp; Cinema</li>
                     </ul>
                 </div>
             </div>
