@@ -72,7 +72,7 @@ class ConfirmationScreenController extends Controller
        
         $newBooking= new Booking();
         $newBooking->User_Id=$user_Id;
-        $newBooking->Status=0;
+        $newBooking->Status=0;// Chưa thanh toán cho vé
         $newBooking->Promotion_Id= $promotion_Id;
         $allPrice=0;
         $newBooking->save();
@@ -129,6 +129,7 @@ class ConfirmationScreenController extends Controller
         
 
     }
+    
     public function vnPay(){
         
     }

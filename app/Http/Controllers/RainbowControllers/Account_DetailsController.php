@@ -28,6 +28,7 @@ class Account_DetailsController extends Controller
     ]);
     // return response()->json($UserDetails,200);
     }
+  
     public function update(Request $request, string $id)
     {
         $UserName= $request->input('UserName');

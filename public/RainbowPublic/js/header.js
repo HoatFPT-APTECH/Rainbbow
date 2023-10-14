@@ -15,7 +15,7 @@ function loadCinemaHeader(){
     .then(data=>{
         var ulCinema= document.querySelector("#listCinema");
         var content=data.map(e=>{
-            return `       <li><a href="/rainbow/#">${e.Name}</a></li>`
+            return  `       <li><a href="/rainbow/searchcinemamovie?cinema=${e.Id}">${e.Name}</a></li>`
         }).join('')
         ulCinema.innerHTML=content;
      
