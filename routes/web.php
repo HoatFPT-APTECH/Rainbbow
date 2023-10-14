@@ -32,6 +32,7 @@ use App\Http\Controllers\Api\ShowtimeController as ApiShowtimeController;
 use App\Http\Controllers\MailControllers\MailBookingController;
 use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\RainbowControllers\BookingTypeController;
+use App\Http\Controllers\RainbowControllers\cinemamovieController;
 use App\Http\Controllers\RainbowControllers\ConfirmationScreenController;
 use App\Http\Controllers\RainbowControllers\HomeController;
 use App\Http\Controllers\RainbowControllers\Movie_CinemaController;
@@ -74,6 +75,7 @@ Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/seat_booking/{id}', [SeatBookingController::class, 'index']);
     Route::get('/movie_category', [Movie_CategoryController::class, 'index']);
     Route::get('/movie_cinema', [Movie_CinemaController::class, 'index']);
+    Route::get('/cinemamovie', [cinemamovieController::class, 'index']);
 
     Route::get('/booking_type', [BookingTypeController::class, 'index']);
     Route::get('/booking_type/create', [ConfirmationScreenController::class, 'create']);

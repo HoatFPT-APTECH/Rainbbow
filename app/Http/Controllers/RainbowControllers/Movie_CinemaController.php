@@ -19,14 +19,14 @@ class Movie_CinemaController extends Controller
         $page='movie_cinema';
     $JsPage="";
     $now=now();
-    $listMovie= Movie::join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_Movie.Id')
-    ->where(function ($query) use ($now) {
-        $query->where('st.End', '>=', now())->where('st.Start','<=',now())
-           ;
-    })
-    ->get();;
+    // $listMovie= Movie::join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_Movie.Id')
+    // ->where(function ($query) use ($now) {
+    //     $query->where('st.End', '>=', now())->where('st.Start','<=',now())
+    //        ;
+    // })
+    // ->get();;
 
-    $ListMovie = Movie::distinct()
+    $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)
     ->join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_movie.Id')
     ->join('tbl_cinema', 'st.Cinema_Id', '=', 'tbl_cinema.Id')
     ->join('tbl_moviecategory', 'tbl_movie.MovieCategory_Id', '=', 'tbl_moviecategory.Id')
@@ -70,7 +70,7 @@ class Movie_CinemaController extends Controller
     $page='movie_cinema';
     $JsPage="";
     if($keySearch!==null&& $cinema==null){
-        $ListMovie = Movie::distinct()
+        $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)
     ->join('tbl_showtime', 'tbl_movie.id', '=', 'tbl_showtime.movie_id')
     ->join('tbl_cinema', 'tbl_showtime.cinema_id', '=', 'tbl_cinema.id')
     ->join('tbl_moviecategory', 'tbl_movie.moviecategory_id', '=', 'tbl_moviecategory.id')
@@ -85,7 +85,7 @@ class Movie_CinemaController extends Controller
     }
    
     else if($cinema!==null && $keySearch==null){
-        $ListMovie = Movie::distinct()
+        $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)
     ->join('tbl_showtime', 'tbl_movie.id', '=', 'tbl_showtime.movie_id')
     ->join('tbl_cinema', 'tbl_showtime.cinema_id', '=', 'tbl_cinema.id')
     ->join('tbl_moviecategory', 'tbl_movie.moviecategory_id', '=', 'tbl_moviecategory.id')
@@ -99,7 +99,7 @@ class Movie_CinemaController extends Controller
     -> where('Cinema_Id',$cinema)   ->paginate(9);
     }
     else{
-        $ListMovie = Movie::distinct()
+        $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)
         ->join('tbl_showtime', 'tbl_movie.id', '=', 'tbl_showtime.movie_id')
         ->join('tbl_cinema', 'tbl_showtime.cinema_id', '=', 'tbl_cinema.id')
         ->join('tbl_moviecategory', 'tbl_movie.moviecategory_id', '=', 'tbl_moviecategory.id')
