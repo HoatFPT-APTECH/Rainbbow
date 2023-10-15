@@ -151,10 +151,19 @@
 				@endif
 	<!-- prs theater Slider End -->
 	<!-- prs syn Slider Start -->
+	<div class="prs_upcome_tabs_wrapper" style="background: #f1f1f1;">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#best1" aria-controls="best" role="tab" data-toggle="tab">Synopsys</a>
+			</li>
+			<li role="presentation"><a href="#hot1" aria-controls="hot" role="tab" data-toggle="tab">Comments</a>
+			</li>
+		</ul>
+	</div>
 	<div class="prs_syn_main_section_wrapper">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					
 					<div class="prs_syn_cont_wrapper">
 						<h3>Synopsis</h3>
 						<h4><span>Genre -</span> {{$movieEx->movieCategory->Name}}</h4>

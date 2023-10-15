@@ -143,7 +143,7 @@
                                                             white-space: nowrap; 
                                                             text-overflow: ellipsis;">{{$listMovie[$i]->Description}}</p>
                                                             <ul>
-                                                                <li><a href="{{ $listMovie[$i]->VideoTrailer }}">View Trailer</a>
+                                                                <li><a class="button test-popup-link" rel="external" href="{{ $listMovie[$i]->VideoTrailer }}">View Trailer</a>
                                                                 </li>
                                                                 <li><a href="/rainbow/movie_single/{{ $listMovie[$i]->Id }}">View Details</a>
                                                                 </li>
