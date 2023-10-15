@@ -20,6 +20,7 @@ class MovieBookingController extends Controller
         $EndTime=Showtime::where('Movie_Id',$id)->max('End');
 
         if(sizeof($ListShowTime)==0 ||  $EndTime<now() ){
+            //    return response()->json(  $EndTime);
             return view('404NotFound');
         }
         $dateTimeStringStart = $ListShowTime[0]->Start;

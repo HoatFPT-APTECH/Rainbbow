@@ -31,8 +31,8 @@ class Movie_CinemaController extends Controller
     ->join('tbl_cinema', 'st.Cinema_Id', '=', 'tbl_cinema.Id')
     ->join('tbl_moviecategory', 'tbl_movie.MovieCategory_Id', '=', 'tbl_moviecategory.Id')
     ->where(function ($query) use ($now) {
-        $query->where('st.Start', '<=', $now)
-            ->where('st.End', '>=', $now);
+        $query->where('st.Start', '<=', now())
+            ->where('st.End', '>=', now());
     })
     ->orderBy('DateShow','desc', 'st.Start', 'desc')
     ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')

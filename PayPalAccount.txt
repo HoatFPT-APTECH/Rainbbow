@@ -1,0 +1,7 @@
+dev: diencotochuc03@gmail.com
+per:sb-443s2m27760813@personal.example.com (John Doe)
+pass:WRK=5o*0
+bus:sb-kksb4327373787@business.example.com (Trang Bui)
+pass:@=6yGm46
+client id: AciOXD9VoXPLn9Ce686rNJByKjmDLgdEHcgejh9ARA-1m42fJWPsHWDL4aLZIXkuJen1lCh_Vvdnnx_U
+secret:EAcpRc8d23ZTZgKrxsfcPYBwY5YdCB9ORvUykqDpl58ilXo5XVSe40iXwLBDmVWWiTfhaczWpMIjsjWD
