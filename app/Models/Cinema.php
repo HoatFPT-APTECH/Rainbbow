@@ -12,8 +12,7 @@ class Cinema extends Model
     public $timestamps=false;
     public function rooms()
     {
-        return $this->belongsToMany(Room::class, 'tbl_RoomCinema', 'Cinema_Id', 'Room_Id')
-            ->withPivot('Status');
+        return $this->hasMany(Room::class,'Cinema_Id','Id');
     }
 
     public function promotions()

@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminControllers\RoomController;
 
 
 use App\Http\Controllers\AdminControllers\CinemaController;
+use App\Http\Controllers\AdminControllers\CurrentShowtimeController;
 use App\Http\Controllers\AdminControllers\DashboardController;
 use App\Http\Controllers\AdminControllers\LoginController as AdminControllersLoginController;
 use App\Http\Controllers\AdminControllers\ProductorController;
@@ -255,6 +256,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/showtime/show/{id}', [ShowtimeController::class, 'show']);
     Route::get('/showtime/delete/{id}', [ShowtimeController::class, 'destroy']);
 
+    Route::get('/current_showtime',[CurrentShowtimeController::class,'index']);
+    Route::get('/current_showtime/detail/{id}',[CurrentShowtimeController::class,'Detail']);
+
 
     Route::get('/room', [RoomController::class, 'index']);
     Route::get('/room/create', [RoomController::class, 'create']);
@@ -277,7 +281,7 @@ Route::group(['prefix' => '/api'], function () {
     Route::get('/showtime/getRoomByCinema/{id}',[ApiShowtimeController::class,'getRoomByCinema']);
 
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
-
+    
 });
 Route::group(['prefix'=>'mail'],function(){
     Route::get('mail_booking/{id}',[MailBookingController::class,'index']);

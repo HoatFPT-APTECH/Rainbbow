@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>Admin Page</title>
     @include('AdminViews.Layouts.head')
+    
+    <link rel="stylesheet" href="{{ isset($CssPage) ? asset('/AdminPublic/css/' . $CssPage . '.css') : '#' }}">
+
 </head>
 
 <body>
