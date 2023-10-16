@@ -26,4 +26,7 @@ class User extends Authenticatable
     public function promotions() {
         return $this->belongsToMany(Promotion::class, 'tbl_PromotionUser', 'User_Id', 'Promotion_Id');
     }
+    public function comments() {
+        return $this->hasMany(Comment::class, 'User_Id');
+    }
 }

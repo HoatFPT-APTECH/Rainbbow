@@ -27,4 +27,9 @@ class Movie extends Model
   return $this->hasMany(Photo::class, 'Movie_Id', 'Id');
 
     }
+    public function comments() {
+
+        return $this->hasMany(Comment::class, 'Movie_Id', 'Id');
+      
+          }
 }

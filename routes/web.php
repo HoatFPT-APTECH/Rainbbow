@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminControllers\RoomController;
 
 
 use App\Http\Controllers\AdminControllers\CinemaController;
+use App\Http\Controllers\AdminControllers\CurrentShowtimeController;
 use App\Http\Controllers\AdminControllers\DashboardController;
 use App\Http\Controllers\AdminControllers\LoginController as AdminControllersLoginController;
 use App\Http\Controllers\AdminControllers\ProductorController;
@@ -76,6 +77,7 @@ Route::group(['prefix'=>'rainbow'],function(){
     Route::post('/register/store',[RegisterController::class,'store']);
 
     Route::get("/movie_single/{id}",[Movie_SingleController::class,'index']);
+    Route::get('/movie_single_updateCMT', [Movie_SingleController::class, 'updateCMT']);
 
     Route::get('/movie_booking/{id}', [MovieBookingController::class, 'index']);
     Route::get('/seat_booking/{id}', [SeatBookingController::class, 'index']);
@@ -255,6 +257,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/showtime/show/{id}', [ShowtimeController::class, 'show']);
     Route::get('/showtime/delete/{id}', [ShowtimeController::class, 'destroy']);
 
+    Route::get('/current_showtime',[CurrentShowtimeController::class,'index']);
+    Route::get('/current_showtime/detail/{id}',[CurrentShowtimeController::class,'Detail']);
+
 
     Route::get('/room', [RoomController::class, 'index']);
     Route::get('/room/create', [RoomController::class, 'create']);
@@ -277,7 +282,7 @@ Route::group(['prefix' => '/api'], function () {
     Route::get('/showtime/getRoomByCinema/{id}',[ApiShowtimeController::class,'getRoomByCinema']);
 
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
-
+    
 });
 Route::group(['prefix'=>'mail'],function(){
     Route::get('mail_booking/{id}',[MailBookingController::class,'index']);

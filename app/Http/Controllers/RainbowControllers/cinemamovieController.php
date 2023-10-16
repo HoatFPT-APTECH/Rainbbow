@@ -25,7 +25,7 @@ class cinemamovieController extends Controller
     ->join('tbl_cinema', 'st.Cinema_Id', '=', 'tbl_cinema.Id')
     ->join('tbl_moviecategory', 'tbl_movie.MovieCategory_Id', '=', 'tbl_moviecategory.Id')
        ->whereBetween('dateshow', [now(), now()->addDays(7)])
-    ->orderBy('tbl_movie.DateShow','desc')
+    ->orderBy('tbl_movie.DateShow','desc', 'st.Start', 'desc')
     ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')
     ->where(function ($query) use ($now) {
         $query->where('st.End', '>=', $now);
@@ -58,7 +58,7 @@ if($keySearch!==null&& $cinema==null){
 ->join('tbl_moviecategory', 'tbl_movie.moviecategory_id', '=', 'tbl_moviecategory.id')
 ->select('tbl_movie.*', 'tbl_moviecategory.name as Category','tbl_cinema.Id as Cinema_Id')
 ->whereBetween('dateshow', [now(), now()->addDays(7)])
-->orderBy('tbl_movie.DateShow','desc')
+->orderBy('tbl_movie.DateShow','desc', 'tbl_showtime.Start')
 ->where(function ($query) use ($now) {
     $query->where('tbl_showtime.End', '>=', now());
 })
@@ -73,7 +73,7 @@ else if($cinema!==null && $keySearch==null){
 ->join('tbl_moviecategory', 'tbl_movie.moviecategory_id', '=', 'tbl_moviecategory.id')
 ->select('tbl_movie.*', 'tbl_moviecategory.name as Category','tbl_cinema.Id as Cinema_Id')
 ->whereBetween('dateshow', [now(), now()->addDays(7)])
-->orderBy('tbl_movie.DateShow','desc')
+->orderBy('tbl_movie.DateShow','desc', 'tbl_showtime.Start')
 ->where(function ($query) use ($now) {
     $query->where('tbl_showtime.End', '>=', now());
 })
@@ -87,7 +87,7 @@ else{
 ->join('tbl_moviecategory', 'tbl_movie.moviecategory_id', '=', 'tbl_moviecategory.id')
 ->select('tbl_movie.*', 'tbl_moviecategory.name as Category','tbl_cinema.Id as Cinema_Id')
 ->whereBetween('dateshow', [now(), now()->addDays(7)])
-->orderBy('tbl_movie.DateShow','desc')
+->orderBy('tbl_movie.DateShow','desc', 'tbl_showtime.Start', 'desc')
 ->where(function ($query) use ($now) {
     $query->where('tbl_showtime.End', '>=', now());
 })
