@@ -80,6 +80,7 @@
                    
                             <ul>
                                 <li><a href="/admin/showtime">  Showtime</a></li>
+                                <li><a href="/admin/current_showtime"> Current Showtime</a></li>
                             </ul>
                 </li>
                 
