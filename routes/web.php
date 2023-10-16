@@ -76,6 +76,7 @@ Route::group(['prefix'=>'rainbow'],function(){
     Route::post('/register/store',[RegisterController::class,'store']);
 
     Route::get("/movie_single/{id}",[Movie_SingleController::class,'index']);
+    Route::get('/movie_single_updateCMT', [Movie_SingleController::class, 'updateCMT']);
 
     Route::get('/movie_booking/{id}', [MovieBookingController::class, 'index']);
     Route::get('/seat_booking/{id}', [SeatBookingController::class, 'index']);
