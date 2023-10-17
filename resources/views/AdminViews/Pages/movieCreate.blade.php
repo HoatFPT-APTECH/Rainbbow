@@ -56,11 +56,8 @@
                 <div class="row">
                     <label for="photo">Main Photo :</label>
                     <div class="col">
-
-                   
                       <input type="file" name="Srcmain" id="uploadFile" class="form-control">
                           <br>
-               
                     </div>
                 </div>
                 <br>
