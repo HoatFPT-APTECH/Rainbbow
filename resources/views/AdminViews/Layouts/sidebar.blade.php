@@ -68,7 +68,7 @@
                             <ul>
                                 <li><a href="/admin/promotion"> Promotion</a></li>
                                 <li><a href="/admin/promotionCategrory"> PromotionCategrory</a></li>
-                                <li><a href="/admin/promotionUser"> User have a birthday on today</a></li>
+                                {{-- <li><a href="/admin/promotionUser"> User have a birthday on today</a></li> --}}
                               
                          
         
@@ -83,7 +83,16 @@
                                 <li><a href="/admin/current_showtime"> Current Showtime</a></li>
                             </ul>
                 </li>
-                
+                <li class="menu-title">Extra</li>
+                <li class="submenu" >
+                    <a href="#"> <i class="fa fa-star" aria-hidden="true"></i> <span class="side-txt">UI Client Manager</span>
+                        <span class="menu-arrow"></span></a>
+                   
+                            <ul>
+                                <li><a href="/admin/color_manager">Color Website</a></li>
+                                <li><a href="/admin/current_showtime">Home Slide </a></li>
+                            </ul>
+                </li>
                 
                     </ul>
                 </li>

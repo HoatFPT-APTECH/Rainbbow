@@ -276,7 +276,7 @@
                             </li>
                             <li class="parent"><a href="/rainbow/contact">contact</a>
                             </li>
-                            <li class="parent"><a href="/rainbow/movie_cinema">Movie released</a>
+                            <li class="parent"><a href="/rainbow/movie_cinema">current</a>
                             </li>
                         </ul>
                     </div>

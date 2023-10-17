@@ -1,6 +1,7 @@
 var data = JSON.parse(
     document.querySelector("meta[name='data']").getAttribute("content")
 );
+var subTotal=0;
 var voucherCode = null;
 const userS = JSON.parse(window.sessionStorage.getItem("User"));
 function loadUI() {
@@ -21,6 +22,8 @@ function loadUI() {
     }
     var totalPriceB = document.querySelector("#total_price");
     totalPriceB.innerHTML = totalPrice;
+    subTotal=totalPrice;
+    
     document.querySelector("#subTotal").innerHTML = `$${totalPrice}`;
 }
 function checkVoucher() {
@@ -75,6 +78,7 @@ function renderDataVoucher(data) {
     subtotalS.innerHTML = `$${
         totalPrice - data.promotion_category.Coefficient
     }`;
+    subTotal=totalPrice - data.promotion_category.Coefficient
 }
 
 function postBookingType() {
@@ -84,6 +88,16 @@ function postBookingType() {
     &&Promotion_Id=${voucherCode}
     &&Movie_Id=${data.movie_Id}
 
+    `;
+    window.location.href = pathQ;
+}
+function postBookingTypePaypal(){
+    var pathQ = `/rainbow/booking_type/paypal/payment?User_Id=${userS.Id} 
+    &&Tickets_Id=${data.tickets_Id}
+    &&Showtime_Id=${data.showTime_Id}
+    &&Promotion_Id=${voucherCode}
+    &&Movie_Id=${data.movie_Id}
+    &&price=${subTotal}
     `;
     window.location.href = pathQ;
 }
