@@ -69,9 +69,6 @@
                                 <li><a href="/admin/promotion"> Promotion</a></li>
                                 <li><a href="/admin/promotionCategrory"> PromotionCategrory</a></li>
                                 <li><a href="/admin/promotionUser"> User have a birthday on today</a></li>
-                              
-                         
-        
                             </ul>
                 </li>
                 <li class="submenu" >
@@ -83,6 +80,11 @@
                                 <li><a href="/admin/current_showtime"> Current Showtime</a></li>
                             </ul>
                 </li>
+                <li >
+                    <a href="/admin/comment"><i class="fa-solid fa-comment"></i><span
+                            class="side-txt">Comment Manager</span></a>
+                </li>
+               
                 
                 
                     </ul>

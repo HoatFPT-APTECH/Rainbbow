@@ -6,10 +6,8 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h2><i class="fa-solid fa-file-signature"></i>  Performer <b>Details</b>      
-                            <br><br> <button class="btn btn-primary ">
-                        <a href="./performer/create" style="color: white"><i class="fa-solid fa-user-plus"></i>  Add new Performer</a>    
-                        </button></h2>
+                        <h2><i class="fa-solid fa-file-signature"></i>  Comment <b>Details</b>      
+                        
                     </div>
                     <div class="col-sm-4">
                         <div class="search-box">
@@ -26,27 +24,41 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name <i class="fa fa-sort"></i></th>
-                        <th>Actions</th>
+                        <th>Image <i class="fa fa-sort"></i></th>
+                        <th>Content <i class="fa fa-sort"></i></th>
+                        <th>User <i class="fa fa-sort"></i></th>
+                        <th>Movie</th>
+                        <th>Created_At</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($danhsach as $Performer)
+                    @foreach($danhsach as $Comment)
                  <tr>
                  
                      <td>
-                        {{$Performer->Id}}
-                     </td>
-                     
-                     <td>
-                        {{$Performer->Name}}
+                        {{$Comment->Id}}
                      </td>
                      <td>
-                        <a href="/admin/performer/show/{{$Performer->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                        <a href="/admin/performer/edit/{{$Performer->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                       {{--}} <a href="/admin/performer/delete/{{$Performer->Id}}" onclick="return confirm('Your sure delete performer has name: {{$Performer->Name}}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    --}}
-                    <a href="/admin/performer/delete/{{$Performer->Id}}" onclick="confirmDeletion(event,this)" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons" style="color: red;">&#xE872;</i></a>
+                        <div class="avatar-container">
+                            <img class="avatar" src="    {{$Comment->movie->photos[0]->Src}}"/>
+                        </div>
+                     </td>
+                     <td>
+                        {{$Comment->Content}}
+                     </td>
+                     <td>
+                        {{$Comment->user->Name}}
+                     </td>
+                     <td>
+                        {{$Comment->movie->Name}}
+                     </td>
+                     <td>
+                        {{$Comment->Created_At}}
+                     </td>
+                     <td>
+                        <a href="/admin/comment/show/{{$Comment->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>          
+                        <a href="/admin/comment/delete/{{$Comment->Id}}" onclick="confirmDeletion(event,this)" class="detele" title="Delete" data-toggle="tooltip"><i class="material-icons" style="color: red;">&#xE872;</i></a>
                     </td>
            
                  </tr>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\AdminControllers;
-
+use App\Models\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,14 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $listComment= Comment::with(['movie','user'])->where('Deleted',0)->get();
+      
+        
+        return view("AdminViews.index",[
+           'page'=>'comment',
+          
+       "danhsach"=>$listComment ]);
+         // return response()->json($listComment,200);
     }
 
     /**
@@ -36,7 +43,8 @@ class CommentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $Comment= Comment::find($id);
+        return view("AdminViews.index",['page'=>'commentShow'],['Comment'=>$Comment]);
     }
 
     /**
@@ -44,7 +52,7 @@ class CommentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+     
     }
 
     /**
@@ -60,6 +68,10 @@ class CommentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $newComment= Comment::where('id',$id)->first();
+        $newComment->Deleted=1;
+        $newComment->save();
+       // return $this->index();
+       return redirect("/admin/comment");
     }
 }
