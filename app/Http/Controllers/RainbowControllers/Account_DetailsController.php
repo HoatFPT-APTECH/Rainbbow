@@ -48,10 +48,22 @@ class Account_DetailsController extends Controller
         
         return redirect("/rainbow/account_details/$id");
     }
+    public function convertPathUpLoad($str)
+    {
+
+        $listStr = explode("/", $str);
+        array_shift($listStr);
+        $realPath = implode("/", $listStr);
+        return url("storage/" . $realPath);
+    }
     public function updateURL(Request $request, string $id){
-        $AvatarURL= $request->input('Image');
         $newUser= User::where('Id',$id)->first();
-        $newUser->Image=$AvatarURL;
+
+        $fileSrc = $request->file('Image');
+        $pathSrc =  $fileSrc->store('public/account_Img');
+        $realPathImage = $this->convertPathUpLoad($pathSrc);
+        $Image = $realPathImage;
+        $newUser->Image=$Image;
         $newUser->save();
         return redirect("/rainbow/account_details/$id");
     }

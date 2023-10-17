@@ -140,6 +140,13 @@
                             </li>
                             <li>Produced by - <span>{{ $movieEx->productor->Name }}</span>
                             </li>
+                            <div class="prs_upcom_movie_content_box_inner_icon">
+                                <ul>
+                                    <li><a href="/rainbow/movie_booking/{{ $movieEx->Id }}"><i
+                                                class="flaticon-cart-of-ecommerce"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </ul>
                     </div>
                 </div>

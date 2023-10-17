@@ -24,12 +24,12 @@ class cinemamovieController extends Controller
     ->join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_movie.Id')
     ->join('tbl_cinema', 'st.Cinema_Id', '=', 'tbl_cinema.Id')
     ->join('tbl_moviecategory', 'tbl_movie.MovieCategory_Id', '=', 'tbl_moviecategory.Id')
-       ->whereBetween('dateshow', [now(), now()->addDays(7)])
-    ->orderBy('tbl_movie.DateShow','desc', 'st.Start', 'desc')
-    ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')
-    ->where(function ($query) use ($now) {
-        $query->where('st.End', '>=', $now);
+    ->where(function ($query) {
+        $query->where('st.Start', '<=', now())
+            ->where('st.End', '>=', now());
     })
+    ->orderBy('st.Start', 'desc')
+    ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')
        ->paginate(9);
        $ListCinema= DB::table('tbl_cinema')
        ->leftJoin('tbl_showtime', 'tbl_cinema.id', '=', 'tbl_showtime.cinema_id')
@@ -53,45 +53,45 @@ $page='cinemamovie';
 $JsPage="";
 if($keySearch!==null&& $cinema==null){
     $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)
-->join('tbl_showtime', 'tbl_movie.id', '=', 'tbl_showtime.movie_id')
-->join('tbl_cinema', 'tbl_showtime.cinema_id', '=', 'tbl_cinema.id')
-->join('tbl_moviecategory', 'tbl_movie.moviecategory_id', '=', 'tbl_moviecategory.id')
-->select('tbl_movie.*', 'tbl_moviecategory.name as Category','tbl_cinema.Id as Cinema_Id')
-->whereBetween('dateshow', [now(), now()->addDays(7)])
-->orderBy('tbl_movie.DateShow','desc', 'tbl_showtime.Start')
-->where(function ($query) use ($now) {
-    $query->where('tbl_showtime.End', '>=', now());
-})
-    ->where('tbl_showtime.Cinema_Id', $cinema)
+    ->join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_movie.Id')
+    ->join('tbl_cinema', 'st.Cinema_Id', '=', 'tbl_cinema.Id')
+    ->join('tbl_moviecategory', 'tbl_movie.MovieCategory_Id', '=', 'tbl_moviecategory.Id')
+    ->where(function ($query) {
+        $query->where('st.Start', '<=', now())
+            ->where('st.End', '>=', now());
+    })
+    ->orderBy('st.Start', 'desc')
+    ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')
+    ->where('st.Cinema_Id', $cinema)
        ->paginate(9);   
 }
 
 else if($cinema!==null && $keySearch==null){
     $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)
-->join('tbl_showtime', 'tbl_movie.id', '=', 'tbl_showtime.movie_id')
-->join('tbl_cinema', 'tbl_showtime.cinema_id', '=', 'tbl_cinema.id')
-->join('tbl_moviecategory', 'tbl_movie.moviecategory_id', '=', 'tbl_moviecategory.id')
-->select('tbl_movie.*', 'tbl_moviecategory.name as Category','tbl_cinema.Id as Cinema_Id')
-->whereBetween('dateshow', [now(), now()->addDays(7)])
-->orderBy('tbl_movie.DateShow','desc', 'tbl_showtime.Start')
-->where(function ($query) use ($now) {
-    $query->where('tbl_showtime.End', '>=', now());
-})
-    ->where('tbl_showtime.Cinema_Id', $cinema)
+    ->join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_movie.Id')
+    ->join('tbl_cinema', 'st.Cinema_Id', '=', 'tbl_cinema.Id')
+    ->join('tbl_moviecategory', 'tbl_movie.MovieCategory_Id', '=', 'tbl_moviecategory.Id')
+    ->where(function ($query) {
+        $query->where('st.Start', '<=', now())
+            ->where('st.End', '>=', now());
+    })
+    ->orderBy('st.Start', 'desc')
+    ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')
+    ->where('st.Cinema_Id', $cinema)
        ->paginate(9); 
 }
 else{
     $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)
-->join('tbl_showtime', 'tbl_movie.id', '=', 'tbl_showtime.movie_id')
-->join('tbl_cinema', 'tbl_showtime.cinema_id', '=', 'tbl_cinema.id')
-->join('tbl_moviecategory', 'tbl_movie.moviecategory_id', '=', 'tbl_moviecategory.id')
-->select('tbl_movie.*', 'tbl_moviecategory.name as Category','tbl_cinema.Id as Cinema_Id')
-->whereBetween('dateshow', [now(), now()->addDays(7)])
-->orderBy('tbl_movie.DateShow','desc', 'tbl_showtime.Start', 'desc')
-->where(function ($query) use ($now) {
-    $query->where('tbl_showtime.End', '>=', now());
-})
-    ->where('tbl_showtime.Cinema_Id', $cinema)
+    ->join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_movie.Id')
+    ->join('tbl_cinema', 'st.Cinema_Id', '=', 'tbl_cinema.Id')
+    ->join('tbl_moviecategory', 'tbl_movie.MovieCategory_Id', '=', 'tbl_moviecategory.Id')
+    ->where(function ($query) {
+        $query->where('st.Start', '<=', now())
+            ->where('st.End', '>=', now());
+    })
+    ->orderBy('st.Start', 'desc')
+    ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')
+    ->where('st.Cinema_Id', $cinema)
        ->paginate(9); 
 }
 // $ListMovieCategory = MovieCategory::with(['movies'])->get();
