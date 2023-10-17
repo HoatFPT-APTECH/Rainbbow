@@ -9,7 +9,7 @@ use App\Models\MovieCategory;
 use App\Models\Director;
 use App\Models\Productor;
 use App\Models\Photo;
-
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
@@ -50,10 +50,6 @@ class MovieController extends Controller
     }
     public function store(Request $request)
     {
-
-
-
-
         $Name = $request->input('Name');
         $DateShow = $request->input('date');
         $VideoTrailer = $request->input('trailer');
@@ -72,14 +68,14 @@ class MovieController extends Controller
         $newMovie->Director_Id = $Director;
         $newMovie->Productor_Id = $Productor;
         $newMovie->save();
-        
+
 
         $fileSrc = $request->file('Srcmain');
         $pathSrc =  $fileSrc->store('public/movie_single');
         $realPathSrcMain = $this->convertPathUpLoad($pathSrc);
         $Srcmain = $realPathSrcMain;
         $newPhotoMain = new Photo();
-        $newPhotoMain->Src = $Srcmain;    
+        $newPhotoMain->Src = $Srcmain;
         $newPhotoMain->Movie_Id = $newMovie->Id;
 
         for ($i = 1; $i <= 5; $i++) {
@@ -93,10 +89,9 @@ class MovieController extends Controller
                 $newPhoto1->Src = $realPath;
                 $newPhoto1->Movie_Id = $newMovie->Id;
                 $newPhoto1->save();
-
             }
         }
-       
+
         return redirect('/admin/movie');
         // return response()->json($newMovie->Id);
 
@@ -130,7 +125,13 @@ class MovieController extends Controller
             $ListProductor = Productor::all();
             $idMovie = intval($id);
             $MovieExist = Movie::where('Id', $idMovie)->first();
-            return view('AdminViews.index', ['page' => "movieEdit", 'Movie' => $MovieExist, "ListCategory" => $ListCategory, "ListDirector" => $ListDirector, "ListProductor" => $ListProductor]);
+            return view('AdminViews.index', [
+                'page' => "movieEdit", 
+                "JsPage"=>'edit_movie',
+                'Movie' => $MovieExist, 
+                "ListCategory" => $ListCategory, 
+                "ListDirector" => $ListDirector,
+                 "ListProductor" => $ListProductor]);
         }
     }
 
@@ -139,8 +140,6 @@ class MovieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
-
         $DateShow = $request->input('date');
         $VideoTrailer = $request->input('trailer');
         $Price = $request->input('price');
@@ -159,8 +158,48 @@ class MovieController extends Controller
         $newMovie->Director_Id = $Director;
         $newMovie->Productor_Id = $Productor;
         $newMovie->save();
+        $photos = Photo::where('Movie_Id', $id)->get();
+
+        if ($request->hasFile('Srcmain')) {
+            $fileSrc = $request->file('Srcmain');
+            $pathSrc =  $fileSrc->store('public/movie_single');
+            $realPathSrcMain = $this->convertPathUpLoad($pathSrc);
+            $Srcmain = $realPathSrcMain;
+
+            // $newPhotoMain =Photo::find($photos[0]->Id) ;
+
+            // $newPhotoMain->Src = $Srcmain;
+            // $newPhotoMain->save();
+
+
+            DB::table('tbl_photo')->where('Id', $photos[0]->Id)->update(['Src' => $Srcmain]);
+        }
+
+
+
+
+
+        // return response()->json($newPhotoMain);
+
+
+        for ($i = 1; $i <= 5; $i++) {
+            $fieldName = 'Src' . $i;
+
+            if ($request->hasFile($fieldName)) {
+                $file = $request->file($fieldName);
+                $path = $file->store('public/movie_single');
+                $realPath = $this->convertPathUpLoad($path);
+
+
+                DB::table('tbl_photo')->where('Id', $photos[$i]->Id)->update(['Src' => $realPath]);
+            }
+        }
+
+
         return redirect("/admin/movie");
     }
+
+
 
     /**
      * Remove the specified resource from storage.

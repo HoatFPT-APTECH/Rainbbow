@@ -92,12 +92,14 @@ color:#69707a;
 }
     </style>
 <div class="container">
-    <nav class="nav nav-borders">
+    <nav class="nav nav-borders" style="margin-top: 130px">
         <a class="nav-link ms-0" href="/rainbow/account_details/{{$id}}">Profile</a>
         <a class="nav-link" href="/rainbow/account_booking/{{$id}}">Booking</a>
         <a class="nav-link active" href="/rainbow/account_promotion/{{$id}}" >Promotion</a>
         {{-- <a class="nav-link" href="">Notifications</a> --}}
     </nav>
+    <hr class="mt-0 mb-4">
+
         <div class="card-header">Promotion List</div>
         <div class="card-body p-0">
             <!-- Billing history table-->
