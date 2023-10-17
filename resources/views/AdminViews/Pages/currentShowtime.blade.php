@@ -6,7 +6,7 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h2><i class="fa-solid fa-file-signature"></i> Booking <b>Details</b>
+                                <h2><i class="fa-solid fa-file-signature"></i> Current <b>ShowTime</b>
 
                             </div>
                             <div class="col-sm-4">

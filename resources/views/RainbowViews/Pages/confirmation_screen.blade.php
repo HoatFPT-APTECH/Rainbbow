@@ -19,11 +19,11 @@
 </div>
 <!-- prs title wrapper End -->
 <!-- st bc Start -->
-<div class="st_bcc_main_main_wrapper float_left">
+<div class="st_bcc_main_main_wrapper float_left  "   >
     <div class="st_bcc_main_wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 {{$booking->Status!=1?'d-none':''}}">
                     <div class="st_bcc_heading_wrapper float_left"> <i class="fa fa-check-circle"></i>
                         <h3>Payment of <span>${{ $booking->AllPrice }} </span> Complete successfull</h3>
                     </div>

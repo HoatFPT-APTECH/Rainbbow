@@ -70,7 +70,10 @@ class Account_DetailsController extends Controller
     public function Booking($id){
         $page='account_booking';
         $JsPage="";
-        $UserBookings=Booking::with(['user','tickets'])->where('User_Id',$id)->get();
+        $UserBookings=Booking::with(['user','tickets'])->where('User_Id',$id)
+        ->orderBy('OrderTime','desc')
+        
+        ->get();
         for($b=0;$b<sizeof($UserBookings);$b++){
             for($t=0;$t<sizeof($UserBookings[$b]->tickets);$t++){
                     $UserBookings[$b]->tickets[$t]->Showtime= Showtime::where("Id",$UserBookings[$b]->tickets[$t]->Showtime_Id)->first();

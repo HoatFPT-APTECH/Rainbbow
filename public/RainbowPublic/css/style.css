@@ -29,10 +29,7 @@
 --------------------------*/
 /* -------------custom color page ------------------ */
 
-:root {
-    --primary-color: linear-gradient(to right, #4b0082, #333333);
-    --secondary-color: #6c757d;
-}
+
 /* --------------------------------- */
 
 body,
