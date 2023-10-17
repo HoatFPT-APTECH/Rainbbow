@@ -34,6 +34,7 @@ class UserController extends Controller
         'page'=>'userCreate',
     "ListRole"=>$ListRole]);
     }
+    
 
     /**
      * Store a newly created resource in storage.

@@ -3,7 +3,7 @@
     <div class="content container-fluid">
   <div class="container">
     <h2>Create client Account</h2><br>
-    <form method="post" action="/admin/account/employee/store">
+    <form method="post" action="/admin/account/employee/store" enctype="multipart/form-data">
       @csrf
     <div class="form-group">
         <label for="userName">User Name:</label>
@@ -29,10 +29,12 @@
         <label for="phone">Phone:</label>
         <input type="text" class="form-control" id="phone" name="Phone">
     </div>
-    <div class="form-group">
-        <label for="image">Image:</label>
-        <input type="text" class="form-control" id="image" name="Image">
-    </div>
+    <div class="row">
+      <label for="image">Image :</label>
+      <div class="col">
+        <input type="file" name="Image" id="uploadFile" class="form-control">
+            <br>
+      </div>
   
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
