@@ -62,8 +62,8 @@ if($keySearch!==null&& $cinema==null){
     })
     ->orderBy('st.Start', 'desc')
     ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')
-    ->where('st.Cinema_Id', $cinema)
-       ->paginate(9);   
+    ->where('tbl_movie.Name', 'like', '%'.$keySearch.'%')
+    ->paginate(9);   
 }
 
 else if($cinema!==null && $keySearch==null){

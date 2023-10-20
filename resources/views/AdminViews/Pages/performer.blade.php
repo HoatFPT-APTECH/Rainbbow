@@ -11,15 +11,6 @@
                         <a href="./performer/create" style="color: white"><i class="fa-solid fa-user-plus"></i>  Add new Performer</a>    
                         </button></h2>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="search-box">
-                            <form action="#">
-                                <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
-                          
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
             <table class="table table-striped table-hover table-bordered">

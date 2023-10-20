@@ -142,7 +142,13 @@ color:#69707a;
                                 <label class="small mb-1" for="inputPhone">Phone</label>
                                 <input class="form-control" id="Phone" name="Phone" type="text"  value="{{$userDetails->Phone}}" >
                             </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Password</label>
+                                <input class="form-control" id="Password" name="Password" type="password"  value="{{$userDetails->Password}}" >
+                            </div>
+                            <br>
                         </div>
+                        <br>
                         <!-- Form Group (email address)-->
                         {{-- <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>

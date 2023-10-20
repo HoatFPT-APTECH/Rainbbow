@@ -34,17 +34,15 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <h2><i class="fa-solid fa-file-signature"></i>  Booking <b>Details</b>      
-    
                     </div>
                     <div class="col-sm-4">
                         <div class="search-box">
                             <form action="/admin/booking/search">
                                 <button type='submit'>  <i class="material-icons">&#xE8B6;</i></button>
-                                  <input type="text" name='key' class="form-control" placeholder="Search&hellip;">
-                            
+                                  <input type="text" name='key' class="form-control" placeholder="Phone Number&hellip;">
                               </form>
-            
-                        </div>
+                              <br>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -135,8 +133,11 @@
                       </tr>
                     @endforeach        
                 </tbody>
-            </table>     
+            </table>    
+            {{ $danhsach->links() }} 
         </div>
+    
+
     </div>  
 </div>  
  

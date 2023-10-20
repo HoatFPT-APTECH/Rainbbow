@@ -9,15 +9,6 @@
                         <h2><i class="fa-solid fa-file-signature"></i>  Comment <b>Details</b>      
                         
                     </div>
-                    <div class="col-sm-4">
-                        <div class="search-box">
-                            <form action="#">
-                                <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
-                          
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
             <table class="table table-striped table-hover table-bordered">
