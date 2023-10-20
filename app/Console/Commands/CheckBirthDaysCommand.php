@@ -1,20 +1,37 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Console\Commands;
 
-use App\Http\Controllers\Controller;
 use App\Mail\VoucherCodeMail;
 use App\Models\Promotion;
 use App\Models\PromotionCategrory;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 
-class AutoSendMailController extends Controller
+class CheckBirthDaysCommand extends Command
 {
-    //
-     //
-     public function index(){
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'app:check-birth-days-command';
+    
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Command description';
+
+    /**
+     * Execute the console command.
+     */
+    public function handle()
+    {
+        $today=now();
         $users = User::whereDay('DateOfBirth', now()->day)
         ->whereMonth('DateOfBirth', now()->month)->where("Role_Id", '>', 2)
         ->get();
@@ -33,10 +50,10 @@ class AutoSendMailController extends Controller
        
         Mail::to($u->UserName)->send(new VoucherCodeMail($u,$promotion,$promotionCategory));
     }
-      return response()->json([
-        "message"=>"success Sened Mail"
-      ],200);
+   
+
     }
+    
     public function checkPromotionExisted($u){
         $existedPromotion= Promotion::whereDay("Created",now()->day)
         ->whereMonth('Created',now()->month)-> where('User_Id',$u->Id)->first();

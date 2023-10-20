@@ -2,7 +2,10 @@
     <div class="content container-fluid">
         <div class="container">
             <div>
-               <h3>The Page website need 2 colors to set up: </h3> 
+              
+                <p>The website will be view: </p>
+                <iframe id="web" src="/rainbow" title="Rainbow" style="width: 100%; height: 60vh "></iframe>
+                <h3>The Page website need 2 colors to set up: </h3> 
                 <ul>
                     <li>
                        <h4>First Color: </h4>
@@ -16,9 +19,6 @@
                         <button type="button" class="btn btn-primary mt-3" onclick="saveColor()" >Save</button>
                     </li>
                 </ul>
-                <p>The website will be view: </p>
-                <iframe id="web" src="/rainbow" title="Rainbow" style="width: 100%; height: 60vh "></iframe>
-
 
             </div>
 

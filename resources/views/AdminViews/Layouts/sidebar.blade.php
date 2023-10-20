@@ -92,7 +92,9 @@
                    
                             <ul>
                                 <li><a href="/admin/color_manager">Color Website</a></li>
-                                <li><a href="/admin/current_showtime">Home Slide </a></li> 
+
+                                <li><a href="/admin/slide_manager">Home Slide </a></li>
+
                             </ul>
                 </li>
 
