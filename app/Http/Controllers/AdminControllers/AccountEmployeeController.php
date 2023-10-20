@@ -55,7 +55,8 @@ class AccountEmployeeController extends Controller
          
          $newUser= new User();
          $newUser->UserName=$UserName;
-         $newUser->Password=md5($Password);
+         if($newUser->Password!=$Password)  $newUser->Password=md5($Password);
+       
          $newUser->Name=$Name;
          $newUser->Address=$Address;
          $newUser->DateOfBirth=$DateOfBirth;

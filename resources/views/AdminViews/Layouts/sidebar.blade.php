@@ -28,7 +28,7 @@
                     </ul>
                     </li>
             
-                <li class="submenu">
+                <li class="submenu ">
                     <a href="#"><i class="fa-solid fa-user"></i><span class="side-txt">Account Manager</span>
                         <span class="menu-arrow"></span></a>
                         <ul>
@@ -49,7 +49,7 @@
 
                     </ul>
                 </li>
-                <li class="submenu">
+                <li class="submenu decenAdmin">
                     <a href="#">  <i class="fa fa-home" aria-hidden="true"></i> <span class="side-txt">Cinema Room Manager</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
@@ -60,7 +60,7 @@
 
                     </ul>
                 </li>
-                <li class="submenu" >
+                <li class="submenu decenAdmin" >
                     <a href="#"> <i class="fa-solid fa-tag"></i> <span class="side-txt">Promotion Manager</span>
                         <span class="menu-arrow"></span></a>
                    
@@ -68,14 +68,14 @@
                                 <li><a href="/admin/promotion"> Promotion</a></li>
                                 <li><a href="/admin/promotionCategrory"> PromotionCategrory</a></li>
 
-                                {{-- <li><a href="/admin/promotionUser"> User have a birthday on today</a></li> --}}
+                        
                               
                          
         
 
                             </ul>
                 </li>
-                <li class="submenu" >
+                <li class="submenu decenAdmin" >
                     <a href="#"> <i class="fa fa-film" aria-hidden="true"></i> <span class="side-txt">ShowTime Manager</span>
                         <span class="menu-arrow"></span></a>
                    
@@ -86,7 +86,7 @@
                 </li>
 
                 <li class="menu-title">Extra</li>
-                <li class="submenu" >
+                <li class="submenu decenAdmin" >
                     <a href="#"> <i class="fa fa-star" aria-hidden="true"></i> <span class="side-txt">UI Client Manager</span>
                         <span class="menu-arrow"></span></a>
                    
@@ -98,7 +98,9 @@
                             </ul>
                 </li>
 
-               <li> <a href="/admin/changeaccount/edit/{id}"> <i class="fa-solid fa-lock" aria-hidden="true" ></i> <span class="side-txt">Change Account</span> </li>
+               <li> 
+                <a href="#" id="changeAccount"> <i class="fa-solid fa-lock" aria-hidden="true" ></i> <span class="side-txt">Change Account</span> 
+                </li>
 
                 
                     </ul>

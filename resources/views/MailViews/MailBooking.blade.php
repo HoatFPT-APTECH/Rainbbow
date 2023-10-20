@@ -34,6 +34,7 @@
                         <br>
 
                         Total Amount: ${{ $booking->AllPrice }}<br>
+                        Status: {{$booking->Status==0?'Not payed':'payed'}}
                         
                         <br>
                         Your ticket booking details have been successfully confirmed. Please present this email at our ticket counter before entering the cinema. If you have any questions or require further assistance, please don't hesitate to contact us at 02929929292 or hoatdfk2001@gmail.com .<br>

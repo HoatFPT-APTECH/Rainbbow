@@ -1,8 +1,10 @@
-window.addEventListener("DOMContentLoaded", () => {
-    decentralizationAccount()
-    loadUserInformation();
 
+window.addEventListener("DOMContentLoaded", () => {
+    
+    loadUserInformation();
+    decentralizationAccount();
 });
+
 function decentralizationAccount(){
     var user = JSON.parse(window.sessionStorage.getItem("User"));
     if(user===null || user.Role_Id>2){
@@ -21,8 +23,8 @@ function loadUserInformation() {
     if (userI !== undefined && userI !== null) {    
         var aSighnup = document.querySelector("body > div.main-wrapper > div.header > ul > li.nav-item.dropdown.has-arrow > a > span.ad-text")
         var iAccount=document.querySelector("body > div.main-wrapper > div.header > ul > li.nav-item.dropdown.has-arrow > a > span.user-img > img");
-        var hrefAccount=document.querySelector("#sidebar-menu > ul > li:nth-child(11) > a");
-        hrefAccount.href=`/admin/changeaccount/edit/${userI.Id}`
+        var hrefAccount=document.querySelector("#changeAccount");
+        hrefAccount.setAttribute('href',`/admin/changeaccount/edit/${userI.Id}`);
         iAccount.src=userI.Image
         aSighnup.innerHTML= userI.Name;
    
@@ -31,7 +33,7 @@ function loadUserInformation() {
         // );
         // spanSignup.innerHTML = "My Account";
 
-        var btnLogout=document.querySelector("body > div.main-wrapper > div.header > ul > li.nav-item.dropdown.has-arrow > div > a:nth-child(4)")
+        var btnLogout=document.querySelector("#accountLogout")
         // btnLogout.removeAttribute("data-toggle");
         // btnLogout.setAttribute('data-text',"LOG OUT")
         //  var textbtnLogou=document.querySelector("#mobile-nav > div.mobile-nav-box > div.prs_top_login_btn_wrapper.prs_slidebar_searchbar_btn_wrapper > div > ul > li > a > span");

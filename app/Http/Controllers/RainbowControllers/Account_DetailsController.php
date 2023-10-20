@@ -36,6 +36,7 @@ class Account_DetailsController extends Controller
         $Address= $request->input('Address');
         $DateOfBirth= $request->input('DateOfBirth');
         $Phone= $request->input('Phone');
+       
         $Password= $request->input('Password');
 
         $newUser= User::where('Id',$id)->first();
@@ -44,7 +45,8 @@ class Account_DetailsController extends Controller
         $newUser->Address=$Address;
         $newUser->DateOfBirth=$DateOfBirth;
         $newUser->Phone=$Phone;
-        $newUser->Password=md5($Password);
+        if($newUser->Password!=$Password)  $newUser->Password=md5($Password);
+       
        
         $newUser->save();
         
