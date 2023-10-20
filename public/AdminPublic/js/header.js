@@ -21,8 +21,8 @@ function loadUserInformation() {
     if (userI !== undefined && userI !== null) {    
         var aSighnup = document.querySelector("body > div.main-wrapper > div.header > ul > li.nav-item.dropdown.has-arrow > a > span.ad-text")
         var iAccount=document.querySelector("body > div.main-wrapper > div.header > ul > li.nav-item.dropdown.has-arrow > a > span.user-img > img");
-        var hrefAccount=document.querySelector("#sidebar-menu > ul > li:nth-child(11) > a");
-        hrefAccount.href=`/admin/changeaccount/edit/${userI.Id}`
+        var hrefAccount=document.querySelector("#changeAccount");
+        hrefAccount.setAttribute('href',`/admin/changeaccount/edit/${userI.Id}`);
         iAccount.src=userI.Image
         aSighnup.innerHTML= userI.Name;
    

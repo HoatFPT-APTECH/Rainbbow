@@ -68,7 +68,7 @@
                                 <li><a href="/admin/promotion"> Promotion</a></li>
                                 <li><a href="/admin/promotionCategrory"> PromotionCategrory</a></li>
 
-                                {{-- <li><a href="/admin/promotionUser"> User have a birthday on today</a></li> --}}
+                        
                               
                          
         
@@ -98,7 +98,9 @@
                             </ul>
                 </li>
 
-               <li> <a href="/admin/changeaccount/edit/{id}"> <i class="fa-solid fa-lock" aria-hidden="true" ></i> <span class="side-txt">Change Account</span> </li>
+               <li> 
+                <a href="#" id="changeAccount"> <i class="fa-solid fa-lock" aria-hidden="true" ></i> <span class="side-txt">Change Account</span> 
+                </li>
 
                 
                     </ul>

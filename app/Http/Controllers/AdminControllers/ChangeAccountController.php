@@ -10,8 +10,8 @@ class ChangeAccountController extends Controller
 {
     public function edit(string $id)
     {
-        $idUser= intval($id);
-        $UserExist= User::where('Id',$idUser)->first();
+       
+        $UserExist= User::where('Id',$id)->first();
         return view('AdminViews.index',['page'=>"ChangeAccount", 'User'=>$UserExist]);
     }
     public function convertPathUpLoad($str)
@@ -28,7 +28,7 @@ class ChangeAccountController extends Controller
        
 
         $newUser= User::where('Id',$id)->first();
-        
+        if($newUser->Password!=$Password)
         $newUser->Password=md5($Password);
       
        
