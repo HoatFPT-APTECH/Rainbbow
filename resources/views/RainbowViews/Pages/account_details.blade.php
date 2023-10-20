@@ -62,7 +62,7 @@ color:#69707a;
     <div class="container">
 <div class="container-xl px-4 mt-4">
     <!-- Account page navigation-->
-    <nav class="nav nav-borders">
+    <nav class="nav nav-borders" style="margin-top: 130px">
         <a class="nav-link active ms-0" href="/rainbow/account_details/{{$id}}">Profile</a>
         <a class="nav-link" href="/rainbow/account_booking/{{$id}}">Booking</a>
         <a class="nav-link" href="/rainbow/account_promotion/{{$id}}">Promotion</a>
@@ -77,17 +77,20 @@ color:#69707a;
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
                     <?php $Image = $userDetails->Image ?? 'http://bootdey.com/img/Content/avatar/avatar1.png'; ?>
-                    <img class="img-account-profile rounded-circle mb-2" src="{{$Image}}" alt="">
+                    <img class="img-account-profile rounded-circle mb-2" style="width:160px; height:160px" src="{{$Image}}" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4"></div>
                     <!-- Profile picture upload button-->
                     <br>
-                    <form class="form-inline" method="post" action="/rainbow/account_details/updateURL/{{$userDetails->Id}}">
+                    <form class="form-inline" method="post" action="/rainbow/account_details/updateURL/{{$userDetails->Id}}" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group mx-sm-3 mb-2">
-                          <input type="text" class="form-control" id="Image" name="Image" placeholder="AvatarURL">
+                          <div class="col-md-4 input-group">
+                            <div class="input-group-btn">
+                                <input id="uploadFile" type="file" class="btn btn-default" name="Image" >
+                            </div>
+                            <button style="margin-left:20px" type="submit" class="btn btn-primary mb-2">Upload new image</button>
+
                         </div>
-                        <button type="submit" class="btn btn-primary mb-2">Upload new image</button>
                       </form>
                       
                     {{-- <form>

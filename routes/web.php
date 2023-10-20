@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminControllers\BookingController;
 use App\Http\Controllers\AdminControllers\TicketController;
 use App\Http\Controllers\AdminControllers\ShowtimeController;
 use App\Http\Controllers\AdminControllers\RoomController;
+use App\Http\Controllers\AdminControllers\CommentController;
 
 
 use App\Http\Controllers\AdminControllers\CinemaController;
@@ -200,6 +201,13 @@ Route::group(['prefix' => 'admin'], function () {
 
 
     // Route::resource('/performer',PerformerController::class);
+
+
+    Route::get('/comment', [CommentController::class, 'index']);
+    Route::get('/comment/show/{id}', [CommentController::class, 'show']);
+    Route::get('/comment/delete/{id}', [CommentController::class, 'destroy']);
+
+
     Route::prefix('/account/client')->group(function () {
         Route::get('/', [AccountClientController::class, 'index']);
         Route::get('/edit/{id}', [AccountClientController::class, 'edit']);
