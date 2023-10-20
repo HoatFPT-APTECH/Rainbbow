@@ -78,7 +78,7 @@ class Movie_CinemaController extends Controller
             ->orderBy('st.Start', 'desc')
             ->select('tbl_movie.*', 'tbl_moviecategory.name as Category')
 
-                ->where('st.Cinema_Id', $cinema)
+            ->where('tbl_movie.Name', 'like', '%'.$keySearch.'%')
                 ->paginate(9);
         } else if ($cinema !== null && $keySearch == null) {
             $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)

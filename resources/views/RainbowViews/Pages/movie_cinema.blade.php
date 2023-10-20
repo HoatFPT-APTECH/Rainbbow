@@ -56,7 +56,7 @@
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">
                 <div class="prs_mcc_left_side_wrapper">
                     <div class="prs_mcc_left_searchbar_wrapper">
-                        <form action="/rainbow/search" method="get">
+                        <form action="/rainbow/searchcinema" method="get">
 
                             <input type="text" name="keySearch" placeholder="Search Movie">
                             <button type="submit"><i class="flaticon-tool"></i>
