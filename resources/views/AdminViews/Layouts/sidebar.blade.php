@@ -28,7 +28,7 @@
                     </ul>
                     </li>
             
-                <li class="submenu">
+                <li class="submenu ">
                     <a href="#"><i class="fa-solid fa-user"></i><span class="side-txt">Account Manager</span>
                         <span class="menu-arrow"></span></a>
                         <ul>
@@ -49,7 +49,7 @@
 
                     </ul>
                 </li>
-                <li class="submenu">
+                <li class="submenu decenAdmin">
                     <a href="#">  <i class="fa fa-home" aria-hidden="true"></i> <span class="side-txt">Cinema Room Manager</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
@@ -60,7 +60,7 @@
 
                     </ul>
                 </li>
-                <li class="submenu" >
+                <li class="submenu decenAdmin" >
                     <a href="#"> <i class="fa-solid fa-tag"></i> <span class="side-txt">Promotion Manager</span>
                         <span class="menu-arrow"></span></a>
                    
@@ -75,7 +75,7 @@
 
                             </ul>
                 </li>
-                <li class="submenu" >
+                <li class="submenu decenAdmin" >
                     <a href="#"> <i class="fa fa-film" aria-hidden="true"></i> <span class="side-txt">ShowTime Manager</span>
                         <span class="menu-arrow"></span></a>
                    
@@ -86,7 +86,7 @@
                 </li>
 
                 <li class="menu-title">Extra</li>
-                <li class="submenu" >
+                <li class="submenu decenAdmin" >
                     <a href="#"> <i class="fa fa-star" aria-hidden="true"></i> <span class="side-txt">UI Client Manager</span>
                         <span class="menu-arrow"></span></a>
                    
