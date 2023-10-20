@@ -136,6 +136,6 @@
                 </div>
             </div>
         </div>
-        <p> {{$artisanPath}} </p>
+      
     </body>
 </html>

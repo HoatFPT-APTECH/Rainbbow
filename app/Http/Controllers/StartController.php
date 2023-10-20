@@ -14,11 +14,9 @@ class StartController extends Controller
 {
     //
     public function index(){
-        $artisanPath = base_path('artisan');
+      
  
-    return view('welcome',[
-        'artisanPath'=>$artisanPath
-    ]);
+    return view('welcome');
     }
  
 }
