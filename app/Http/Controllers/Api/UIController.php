@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\HomeSlide;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -25,11 +26,7 @@ class UIController extends Controller
             return response()->json($cssContentSet,200);
         }catch(Exception $e){
          return response()->json(['err'=>$e],400);
-        }
-        
-
-       
-
-         
+        }   
     }
+ 
 }

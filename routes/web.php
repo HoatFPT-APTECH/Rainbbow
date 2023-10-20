@@ -283,6 +283,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/room/delete/{id}', [RoomController::class, 'destroy']);
 
     Route::get('/color_manager',[UIController::class,'colorIndex']);
+    Route::get('/slide_manager',[UIController::class,'slideHomeIndex']);
+    Route::post('/slide_manager/update',[UIController::class,'UpdateSlide']);
 });
 
 Route::group(['prefix' => '/api'], function () {
@@ -296,6 +298,7 @@ Route::group(['prefix' => '/api'], function () {
     Route::get('/autoSendMail',[AutoSendMailController::class,'index']);
     Route::get('/showtime/getRoomByCinema/{id}',[ApiShowtimeController::class,'getRoomByCinema']);
     Route::post('/change_color',[ApiUIController::class,'ChangeColor']);
+   
 
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
 
