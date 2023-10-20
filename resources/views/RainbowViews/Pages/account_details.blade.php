@@ -112,10 +112,15 @@ color:#69707a;
                         @csrf
                         {{-- @method('PUT') --}}
                         {{-- <!-- Form Group (username)--> --}}
-
-                        <div class= "mb-3">
+                        <div class="row gx-3 mb-3">
+                        <div class= "col-md-6">
                             <label class="small mb-1" for="inputUsername">UserName</label>
                             <input class="form-control" id="Username" name="UserName" type="text" value="{{$userDetails->UserName}}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputPhone">Password</label>
+                            <input class="form-control" id="Password" name="Password" type="password"  value="{{$userDetails->Password}}" >
+                        </div>
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
@@ -142,10 +147,7 @@ color:#69707a;
                                 <label class="small mb-1" for="inputPhone">Phone</label>
                                 <input class="form-control" id="Phone" name="Phone" type="text"  value="{{$userDetails->Phone}}" >
                             </div>
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Password</label>
-                                <input class="form-control" id="Password" name="Password" type="password"  value="{{$userDetails->Password}}" >
-                            </div>
+                            
                             <br>
                         </div>
                         <br>
