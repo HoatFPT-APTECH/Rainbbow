@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminControllers\PerformerController;
 
 use App\Http\Controllers\AdminControllers\RoleController;
 use App\Http\Controllers\AdminControllers\BookingController;
+use App\Http\Controllers\AdminControllers\ChangeAccountController;
 use App\Http\Controllers\AdminControllers\TicketController;
 use App\Http\Controllers\AdminControllers\ShowtimeController;
 use App\Http\Controllers\AdminControllers\RoomController;
@@ -25,12 +26,14 @@ use App\Http\Controllers\AdminControllers\PromotionController;
 
 use App\Http\Controllers\AdminControllers\PromotionCategroryController;
 use App\Http\Controllers\AdminControllers\PromotionUserController;
+use App\Http\Controllers\AdminControllers\UIController;
 use App\Http\Controllers\Api\AutoSendMailController;
 use App\Http\Controllers\Api\HeaderController;
 use App\Http\Controllers\Api\PromotionController as ApiPromotionController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\SeatController;
 use App\Http\Controllers\Api\ShowtimeController as ApiShowtimeController;
+use App\Http\Controllers\Api\UIController as ApiUIController;
 use App\Http\Controllers\MailControllers\MailBookingController;
 use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\RainbowControllers\BookingTypeController;
@@ -68,9 +71,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [StartController::class,'index']);
 Route::get('/NotFound',[NotFoundController::class,'index']);
 
-Route::post('paypal/payment', [PaypalController::class, 'payment'])->name('paypal');
-Route::get('paypal/success', [PaypalController::class, 'success'])->name('paypal_success');
-Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel');
+// Route::post('paypal/payment', [PaypalController::class, 'payment'])->name('paypal');
+// Route::get('paypal/success', [PaypalController::class, 'success'])->name('paypal_success');
+// Route::get('paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal_cancel');
 
 Route::group(['prefix'=>'rainbow'],function(){
     Route::get('/',[HomeController::class,'index'])->name("rainbow.home");
@@ -88,6 +91,9 @@ Route::group(['prefix'=>'rainbow'],function(){
 
     Route::get('/booking_type', [BookingTypeController::class, 'index']);
     Route::get('/booking_type/create', [ConfirmationScreenController::class, 'create']);
+    Route::get('/booking_type/paypal/payment',[ConfirmationScreenController::class,'payPalPayment'])->name('paypal');
+    Route::get('/booking_type/paypal/success',[ConfirmationScreenController::class,'payPalSuccess'])->name('paypal_success');
+    Route::get('/booking_type/paypal/cancel',[ConfirmationScreenController::class,'payPalCancel'])->name('paypal_cancel');
     Route::get('/confirmation_screen/{id}', [ConfirmationScreenController::class, 'index']);
 
 
@@ -185,6 +191,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/photo/store', [PhotoController::class, 'store']);
     Route::get('/photo/delete/{id}', [PhotoController::class, 'destroy']);
 
+   //
+
+    Route::get('/changeaccount/edit/{id}', [ChangeAccountController::class, 'edit']);
+    Route::post('/changeaccount/update/{id}', [ChangeAccountController::class, 'update']);
+
+
+
     // Route::resource('/performer',PerformerController::class);
     Route::get('/performer', [PerformerController::class, 'index']);
     Route::get('/performer/show/{id}', [PerformerController::class, 'show']);
@@ -276,6 +289,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/room/update/{id}', [RoomController::class, 'update']);
     Route::get('/room/show/{id}', [RoomController::class, 'show']);
     Route::get('/room/delete/{id}', [RoomController::class, 'destroy']);
+
+    Route::get('/color_manager',[UIController::class,'colorIndex']);
+    Route::get('/slide_manager',[UIController::class,'slideHomeIndex']);
+    Route::post('/slide_manager/update',[UIController::class,'UpdateSlide']);
 });
 
 Route::group(['prefix' => '/api'], function () {
@@ -288,8 +305,11 @@ Route::group(['prefix' => '/api'], function () {
     Route::post("/checkVoucher", [ApiPromotionController::class, 'check']);
     Route::get('/autoSendMail',[AutoSendMailController::class,'index']);
     Route::get('/showtime/getRoomByCinema/{id}',[ApiShowtimeController::class,'getRoomByCinema']);
+    Route::post('/change_color',[ApiUIController::class,'ChangeColor']);
+   
 
     // Route::post("/GetListShowGroupByCinemaStartDate",[BookingController::class,"GetListShowGroupByCinemaStartDate"]);
+
     
 });
 Route::group(['prefix'=>'mail'],function(){

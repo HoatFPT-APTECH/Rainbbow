@@ -21,6 +21,7 @@
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/js/plugin/rs_slider/layers.css" />
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/js/plugin/rs_slider/navigation.css" />
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/js/plugin/rs_slider/settings.css" />
+	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/css/colors.css" />
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/css/style.css" />
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/css/responsive.css" />
 	<link rel="stylesheet" type="text/css"href="{{$assetPathRainbow}}/css/custom.css" />

@@ -7,20 +7,22 @@ const server = http.createServer();
 
 server.listen(3000, () => {
   console.log('Socket server is running on port 3000');
- 
+ setInterval(sendMail,1000*60)
 });
 
-// var server = app.listen(process.env.PORT || 3000, () => {
-//   console.log("Server is running on port: ", 3000);
-// });
-app.get('/',(req,rsp)=>{
-   fetch(':8000/api')
-})
+function sendMail(){
+  var urlMail='http://127.0.0.1:8000/api/autoSendMail';
+  fetch(urlMail,{
+    method:'get',
+   
+  }).then(rsp=>{
+    if(rsp.ok)console.log("Success : Sended Mail")
+  })
+
+  .catch(err=>console.log("err:"+err))
+}
+
 app.use(express.urlencoded({ extended: true }));
-// app.use(cors({
-//   origin: "*", // Thay your_client_port bằng cổng máy khách của bạn,
-//   methods:"*"
-// }));
 const socketIo = require("socket.io");
 const io = socketIo(server);
 io.on('connection',(socket)=>{

@@ -6,7 +6,7 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h2><i class="fa-solid fa-file-signature" ></i>  Showtime <b>Details</b>      
+                        <h2><i class="fa-solid fa-file-signature" ></i>  Showtime <b>Manager</b>      
                             <br><br> <button class="btn btn-primary ">
                         <a href="./showtime/create" style="color: white"><i class="fa-solid fa-user-plus"></i>  Add new Showtime</a>    
                         </button></h2>

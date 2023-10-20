@@ -15,6 +15,7 @@ use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class ConfirmationScreenController extends Controller
 {
@@ -128,8 +129,146 @@ class ConfirmationScreenController extends Controller
 
     }
     
-    public function vnPay(){
+    public function payPalPayment(Request $request){
+        $user_Id=$request->input('User_Id');
+        $movie_Id=$request->input('Movie_Id');
+        $tickets_Id=explode(',',$request->input('Tickets_Id'));
+        $showTime_Id= $request->input('Showtime_Id');
+        $promotion_Id= $request->input('Promotion_Id');
+       
+       
+        if($promotion_Id!='null'){
+            $promotion=( Promotion::with(['promotionCategory'])->find($promotion_Id));
+            
+            $promotionDiscount=$promotion->promotionCategory->Coefficient;
+            $promotion->Used=1;
+            $promotion->save();
+        }  
+        else {
+            $promotionDiscount=0;
+            $promotion_Id=null;
+        }
+       
+        $newBooking= new Booking();
+        $newBooking->User_Id=$user_Id;
+        $newBooking->Status=0;// Đã thanhg toán cho vé
+        $newBooking->Promotion_Id= $promotion_Id;
+        $allPrice=0;
+        $newBooking->save();
+        foreach (  $tickets_Id as $t) {
+            $newTicket= new Ticket();
+           
+            $seat= Seat::with(['seatcategory'])->where('Id',$t)->first();
+            $movie= Movie::where("Id",$movie_Id)->first();
+            $price= ($seat->seatcategory->Coefficient)*($movie->Price);
+            $newTicket->Price=$price;
+            $allPrice+=$price;
+            $newTicket->Showtime_Id=$showTime_Id;
+            $newTicket->Booking_Id=$newBooking->Id;
+            $newTicket->Seat_Id=$t;
+             
+            $newTicket->save();
+
+            // lưu trạng thái ghế ngồi không cho thằng khác đặt nữa ?
+            $dataSS = [
+                'Seat_Id' => $seat->Id,
+                'Showtime_Id' => $showTime_Id,
+                'Status' => 2,
+            ];
         
+            SeatShowtime::updateOrInsert(
+                ['Seat_Id' => $seat->Id, 'Showtime_Id' => $showTime_Id],
+                $dataSS
+            );
+        }
+        $newBooking->AllPrice=$allPrice-$promotionDiscount;
+        $newBooking->save();
+
+        // lấy data vừa tạo và trả về user để confirm
+        // $user=User::find($user_Id);
+        // $showtime=Showtime::with(['cinema','room'])->where('Id',$showTime_Id)->first();
+        // $movie = Movie::with(['photos', 'movieCategory'])->find($showtime->Movie_Id);
+        // $booking=$newBooking;
+        // $seats= Seat::with(['seatcategory'])->whereIn('Id',$tickets_Id)->get();
+
+        // sendMail
+        // $mailData = [
+        //     'user'=>$user,
+        //     'movie'=>$movie,
+          
+        //     'showTime'=>$showtime,
+        //    'seats'=>$listSeatsChoosed,
+        //    'booking' => $booking,
+        // ];
+    
+        // Mail::to($user->UserName)->send(new MailBooking($user,$movie,$showtime,$seats,$booking));
+
+        // return redirect("/rainbow/confirmation_screen/{$booking->Id}");
+
+
+        // thanh toan vnpay
+        $provider = new PayPalClient();
+        $provider->setApiCredentials(config('paypal'));
+        $paypalToken = $provider->getAccessToken();
+
+        $response = $provider->createOrder([
+            "intent" => "CAPTURE",
+            "application_context" => [
+                "return_url" => route('paypal_success',['booking_Id' =>$newBooking->Id]),
+                "cancel_url" => route('paypal_cancel')
+            ],
+            "purchase_units" => [
+                [
+                    "amount" => [
+                        "currency_code" => "USD",
+                        "value" => $request->price
+                    ]
+                ]
+            ]
+        ]);
+
+        //dd($response);
+
+        if(isset($response['id']) && $response['id']!=null) {
+            foreach($response['links'] as $link) {
+                if($link['rel'] === 'approve') {
+                    return redirect()->away($link['href']);
+                }
+            }
+        } else {
+            return redirect()->route('paypal_cancel');
+        }
+    }
+    public function payPalSuccess(Request $request){
+        $bookingId=$request->input('booking_Id');
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $paypalToken = $provider->getAccessToken();
+        $response = $provider->capturePaymentOrder($request->token);
+
+        //dd($response);
+
+        if(isset($response['status']) && $response['status'] == 'COMPLETED') {
+           $booking=Booking::find($bookingId);
+           $booking->Status=1;
+           $booking->save();
+           $user=User::find($booking->User_Id);
+           $tickets=Ticket::where('Booking_Id',$booking->Id)->get();
+           
+           $showtime=Showtime::with(['cinema','room'])->where('Id',$tickets[0]->Showtime_Id)->first();
+           $movie = Movie::with(['photos', 'movieCategory'])->find($showtime->Movie_Id);
+         $tickets_Id= Ticket::where('Booking_Id', $bookingId)->select('Id')->get();
+
+           $seats= Seat::with(['seatcategory'])->whereIn('Id',$tickets_Id)->get();
+           Mail::to($user->UserName)->send(new MailBooking($user,$movie,$showtime,$seats,$booking));
+
+         return redirect("/rainbow/confirmation_screen/{$booking->Id}");
+        } else {
+            return redirect()->route('paypal_cancel');
+        }
+    }
+    public function payPalCancel(){
+        return "Payment is cancelled!";
     }
 
 }

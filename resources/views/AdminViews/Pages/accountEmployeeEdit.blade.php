@@ -4,7 +4,7 @@
   <div class="container">
   
     <h2>Edit Employee</h2><br>
-    <form method="post" action="/admin/account/employee/update/{{$User->Id}}">
+    <form method="post" action="/admin/account/employee/update/{{$User->Id}}" enctype="multipart/form-data">
       @csrf
      {{-- @method('PUT')--}}
       <div class="form-group">
@@ -31,9 +31,17 @@
         <label for="phone">Phone:</label>
         <input type="text" class="form-control" id="phone" name="Phone" value="{{$User->Phone}}">
     </div>
-    <div class="form-group">
+    <div class="row">
         <label for="image">Image:</label>
-        <input type="text" class="form-control" id="image" name="Image" value="{{$User->Image}}">
+        <div class="col">
+          <label>Ảnh cũ</label>   
+          <br>
+          <div class="avatar-container">
+           <img class="avatar" src="{{$User->Image}}" id="image"  />
+        </div> 
+          <input type="file" name="Image" id="uploadFile" class="form-control" onchange="input(0,this)" >
+          <br>
+        </div>
     </div>
     <div class="form-group">
         <label for="roleId">Role ID:</label>

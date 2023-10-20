@@ -23,7 +23,7 @@ class DashboardController extends Controller
             ->count();
         $currentTime = Carbon::now();
 
-        $totalMoney = Booking::whereMonth('OrderTime', $currentTime->month)
+        $totalMoney = Booking::whereMonth('OrderTime', $currentTime->month)->where('Status',1)
         ->sum('AllPrice');
         return view('AdminViews.index', [
             'page' => "dasdboard",

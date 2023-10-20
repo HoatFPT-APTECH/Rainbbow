@@ -43,7 +43,11 @@ body > div.main-wrapper > div.page-wrapper.dashboard-wrap > div > div > div > di
     height: 100%;
 }
 td{
-    text-align: center;
+    text-align: left;
+   
+}
+body > div.main-wrapper > div.page-wrapper.dashboard-wrap > div > div > div > div > table > tbody > tr > td div.border-bottom{
+    padding-left: 20px;
 }
 
 
