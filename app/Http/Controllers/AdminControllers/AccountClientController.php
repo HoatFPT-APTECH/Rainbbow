@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminControllers;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Photo;
 use Illuminate\Http\Request;
 
 class AccountClientController extends Controller
@@ -34,6 +35,14 @@ class AccountClientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    public function convertPathUpLoad($str)
+    {
+
+        $listStr = explode("/", $str);
+        array_shift($listStr);
+        $realPath = implode("/", $listStr);
+        return url("storage/" . $realPath);
+    }
     public function store(Request $request)
     {
          $UserName= $request->input('UserName');
@@ -42,7 +51,7 @@ class AccountClientController extends Controller
          $Address= $request->input('Address');
          $DateOfBirth= $request->input('DateOfBirth');
          $Phone= $request->input('Phone');
-         $Image= $request->input('Image');
+        // $Image= $request->input('Image');
          $Role_Id= $request->input('Role_Id');
          
          $newUser= new User();
@@ -52,9 +61,17 @@ class AccountClientController extends Controller
          $newUser->Address=$Address;
          $newUser->DateOfBirth=$DateOfBirth;
          $newUser->Phone=$Phone;
-         $newUser->Image=$Image;
-         $newUser->Role_Id=3;
+        // $newUser->Image=$Image;
+         
 
+
+        $fileSrc = $request->file('Image');
+        $pathSrc =  $fileSrc->store('public/user_Img');
+        $realPathImage = $this->convertPathUpLoad($pathSrc);
+        $Image = $realPathImage;
+        $newUser->Image=$Image;
+         
+         $newUser->Role_Id=3;
          $newUser->save();
         // return $this->index();
         return redirect("/admin/account/client");
@@ -91,7 +108,7 @@ class AccountClientController extends Controller
         $Address= $request->input('Address');
         $DateOfBirth= $request->input('DateOfBirth');
         $Phone= $request->input('Phone');
-        $Image= $request->input('Image');
+       
         $Role_Id= $request->input('Role_Id');
 
         $newUser= User::where('id',$id)->first();
@@ -101,13 +118,20 @@ class AccountClientController extends Controller
         $newUser->Address=$Address;
         $newUser->DateOfBirth=$DateOfBirth;
         $newUser->Phone=$Phone;
+      
+       if ($request->hasFile('Image')) {
+        $fileSrc = $request->file('Image');
+        $pathSrc =  $fileSrc->store('public/user_Img');
+        $realPathImage = $this->convertPathUpLoad($pathSrc);
+        $Image = $realPathImage;
         $newUser->Image=$Image;
+       }
         $newUser->Role_Id=$Role_Id;
-       
         $newUser->save();
         //return $this->index();
         return redirect("/admin/account/client");
     }
+
 
     /**
      * Remove the specified resource from storage.

@@ -30,6 +30,14 @@ class AccountEmployeeController extends Controller
         'page'=>'accountEmployeeCreate',
     "ListRole"=>$ListRole]);
     }
+    public function convertPathUpLoad($str)
+    {
+
+        $listStr = explode("/", $str);
+        array_shift($listStr);
+        $realPath = implode("/", $listStr);
+        return url("storage/" . $realPath);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -42,7 +50,7 @@ class AccountEmployeeController extends Controller
          $Address= $request->input('Address');
          $DateOfBirth= $request->input('DateOfBirth');
          $Phone= $request->input('Phone');
-         $Image= $request->input('Image');
+        // $Image= $request->input('Image');
          $Role_Id= $request->input('Role_Id');
          
          $newUser= new User();
@@ -52,8 +60,14 @@ class AccountEmployeeController extends Controller
          $newUser->Address=$Address;
          $newUser->DateOfBirth=$DateOfBirth;
          $newUser->Phone=$Phone;
-         $newUser->Image=$Image;
+        // $newUser->Image=$Image;
          $newUser->Role_Id=2;
+
+         $fileSrc = $request->file('Image');
+         $pathSrc =  $fileSrc->store('public/user_Img');
+         $realPathImage = $this->convertPathUpLoad($pathSrc);
+         $Image = $realPathImage;
+         $newUser->Image=$Image;
 
          $newUser->save();
         // return $this->index();
@@ -91,7 +105,7 @@ class AccountEmployeeController extends Controller
         $Address= $request->input('Address');
         $DateOfBirth= $request->input('DateOfBirth');
         $Phone= $request->input('Phone');
-        $Image= $request->input('Image');
+        //$Image= $request->input('Image');
         $Role_Id= $request->input('Role_Id');
 
         $newUser= User::where('id',$id)->first();
@@ -101,9 +115,17 @@ class AccountEmployeeController extends Controller
         $newUser->Address=$Address;
         $newUser->DateOfBirth=$DateOfBirth;
         $newUser->Phone=$Phone;
-        $newUser->Image=$Image;
+        //$newUser->Image=$Image;
+
+        if ($request->hasFile('Image')) {
+            $fileSrc = $request->file('Image');
+            $pathSrc =  $fileSrc->store('public/user_Img');
+            $realPathImage = $this->convertPathUpLoad($pathSrc);
+            $Image = $realPathImage;
+            $newUser->Image=$Image;
+           }
+
         $newUser->Role_Id=$Role_Id;
-       
         $newUser->save();
         //return $this->index();
         return redirect("/admin/account/employee");

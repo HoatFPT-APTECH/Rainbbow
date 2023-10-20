@@ -73,7 +73,6 @@
                         {{$User->role->Name}}
                      </td>
                      <td>
-                        <a href="/admin/account/client/show/{{$User->Id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                         <a href="/admin/account/client/edit/{{$User->Id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         <a href="/admin/account/client/delete/{{$User->Id}}" onclick="return confirm('Your sure delete performer has name: {{$User->UserName}}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </td>
