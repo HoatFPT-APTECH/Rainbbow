@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminControllers\PerformerController;
 
 use App\Http\Controllers\AdminControllers\RoleController;
 use App\Http\Controllers\AdminControllers\BookingController;
+use App\Http\Controllers\AdminControllers\ChangeAccountController;
 use App\Http\Controllers\AdminControllers\TicketController;
 use App\Http\Controllers\AdminControllers\ShowtimeController;
 use App\Http\Controllers\AdminControllers\RoomController;
@@ -189,6 +190,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/photo/create', [PhotoController::class, 'create']);
     Route::post('/photo/store', [PhotoController::class, 'store']);
     Route::get('/photo/delete/{id}', [PhotoController::class, 'destroy']);
+
+   //
+
+    Route::get('/changeaccount/edit/{id}', [ChangeAccountController::class, 'edit']);
+    Route::post('/changeaccount/update/{id}', [ChangeAccountController::class, 'update']);
+
+
 
     // Route::resource('/performer',PerformerController::class);
     Route::get('/performer', [PerformerController::class, 'index']);

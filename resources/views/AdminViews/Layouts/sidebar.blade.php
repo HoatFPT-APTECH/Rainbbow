@@ -17,7 +17,6 @@
                     <li class="submenu ">
                     <a href="#">Orther<span class="menu-arrow"></span></a>
                     <ul>
-                    <li><a href="/admin/photo">Photo Manager</a></li>
                     <li><a href="/admin/performer">Performer Manager</a></li>
                     <li><a href="/admin/director">Director Manager</a></li>
                     <li><a href="/admin/productor">Productor Manager</a></li>
@@ -93,9 +92,11 @@
                    
                             <ul>
                                 <li><a href="/admin/color_manager">Color Website</a></li>
-                                <li><a href="/admin/current_showtime">Home Slide </a></li>
+                                <li><a href="/admin/current_showtime">Home Slide </a></li> 
                             </ul>
                 </li>
+
+               <li> <a href="/admin/changeaccount/edit/{id}"> <i class="fa-solid fa-lock" aria-hidden="true" ></i> <span class="side-txt">Change Account</span> </li>
 
                 
                     </ul>
