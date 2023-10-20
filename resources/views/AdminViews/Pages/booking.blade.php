@@ -39,7 +39,7 @@
                         <div class="search-box">
                             <form action="/admin/booking/search">
                                 <button type='submit'>  <i class="material-icons">&#xE8B6;</i></button>
-                                  <input type="text" name='key' class="form-control" placeholder="Search&hellip;">
+                                  <input type="text" name='key' class="form-control" placeholder="Phone Number&hellip;">
                               </form>
                               <br>
                         </div> 
