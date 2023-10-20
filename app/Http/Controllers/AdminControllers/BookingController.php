@@ -11,6 +11,8 @@ use App\Models\Ticket;
 use App\Models\Promotion;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class BookingController extends Controller
 {
@@ -21,7 +23,8 @@ class BookingController extends Controller
     {
         $listBooking= Booking ::with(['user','tickets'])->where('Deleted',0)
         ->orderBy('OrderTime','desc')
-        ->get();
+        ->paginate(5);
+
       for($b=0;$b<sizeof($listBooking);$b++){
         if($listBooking[$b]->Promotion_Id!=null){
             $listBooking[$b]->Promotion=Promotion::with(['promotionCategory'])->find($listBooking[$b]->Promotion_Id);
@@ -39,7 +42,8 @@ class BookingController extends Controller
     }
 
   // return response()->json($listBooking);
-       return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
+       return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking])
+       ->with('i', (request()->input('page',1)-1)*5);
        // return response()->json($listBooking,200); 
     }
     public function Search(Request $request){
@@ -49,7 +53,7 @@ class BookingController extends Controller
             $query->where('Phone', 'like', '%' . $key . '%');
         })
         ->orderBy('OrderTime','desc')
-        ->get();
+        ->paginate(5);
     
         for($b=0;$b<sizeof($listBooking);$b++){
             if($listBooking[$b]->Promotion_Id!=null){
@@ -64,7 +68,10 @@ class BookingController extends Controller
                     $listBooking[$b]->tickets[$t]->Showtime->Room= Room::where("Id",$listBooking[$b]->tickets[$t]->Showtime->Room_id)->first();
             }
         }
-         return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking]);
+         return view('AdminViews.index',['page'=>"booking",'danhsach'=>$listBooking])
+         ->with('i', (request()->input('page',1)-1)*5);
+
+
          
        }
        public function updateStatus(Request $request)
