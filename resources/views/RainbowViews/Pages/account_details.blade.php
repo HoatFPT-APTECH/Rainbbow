@@ -118,7 +118,7 @@ color:#69707a;
                             <input class="form-control" id="Username" name="UserName" type="text" value="{{$userDetails->UserName}}">
                         </div>
                         <div class="col-md-6">
-                            <label class="small mb-1" for="inputPhone">Password</label>
+                            <label class="small mb-1" for="inputPassword">Password</label>
                             <input class="form-control" id="Password" name="Password" type="password"  value="{{$userDetails->Password}}" >
                         </div>
                         </div>
