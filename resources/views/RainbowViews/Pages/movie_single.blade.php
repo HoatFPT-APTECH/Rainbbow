@@ -32,6 +32,33 @@
     .textarea {
         resize: none
     }
+    .booking{
+        float: left;
+    width: 170px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: #ffffff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    }
+    .booking:hover{
+        background: transparent;
+    color: #000000;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    }
 </style>
 <div class="prs_title_main_sec_wrapper">
     <div class="prs_title_img_overlay"></div>
@@ -140,13 +167,12 @@
                             </li>
                             <li>Produced by - <span>{{ $movieEx->productor->Name }}</span>
                             </li>
-                            <div class="prs_upcom_movie_content_box_inner_icon">
-                                <ul>
-                                    <li><a href="/rainbow/movie_booking/{{ $movieEx->Id }}"><i
-                                                class="flaticon-cart-of-ecommerce"></i></a>
+                                <ul style="float: left;
+                                width: 100%;margin-top:5px;">
+                                    <li style="float: left;
+                                    margin-right: 20px;font-weight:normal "><a class="booking" href="/rainbow/movie_booking/{{ $movieEx->Id }}">Booking Now</a>
                                     </li>
                                 </ul>
-                            </div>
                         </ul>
                     </div>
                 </div>
