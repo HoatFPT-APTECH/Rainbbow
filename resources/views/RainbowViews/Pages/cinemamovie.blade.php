@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="prs_heading_section_wrapper">
-                    <h2>Now Showing</h2>
+                    <h2>Comming Soon</h2>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -96,7 +96,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="prs_mcc_right_side_heading_wrapper">
-                                <h2>Now Showing</h2>
+                                <h2>Comming Soon</h2>
                                 <ul class="nav nav-pills">
                                     <li class="active"><a data-toggle="pill" href="#grid"><i
                                                 class="fa fa-th-large"></i></a>
