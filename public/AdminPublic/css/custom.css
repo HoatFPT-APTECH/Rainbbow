@@ -23,7 +23,7 @@ body > div.main-wrapper > div.page-wrapper.dashboard-wrap > div > div > div > di
     overflow: hidden;    /* Ẩn phần text vượt quá kích thước cột */
     text-overflow: ellipsis; /* Hiển thị dấu "..." cho phần text bị ẩn */
     max-width: 100px; /* Thiết lập kích thước tối đa cho cột */
- 
+    max-height: 50px;
    
 }
 body > div.main-wrapper > div.page-wrapper.dashboard-wrap > div > div > div > div > table > tbody > tr  td  div{
@@ -49,6 +49,7 @@ td{
 body > div.main-wrapper > div.page-wrapper.dashboard-wrap > div > div > div > div > table > tbody > tr > td div.border-bottom{
     padding-left: 20px;
 }
+
 
 
 
