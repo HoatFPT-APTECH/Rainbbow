@@ -100,10 +100,7 @@
 
                <li> 
                 <a href="#" id="changeAccount"> <i class="fa-solid fa-lock" aria-hidden="true" ></i> <span class="side-txt">Change Account</span> 
-                </li>
-
-                
-                    </ul>
+                </a>
                 </li>
             </ul>
         </div>

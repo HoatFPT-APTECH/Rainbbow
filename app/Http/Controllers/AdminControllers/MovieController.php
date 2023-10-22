@@ -19,7 +19,9 @@ class MovieController extends Controller
     public function index()
     {
 
-        $listMovie = Movie::with('movieCategory', 'director', 'productor', 'photos')->where('Deleted', 0)->get();
+        $listMovie = Movie::with('movieCategory', 'director', 'productor', 'photos')->where('Deleted', 0)
+        ->orderBy('DateShow','desc')
+        ->get();
         return view("AdminViews.index", ['page' => 'movie'], ['danhsach' => $listMovie]);
     }
 
@@ -73,11 +75,11 @@ class MovieController extends Controller
         $fileSrc = $request->file('Srcmain');
         $pathSrc =  $fileSrc->store('public/movie_single');
         $realPathSrcMain = $this->convertPathUpLoad($pathSrc);
-        $Srcmain = $realPathSrcMain;
+      
         $newPhotoMain = new Photo();
-        $newPhotoMain->Src = $Srcmain;
+        $newPhotoMain->Src = $realPathSrcMain;
         $newPhotoMain->Movie_Id = $newMovie->Id;
-
+         $newPhotoMain->save();
         for ($i = 1; $i <= 5; $i++) {
             $fieldName = 'Src' . $i;
 
