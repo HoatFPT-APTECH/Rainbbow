@@ -116,8 +116,8 @@
 									
 											@csrf
 											<input type="hidden" name="price" value="20" >
-											<button class="btn btn-warning" onclick="postBookingType()">
-												PROCESS TO PAY
+											<button class="btn btn-success" onclick="postBookingType()">
+												Pay Later
 												</button>
 										<button  class="btn btn-primary" onclick="postBookingTypePaypal()" >
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paypal" viewBox="0 0 16 16">
