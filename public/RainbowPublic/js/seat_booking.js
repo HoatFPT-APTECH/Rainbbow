@@ -1,4 +1,4 @@
-var timeWork=1000*60*5;
+var timeWork=1000*20;
 const userS= JSON.parse(window.sessionStorage.getItem("User"))
 var data= JSON.parse(document.querySelector("meta[name='data']").getAttribute('content'));
 window.addEventListener('DOMContentLoaded',()=>{
@@ -33,10 +33,13 @@ socket.on("orther_people_cancel_choosing_seat",(user,seat)=>{
 })
 
 function timeOutForWork(){
+  var showTimeId =getShowtimeId();
    const inputCheck= document.querySelectorAll('input');
    inputCheck.forEach(i=>{
     if(i.type=='checkbox'){
+   
       i.checked=false;
+      socket.emit("cancel_choosing_seat",userS,i.value,showTimeId)    
     }
    })
    alert("You have run out of time to choose your seat. Please do not reserve a seat!");
