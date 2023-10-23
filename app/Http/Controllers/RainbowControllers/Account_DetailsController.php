@@ -31,7 +31,7 @@ class Account_DetailsController extends Controller
   
     public function update(Request $request, string $id)
     {
-        $UserName= $request->input('UserName');
+        
         $Name= $request->input('Name');
         $Address= $request->input('Address');
         $DateOfBirth= $request->input('DateOfBirth');
@@ -40,7 +40,7 @@ class Account_DetailsController extends Controller
         $Password= $request->input('Password');
 
         $newUser= User::where('Id',$id)->first();
-        $newUser->UserName=$UserName;
+       
         $newUser->Name=$Name;
         $newUser->Address=$Address;
         $newUser->DateOfBirth=$DateOfBirth;
