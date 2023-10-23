@@ -113,9 +113,9 @@ color:#69707a;
                         {{-- @method('PUT') --}}
                         {{-- <!-- Form Group (username)--> --}}
                         <div class="row gx-3 mb-3">
-                        <div class= "col-md-6">
-                            <label class="small mb-1" for="inputUsername">UserName</label>
-                            <input class="form-control" id="Username" name="UserName" type="text" value="{{$userDetails->UserName}}">
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputName">Name</label>
+                            <input class="form-control" id="Name" name="Name" type="text" value="{{$userDetails->Name}}" >
                         </div>
                         <div class="col-md-6">
                             <label class="small mb-1" for="inputPassword">Password</label>
@@ -125,51 +125,24 @@ color:#69707a;
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputName">Name</label>
-                                <input class="form-control" id="Name" name="Name" type="text" value="{{$userDetails->Name}}" >
-                            </div>
+                            
                             <!-- Form Group (last name)-->
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label class="small mb-1" for="inputAddress">Address</label>
                                 <input class="form-control" id="Address" name="Address" type="text" value="{{$userDetails->Address}}" >
                             </div>
-                        </div>
-                        <!-- Form Row        -->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (organization name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputBirth">Date of birth</label>
-                                <input class="form-control" id="DateOfBirth" name="DateOfBirth" type="datetime-local" value="{{$userDetails->DateOfBirth}}" >
-                            </div>
-                            <!-- Form Group (location)-->
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label class="small mb-1" for="inputPhone">Phone</label>
                                 <input class="form-control" id="Phone" name="Phone" type="text"  value="{{$userDetails->Phone}}" >
                             </div>
-                            
-                            <br>
+                            <div class="col-md-4">
+                                <label class="small mb-1" for="inputBirth">Date of birth</label>
+                                <input class="form-control" id="DateOfBirth" name="DateOfBirth" type="datetime-local" value="{{$userDetails->DateOfBirth}}" >
+                            </div>
                         </div>
+                        <!-- Form Row        -->
+                        
                         <br>
-                        <!-- Form Group (email address)-->
-                        {{-- <div class="mb-3">
-                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
-                        </div> --}}
-                        <!-- Form Row-->
-                        {{-- <div class="row gx-3 mb-3"> --}}
-                            <!-- Form Group (phone number)-->
-                            {{-- <div class="col-md-6">
-                                <label class="small mb-1" for="inputRole">Role</label>
-                                <input class="form-control" id="inputRole" type="tel" value="{{$userDetails->Role_Id}}">
-                            </div> --}}
-                            <!-- Form Group (birthday)-->
-                            {{-- <div class="col-md-6">
-                                <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988">
-                            </div> --}}
-                        {{-- </div> --}}
-                        <!-- Save changes button-->
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                 </form>
                 </div>

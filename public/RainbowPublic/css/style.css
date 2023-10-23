@@ -4737,6 +4737,8 @@ body.active #mobile-nav {
     width: 40%;
     background: #fff;
     min-height: 468px;
+    max-height: 550px;
+
     -webkit-border-top-right-radius: 10px;
     -moz-border-top-right-radius: 10px;
     border-top-right-radius: 10px;
