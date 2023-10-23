@@ -44,6 +44,6 @@ class ChangeAccountController extends Controller
         
         $newUser->save();
         //return $this->index();
-        return redirect("/admin/changeaccount/edit/$id");
+        return redirect("/admin/");
     }
 }
