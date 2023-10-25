@@ -26,7 +26,7 @@ async function LoadListShowTimeNavTab() {
         .then((rsp) => rsp.json())
         .then((data) => {
    
-            
+          console.log(data)  
         var rs= convertDataListShowTime(data);
 
         renderListShowTimeNavTab(rs);

@@ -84,6 +84,11 @@
                                 <li><a href="/admin/current_showtime"> Current Showtime</a></li>
                             </ul>
                 </li>
+                <li class=" decenAdmin" >
+                    <a href="/admin/comment"> <i class="fa fa-comment" aria-hidden="true"></i> <span class="side-txt">Comment Manager</span>
+                    </a> 
+                </li>
+                
 
                 <li class="menu-title">Extra</li>
                 <li class="submenu decenAdmin" >
