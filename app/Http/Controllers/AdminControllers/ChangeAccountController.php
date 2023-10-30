@@ -12,7 +12,8 @@ class ChangeAccountController extends Controller
     {
        
         $UserExist= User::where('Id',$id)->first();
-        return view('AdminViews.index',['page'=>"ChangeAccount", 'User'=>$UserExist]);
+        return view('AdminViews.index',[
+            'JsPage'=>'editchangeaccount','page'=>"ChangeAccount", 'User'=>$UserExist]);
     }
     public function convertPathUpLoad($str)
     {
@@ -44,6 +45,6 @@ class ChangeAccountController extends Controller
         
         $newUser->save();
         //return $this->index();
-        return redirect("/admin/");
+        return redirect("/admin");
     }
 }

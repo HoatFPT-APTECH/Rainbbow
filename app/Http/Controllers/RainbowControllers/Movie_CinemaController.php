@@ -20,12 +20,7 @@ class Movie_CinemaController extends Controller
         $page = 'movie_cinema';
         $JsPage = "";
         $now = now();
-        // $listMovie= Movie::join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_Movie.Id')
-        // ->where(function ($query) use ($now) {
-        //     $query->where('st.End', '>=', now())->where('st.Start','<=',now())
-        //        ;
-        // })
-        // ->get();;
+      
 
         $ListMovie = Movie::distinct()->where('tbl_movie.Deleted', 0)
             ->join('tbl_showtime as st', 'st.Movie_Id', '=', 'tbl_movie.Id')

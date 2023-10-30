@@ -12,10 +12,10 @@
 
                         <br>
                         <div class="avatar-container">
-                            <img class="avatar" src="{{ $User->Image }}" id="image" /><br>
+                            <img class="avatar" id="image0" src="{{ $User->Image }}"  /><br>
                         </div>
                         <br>
-                        <br> <input type="file" name="Image" id="uploadFile" class="form-control"
+                        <br> <input type="file" name="Image"  class="form-control"
                             onchange="input(0,this)">
                         <br>
                     </div>
